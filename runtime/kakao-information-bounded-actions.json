@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "kakao_insight_processed",
+  "sourceSnapshotHash": "sha256:4a18e687369fe7941dd66239b62f6aa2c9581e7d5f0c011f0d7382cd7b4871ed",
+  "generatedAt": "2026-05-03T00:00:00.000Z",
+  "actions": [
+    {
+      "id": "monitor_processed_kakao_stream_no_action_items",
+      "type": "local_monitoring_note",
+      "priority": "P3",
+      "rationale": "No action or schedule items were present in the public-safe aggregate snapshot.",
+      "execution": "Record monitoring status and wait for the next fresh snapshot.",
+      "humanGate": "Not required unless a future run needs private source exposure."
+    }
+  ],
+  "privacy": {
+    "rawMessagesIncluded": false,
+    "roomIdsIncluded": false,
+    "roomLabelsIncluded": false,
+    "rawLinksIncluded": false,
+    "summaryTextIncluded": false,
+    "secretValuesIncluded": false
+  },
+  "policy": {
+    "allowed": true,
+    "mode": "local_bounded_artifact_generation",
+    "blockedActions": [
+      "private_raw_data",
+      "raw_kakao_message_exposure",
+      "room_id_exposure",
+      "raw_link_exposure",
+      "summary_text_exposure",
+      "external_message",
+      "calendar_mutation",
+      "publish_upload",
+      "deploy",
+      "payment",
+      "destructive_operation"
+    ]
+  },
+  "replacementReadyClaimed": false
+}

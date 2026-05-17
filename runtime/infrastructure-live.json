@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "infrastructure-live-v1",
+  "generatedAt": "2026-05-17T00:19:28.902Z",
+  "publicView": true,
+  "privateFieldsRedacted": true,
+  "collector": "scripts/collect-live-provider-inventory.mjs",
+  "mode": "live-provider-summary",
+  "notes": [
+    "Public-safe provider-level summary only.",
+    "Provider raw payloads, endpoint URLs, account IDs, names, headers, and secret values are not published.",
+    "Missing credentials are represented as not_configured instead of build failure."
+  ],
+  "counts": {
+    "totalProviders": 2,
+    "configured": 0,
+    "connected": 0,
+    "partial": 0,
+    "notConfigured": 2,
+    "unreachable": 0,
+    "configuredUnverified": 0,
+    "misconfigured": 0,
+    "byStatus": {
+      "not_configured": 2
+    }
+  },
+  "providers": [
+    {
+      "id": "provider-cloudflare",
+      "provider": "cloudflare",
+      "label": "Cloudflare provider summary",
+      "visibility": "public",
+      "discoveryState": "live-provider-not-configured",
+      "status": "not_configured",
+      "configuration": "missing",
+      "resourceKinds": [
+        "pagesProjects",
+        "workerScripts"
+      ],
+      "counts": {
+        "pagesProjects": null,
+        "workerScripts": null
+      },
+      "checks": [
+        {
+          "checkId": "cloudflare-pagesProjects",
+          "status": "not_configured"
+        },
+        {
+          "checkId": "cloudflare-workerScripts",
+          "status": "not_configured"
+        }
+      ],
+      "updatedAt": "2026-05-17T00:19:28.902Z"
+    },
+    {
+      "id": "provider-n8n",
+      "provider": "n8n",
+      "label": "n8n provider summary",
+      "visibility": "public",
+      "discoveryState": "live-provider-not-configured",
+      "status": "not_configured",
+      "configuration": "missing",
+      "resourceKinds": [
+        "workflows",
+        "activeWorkflows"
+      ],
+      "counts": {
+        "workflows": null,
+        "activeWorkflows": null
+      },
+      "checks": [
+        {
+          "checkId": "n8n-workflows",
+          "status": "not_configured"
+        },
+        {
+          "checkId": "n8n-activeWorkflows",
+          "status": "not_configured"
+        }
+      ],
+      "updatedAt": "2026-05-17T00:19:28.902Z"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-05-17T00:19:23.245Z",
+  "service": "agent-map-static-retrieval-pilot",
+  "status": "healthy",
+  "mode": "static_keyword_index",
+  "outputs": {
+    "index": "runtime/knowledge-retrieval-index.json",
+    "health": "runtime/retrieval-service-health.json",
+    "html": "public/knowledge-retrieval.html"
+  },
+  "metrics": {
+    "entryCount": 21,
+    "knowledgeNoteEntries": 17,
+    "captureEntries": 0,
+    "synthesisEntries": 3,
+    "graphEntries": 1,
+    "uniqueTokenCount": 387
+  },
+  "sourcePolicy": {
+    "captureInboxIndexed": 0,
+    "captureInboxPolicy": "Only entries with approvedForPublicRetrieval=true are indexed."
+  },
+  "readiness": {
+    "fullRag": false,
+    "mcpWriter": false,
+    "vectorDb": false,
+    "reason": "This pilot intentionally proves public-safe evidence retrieval before adding heavier RAG/MCP infrastructure."
+  },
+  "safety": {
+    "rawPrivateDataIncluded": false,
+    "containsSecretValues": false,
+    "publicSafeByDefault": true,
+    "sourceDocsWinOnConflict": true
+  }
+}

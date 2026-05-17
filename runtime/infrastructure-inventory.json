@@ -1,0 +1,350 @@
+{
+  "schemaVersion": "infrastructure-inventory-v1",
+  "generatedAt": "2026-05-17T00:19:28.811Z",
+  "publicView": true,
+  "privateFieldsRedacted": true,
+  "collector": "scripts/collect-infrastructure-inventory.mjs",
+  "sourceClasses": [
+    "public-routes",
+    "runtime-public-assets",
+    "repo-local-aggregates"
+  ],
+  "notes": [
+    "Build-time repo inventory only.",
+    "External provider live discovery requires separate authenticated collectors.",
+    "Local env files, secret stores, private files, raw workflow names, worker file names, and raw package commands are not published."
+  ],
+  "counts": {
+    "total": 19,
+    "byKind": {
+      "publicPage": 12,
+      "runtimeSnapshot": 3,
+      "schema": 1,
+      "githubWorkflowAggregate": 1,
+      "workerScriptAggregate": 1,
+      "packageScriptAggregate": 1
+    },
+    "byGroup": {
+      "runtime": 13,
+      "data": 4,
+      "observability": 1,
+      "cloud": 1
+    }
+  },
+  "items": [
+    {
+      "id": "public-page-public-404-html",
+      "kind": "publicPage",
+      "name": "Agent Map — Not Found",
+      "path": "public/404.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./404.html"
+    },
+    {
+      "id": "public-page-public-agent-map-v9-html",
+      "kind": "publicPage",
+      "name": "Agent Map v9 Runtime",
+      "path": "public/agent-map-v9.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./agent-map-v9.html"
+    },
+    {
+      "id": "public-page-public-daily-brief-html",
+      "kind": "publicPage",
+      "name": "메시지 일일 브리프",
+      "path": "public/daily-brief.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./daily-brief.html"
+    },
+    {
+      "id": "public-page-public-dashboard-html",
+      "kind": "publicPage",
+      "name": "Deprecated — Agent Map Dashboard",
+      "path": "public/dashboard.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./dashboard.html"
+    },
+    {
+      "id": "public-page-public-external-trends-html",
+      "kind": "publicPage",
+      "name": "External Trends · Agent Map",
+      "path": "public/external-trends.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./external-trends.html"
+    },
+    {
+      "id": "public-page-public-improvement-governor-scorecard-html",
+      "kind": "publicPage",
+      "name": "Improvement Governor Scorecard",
+      "path": "public/improvement-governor-scorecard.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./improvement-governor-scorecard.html"
+    },
+    {
+      "id": "public-page-public-infrastructure-map-html",
+      "kind": "publicPage",
+      "name": "Agent Map Infrastructure Visibility",
+      "path": "public/infrastructure-map.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./infrastructure-map.html"
+    },
+    {
+      "id": "public-page-public-kakao-analysis-html",
+      "kind": "publicPage",
+      "name": "Kakao Public Analysis",
+      "path": "public/kakao-analysis.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./kakao-analysis.html"
+    },
+    {
+      "id": "public-page-public-knowledge-map-html",
+      "kind": "publicPage",
+      "name": "Agent Knowledge Map",
+      "path": "public/knowledge-map.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./knowledge-map.html"
+    },
+    {
+      "id": "public-page-public-knowledge-retrieval-html",
+      "kind": "publicPage",
+      "name": "Agent Map Knowledge Retrieval Pilot",
+      "path": "public/knowledge-retrieval.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./knowledge-retrieval.html"
+    },
+    {
+      "id": "public-page-public-llm-wiki-readiness-html",
+      "kind": "publicPage",
+      "name": "Agent Map LLM-Wiki Readiness",
+      "path": "public/llm-wiki-readiness.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./llm-wiki-readiness.html"
+    },
+    {
+      "id": "public-page-public-ops-environment-audit-html",
+      "kind": "publicPage",
+      "name": "Ops Environment Audit",
+      "path": "public/ops-environment-audit.html",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-route",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "tags": [
+        "public",
+        "html",
+        "static-route"
+      ],
+      "publicUrl": "./ops-environment-audit.html"
+    },
+    {
+      "id": "runtime-json-agent-map-runtime-json",
+      "kind": "runtimeSnapshot",
+      "name": "agent-map-runtime.json",
+      "path": "runtime/agent-map-runtime.json",
+      "group": "data",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-asset",
+      "resourceKind": "local_file",
+      "persistence": "local",
+      "tags": [
+        "runtime",
+        "json"
+      ]
+    },
+    {
+      "id": "runtime-json-infrastructure-map-json",
+      "kind": "runtimeSnapshot",
+      "name": "infrastructure-map.json",
+      "path": "runtime/infrastructure-map.json",
+      "group": "data",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-asset",
+      "resourceKind": "local_file",
+      "persistence": "local",
+      "tags": [
+        "runtime",
+        "json"
+      ]
+    },
+    {
+      "id": "runtime-json-infrastructure-map-schema-json",
+      "kind": "schema",
+      "name": "infrastructure-map.schema.json",
+      "path": "runtime/infrastructure-map.schema.json",
+      "group": "data",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-asset",
+      "resourceKind": "local_file",
+      "persistence": "local",
+      "tags": [
+        "runtime",
+        "json"
+      ]
+    },
+    {
+      "id": "runtime-json-life-process-graph-json",
+      "kind": "runtimeSnapshot",
+      "name": "life-process-graph.json",
+      "path": "runtime/life-process-graph.json",
+      "group": "data",
+      "visibility": "public",
+      "discoveryState": "repo-local-public-asset",
+      "resourceKind": "local_file",
+      "persistence": "local",
+      "tags": [
+        "runtime",
+        "json"
+      ]
+    },
+    {
+      "id": "aggregate-github-workflows",
+      "kind": "githubWorkflowAggregate",
+      "name": "GitHub workflow inventory",
+      "path": "public-aggregate:aggregate-github-workflows",
+      "group": "observability",
+      "visibility": "public",
+      "discoveryState": "repo-local-aggregate",
+      "resourceKind": "custom",
+      "persistence": "local",
+      "count": 9,
+      "tags": [
+        "github-actions",
+        "workflow",
+        "aggregate"
+      ]
+    },
+    {
+      "id": "aggregate-worker-scripts",
+      "kind": "workerScriptAggregate",
+      "name": "Worker/API boundary inventory",
+      "path": "public-aggregate:aggregate-worker-scripts",
+      "group": "cloud",
+      "visibility": "public",
+      "discoveryState": "repo-local-aggregate",
+      "resourceKind": "custom",
+      "persistence": "local",
+      "count": 2,
+      "tags": [
+        "worker",
+        "api-boundary",
+        "aggregate"
+      ]
+    },
+    {
+      "id": "aggregate-package-scripts",
+      "kind": "packageScriptAggregate",
+      "name": "Package automation inventory",
+      "path": "public-aggregate:aggregate-package-scripts",
+      "group": "runtime",
+      "visibility": "public",
+      "discoveryState": "repo-local-aggregate",
+      "resourceKind": "custom",
+      "persistence": "local",
+      "count": 41,
+      "tags": [
+        "npm-script",
+        "aggregate"
+      ]
+    }
+  ]
+}

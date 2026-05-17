@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ops Environment Audit</title>
+  <style>
+    :root { color-scheme: light; --bg:#f7fbff; --card:#ffffff; --ink:#172033; --muted:#64748b; --line:#dbeafe; --accent:#2563eb; --warn:#b45309; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:linear-gradient(180deg,#eef6ff,#ffffff 45%); color:var(--ink); }
+    main { max-width:1120px; margin:0 auto; padding:32px 18px 56px; }
+    .hero { border:1px solid var(--line); background:rgba(255,255,255,.86); border-radius:28px; padding:28px; box-shadow:0 18px 60px rgba(37,99,235,.10); }
+    .eyebrow { margin:0 0 8px; color:var(--accent); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
+    h1 { margin:0; font-size:clamp(28px,5vw,48px); letter-spacing:-.04em; }
+    h2 { margin:0 0 8px; font-size:20px; letter-spacing:-.02em; }
+    p { color:var(--muted); line-height:1.6; overflow-wrap:anywhere; }
+    .grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); margin-top:18px; }
+    .card { border:1px solid var(--line); background:var(--card); border-radius:22px; padding:18px; box-shadow:0 10px 34px rgba(15,23,42,.06); }
+    .metric { font-size:30px; font-weight:850; color:var(--ink); }
+    .finding.warning { border-color:#fde68a; }
+    .finding.critical, .finding.high { border-color:#fecaca; }
+    a { color:var(--accent); font-weight:700; }
+    code { background:#eef2ff; border-radius:8px; padding:2px 6px; }
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <p class="eyebrow">ops_environment_auditor_cli</p>
+    <h1>작업 환경 감사 현황</h1>
+    <p>결과물 데이터가 아니라 런타임 에이전트, CLI 에이전트, 세션, 스케줄, 큐, 인프라 연결 상태를 취합 평가합니다.</p>
+    <p>generatedAt <code>2026-05-17T00:19:25.872Z</code> · status <code>ok</code> · score <code>76</code></p>
+  </section>
+  <section class="grid" aria-label="summary metrics">
+    <article class="card"><p class="eyebrow">agents</p><div class="metric">25</div><p>manifest completeness 100%</p></article>
+    <article class="card"><p class="eyebrow">attention</p><div class="metric">8</div><p>active 5, idle 18</p></article>
+    <article class="card"><p class="eyebrow">queue</p><div class="metric">5</div><p>Needs Human / ready 10</p></article>
+    <article class="card"><p class="eyebrow">sessions</p><div class="metric">5</div><p>optional reviewers 3, unavailable primary lanes 0</p></article>
+    <article class="card"><p class="eyebrow">schedules</p><div class="metric">9</div><p>duplicates 0</p></article>
+    <article class="card"><p class="eyebrow">infra</p><div class="metric">14</div><p>unknown/missing 0, stale 3</p></article>
+  </section>
+  <section class="grid" aria-label="findings">
+    
+    <article class="card finding warning">
+      <p class="eyebrow">warning · attention_agent_load</p>
+      <h2>Attention agent count is high.</h2>
+      <p>Split owner labels from active assignee labels and reduce stale/open issue load for coordinator agents.</p>
+    </article>
+
+    <article class="card finding warning">
+      <p class="eyebrow">warning · decision_queue_bottleneck</p>
+      <h2>Needs Human queue is still a bottleneck.</h2>
+      <p>Run decision:sync, decision:digest, and decision:classify to separate true human gates from agent-preparable work.</p>
+    </article>
+
+    <article class="card finding warning">
+      <p class="eyebrow">warning · stale_open_issue_load</p>
+      <h2>Stale open issue load is high.</h2>
+      <p>Batch stale issue review and close/delegate issues that have completed evidence.</p>
+    </article>
+  </section>
+  <p><a href="./agent-map-v10.html">Agent Map 허브로 돌아가기</a> · <a href="./runtime/ops-environment-audit.json">JSON 보기</a> · <a href="./runtime/ops-environment-audit.md">Markdown 보기</a></p>
+</main>
+  <script src="./assets/stitch-service-shell.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Map Derived Graph Browser Index</title>
+  <style>
+    :root { color-scheme: light; --bg:#f8fbff; --panel:#fff; --ink:#0f172a; --muted:#64748b; --line:#dbeafe; --brand:#2563eb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif; background:radial-gradient(circle at 10% 0%, rgba(37,99,235,.14), transparent 24rem), var(--bg); color:var(--ink); }
+    main { width:min(1180px, calc(100vw - 28px)); margin:0 auto; padding:28px 0 44px; }
+    header, section { border:1px solid var(--line); background:rgba(255,255,255,.9); border-radius:26px; padding:20px; margin-bottom:14px; box-shadow:0 18px 48px rgba(15,23,42,.08); }
+    h1 { margin:6px 0 8px; font-size:clamp(30px,5vw,56px); letter-spacing:-.05em; }
+    p, small, li { color:var(--muted); line-height:1.55; }
+    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+    .stat, .node { border:1px solid var(--line); background:var(--panel); border-radius:18px; padding:14px; min-width:0; }
+    .stat b { display:block; font-size:30px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:10px; }
+    .node strong, code { overflow-wrap:anywhere; }
+    .node span { display:block; color:var(--brand); font-size:12px; font-weight:850; margin:4px 0; }
+    code { background:#eff6ff; border:1px solid var(--line); border-radius:7px; padding:2px 5px; }
+    a { color:var(--brand); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p><a href="../knowledge-map.html">← Knowledge Map</a></p>
+      <h1>Derived Graph Browser Index</h1>
+      <p>Graphify-compatible fallback browser index. 실제 탐색용 local graph는 Obsidian에서 <code>knowledge/00-maps/derived-graph-index.md</code>를 열어 확인하고, 이 페이지는 생성된 index preview로 사용합니다.</p>
+    </header>
+    <section class="stats">
+      <div class="stat"><b>21</b><span>nodes</span></div>
+      <div class="stat"><b>89</b><span>edges</span></div>
+      <div class="stat"><b>0</b><span>unresolved</span></div>
+      <div class="stat"><b>4</b><span>runtime artifacts</span></div>
+    </section>
+    <section>
+      <h2>Nodes</h2>
+      <div class="grid">
+    <article class="node map">
+      <strong>Agent Knowledge Map</strong>
+      <span>map · active</span>
+      <code>agent-knowledge-map</code>
+      <p>Agent Knowledge Map Use this map to move from an operating question to the right atomic note. Principles - source-of-truth - human-gates - collaboration-first - llm-wiki-adoption-gates Roles - codex-mainstream-role - rev</p>
+      <small>knowledge/00-maps/agent-knowledge-map.md</small>
+    </article>
+    <article class="node map">
+      <strong>Derived Graph Index</strong>
+      <span>map · active</span>
+      <code>derived-graph-index</code>
+      <p>Derived Graph Index This note is the Obsidian-visible bridge between the atomic vault and generated graph/retrieval artifacts. Core rule Generated graph files are derived indexes. They help orientation, but source-of-tru</p>
+      <small>knowledge/00-maps/derived-graph-index.md</small>
+    </article>
+    <article class="node principle">
+      <strong>Collaboration-First Invariant</strong>
+      <span>principle · active</span>
+      <code>collaboration-first</code>
+      <p>Collaboration-First Invariant Atomic claim Codex / 다알고 is the mainstream coordinator, not a solo worker by default. Every meaningful task should be checked for safe delegation, review, or session agent participation befo</p>
+      <small>knowledge/10-principles/collaboration-first.md</small>
+    </article>
+    <article class="node principle">
+      <strong>Human Approval Gates</strong>
+      <span>principle · active</span>
+      <code>human-gates</code>
+      <p>Human Approval Gates Atomic claim Secrets, credentials, payments, public deploy, publish/upload, destructive data operations, production config, and final close require explicit user approval or a repo-recorded delegatio</p>
+      <small>knowledge/10-principles/human-gates.md</small>
+    </article>
+    <article class="node principle">
+      <strong>LLM-Wiki Adoption Gates</strong>
+      <span>principle · active</span>
+      <code>llm-wiki-adoption-gates</code>
+      <p>LLM-Wiki Adoption Gates Atomic claim Do not turn the vault into heavy RAG/MCP/vector infrastructure until capture friction is low and search ROI is visible. Why this matters Personal knowledge systems fail when the cost </p>
+      <small>knowledge/10-principles/llm-wiki-adoption-gates.md</small>
+    </article>
+    <article class="node principle">
+      <strong>Source of Truth Boundary</strong>
+      <span>principle · active</span>
+      <code>source-of-truth</code>
+      <p>Source of Truth Boundary Atomic claim imiuru06/bcjjsly8 is the Source of Truth for multi-agent coordination, policy, issue routing, responsibility, and public-safe Agent Map runtime data. Project implementation repos may</p>
+      <small>knowledge/10-principles/source-of-truth.md</small>
+    </article>
+    <article class="node role">
+      <strong>Codex Mainstream Coordinator Role</strong>
+      <span>role · active</span>
+      <code>codex-mainstream-role</code>
+      <p>Codex Mainstream Coordinator Role Atomic claim Codex / 다알고 owns mainstream implementation, coordination, validation, and user-facing responsibility for this control-plane. Use when - deciding who owns final issue respons</p>
+      <small>knowledge/20-roles/codex-mainstream-role.md</small>
+    </article>
+    <article class="node role">
+      <strong>Review Agent Roles</strong>
+      <span>role · active</span>
+      <code>review-agent-roles</code>
+      <p>Review Agent Roles Atomic claim Review agents add distinct viewpoints; they do not duplicate Codex implementation work unless explicitly reassigned. Role split - claude review 01 : security, edge cases, missed requiremen</p>
+      <small>knowledge/20-roles/review-agent-roles.md</small>
+    </article>
+    <article class="node protocol">
+      <strong>Agent Routing Protocol</strong>
+      <span>protocol · active</span>
+      <code>agent-routing</code>
+      <p>Agent Routing Protocol Atomic claim Agents are routed through GitHub Issue labels/comments, Registry agent. events, or direct bot transport. User Telegram messages are not agent-to-agent transport. Use when - waking anot</p>
+      <small>knowledge/30-protocols/agent-routing.md</small>
+    </article>
+    <article class="node protocol">
+      <strong>GitHub Issue and Project Queue</strong>
+      <span>protocol · active</span>
+      <code>issue-project-queue</code>
+      <p>GitHub Issue and Project Queue Atomic claim GitHub Issues and Project v2 are the durable work queue and status board. Agent requests should be represented with labels and comments, not hidden in chat. Use when - assignin</p>
+      <small>knowledge/30-protocols/issue-project-queue.md</small>
+    </article>
+    <article class="node runbook">
+      <strong>Assign Session Agent Work</strong>
+      <span>runbook · active</span>
+      <code>assign-session-agent-work</code>
+      <p>Assign Session Agent Work Atomic claim A session agent receives work only when the issue has an actionable needs:agent state and a matching agent:&lt;target label or route. Steps 1. Confirm the task is not blocked by human-</p>
+      <small>knowledge/40-runbooks/assign-session-agent-work.md</small>
+    </article>
+    <article class="node runbook">
+      <strong>Knowledge Lookup Before Work</strong>
+      <span>runbook · active</span>
+      <code>knowledge-lookup-before-work</code>
+      <p>Knowledge Lookup Before Work Atomic claim Before acting, an agent should search the knowledge vault for the role, protocol, decision gate, and runbook that apply to the issue. Steps 1. Open agent-lookup-index . 2. Match </p>
+      <small>knowledge/40-runbooks/knowledge-lookup-before-work.md</small>
+    </article>
+    <article class="node runbook">
+      <strong>Weekly Knowledge Synthesis</strong>
+      <span>runbook · active</span>
+      <code>weekly-knowledge-synthesis</code>
+      <p>Weekly Knowledge Synthesis Atomic claim The vault compounds only when new notes are linked back to old notes and periodically summarized into gaps, decisions, and next learning directions. Weekly loop 1. Review new inbox</p>
+      <small>knowledge/40-runbooks/weekly-knowledge-synthesis.md</small>
+    </article>
+    <article class="node runbook">
+      <strong>Zero-Friction Capture</strong>
+      <span>runbook · active</span>
+      <code>zero-friction-capture</code>
+      <p>Zero-Friction Capture Atomic claim Capture must be easier than ignoring the idea. If capture requires manual taxonomy work up front, the vault will decay. Steps 1. Capture raw knowledge into an inbox first. 2. Keep the f</p>
+      <small>knowledge/40-runbooks/zero-friction-capture.md</small>
+    </article>
+    <article class="node decision">
+      <strong>Decision Queue</strong>
+      <span>decision · active</span>
+      <code>decision-queue</code>
+      <p>Decision Queue Atomic claim Human decisions should be batched, labeled, and summarized instead of scattered across unrelated comments or chat messages. Use when - an issue needs user approval; - a secret, deploy, publish</p>
+      <small>knowledge/50-decisions/decision-queue.md</small>
+    </article>
+    <article class="node index">
+      <strong>Agent Lookup Index</strong>
+      <span>index · active</span>
+      <code>agent-lookup-index</code>
+      <p>Agent Lookup Index Use this index as the first stop before acting. If the question is about authority - Source of Truth: source-of-truth - Human approval: human-gates - Final responsibility: codex-mainstream-role - Colla</p>
+      <small>knowledge/90-indexes/agent-lookup-index.md</small>
+    </article>
+    <article class="node map">
+      <strong>Agent Knowledge Vault README</strong>
+      <span>map · active</span>
+      <code>knowledge-vault-readme</code>
+      <p>Agent Knowledge Vault This folder is an Obsidian-compatible vault for the Agent Map control-plane. Start here: - agent-knowledge-map - derived-graph-index - agent-lookup-index - knowledge-lookup-before-work Core rule: th</p>
+      <small>knowledge/README.md</small>
+    </article>
+    <article class="node runtime-artifact">
+      <strong>weekly-knowledge-synthesis</strong>
+      <span>runtime-artifact · active</span>
+      <code>runtime:weekly-knowledge-synthesis</code>
+      <p>Public-safe runtime artifact referenced by the Agent Map knowledge layer.</p>
+      <small>runtime/weekly-knowledge-synthesis.json</small>
+    </article>
+    <article class="node runtime-artifact">
+      <strong>llm-wiki-search-roi</strong>
+      <span>runtime-artifact · active</span>
+      <code>runtime:llm-wiki-search-roi</code>
+      <p>Public-safe runtime artifact referenced by the Agent Map knowledge layer.</p>
+      <small>runtime/llm-wiki-search-roi.json</small>
+    </article>
+    <article class="node runtime-artifact">
+      <strong>retrieval-service-health</strong>
+      <span>runtime-artifact · active</span>
+      <code>runtime:retrieval-service-health</code>
+      <p>Public-safe runtime artifact referenced by the Agent Map knowledge layer.</p>
+      <small>runtime/retrieval-service-health.json</small>
+    </article>
+    <article class="node runtime-artifact">
+      <strong>decision-queue</strong>
+      <span>runtime-artifact · active</span>
+      <code>runtime:decision-queue</code>
+      <p>Public-safe runtime artifact referenced by the Agent Map knowledge layer.</p>
+      <small>runtime/decision-queue.json</small>
+    </article></div>
+    </section>
+    <section>
+      <h2>Edges</h2>
+      <ul>
+    <li><code>agent-knowledge-map</code> → <code>source-of-truth</code></li>
+    <li><code>agent-knowledge-map</code> → <code>human-gates</code></li>
+    <li><code>agent-knowledge-map</code> → <code>collaboration-first</code></li>
+    <li><code>agent-knowledge-map</code> → <code>llm-wiki-adoption-gates</code></li>
+    <li><code>agent-knowledge-map</code> → <code>codex-mainstream-role</code></li>
+    <li><code>agent-knowledge-map</code> → <code>review-agent-roles</code></li>
+    <li><code>agent-knowledge-map</code> → <code>issue-project-queue</code></li>
+    <li><code>agent-knowledge-map</code> → <code>agent-routing</code></li>
+    <li><code>agent-knowledge-map</code> → <code>knowledge-lookup-before-work</code></li>
+    <li><code>agent-knowledge-map</code> → <code>assign-session-agent-work</code></li>
+    <li><code>agent-knowledge-map</code> → <code>zero-friction-capture</code></li>
+    <li><code>agent-knowledge-map</code> → <code>weekly-knowledge-synthesis</code></li>
+    <li><code>agent-knowledge-map</code> → <code>decision-queue</code></li>
+    <li><code>agent-knowledge-map</code> → <code>agent-lookup-index</code></li>
+    <li><code>agent-knowledge-map</code> → <code>derived-graph-index</code></li>
+    <li><code>derived-graph-index</code> → <code>source-of-truth</code></li>
+    <li><code>derived-graph-index</code> → <code>agent-knowledge-map</code></li>
+    <li><code>derived-graph-index</code> → <code>agent-lookup-index</code></li>
+    <li><code>derived-graph-index</code> → <code>knowledge-lookup-before-work</code></li>
+    <li><code>derived-graph-index</code> → <code>llm-wiki-adoption-gates</code></li>
+    <li><code>derived-graph-index</code> → <code>zero-friction-capture</code></li>
+    <li><code>derived-graph-index</code> → <code>weekly-knowledge-synthesis</code></li>
+    <li><code>collaboration-first</code> → <code>assign-session-agent-work</code></li>
+    <li><code>collaboration-first</code> → <code>agent-routing</code></li>
+    <li><code>collaboration-first</code> → <code>review-agent-roles</code></li>
+    <li><code>collaboration-first</code> → <code>source-of-truth</code></li>
+    <li><code>human-gates</code> → <code>decision-queue</code></li>
+    <li><code>human-gates</code> → <code>issue-project-queue</code></li>
+    <li><code>human-gates</code> → <code>source-of-truth</code></li>
+    <li><code>llm-wiki-adoption-gates</code> → <code>zero-friction-capture</code></li>
+    <li><code>llm-wiki-adoption-gates</code> → <code>weekly-knowledge-synthesis</code></li>
+    <li><code>llm-wiki-adoption-gates</code> → <code>knowledge-lookup-before-work</code></li>
+    <li><code>source-of-truth</code> → <code>agent-knowledge-map</code></li>
+    <li><code>source-of-truth</code> → <code>issue-project-queue</code></li>
+    <li><code>source-of-truth</code> → <code>agent-routing</code></li>
+    <li><code>codex-mainstream-role</code> → <code>human-gates</code></li>
+    <li><code>codex-mainstream-role</code> → <code>assign-session-agent-work</code></li>
+    <li><code>codex-mainstream-role</code> → <code>agent-routing</code></li>
+    <li><code>codex-mainstream-role</code> → <code>source-of-truth</code></li>
+    <li><code>review-agent-roles</code> → <code>assign-session-agent-work</code></li>
+    <li><code>review-agent-roles</code> → <code>agent-routing</code></li>
+    <li><code>review-agent-roles</code> → <code>codex-mainstream-role</code></li>
+    <li><code>agent-routing</code> → <code>issue-project-queue</code></li>
+    <li><code>agent-routing</code> → <code>assign-session-agent-work</code></li>
+    <li><code>agent-routing</code> → <code>source-of-truth</code></li>
+    <li><code>issue-project-queue</code> → <code>human-gates</code></li>
+    <li><code>issue-project-queue</code> → <code>assign-session-agent-work</code></li>
+    <li><code>issue-project-queue</code> → <code>agent-routing</code></li>
+    <li><code>assign-session-agent-work</code> → <code>human-gates</code></li>
+    <li><code>assign-session-agent-work</code> → <code>review-agent-roles</code></li>
+    <li><code>assign-session-agent-work</code> → <code>codex-mainstream-role</code></li>
+    <li><code>assign-session-agent-work</code> → <code>issue-project-queue</code></li>
+    <li><code>assign-session-agent-work</code> → <code>agent-routing</code></li>
+    <li><code>assign-session-agent-work</code> → <code>knowledge-lookup-before-work</code></li>
+    <li><code>knowledge-lookup-before-work</code> → <code>agent-lookup-index</code></li>
+    <li><code>knowledge-lookup-before-work</code> → <code>llm-wiki-adoption-gates</code></li>
+    <li><code>knowledge-lookup-before-work</code> → <code>agent-knowledge-map</code></li>
+    <li><code>knowledge-lookup-before-work</code> → <code>source-of-truth</code></li>
+    <li><code>knowledge-lookup-before-work</code> → <code>human-gates</code></li>
+    <li><code>weekly-knowledge-synthesis</code> → <code>llm-wiki-adoption-gates</code></li>
+    <li><code>weekly-knowledge-synthesis</code> → <code>zero-friction-capture</code></li>
+    <li><code>weekly-knowledge-synthesis</code> → <code>agent-lookup-index</code></li>
+    <li><code>zero-friction-capture</code> → <code>human-gates</code></li>
+    <li><code>zero-friction-capture</code> → <code>source-of-truth</code></li>
+    <li><code>zero-friction-capture</code> → <code>llm-wiki-adoption-gates</code></li>
+    <li><code>zero-friction-capture</code> → <code>knowledge-lookup-before-work</code></li>
+    <li><code>zero-friction-capture</code> → <code>weekly-knowledge-synthesis</code></li>
+    <li><code>decision-queue</code> → <code>human-gates</code></li>
+    <li><code>decision-queue</code> → <code>issue-project-queue</code></li>
+    <li><code>decision-queue</code> → <code>codex-mainstream-role</code></li>
+    <li><code>agent-lookup-index</code> → <code>source-of-truth</code></li>
+    <li><code>agent-lookup-index</code> → <code>human-gates</code></li>
+    <li><code>agent-lookup-index</code> → <code>codex-mainstream-role</code></li>
+    <li><code>agent-lookup-index</code> → <code>collaboration-first</code></li>
+    <li><code>agent-lookup-index</code> → <code>review-agent-roles</code></li>
+    <li><code>agent-lookup-index</code> → <code>assign-session-agent-work</code></li>
+    <li><code>agent-lookup-index</code> → <code>issue-project-queue</code></li>
+    <li><code>agent-lookup-index</code> → <code>decision-queue</code></li>
+    <li><code>agent-lookup-index</code> → <code>agent-routing</code></li>
+    <li><code>agent-lookup-index</code> → <code>knowledge-lookup-before-work</code></li>
+    <li><code>agent-lookup-index</code> → <code>agent-knowledge-map</code></li>
+    <li><code>agent-lookup-index</code> → <code>llm-wiki-adoption-gates</code></li>
+    <li><code>agent-lookup-index</code> → <code>zero-friction-capture</code></li>
+    <li><code>agent-lookup-index</code> → <code>weekly-knowledge-synthesis</code></li>
+    <li><code>knowledge-vault-readme</code> → <code>agent-knowledge-map</code></li>
+    <li><code>knowledge-vault-readme</code> → <code>derived-graph-index</code></li>
+    <li><code>knowledge-vault-readme</code> → <code>agent-lookup-index</code></li>
+    <li><code>knowledge-vault-readme</code> → <code>knowledge-lookup-before-work</code></li>
+    <li><code>knowledge-vault-readme</code> → <code>source-of-truth</code></li></ul>
+    </section>
+  </main>
+</body>
+</html>

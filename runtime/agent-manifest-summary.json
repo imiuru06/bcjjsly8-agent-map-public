@@ -1,0 +1,1195 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:23.932Z",
+  "source": "config/agent-manifest.json",
+  "status": "ok",
+  "summary": {
+    "totalAgents": 25,
+    "agentLikeCount": 16,
+    "runtimeAgentCount": 8,
+    "pipelineAgentCount": 4,
+    "lifeLoopAgentCount": 4,
+    "controlPlaneCliCount": 5,
+    "reviewerCliCount": 4,
+    "standaloneCapableCount": 25,
+    "standaloneRegistryRequiredCount": 8,
+    "metaCapabilityCount": 25,
+    "maxMetaLevel4Count": 1,
+    "manifestCompletenessPercent": 100,
+    "failureCount": 0,
+    "warningCount": 0
+  },
+  "byType": {
+    "runtime-agent": 8,
+    "pipeline-agent": 4,
+    "control-plane-cli": 5,
+    "reviewer-cli": 4,
+    "life-loop-agent": 4
+  },
+  "byCommandKind": {
+    "npm-script": 25
+  },
+  "byTrigger": {
+    "start:base/start:full/start:ops": 3,
+    "start:full/start:full:ops": 2,
+    "start:ops/start:full:ops": 3,
+    "manual": 5,
+    "cron": 2,
+    "after": 1,
+    "manual,": 1,
+    "scheduled/manual": 2,
+    "PR": 1,
+    "build:static": 4,
+    "infrastructure": 1
+  },
+  "byStandaloneMode": {
+    "daemon": 8,
+    "bounded-job": 3,
+    "human-gated-bounded-job": 1,
+    "bounded-control-plane-job": 5,
+    "bounded-review-job": 4,
+    "bounded-life-loop": 4
+  },
+  "byStandaloneSupervisor": {
+    "process-manager-or-launchd": 5,
+    "process-manager-or-launchd-sse-worker": 1,
+    "process-manager-or-launchd-polling-worker": 2,
+    "queue-or-manual-handoff": 3,
+    "manual-gate-only": 1,
+    "cron-or-issue-workloop": 5,
+    "cron-or-review-gate": 4,
+    "cron-or-domain-workloop": 4
+  },
+  "byDefaultMetaLevel": {
+    "1": 19,
+    "2": 5,
+    "3": 1
+  },
+  "byMaxMetaLevel": {
+    "2": 12,
+    "3": 12,
+    "4": 1
+  },
+  "agents": [
+    {
+      "id": "voc_collector",
+      "type": "runtime-agent",
+      "role": "collects VoC-like raw events into data/raw.jsonl",
+      "command": "npm run collector",
+      "trigger": "start:base/start:full/start:ops process supervisor",
+      "outputs": [
+        "data/raw.jsonl",
+        "registry task events"
+      ],
+      "healthCheck": "npm run smoke",
+      "verification": "npm run smoke",
+      "autoRunWhen": [
+        "local registry is available",
+        "write access to data/raw.jsonl is available"
+      ],
+      "humanNeededWhen": [
+        "source credentials or new private input routes are required"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "daemon",
+        "registryRequired": true,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN",
+          "GITHUB_REPO",
+          "GITHUB_TOKEN"
+        ],
+        "stateScope": "agent-owned-or-declared-state-files",
+        "supervisor": "process-manager-or-launchd",
+        "restartPolicy": "always",
+        "concurrency": "single-instance-per-agent-id",
+        "entrypoint": "npm run collector"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "voc_analyzer",
+      "type": "runtime-agent",
+      "role": "summarizes raw VoC rows into public-safe aggregate insights",
+      "command": "npm run analyzer",
+      "trigger": "start:base/start:full/start:ops process supervisor",
+      "outputs": [
+        "data/insights.json",
+        "registry task events"
+      ],
+      "healthCheck": "npm run smoke",
+      "verification": "npm run smoke",
+      "autoRunWhen": [
+        "data/raw.jsonl exists or can be created"
+      ],
+      "humanNeededWhen": [
+        "analysis criteria or domain taxonomy changes are ambiguous"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "daemon",
+        "registryRequired": true,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN",
+          "GITHUB_REPO",
+          "GITHUB_TOKEN"
+        ],
+        "stateScope": "agent-owned-or-declared-state-files",
+        "supervisor": "process-manager-or-launchd",
+        "restartPolicy": "always",
+        "concurrency": "single-instance-per-agent-id",
+        "entrypoint": "npm run analyzer"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "voc_visualizer",
+      "type": "runtime-agent",
+      "role": "renders VoC aggregate insights to a dashboard artifact",
+      "command": "npm run visualizer",
+      "trigger": "start:base/start:full/start:ops process supervisor",
+      "outputs": [
+        "public/dashboard.html",
+        "registry task events"
+      ],
+      "healthCheck": "npm run smoke",
+      "verification": "npm run smoke",
+      "autoRunWhen": [
+        "data/insights.json exists or empty-state rendering is acceptable"
+      ],
+      "humanNeededWhen": [
+        "public copy or visual design changes require product judgment"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "daemon",
+        "registryRequired": true,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN",
+          "GITHUB_REPO",
+          "GITHUB_TOKEN"
+        ],
+        "stateScope": "agent-owned-or-declared-state-files",
+        "supervisor": "process-manager-or-launchd",
+        "restartPolicy": "always",
+        "concurrency": "single-instance-per-agent-id",
+        "entrypoint": "npm run visualizer"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "insight_analyzer",
+      "type": "runtime-agent",
+      "role": "merges multiple raw domains into unified public-safe insight aggregates",
+      "command": "npm run insight",
+      "trigger": "start:full/start:full:ops process supervisor",
+      "outputs": [
+        "data/insights/unified.json",
+        "registry task events"
+      ],
+      "healthCheck": "npm run brief:check",
+      "verification": "npm run brief:check",
+      "autoRunWhen": [
+        "input sources are readable",
+        "public-safe aggregation is sufficient"
+      ],
+      "humanNeededWhen": [
+        "new source domain semantics must be approved"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "daemon",
+        "registryRequired": true,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN",
+          "GITHUB_REPO",
+          "GITHUB_TOKEN"
+        ],
+        "stateScope": "agent-owned-or-declared-state-files",
+        "supervisor": "process-manager-or-launchd",
+        "restartPolicy": "always",
+        "concurrency": "single-instance-per-agent-id",
+        "entrypoint": "npm run insight"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "daily_brief_visualizer",
+      "type": "runtime-agent",
+      "role": "builds daily brief view from unified insight, Kakao public snapshot, and life-loop evidence",
+      "command": "npm run brief",
+      "trigger": "start:full/start:full:ops process supervisor or npm run brief:once",
+      "outputs": [
+        "public/daily-brief.html"
+      ],
+      "healthCheck": "npm run brief:check",
+      "verification": "npm run brief:check",
+      "autoRunWhen": [
+        "public-safe source artifacts exist"
+      ],
+      "humanNeededWhen": [
+        "brief should trigger external posting or user-visible decisions"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "daemon",
+        "registryRequired": true,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN",
+          "GITHUB_REPO",
+          "GITHUB_TOKEN"
+        ],
+        "stateScope": "agent-owned-or-declared-state-files",
+        "supervisor": "process-manager-or-launchd",
+        "restartPolicy": "always",
+        "concurrency": "single-instance-per-agent-id",
+        "entrypoint": "npm run brief"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "telegram_notifier",
+      "type": "runtime-agent",
+      "role": "fans out selected registry SSE events to Telegram",
+      "command": "npm run telegram:notifier",
+      "trigger": "start:ops/start:full:ops process supervisor",
+      "outputs": [
+        "Telegram notifications"
+      ],
+      "healthCheck": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "autoRunWhen": [
+        "Telegram env vars are configured",
+        "registry URL is reachable"
+      ],
+      "humanNeededWhen": [
+        "Telegram credentials or destination chat must be changed"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "daemon",
+        "registryRequired": true,
+        "requiredEnv": [
+          "TELEGRAM_BOT_TOKEN",
+          "TELEGRAM_CHAT_ID"
+        ],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN",
+          "TELEGRAM_TITLE_PREFIX"
+        ],
+        "stateScope": "agent-owned-or-declared-state-files",
+        "supervisor": "process-manager-or-launchd-sse-worker",
+        "restartPolicy": "always",
+        "concurrency": "single-instance-per-agent-id",
+        "entrypoint": "npm run telegram:notifier"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "proposal_responder",
+      "type": "runtime-agent",
+      "role": "converts Telegram /decide replies into registry proposal.response events",
+      "command": "npm run proposal:responder",
+      "trigger": "start:ops/start:full:ops process supervisor",
+      "outputs": [
+        "registry proposal.response events",
+        "runtime/proposal-responder-state.json"
+      ],
+      "healthCheck": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "autoRunWhen": [
+        "Telegram env vars are configured",
+        "registry URL is reachable"
+      ],
+      "humanNeededWhen": [
+        "proposal outcome is ambiguous or credentials are missing"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "daemon",
+        "registryRequired": true,
+        "requiredEnv": [
+          "TELEGRAM_BOT_TOKEN",
+          "TELEGRAM_CHAT_ID"
+        ],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "agent-owned-or-declared-state-files",
+        "supervisor": "process-manager-or-launchd-polling-worker",
+        "restartPolicy": "always",
+        "concurrency": "single-instance-per-agent-id",
+        "entrypoint": "npm run proposal:responder"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "telegram_issue_intake",
+      "type": "runtime-agent",
+      "role": "turns Telegram /mission, /issue, and /todo commands into GitHub issues or registry events",
+      "command": "npm run telegram:issue-intake",
+      "trigger": "start:ops/start:full:ops process supervisor",
+      "outputs": [
+        "GitHub issues",
+        "registry mission.created/issue.created events",
+        "runtime/telegram-issue-intake-state.json"
+      ],
+      "healthCheck": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "autoRunWhen": [
+        "Telegram env vars are configured",
+        "registry fallback is acceptable"
+      ],
+      "humanNeededWhen": [
+        "GitHub token or destination repo must be configured"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "daemon",
+        "registryRequired": true,
+        "requiredEnv": [
+          "TELEGRAM_BOT_TOKEN",
+          "TELEGRAM_CHAT_ID"
+        ],
+        "optionalEnv": [
+          "GITHUB_REPO",
+          "GITHUB_TOKEN",
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "agent-owned-or-declared-state-files",
+        "supervisor": "process-manager-or-launchd-polling-worker",
+        "restartPolicy": "always",
+        "concurrency": "single-instance-per-agent-id",
+        "entrypoint": "npm run telegram:issue-intake"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "content_pipeline_dry_run",
+      "type": "pipeline-agent",
+      "role": "runs a no-upload trend-to-video pipeline reference pass",
+      "command": "npm run content:dry-run",
+      "trigger": "manual or issue-assigned bounded pipeline run",
+      "outputs": [
+        "artifacts/content/* dry-run files",
+        "optional registry events"
+      ],
+      "healthCheck": "npm run verify:content-dry-run",
+      "verification": "npm run verify:content-dry-run",
+      "autoRunWhen": [
+        "dry-run only",
+        "no upload/publish side effects"
+      ],
+      "humanNeededWhen": [
+        "creative direction or publication approval is needed"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "artifact-directory",
+        "supervisor": "queue-or-manual-handoff",
+        "restartPolicy": "on-failure-for-idempotent-stages",
+        "concurrency": "single-run-per-artifact-batch",
+        "entrypoint": "npm run content:dry-run"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "content_asset_generator",
+      "type": "pipeline-agent",
+      "role": "generates local voiceover/thumbnail support assets for content pipeline",
+      "command": "npm run content:assets",
+      "trigger": "manual or pipeline handoff after dry-run",
+      "outputs": [
+        "artifacts/content local assets",
+        "optional registry events"
+      ],
+      "healthCheck": "npm run verify:content-assets",
+      "verification": "npm run verify:content-assets",
+      "autoRunWhen": [
+        "local-only generation",
+        "publish/upload disabled"
+      ],
+      "humanNeededWhen": [
+        "voice/style selection or paid provider choice is required"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "artifact-directory",
+        "supervisor": "queue-or-manual-handoff",
+        "restartPolicy": "on-failure-for-idempotent-stages",
+        "concurrency": "single-run-per-artifact-batch",
+        "entrypoint": "npm run content:assets"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "content_video_renderer",
+      "type": "pipeline-agent",
+      "role": "renders a local MP4 candidate for the content pipeline",
+      "command": "npm run content:render",
+      "trigger": "manual or pipeline handoff after asset generation",
+      "outputs": [
+        "local MP4 candidate",
+        "optional registry events"
+      ],
+      "healthCheck": "npm run verify:content-assets",
+      "verification": "npm run verify:content-assets",
+      "autoRunWhen": [
+        "local-only render",
+        "publish/upload disabled"
+      ],
+      "humanNeededWhen": [
+        "visual quality approval is required"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "artifact-directory",
+        "supervisor": "queue-or-manual-handoff",
+        "restartPolicy": "on-failure-for-idempotent-stages",
+        "concurrency": "single-run-per-artifact-batch",
+        "entrypoint": "npm run content:render"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "content_publisher",
+      "type": "pipeline-agent",
+      "role": "publishes approved video only after explicit gate conditions",
+      "command": "npm run content:publish",
+      "trigger": "manual after approval receipt",
+      "outputs": [
+        "private or public upload result",
+        "registry events"
+      ],
+      "healthCheck": "npm run verify:content-publish-gate",
+      "verification": "npm run verify:content-publish-gate",
+      "autoRunWhen": [
+        "approval receipt exists",
+        "publish gate passes",
+        "privacy mode is acceptable"
+      ],
+      "humanNeededWhen": [
+        "any upload/publish action is requested"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "human-gated-bounded-job",
+        "registryRequired": false,
+        "requiredEnv": [
+          "YOUTUBE_UPLOAD_APPROVAL"
+        ],
+        "optionalEnv": [
+          "YOUTUBE_CLIENT_ID",
+          "YOUTUBE_CLIENT_SECRET",
+          "YOUTUBE_REFRESH_TOKEN",
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "artifact-directory",
+        "supervisor": "manual-gate-only",
+        "restartPolicy": "never",
+        "concurrency": "single-approved-upload",
+        "entrypoint": "npm run content:publish"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 3,
+        "maxMetaLevel": 4,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "issue_workloop",
+      "type": "control-plane-cli",
+      "role": "performs bounded GitHub Issue delta triage, routing, and decision digest work",
+      "command": "npm run issue:workloop",
+      "trigger": "cron every 3 hours and manual operations",
+      "outputs": [
+        "routing comments",
+        "decision queue state",
+        ".logs/issue-workloop-state.json"
+      ],
+      "healthCheck": "npm run issue:delta -- --no-write",
+      "verification": "npm run issue:delta -- --no-write",
+      "autoRunWhen": [
+        "delta/actionKey/lock checks allow a bounded action"
+      ],
+      "humanNeededWhen": [
+        "decisionQueue contains human-gated items",
+        "safe labels are missing"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-control-plane-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "GITHUB_REPO",
+          "GITHUB_TOKEN",
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "repo-state-or-declared-state-files",
+        "supervisor": "cron-or-issue-workloop",
+        "restartPolicy": "never-without-idempotency-key",
+        "concurrency": "lock-by-action-key-or-state-file",
+        "entrypoint": "npm run issue:workloop"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "improvement_governor_cli",
+      "type": "reviewer-cli",
+      "role": "gates weak improvement claims and proposes evidence-backed next improvements",
+      "command": "npm run improvement:suggest",
+      "trigger": "cron every 3 hours at minute 35 and before improvement close/Done",
+      "outputs": [
+        "runtime/improvement-suggestions.json",
+        "improvement evidence pass/fail reports"
+      ],
+      "healthCheck": "npm run improvement:review",
+      "verification": "npm run improvement:review",
+      "autoRunWhen": [
+        "public-safe runtime artifacts exist",
+        "no mutation is requested"
+      ],
+      "humanNeededWhen": [
+        "product priority or close approval is required"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-review-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "GITHUB_REPO",
+          "GITHUB_TOKEN"
+        ],
+        "stateScope": "read-only-runtime-summary",
+        "supervisor": "cron-or-review-gate",
+        "restartPolicy": "never",
+        "concurrency": "parallel-ok-read-only",
+        "entrypoint": "npm run improvement:suggest"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 2,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "idea_technical_definition_cli",
+      "type": "control-plane-cli",
+      "role": "turns collected public-safe signals, improvement suggestions, and knowledge artifacts into ticket-ready technical definition drafts",
+      "command": "npm run idea:define",
+      "trigger": "after information collection, improvement governor runs, or before creating implementation tickets",
+      "outputs": [
+        "runtime/idea-technical-definitions.json",
+        "runtime/idea-technical-definitions.md",
+        "runtime/idea-technical-definitions-verification.json"
+      ],
+      "healthCheck": "npm run idea:define:check",
+      "verification": "npm run idea:define:check",
+      "autoRunWhen": [
+        "public-safe artifacts exist",
+        "draft-only local artifact generation is requested",
+        "no issue creation or external mutation is requested"
+      ],
+      "humanNeededWhen": [
+        "candidate issue should be created, priority conflicts need product judgment, or external mutation is requested"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-control-plane-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "GITHUB_REPO",
+          "GITHUB_TOKEN",
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "repo-state-or-declared-state-files",
+        "supervisor": "cron-or-issue-workloop",
+        "restartPolicy": "never-without-idempotency-key",
+        "concurrency": "lock-by-action-key-or-state-file",
+        "entrypoint": "npm run idea:define"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "agent_performance_scorecard_cli",
+      "type": "control-plane-cli",
+      "role": "tracks per-agent workload, stale work, recent evidence, and accountability status",
+      "command": "npm run agent:performance",
+      "trigger": "manual, build:static, and service improvement review",
+      "outputs": [
+        "runtime/agent-performance-report.json"
+      ],
+      "healthCheck": "npm run agent:performance:check",
+      "verification": "npm run agent:performance:check",
+      "autoRunWhen": [
+        "read-only performance accounting is requested"
+      ],
+      "humanNeededWhen": [
+        "attention agents remain stale after routing or a role pool needs confirmation"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-control-plane-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "GITHUB_REPO",
+          "GITHUB_TOKEN",
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "repo-state-or-declared-state-files",
+        "supervisor": "cron-or-issue-workloop",
+        "restartPolicy": "never-without-idempotency-key",
+        "concurrency": "lock-by-action-key-or-state-file",
+        "entrypoint": "npm run agent:performance"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "ops_environment_auditor_cli",
+      "type": "reviewer-cli",
+      "role": "reviews and audits the operating environment itself: runtime agents, CLI agents, session agents, schedules, queues, stale claims, and infrastructure readiness",
+      "command": "npm run ops:audit",
+      "trigger": "scheduled/manual operating environment review and before claiming overall service improvement",
+      "outputs": [
+        "runtime/ops-environment-audit.json",
+        "runtime/ops-environment-audit.md",
+        "public/ops-environment-audit.html"
+      ],
+      "healthCheck": "npm run ops:audit:check",
+      "verification": "npm run ops:audit:check",
+      "autoRunWhen": [
+        "read-only audit is sufficient",
+        "optional schedule inventory is available or schedule-missing warning is acceptable"
+      ],
+      "humanNeededWhen": [
+        "duplicate schedules should be removed, unavailable role pools must be confirmed, or provider credentials require owner action"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-review-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "GITHUB_REPO",
+          "GITHUB_TOKEN"
+        ],
+        "stateScope": "read-only-runtime-summary",
+        "supervisor": "cron-or-review-gate",
+        "restartPolicy": "never",
+        "concurrency": "parallel-ok-read-only",
+        "entrypoint": "npm run ops:audit"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "collaboration_auditor_cli",
+      "type": "reviewer-cli",
+      "role": "checks whether multi-agent collaboration is effective and not just busy",
+      "command": "npm run collab:audit",
+      "trigger": "scheduled/manual collaboration health review",
+      "outputs": [
+        "collaboration audit report"
+      ],
+      "healthCheck": "npm run collab:audit",
+      "verification": "npm run collab:audit",
+      "autoRunWhen": [
+        "read-only audit is sufficient"
+      ],
+      "humanNeededWhen": [
+        "role conflict or decision bottleneck requires owner judgment"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-review-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "GITHUB_REPO",
+          "GITHUB_TOKEN"
+        ],
+        "stateScope": "read-only-runtime-summary",
+        "supervisor": "cron-or-review-gate",
+        "restartPolicy": "never",
+        "concurrency": "parallel-ok-read-only",
+        "entrypoint": "npm run collab:audit"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "uiux_cli",
+      "type": "reviewer-cli",
+      "role": "reviews user-visible UI/UX, responsive behavior, copy clarity, and accessibility evidence",
+      "command": "npm run uiux:audit",
+      "trigger": "PR or issue requests UI/UX review",
+      "outputs": [
+        "review comment with risks and actionable fixes"
+      ],
+      "healthCheck": "npm run build:static",
+      "verification": "npm run uiux:audit",
+      "autoRunWhen": [
+        "review-only feedback is requested"
+      ],
+      "humanNeededWhen": [
+        "visual direction or tradeoff is subjective"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-review-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [],
+        "stateScope": "read-only-public-ui-artifacts",
+        "supervisor": "cron-or-review-gate",
+        "restartPolicy": "never",
+        "concurrency": "parallel-ok-read-only",
+        "entrypoint": "npm run uiux:audit"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 2,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "life_information_loop",
+      "type": "life-loop-agent",
+      "role": "turns information/learning life-process scope into collect-analyze-act-verify evidence",
+      "command": "npm run life:loop:information",
+      "trigger": "manual or scheduled life-process replacement evidence run",
+      "outputs": [
+        "runtime/life-agent-runs.jsonl",
+        "life loop brief artifacts"
+      ],
+      "healthCheck": "npm run life:loop:check",
+      "verification": "npm run life:loop:check",
+      "autoRunWhen": [
+        "bounded local action only",
+        "no external side effects"
+      ],
+      "humanNeededWhen": [
+        "domain-level automation affects external systems or personal commitments"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-life-loop",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "life-domain-runtime-evidence",
+        "supervisor": "cron-or-domain-workloop",
+        "restartPolicy": "on-failure-after-evidence-snapshot",
+        "concurrency": "single-run-per-life-domain",
+        "entrypoint": "npm run life:loop:information"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 2,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "kakao_information_triage_loop",
+      "type": "life-loop-agent",
+      "role": "triages public-safe Kakao insight signals into bounded local actions and verification",
+      "command": "npm run life:loop:kakao-triage",
+      "trigger": "build:static and health-recovery context after Kakao insight input collection",
+      "outputs": [
+        "runtime/kakao-information-triage-report.md",
+        "runtime/kakao-information-bounded-actions.json",
+        "runtime/kakao-information-triage-verification.json"
+      ],
+      "healthCheck": "npm run life:loop:kakao-triage:check",
+      "verification": "npm run life:loop:kakao-triage:check",
+      "autoRunWhen": [
+        "raw Kakao messages are not read or exposed",
+        "local bounded output only"
+      ],
+      "humanNeededWhen": [
+        "action requires messaging, payment, publishing, or personal decision"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-life-loop",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "life-domain-runtime-evidence",
+        "supervisor": "cron-or-domain-workloop",
+        "restartPolicy": "on-failure-after-evidence-snapshot",
+        "concurrency": "single-run-per-life-domain",
+        "entrypoint": "npm run life:loop:kakao-triage"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 2,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "external_information_triage_loop",
+      "type": "life-loop-agent",
+      "role": "triages external public technology/economy signals into daily issue brief actions and verification",
+      "command": "npm run life:loop:external-triage",
+      "trigger": "build:static and scheduled external public signal collection",
+      "outputs": [
+        "runtime/external-information-triage-report.md",
+        "runtime/external-information-bounded-actions.json",
+        "runtime/external-information-triage-verification.json"
+      ],
+      "healthCheck": "npm run life:loop:external-triage:check",
+      "verification": "npm run life:loop:external-triage:check",
+      "autoRunWhen": [
+        "public RSS/Atom metadata only",
+        "local bounded output only",
+        "no external side effects"
+      ],
+      "humanNeededWhen": [
+        "full article body fetch, comment scraping, external publishing, financial/legal judgment, or private data exposure is needed"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-life-loop",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "life-domain-runtime-evidence",
+        "supervisor": "cron-or-domain-workloop",
+        "restartPolicy": "on-failure-after-evidence-snapshot",
+        "concurrency": "single-run-per-life-domain",
+        "entrypoint": "npm run life:loop:external-triage"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 2,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "content_replacement_dry_run_loop",
+      "type": "life-loop-agent",
+      "role": "turns a public-safe trend seed into a no-upload content package with validation, legal, and publish-gate evidence",
+      "command": "npm run life:loop:content-dry-run",
+      "trigger": "build:static and assigned content replacement work",
+      "outputs": [
+        "runtime/content-replacement-scope-report.md",
+        "runtime/content-replacement-bounded-actions.json",
+        "runtime/content-replacement-scope-verification.json",
+        "runtime/life-agent-runs.jsonl"
+      ],
+      "healthCheck": "npm run life:loop:content-dry-run:check",
+      "verification": "npm run life:loop:content-dry-run:check",
+      "autoRunWhen": [
+        "public-safe trend seed only",
+        "local no-upload dry-run package",
+        "no external side effects"
+      ],
+      "humanNeededWhen": [
+        "upload, publish, external posting, copyright acceptance, paid provider use, or private source use is requested"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-life-loop",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "life-domain-runtime-evidence",
+        "supervisor": "cron-or-domain-workloop",
+        "restartPolicy": "on-failure-after-evidence-snapshot",
+        "concurrency": "single-run-per-life-domain",
+        "entrypoint": "npm run life:loop:content-dry-run"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 2,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "knowledge_graphify",
+      "type": "control-plane-cli",
+      "role": "builds derived knowledge graph/index from source docs and runtime artifacts",
+      "command": "npm run knowledge:graphify",
+      "trigger": "build:static and knowledge management updates",
+      "outputs": [
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json",
+        "graphify-out/graph.html"
+      ],
+      "healthCheck": "npm run knowledge:graphify:check",
+      "verification": "npm run knowledge:graphify:check",
+      "autoRunWhen": [
+        "derived graph only",
+        "source docs win on conflict"
+      ],
+      "humanNeededWhen": [
+        "source-of-truth conflict or ontology change needs approval"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-control-plane-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "GITHUB_REPO",
+          "GITHUB_TOKEN",
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "repo-state-or-declared-state-files",
+        "supervisor": "cron-or-issue-workloop",
+        "restartPolicy": "never-without-idempotency-key",
+        "concurrency": "lock-by-action-key-or-state-file",
+        "entrypoint": "npm run knowledge:graphify"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    },
+    {
+      "id": "infrastructure_visibility_cli",
+      "type": "control-plane-cli",
+      "role": "checks infrastructure topology, inventory, provider status, and public-safe API contracts",
+      "command": "npm run infra:check",
+      "trigger": "infrastructure changes, build/deploy checks, and improvement proposals",
+      "outputs": [
+        "runtime/infrastructure-inventory.json",
+        "runtime/infrastructure-live.json",
+        "infrastructure-map.html"
+      ],
+      "healthCheck": "npm run infra:check",
+      "verification": "npm run infra:check",
+      "autoRunWhen": [
+        "offline/public-safe provider status is sufficient"
+      ],
+      "humanNeededWhen": [
+        "secret values, cloud permissions, or provider account choices are needed"
+      ],
+      "standalone": {
+        "capable": true,
+        "mode": "bounded-control-plane-job",
+        "registryRequired": false,
+        "requiredEnv": [],
+        "optionalEnv": [
+          "GITHUB_REPO",
+          "GITHUB_TOKEN",
+          "AGENT_MAP_REGISTRY_URL",
+          "AGENT_MAP_REGISTRY_TOKEN"
+        ],
+        "stateScope": "repo-state-or-declared-state-files",
+        "supervisor": "cron-or-issue-workloop",
+        "restartPolicy": "never-without-idempotency-key",
+        "concurrency": "lock-by-action-key-or-state-file",
+        "entrypoint": "npm run infra:check"
+      },
+      "metaCognition": {
+        "defaultMetaLevel": 1,
+        "maxMetaLevel": 3,
+        "orchestratorRequiredFromLevel": 3,
+        "humanGateLevel": 4,
+        "reviewRequiredFromLevel": 2,
+        "policyRef": "config/meta-cognition-policy.json"
+      }
+    }
+  ],
+  "warnings": [],
+  "failures": [],
+  "safety": {
+    "publicSafeOnly": true,
+    "secretValuesIncluded": false,
+    "privateRawDataIncluded": false,
+    "externalWrites": false,
+    "closeMergeDeployPublish": false
+  }
+}

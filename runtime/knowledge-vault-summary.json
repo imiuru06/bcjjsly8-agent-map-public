@@ -1,0 +1,987 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:22.282Z",
+  "source": "knowledge-vault",
+  "vaultRoot": "knowledge",
+  "purpose": "Obsidian-style atomic knowledge management for agent roles, policies, protocols, runbooks, and decisions.",
+  "noteCount": 17,
+  "noteTypes": {
+    "map": 3,
+    "principle": 4,
+    "role": 2,
+    "protocol": 2,
+    "runbook": 4,
+    "decision": 1,
+    "index": 1
+  },
+  "noteStatuses": {
+    "active": 17
+  },
+  "canonicalMaps": [
+    "knowledge/00-maps/agent-knowledge-map.md",
+    "knowledge/90-indexes/agent-lookup-index.md"
+  ],
+  "lookupModes": {
+    "beforeAnyAgentWork": [
+      "knowledge/90-indexes/agent-lookup-index.md",
+      "knowledge/00-maps/agent-knowledge-map.md",
+      "AGENTS.md"
+    ],
+    "whenAssigningWork": [
+      "knowledge/40-runbooks/assign-session-agent-work.md",
+      "config/agent-role-management.json",
+      "config/session-agents.json"
+    ],
+    "whenHumanDecisionAppears": [
+      "knowledge/10-principles/human-gates.md",
+      "knowledge/50-decisions/decision-queue.md",
+      "docs/AUTONOMOUS_ISSUE_WORK_LOOP.md"
+    ],
+    "whenRoutingAgents": [
+      "knowledge/30-protocols/agent-routing.md",
+      "docs/CHANNELS.md",
+      "docs/EXTERNAL_SESSION_WATCHER_CONTRACT.md"
+    ],
+    "whenExpandingKnowledgeSystem": [
+      "knowledge/10-principles/llm-wiki-adoption-gates.md",
+      "knowledge/40-runbooks/zero-friction-capture.md",
+      "knowledge/40-runbooks/weekly-knowledge-synthesis.md",
+      "docs/KNOWLEDGE_MANAGEMENT.md"
+    ]
+  },
+  "notes": [
+    {
+      "id": "agent-knowledge-map",
+      "title": "Agent Knowledge Map",
+      "type": "map",
+      "status": "active",
+      "tags": [
+        "knowledge",
+        "map",
+        "obsidian",
+        "agent-map"
+      ],
+      "source": "docs/KNOWLEDGE_MANAGEMENT.md",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/00-maps/agent-knowledge-map.md",
+      "links": [
+        "source-of-truth",
+        "human-gates",
+        "collaboration-first",
+        "llm-wiki-adoption-gates",
+        "codex-mainstream-role",
+        "review-agent-roles",
+        "issue-project-queue",
+        "agent-routing",
+        "knowledge-lookup-before-work",
+        "assign-session-agent-work",
+        "zero-friction-capture",
+        "weekly-knowledge-synthesis",
+        "decision-queue",
+        "agent-lookup-index",
+        "derived-graph-index"
+      ],
+      "hash": "sha256:ada8d4ea0c9104d95953eaf3627d049d6d40897d6208c1d9afd919831b0118d7"
+    },
+    {
+      "id": "derived-graph-index",
+      "title": "Derived Graph Index",
+      "type": "map",
+      "status": "active",
+      "tags": [
+        "knowledge",
+        "graphify",
+        "retrieval",
+        "obsidian",
+        "llm-wiki"
+      ],
+      "source": "docs/OBSIDIAN_GRAPH_VIEW_GUIDE.md",
+      "appliesTo": [
+        "codex",
+        "review-agents",
+        "all-agents"
+      ],
+      "path": "knowledge/00-maps/derived-graph-index.md",
+      "links": [
+        "source-of-truth",
+        "agent-knowledge-map",
+        "agent-lookup-index",
+        "knowledge-lookup-before-work",
+        "llm-wiki-adoption-gates",
+        "zero-friction-capture",
+        "weekly-knowledge-synthesis"
+      ],
+      "hash": "sha256:319d943a172700d71cedcb03e1c8f8a57af1608ca1aa92ef54596cf89a030b9b"
+    },
+    {
+      "id": "collaboration-first",
+      "title": "Collaboration-First Invariant",
+      "type": "principle",
+      "status": "active",
+      "tags": [
+        "collaboration",
+        "multi-agent",
+        "queue",
+        "delegation",
+        "invariant"
+      ],
+      "source": "AGENTS.md",
+      "appliesTo": [
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "path": "knowledge/10-principles/collaboration-first.md",
+      "links": [
+        "assign-session-agent-work",
+        "agent-routing",
+        "review-agent-roles",
+        "source-of-truth"
+      ],
+      "hash": "sha256:53804d5201d0b84cbf6058a558896d32889b2dca71e5154e54faee1216c7deb3"
+    },
+    {
+      "id": "human-gates",
+      "title": "Human Approval Gates",
+      "type": "principle",
+      "status": "active",
+      "tags": [
+        "human-gated",
+        "approval",
+        "safety",
+        "decisions"
+      ],
+      "source": "AGENTS.md",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/10-principles/human-gates.md",
+      "links": [
+        "decision-queue",
+        "issue-project-queue",
+        "source-of-truth"
+      ],
+      "hash": "sha256:c00cf05b559a35c6a14e5555c39fcc830c491c252a86c8ea96e7bb4aa3a8e420"
+    },
+    {
+      "id": "llm-wiki-adoption-gates",
+      "title": "LLM-Wiki Adoption Gates",
+      "type": "principle",
+      "status": "active",
+      "tags": [
+        "llm-wiki",
+        "pkm",
+        "rag",
+        "mcp",
+        "roi",
+        "capture"
+      ],
+      "source": "docs/KNOWLEDGE_MANAGEMENT.md",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/10-principles/llm-wiki-adoption-gates.md",
+      "links": [
+        "zero-friction-capture",
+        "weekly-knowledge-synthesis",
+        "knowledge-lookup-before-work"
+      ],
+      "hash": "sha256:90f0807d24711909a0e3683e03116ed2ee8a42be3f30d9a8b29a6814ecfe79e3"
+    },
+    {
+      "id": "source-of-truth",
+      "title": "Source of Truth Boundary",
+      "type": "principle",
+      "status": "active",
+      "tags": [
+        "source-of-truth",
+        "policy",
+        "git",
+        "knowledge"
+      ],
+      "source": "AGENTS.md",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/10-principles/source-of-truth.md",
+      "links": [
+        "agent-knowledge-map",
+        "issue-project-queue",
+        "agent-routing"
+      ],
+      "hash": "sha256:94de6363d81936864c15f9039e3a52134b692ffa1cb06ff91f7629ea72ee252e"
+    },
+    {
+      "id": "codex-mainstream-role",
+      "title": "Codex Mainstream Coordinator Role",
+      "type": "role",
+      "status": "active",
+      "tags": [
+        "role",
+        "codex",
+        "daalgo",
+        "coordinator"
+      ],
+      "source": "config/agent-role-management.json",
+      "appliesTo": [
+        "codex",
+        "daalgo"
+      ],
+      "path": "knowledge/20-roles/codex-mainstream-role.md",
+      "links": [
+        "human-gates",
+        "assign-session-agent-work",
+        "agent-routing",
+        "source-of-truth"
+      ],
+      "hash": "sha256:faba1904fd4c28b8892b76ef459d03d8e635c7eda26409d62a432f259c74f763"
+    },
+    {
+      "id": "review-agent-roles",
+      "title": "Review Agent Roles",
+      "type": "role",
+      "status": "active",
+      "tags": [
+        "role",
+        "review",
+        "claude",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux-cli"
+      ],
+      "source": "config/agent-role-management.json",
+      "appliesTo": [
+        "claude_review_01",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux_cli"
+      ],
+      "path": "knowledge/20-roles/review-agent-roles.md",
+      "links": [
+        "assign-session-agent-work",
+        "agent-routing",
+        "codex-mainstream-role"
+      ],
+      "hash": "sha256:22decbf973cf64a837669d788c92164a566cfbd6eedb8842a279a661e4a43f7c"
+    },
+    {
+      "id": "agent-routing",
+      "title": "Agent Routing Protocol",
+      "type": "protocol",
+      "status": "active",
+      "tags": [
+        "routing",
+        "registry",
+        "direct-message",
+        "github",
+        "agent-request"
+      ],
+      "source": "docs/CHANNELS.md",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/30-protocols/agent-routing.md",
+      "links": [
+        "issue-project-queue",
+        "assign-session-agent-work",
+        "source-of-truth"
+      ],
+      "hash": "sha256:76a74e3ea7a56c0b14c947f8f01592b9ad4c54d1407cad004a9e8cb097b69779"
+    },
+    {
+      "id": "issue-project-queue",
+      "title": "GitHub Issue and Project Queue",
+      "type": "protocol",
+      "status": "active",
+      "tags": [
+        "github",
+        "issue",
+        "project",
+        "queue",
+        "kanban"
+      ],
+      "source": "docs/AUTONOMOUS_ISSUE_WORK_LOOP.md",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/30-protocols/issue-project-queue.md",
+      "links": [
+        "human-gates",
+        "assign-session-agent-work",
+        "agent-routing"
+      ],
+      "hash": "sha256:10ec663b0087a1c17017632ad48c178d92027d603292c46e19619c4e663df90c"
+    },
+    {
+      "id": "assign-session-agent-work",
+      "title": "Assign Session Agent Work",
+      "type": "runbook",
+      "status": "active",
+      "tags": [
+        "runbook",
+        "assignment",
+        "session-agent",
+        "queue"
+      ],
+      "source": "docs/EXTERNAL_SESSION_WATCHER_CONTRACT.md",
+      "appliesTo": [
+        "codex",
+        "daalgo_external_codex_01",
+        "claude_review_01",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux_cli"
+      ],
+      "path": "knowledge/40-runbooks/assign-session-agent-work.md",
+      "links": [
+        "human-gates",
+        "review-agent-roles",
+        "codex-mainstream-role",
+        "issue-project-queue",
+        "agent-routing",
+        "knowledge-lookup-before-work"
+      ],
+      "hash": "sha256:35393996516f25435451992dab46927d67c8c301c9ac49f2eea75a6fe4c90f84"
+    },
+    {
+      "id": "knowledge-lookup-before-work",
+      "title": "Knowledge Lookup Before Work",
+      "type": "runbook",
+      "status": "active",
+      "tags": [
+        "runbook",
+        "search",
+        "knowledge",
+        "obsidian"
+      ],
+      "source": "docs/KNOWLEDGE_MANAGEMENT.md",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/40-runbooks/knowledge-lookup-before-work.md",
+      "links": [
+        "agent-lookup-index",
+        "llm-wiki-adoption-gates",
+        "agent-knowledge-map",
+        "source-of-truth",
+        "human-gates"
+      ],
+      "hash": "sha256:d76f0286bbd09040fb5d7dd352ada25d5b7cea0d317dc9f3e8c7b0759a918874"
+    },
+    {
+      "id": "weekly-knowledge-synthesis",
+      "title": "Weekly Knowledge Synthesis",
+      "type": "runbook",
+      "status": "active",
+      "tags": [
+        "synthesis",
+        "weekly-review",
+        "knowledge-gap",
+        "compound-loop"
+      ],
+      "source": "docs/KNOWLEDGE_MANAGEMENT.md",
+      "appliesTo": [
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "path": "knowledge/40-runbooks/weekly-knowledge-synthesis.md",
+      "links": [
+        "llm-wiki-adoption-gates",
+        "zero-friction-capture",
+        "agent-lookup-index"
+      ],
+      "hash": "sha256:d3166d972945b724ea59310f26305ee1324fe0302479c2e84b6c47203b5b0ba9"
+    },
+    {
+      "id": "zero-friction-capture",
+      "title": "Zero-Friction Capture",
+      "type": "runbook",
+      "status": "active",
+      "tags": [
+        "capture",
+        "inbox",
+        "pkm",
+        "llm-wiki",
+        "low-friction"
+      ],
+      "source": "docs/KNOWLEDGE_MANAGEMENT.md",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/40-runbooks/zero-friction-capture.md",
+      "links": [
+        "human-gates",
+        "source-of-truth",
+        "llm-wiki-adoption-gates",
+        "knowledge-lookup-before-work",
+        "weekly-knowledge-synthesis"
+      ],
+      "hash": "sha256:7135713ac4c652ac306c39eac7bb2f4d947179e1560492dce53f85e6bb9f722c"
+    },
+    {
+      "id": "decision-queue",
+      "title": "Decision Queue",
+      "type": "decision",
+      "status": "active",
+      "tags": [
+        "decision",
+        "needs-human",
+        "queue",
+        "approval"
+      ],
+      "source": "runtime/decision-queue.json",
+      "appliesTo": [
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "path": "knowledge/50-decisions/decision-queue.md",
+      "links": [
+        "human-gates",
+        "issue-project-queue",
+        "codex-mainstream-role"
+      ],
+      "hash": "sha256:59f912a8e157a20ecfd5e608fee40bcc3b5619396bc4040a4e55a3f84b6b0b5a"
+    },
+    {
+      "id": "agent-lookup-index",
+      "title": "Agent Lookup Index",
+      "type": "index",
+      "status": "active",
+      "tags": [
+        "index",
+        "search",
+        "lookup",
+        "agent-map"
+      ],
+      "source": "config/knowledge-vault.json",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/90-indexes/agent-lookup-index.md",
+      "links": [
+        "source-of-truth",
+        "human-gates",
+        "codex-mainstream-role",
+        "collaboration-first",
+        "review-agent-roles",
+        "assign-session-agent-work",
+        "issue-project-queue",
+        "decision-queue",
+        "agent-routing",
+        "knowledge-lookup-before-work",
+        "agent-knowledge-map",
+        "llm-wiki-adoption-gates",
+        "zero-friction-capture",
+        "weekly-knowledge-synthesis"
+      ],
+      "hash": "sha256:7a3bca5fc1faee94e2d156453c33af7360e2b751b8fb3fd2154f4b754f357a28"
+    },
+    {
+      "id": "knowledge-vault-readme",
+      "title": "Agent Knowledge Vault README",
+      "type": "map",
+      "status": "active",
+      "tags": [
+        "knowledge",
+        "obsidian",
+        "agent-map"
+      ],
+      "source": "docs/KNOWLEDGE_MANAGEMENT.md",
+      "appliesTo": [
+        "all-agents"
+      ],
+      "path": "knowledge/README.md",
+      "links": [
+        "agent-knowledge-map",
+        "derived-graph-index",
+        "agent-lookup-index",
+        "knowledge-lookup-before-work",
+        "source-of-truth"
+      ],
+      "hash": "sha256:2f148e9de15f9081a18e1fd45e16a1ff742a6b0a9bc5b72d26cbc0b542d20dec"
+    }
+  ],
+  "links": [
+    {
+      "from": "agent-knowledge-map",
+      "to": "source-of-truth",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "human-gates",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "collaboration-first",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "llm-wiki-adoption-gates",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "codex-mainstream-role",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "review-agent-roles",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "issue-project-queue",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "agent-routing",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "knowledge-lookup-before-work",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "assign-session-agent-work",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "zero-friction-capture",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "weekly-knowledge-synthesis",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "decision-queue",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "agent-lookup-index",
+      "resolved": true
+    },
+    {
+      "from": "agent-knowledge-map",
+      "to": "derived-graph-index",
+      "resolved": true
+    },
+    {
+      "from": "derived-graph-index",
+      "to": "source-of-truth",
+      "resolved": true
+    },
+    {
+      "from": "derived-graph-index",
+      "to": "agent-knowledge-map",
+      "resolved": true
+    },
+    {
+      "from": "derived-graph-index",
+      "to": "agent-lookup-index",
+      "resolved": true
+    },
+    {
+      "from": "derived-graph-index",
+      "to": "knowledge-lookup-before-work",
+      "resolved": true
+    },
+    {
+      "from": "derived-graph-index",
+      "to": "llm-wiki-adoption-gates",
+      "resolved": true
+    },
+    {
+      "from": "derived-graph-index",
+      "to": "zero-friction-capture",
+      "resolved": true
+    },
+    {
+      "from": "derived-graph-index",
+      "to": "weekly-knowledge-synthesis",
+      "resolved": true
+    },
+    {
+      "from": "collaboration-first",
+      "to": "assign-session-agent-work",
+      "resolved": true
+    },
+    {
+      "from": "collaboration-first",
+      "to": "agent-routing",
+      "resolved": true
+    },
+    {
+      "from": "collaboration-first",
+      "to": "review-agent-roles",
+      "resolved": true
+    },
+    {
+      "from": "collaboration-first",
+      "to": "source-of-truth",
+      "resolved": true
+    },
+    {
+      "from": "human-gates",
+      "to": "decision-queue",
+      "resolved": true
+    },
+    {
+      "from": "human-gates",
+      "to": "issue-project-queue",
+      "resolved": true
+    },
+    {
+      "from": "human-gates",
+      "to": "source-of-truth",
+      "resolved": true
+    },
+    {
+      "from": "llm-wiki-adoption-gates",
+      "to": "zero-friction-capture",
+      "resolved": true
+    },
+    {
+      "from": "llm-wiki-adoption-gates",
+      "to": "weekly-knowledge-synthesis",
+      "resolved": true
+    },
+    {
+      "from": "llm-wiki-adoption-gates",
+      "to": "knowledge-lookup-before-work",
+      "resolved": true
+    },
+    {
+      "from": "source-of-truth",
+      "to": "agent-knowledge-map",
+      "resolved": true
+    },
+    {
+      "from": "source-of-truth",
+      "to": "issue-project-queue",
+      "resolved": true
+    },
+    {
+      "from": "source-of-truth",
+      "to": "agent-routing",
+      "resolved": true
+    },
+    {
+      "from": "codex-mainstream-role",
+      "to": "human-gates",
+      "resolved": true
+    },
+    {
+      "from": "codex-mainstream-role",
+      "to": "assign-session-agent-work",
+      "resolved": true
+    },
+    {
+      "from": "codex-mainstream-role",
+      "to": "agent-routing",
+      "resolved": true
+    },
+    {
+      "from": "codex-mainstream-role",
+      "to": "source-of-truth",
+      "resolved": true
+    },
+    {
+      "from": "review-agent-roles",
+      "to": "assign-session-agent-work",
+      "resolved": true
+    },
+    {
+      "from": "review-agent-roles",
+      "to": "agent-routing",
+      "resolved": true
+    },
+    {
+      "from": "review-agent-roles",
+      "to": "codex-mainstream-role",
+      "resolved": true
+    },
+    {
+      "from": "agent-routing",
+      "to": "issue-project-queue",
+      "resolved": true
+    },
+    {
+      "from": "agent-routing",
+      "to": "assign-session-agent-work",
+      "resolved": true
+    },
+    {
+      "from": "agent-routing",
+      "to": "source-of-truth",
+      "resolved": true
+    },
+    {
+      "from": "issue-project-queue",
+      "to": "human-gates",
+      "resolved": true
+    },
+    {
+      "from": "issue-project-queue",
+      "to": "assign-session-agent-work",
+      "resolved": true
+    },
+    {
+      "from": "issue-project-queue",
+      "to": "agent-routing",
+      "resolved": true
+    },
+    {
+      "from": "assign-session-agent-work",
+      "to": "human-gates",
+      "resolved": true
+    },
+    {
+      "from": "assign-session-agent-work",
+      "to": "review-agent-roles",
+      "resolved": true
+    },
+    {
+      "from": "assign-session-agent-work",
+      "to": "codex-mainstream-role",
+      "resolved": true
+    },
+    {
+      "from": "assign-session-agent-work",
+      "to": "issue-project-queue",
+      "resolved": true
+    },
+    {
+      "from": "assign-session-agent-work",
+      "to": "agent-routing",
+      "resolved": true
+    },
+    {
+      "from": "assign-session-agent-work",
+      "to": "knowledge-lookup-before-work",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-lookup-before-work",
+      "to": "agent-lookup-index",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-lookup-before-work",
+      "to": "llm-wiki-adoption-gates",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-lookup-before-work",
+      "to": "agent-knowledge-map",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-lookup-before-work",
+      "to": "source-of-truth",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-lookup-before-work",
+      "to": "human-gates",
+      "resolved": true
+    },
+    {
+      "from": "weekly-knowledge-synthesis",
+      "to": "llm-wiki-adoption-gates",
+      "resolved": true
+    },
+    {
+      "from": "weekly-knowledge-synthesis",
+      "to": "zero-friction-capture",
+      "resolved": true
+    },
+    {
+      "from": "weekly-knowledge-synthesis",
+      "to": "agent-lookup-index",
+      "resolved": true
+    },
+    {
+      "from": "zero-friction-capture",
+      "to": "human-gates",
+      "resolved": true
+    },
+    {
+      "from": "zero-friction-capture",
+      "to": "source-of-truth",
+      "resolved": true
+    },
+    {
+      "from": "zero-friction-capture",
+      "to": "llm-wiki-adoption-gates",
+      "resolved": true
+    },
+    {
+      "from": "zero-friction-capture",
+      "to": "knowledge-lookup-before-work",
+      "resolved": true
+    },
+    {
+      "from": "zero-friction-capture",
+      "to": "weekly-knowledge-synthesis",
+      "resolved": true
+    },
+    {
+      "from": "decision-queue",
+      "to": "human-gates",
+      "resolved": true
+    },
+    {
+      "from": "decision-queue",
+      "to": "issue-project-queue",
+      "resolved": true
+    },
+    {
+      "from": "decision-queue",
+      "to": "codex-mainstream-role",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "source-of-truth",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "human-gates",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "codex-mainstream-role",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "collaboration-first",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "review-agent-roles",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "assign-session-agent-work",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "issue-project-queue",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "decision-queue",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "agent-routing",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "knowledge-lookup-before-work",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "agent-knowledge-map",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "llm-wiki-adoption-gates",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "zero-friction-capture",
+      "resolved": true
+    },
+    {
+      "from": "agent-lookup-index",
+      "to": "weekly-knowledge-synthesis",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-vault-readme",
+      "to": "agent-knowledge-map",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-vault-readme",
+      "to": "derived-graph-index",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-vault-readme",
+      "to": "agent-lookup-index",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-vault-readme",
+      "to": "knowledge-lookup-before-work",
+      "resolved": true
+    },
+    {
+      "from": "knowledge-vault-readme",
+      "to": "source-of-truth",
+      "resolved": true
+    }
+  ],
+  "unresolvedLinks": [],
+  "graphify": {
+    "status": "built",
+    "role": "derived knowledge graph/index layer",
+    "outputs": [
+      {
+        "path": "graphify-out/GRAPH_REPORT.md",
+        "exists": true,
+        "publicUrl": "./graphify-out/GRAPH_REPORT.md"
+      },
+      {
+        "path": "graphify-out/graph.json",
+        "exists": true,
+        "publicUrl": "./graphify-out/graph.json"
+      },
+      {
+        "path": "graphify-out/graph.html",
+        "exists": true,
+        "publicUrl": "./graphify-out/graph.html"
+      }
+    ],
+    "sourceOfTruth": false
+  },
+  "safety": {
+    "containsSecretValues": false,
+    "publicSafeByDefault": true,
+    "sourceDocsWinOnConflict": true,
+    "rawPrivateDataIncluded": false
+  }
+}

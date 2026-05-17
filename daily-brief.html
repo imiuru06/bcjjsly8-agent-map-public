@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>메시지 일일 브리프</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --card: rgba(255,255,255,.92);
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --blue: #2563eb;
+      --shadow: 0 18px 45px rgba(15,23,42,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.14), transparent 34rem),
+        radial-gradient(circle at top right, rgba(14,165,233,.14), transparent 30rem),
+        var(--bg);
+      color: var(--ink);
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 18px 42px; }
+    .hero, .card {
+      background: var(--card);
+      border: 1px solid rgba(226,232,240,.9);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 28px; margin-bottom: 18px; }
+    h1 { margin: 0; font-size: clamp(28px, 5vw, 46px); letter-spacing: -0.045em; line-height: 1.05; }
+    h2 { margin: 0 0 12px; font-size: 18px; letter-spacing: -0.02em; }
+    p { color: var(--muted); line-height: 1.65; }
+    .grid { display: grid; gap: 14px; }
+    .grid.metrics { grid-template-columns: repeat(auto-fit, minmax(148px, 1fr)); margin-top: 18px; }
+    .grid.two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card { padding: 20px; overflow: hidden; }
+    .metric { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 16px; min-width: 0; }
+    .metric-value { font-size: 30px; font-weight: 800; letter-spacing: -0.04em; overflow-wrap: anywhere; }
+    .metric-label { color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .metric-hint { color: #94a3b8; font-size: 12px; margin-top: 6px; overflow-wrap: anywhere; }
+    .pill { display: inline-flex; align-items: center; max-width: 100%; gap: 6px; padding: 6px 10px; border: 1px solid; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: normal; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sentiment-bar { display: flex; height: 12px; border-radius: 999px; overflow: hidden; border: 1px solid var(--line); background: #fff; }
+    .list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .list li { border: 1px solid var(--line); border-radius: 16px; padding: 12px; background: #fff; min-width: 0; }
+    .list strong, code { overflow-wrap: anywhere; }
+    code { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 7px; padding: 2px 5px; }
+    .muted { color: var(--muted); }
+    .section { margin-top: 14px; }
+    footer { color: #94a3b8; font-size: 12px; margin-top: 20px; text-align: center; }
+    @media (max-width: 620px) {
+      main { padding: 16px 10px 28px; }
+      .hero, .card { border-radius: 18px; padding: 16px; }
+      .metric-value { font-size: 25px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="pills">
+      <a class="pill" href="./agent-map-v10.html" style="background:#fff;color:#1d4ed8;border-color:#bfdbfe">Agent Map으로 돌아가기</a>
+      <a class="pill" href="./agent-map-life.html" style="background:#fff;color:#1d4ed8;border-color:#bfdbfe">Life Graph 보기</a>
+      <span class="pill" style="background:#ecfdf5;color:#047857;border-color:#bbf7d0">processed Kakao insight</span>
+      <span class="pill" style="background:#ecfdf5;color:#047857;border-color:#bbf7d0">freshness: current</span>
+      <span class="pill" style="background:#ecfdf5;color:#047857;border-color:#bbf7d0">health: healthy</span>
+      <span class="pill" style="background:#ecfdf5;color:#047857;border-color:#bbf7d0">acceptance: passed</span>
+      <span class="pill" style="background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe">raw message / URL 미노출</span>
+    </div>
+    <h1 style="margin-top:16px">메시지 일일 브리프</h1>
+    <p>
+      기존 <code>daily_brief_visualizer</code>에 신규 카카오 처리 결과와 life-agent triage 산출물을 통합한 화면입니다.
+      원문 메시지, 원본 URL, 방 ID/라벨, 요약 원문은 표시하지 않고 집계·상태·안전한 다음 action만 보여줍니다.
+    </p>
+    <div class="grid metrics">
+      <div class="metric"><div class="metric-value">10</div><div class="metric-label">처리 records</div></div>
+      <div class="metric"><div class="metric-value">14</div><div class="metric-label">처리 messages</div></div>
+      <div class="metric"><div class="metric-value">4</div><div class="metric-label">공유 링크 수</div><div class="metric-hint">raw URL은 숨김</div></div>
+      <div class="metric"><div class="metric-value">1</div><div class="metric-label">bounded actions</div><div class="metric-hint">로컬/검증용 action</div></div>
+      <div class="metric"><div class="metric-value">2026-05-03T00:05:19.052546Z</div><div class="metric-label">generatedAt</div><div class="metric-hint">source 기준</div></div>
+    </div>
+  </section>
+
+  <section class="grid two">
+    <div class="card">
+      <h2>감성 분포</h2>
+      <div class="sentiment-bar"><div title="positive 4" style="flex:0.4;background:#22c55e"></div><div title="neutral 6" style="flex:0.6;background:#94a3b8"></div><div title="negative 0" style="flex:0;background:#ef4444"></div><div title="urgent 0" style="flex:0;background:#8b5cf6"></div></div>
+      <div class="pills section">
+        <span class="pill" style="background:#ecfdf5;color:#047857;border-color:#bbf7d0">긍정 4</span>
+        <span class="pill" style="background:#f8fafc;color:#475569;border-color:#e2e8f0">중립 6</span>
+        <span class="pill" style="background:#fef2f2;color:#b91c1c;border-color:#fecaca">부정 0</span>
+        <span class="pill" style="background:#f5f3ff;color:#6d28d9;border-color:#ddd6fe">긴급 0</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>입력/검증 상태</h2>
+      <ul class="list">
+        <li><strong>freshness</strong>: current <span class="muted">(19m)</span></li>
+        <li><strong>health</strong>: healthy <span class="muted">issues 0 · warnings 0</span></li>
+        <li><strong>acceptance</strong>: passed <span class="muted">score 7</span></li>
+        <li><strong>verification</strong>: ok <span class="muted">failures 0</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="grid two section">
+    <div class="card">
+      <h2>도메인/볼륨</h2>
+      <ul class="list"><li><strong>kakao</strong>: 44 records <div class="sentiment-bar"><div title="positive 3" style="flex:0.06818181818181818;background:#22c55e"></div><div title="neutral 36" style="flex:0.8181818181818182;background:#94a3b8"></div><div title="negative 5" style="flex:0.11363636363636363;background:#ef4444"></div><div title="urgent 0" style="flex:0;background:#8b5cf6"></div></div></li></ul>
+    </div>
+
+    <div class="card">
+      <h2>안전한 다음 action</h2>
+      <ul class="list">
+        <li>
+          <div class="pills"><span class="pill" style="background:#fffbeb;color:#b45309;border-color:#fde68a">P2</span> <span class="pill" style="background:#f8fafc;color:#475569;border-color:#e2e8f0">local_learning_backlog_item</span></div>
+          <p><strong>review_shared_links_batch_without_raw_urls</strong></p>
+          <p>Create a local review backlog entry that asks a future approved/private run to classify shared links before public exposure.</p>
+          <p class="muted">gate: Required before exposing raw URLs or publishing summaries.</p>
+        </li></ul>
+    </div>
+  </section>
+
+  <section class="grid two section">
+    <div class="card">
+      <h2>최근 life-agent run</h2>
+      <ul class="list">
+        <li>
+          <strong>life-loop-information-learning-001</strong><br>
+          <span class="muted">information · completed · replacementReady=false</span>
+        </li>
+        <li>
+          <strong>life-loop-information-learning-repeat-001</strong><br>
+          <span class="muted">information · completed · replacementReady=false</span>
+        </li>
+        <li>
+          <strong>life-loop-information-learning-gate-001</strong><br>
+          <span class="muted">information · deferred_to_human · replacementReady=false</span>
+        </li>
+        <li>
+          <strong>life-loop-kakao-information-analysis-001</strong><br>
+          <span class="muted">information · completed · replacementReady=false</span>
+        </li>
+        <li>
+          <strong>life-loop-kakao-information-bounded-action-001</strong><br>
+          <span class="muted">information · completed · replacementReady=false</span>
+        </li>
+        <li>
+          <strong>life-loop-kakao-information-monitoring-001</strong><br>
+          <span class="muted">information · completed · replacementReady=false</span>
+        </li></ul>
+    </div>
+
+    <div class="card">
+      <h2>확인 방법</h2>
+      <ul class="list">
+        <li><code>npm run brief:once</code> — 이 HTML을 한 번 생성</li>
+        <li><code>npm run brief:check</code> — 입력/출력/안전 경계 검증</li>
+        <li><code>open public/daily-brief.html</code> — 로컬 브라우저에서 확인</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Agent Map · daily_brief_visualizer · output public/daily-brief.html · rendered 2026-05-03T00:59:19.098Z
+  </footer>
+</main>
+  <script src="./assets/stitch-service-shell.js" defer></script>
+</body>
+</html>

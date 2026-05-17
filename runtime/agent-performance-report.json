@@ -1,0 +1,1224 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:24.026Z",
+  "command": "agent:performance",
+  "agentId": "agent_performance_scorecard_cli",
+  "status": "ok",
+  "issueSource": "github",
+  "summary": {
+    "totalAgents": 31,
+    "activeAgents": 5,
+    "attentionAgents": 8,
+    "idleAgents": 18,
+    "assignedAgents": 0,
+    "openIssues": 16,
+    "closedIssuesSampled": 107,
+    "staleOpenIssues": 18,
+    "p1OpenIssues": 11,
+    "needsHumanOpenIssues": 3,
+    "needsAgentOpenIssues": 14
+  },
+  "thresholds": {
+    "staleOpenHours": 168,
+    "recentClosedDays": 7,
+    "maxAttentionAgents": 8
+  },
+  "attentionAgents": [
+    {
+      "id": "claude_review_01",
+      "score": 46,
+      "openIssues": 2,
+      "staleOpenIssues": 0,
+      "p1OpenIssues": 1,
+      "sessionStatus": "confirmed",
+      "sampleOpenIssues": [
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 98,
+          "title": "Review Obsidian-style agent knowledge vault and session assignment protocol",
+          "priority": "P2",
+          "updatedAt": "2026-05-16T09:07:06Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/98"
+        }
+      ]
+    },
+    {
+      "id": "collaboration_auditor_cli",
+      "score": 34,
+      "openIssues": 3,
+      "staleOpenIssues": 0,
+      "p1OpenIssues": 2,
+      "sessionStatus": "available-cli",
+      "sampleOpenIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:05:01Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 27,
+          "title": "Add Infrastructure Visibility Map for resources, routers, hubs, search, credentials, and connection health",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T09:00:49Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/27"
+        }
+      ]
+    },
+    {
+      "id": "daalgo",
+      "score": 0,
+      "openIssues": 13,
+      "staleOpenIssues": 8,
+      "p1OpenIssues": 3,
+      "sessionStatus": "active",
+      "sampleOpenIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:05:01Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 194,
+          "title": "Remove deprecated legacy VoC dashboard after notice period",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T06:05:47Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/194"
+        },
+        {
+          "number": 152,
+          "title": "Incident: GitHub Actions blocked by billing/spending limit",
+          "priority": "P1",
+          "updatedAt": "2026-05-08T06:04:56Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/152"
+        },
+        {
+          "number": 148,
+          "title": "Configure remote Registry URL for live Agent Map registry route",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T15:07:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/148"
+        }
+      ]
+    },
+    {
+      "id": "daalgo_external_codex_01",
+      "score": 0,
+      "openIssues": 13,
+      "staleOpenIssues": 8,
+      "p1OpenIssues": 3,
+      "sessionStatus": "confirmed",
+      "sampleOpenIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:05:01Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 194,
+          "title": "Remove deprecated legacy VoC dashboard after notice period",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T06:05:47Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/194"
+        },
+        {
+          "number": 152,
+          "title": "Incident: GitHub Actions blocked by billing/spending limit",
+          "priority": "P1",
+          "updatedAt": "2026-05-08T06:04:56Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/152"
+        },
+        {
+          "number": 148,
+          "title": "Configure remote Registry URL for live Agent Map registry route",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T15:07:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/148"
+        }
+      ]
+    },
+    {
+      "id": "life_information_loop",
+      "score": 43,
+      "openIssues": 1,
+      "staleOpenIssues": 0,
+      "p1OpenIssues": 1,
+      "sessionStatus": null,
+      "sampleOpenIssues": [
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        }
+      ]
+    },
+    {
+      "id": "proposal_responder",
+      "score": 38,
+      "openIssues": 1,
+      "staleOpenIssues": 1,
+      "p1OpenIssues": 0,
+      "sessionStatus": null,
+      "sampleOpenIssues": [
+        {
+          "number": 6,
+          "title": "Future: Sync proposal.response to GitHub comments and Project status",
+          "priority": "P3",
+          "updatedAt": "2026-05-06T04:20:58Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/6"
+        }
+      ]
+    },
+    {
+      "id": "telegram_issue_intake",
+      "score": 38,
+      "openIssues": 1,
+      "staleOpenIssues": 1,
+      "p1OpenIssues": 0,
+      "sessionStatus": null,
+      "sampleOpenIssues": [
+        {
+          "number": 3,
+          "title": "Verify Telegram to GitHub Issue intake",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T06:00:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/3"
+        }
+      ]
+    },
+    {
+      "id": "uiux_cli",
+      "score": 58,
+      "openIssues": 1,
+      "staleOpenIssues": 0,
+      "p1OpenIssues": 1,
+      "sessionStatus": "available-cli",
+      "sampleOpenIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:05:01Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "agent_performance_scorecard_cli",
+      "displayName": "agent_performance_scorecard_cli",
+      "type": "control-plane-cli",
+      "role": "tracks per-agent workload, stale work, recent evidence, and accountability status",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run agent:performance:check",
+      "verification": "npm run agent:performance:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "claude_review_01",
+      "displayName": "Claude Review Session 01",
+      "type": "external-session-reviewer",
+      "role": "claude",
+      "status": "attention",
+      "score": 46,
+      "metrics": {
+        "openIssues": 2,
+        "needsAgentOpenIssues": 2,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 1,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 1,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": null,
+      "verification": null,
+      "sessionStatus": "confirmed",
+      "lastSeenAt": "2026-05-01T16:59:28Z",
+      "sampleOpenIssues": [
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 98,
+          "title": "Review Obsidian-style agent knowledge vault and session assignment protocol",
+          "priority": "P2",
+          "updatedAt": "2026-05-16T09:07:06Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/98"
+        }
+      ],
+      "recentClosedIssues": [
+        {
+          "number": 127,
+          "title": "Reframe Life Agents from decision queue support to autonomous replacement loops",
+          "closedAt": "2026-05-11T00:53:46Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/127"
+        }
+      ]
+    },
+    {
+      "id": "collaboration_auditor_cli",
+      "displayName": "Collaboration Auditor CLI",
+      "type": "reviewer-cli",
+      "role": "checks whether multi-agent collaboration is effective and not just busy",
+      "status": "attention",
+      "score": 34,
+      "metrics": {
+        "openIssues": 3,
+        "needsAgentOpenIssues": 3,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 2,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 1,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run collab:audit",
+      "verification": "npm run collab:audit",
+      "sessionStatus": "available-cli",
+      "lastSeenAt": "2026-05-08T05:58:00.000Z",
+      "sampleOpenIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:05:01Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 27,
+          "title": "Add Infrastructure Visibility Map for resources, routers, hubs, search, credentials, and connection health",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T09:00:49Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/27"
+        }
+      ],
+      "recentClosedIssues": [
+        {
+          "number": 127,
+          "title": "Reframe Life Agents from decision queue support to autonomous replacement loops",
+          "closedAt": "2026-05-11T00:53:46Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/127"
+        }
+      ]
+    },
+    {
+      "id": "content_asset_generator",
+      "displayName": "content_asset_generator",
+      "type": "pipeline-agent",
+      "role": "generates local voiceover/thumbnail support assets for content pipeline",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run verify:content-assets",
+      "verification": "npm run verify:content-assets",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "content_pipeline_dry_run",
+      "displayName": "content_pipeline_dry_run",
+      "type": "pipeline-agent",
+      "role": "runs a no-upload trend-to-video pipeline reference pass",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run verify:content-dry-run",
+      "verification": "npm run verify:content-dry-run",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "content_publisher",
+      "displayName": "content_publisher",
+      "type": "pipeline-agent",
+      "role": "publishes approved video only after explicit gate conditions",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run verify:content-publish-gate",
+      "verification": "npm run verify:content-publish-gate",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "content_replacement_dry_run_loop",
+      "displayName": "content_replacement_dry_run_loop",
+      "type": "life-loop-agent",
+      "role": "turns a public-safe trend seed into a no-upload content package with validation, legal, and publish-gate evidence",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run life:loop:content-dry-run:check",
+      "verification": "npm run life:loop:content-dry-run:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "content_video_renderer",
+      "displayName": "content_video_renderer",
+      "type": "pipeline-agent",
+      "role": "renders a local MP4 candidate for the content pipeline",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run verify:content-assets",
+      "verification": "npm run verify:content-assets",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "daalgo",
+      "displayName": "다알고",
+      "type": "coordinator",
+      "role": "codex",
+      "status": "attention",
+      "score": 0,
+      "metrics": {
+        "openIssues": 13,
+        "needsAgentOpenIssues": 12,
+        "needsHumanOpenIssues": 3,
+        "p1OpenIssues": 3,
+        "staleOpenIssues": 8,
+        "closedRecentIssues": 29,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": null,
+      "verification": null,
+      "sessionStatus": "active",
+      "lastSeenAt": "2026-05-02T02:24:08+09:00",
+      "sampleOpenIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:05:01Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 194,
+          "title": "Remove deprecated legacy VoC dashboard after notice period",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T06:05:47Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/194"
+        },
+        {
+          "number": 152,
+          "title": "Incident: GitHub Actions blocked by billing/spending limit",
+          "priority": "P1",
+          "updatedAt": "2026-05-08T06:04:56Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/152"
+        },
+        {
+          "number": 148,
+          "title": "Configure remote Registry URL for live Agent Map registry route",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T15:07:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/148"
+        }
+      ],
+      "recentClosedIssues": [
+        {
+          "number": 221,
+          "title": "Apply actual Stitch design handoff beyond shell rollout",
+          "closedAt": "2026-05-14T23:30:16Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/221"
+        },
+        {
+          "number": 220,
+          "title": "Update service access list after Stitch shell rollout",
+          "closedAt": "2026-05-14T21:55:35Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/220"
+        },
+        {
+          "number": 219,
+          "title": "Apply Stitch Life Agent OS shell to legacy service pages",
+          "closedAt": "2026-05-14T21:50:42Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/219"
+        },
+        {
+          "number": 218,
+          "title": "Complete bounded meta-cognition migration through Phase 4",
+          "closedAt": "2026-05-14T21:40:35Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/218"
+        },
+        {
+          "number": 217,
+          "title": "Wire Ralph Loop control into bounded meta-cognition policy",
+          "closedAt": "2026-05-14T21:29:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/217"
+        }
+      ]
+    },
+    {
+      "id": "daalgo_external_codex_01",
+      "displayName": "DaAlgo External Codex Watcher 01",
+      "type": "external-session-watcher",
+      "role": "codex",
+      "status": "attention",
+      "score": 0,
+      "metrics": {
+        "openIssues": 13,
+        "needsAgentOpenIssues": 12,
+        "needsHumanOpenIssues": 3,
+        "p1OpenIssues": 3,
+        "staleOpenIssues": 8,
+        "closedRecentIssues": 29,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": null,
+      "verification": null,
+      "sessionStatus": "confirmed",
+      "lastSeenAt": "2026-05-01T17:14:23Z",
+      "sampleOpenIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:05:01Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 194,
+          "title": "Remove deprecated legacy VoC dashboard after notice period",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T06:05:47Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/194"
+        },
+        {
+          "number": 152,
+          "title": "Incident: GitHub Actions blocked by billing/spending limit",
+          "priority": "P1",
+          "updatedAt": "2026-05-08T06:04:56Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/152"
+        },
+        {
+          "number": 148,
+          "title": "Configure remote Registry URL for live Agent Map registry route",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T15:07:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/148"
+        }
+      ],
+      "recentClosedIssues": [
+        {
+          "number": 221,
+          "title": "Apply actual Stitch design handoff beyond shell rollout",
+          "closedAt": "2026-05-14T23:30:16Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/221"
+        },
+        {
+          "number": 220,
+          "title": "Update service access list after Stitch shell rollout",
+          "closedAt": "2026-05-14T21:55:35Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/220"
+        },
+        {
+          "number": 219,
+          "title": "Apply Stitch Life Agent OS shell to legacy service pages",
+          "closedAt": "2026-05-14T21:50:42Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/219"
+        },
+        {
+          "number": 218,
+          "title": "Complete bounded meta-cognition migration through Phase 4",
+          "closedAt": "2026-05-14T21:40:35Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/218"
+        },
+        {
+          "number": 217,
+          "title": "Wire Ralph Loop control into bounded meta-cognition policy",
+          "closedAt": "2026-05-14T21:29:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/217"
+        }
+      ]
+    },
+    {
+      "id": "daily_brief_visualizer",
+      "displayName": "daily_brief_visualizer",
+      "type": "runtime-agent",
+      "role": "builds daily brief view from unified insight, Kakao public snapshot, and life-loop evidence",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run brief:check",
+      "verification": "npm run brief:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "external_information_triage_loop",
+      "displayName": "external_information_triage_loop",
+      "type": "life-loop-agent",
+      "role": "triages external public technology/economy signals into daily issue brief actions and verification",
+      "status": "active",
+      "score": 65,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 3
+      },
+      "healthCheck": "npm run life:loop:external-triage:check",
+      "verification": "npm run life:loop:external-triage:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "gemini",
+      "displayName": "Gemini UX Business Critique Pool",
+      "type": "role-pool",
+      "role": "gemini",
+      "status": "active",
+      "score": 70,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 1,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": null,
+      "verification": null,
+      "sessionStatus": "optional-reviewer",
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": [
+        {
+          "number": 127,
+          "title": "Reframe Life Agents from decision queue support to autonomous replacement loops",
+          "closedAt": "2026-05-11T00:53:46Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/127"
+        }
+      ]
+    },
+    {
+      "id": "idea_technical_definition_cli",
+      "displayName": "idea_technical_definition_cli",
+      "type": "control-plane-cli",
+      "role": "turns collected public-safe signals, improvement suggestions, and knowledge artifacts into ticket-ready technical definition drafts",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run idea:define:check",
+      "verification": "npm run idea:define:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "improvement_governor_cli",
+      "displayName": "improvement_governor_cli",
+      "type": "reviewer-cli",
+      "role": "gates weak improvement claims and proposes evidence-backed next improvements",
+      "status": "active",
+      "score": 80,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 1,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run improvement:review",
+      "verification": "npm run improvement:review",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": [
+        {
+          "number": 180,
+          "title": "Extend Improvement Governor to proactively propose service improvements",
+          "closedAt": "2026-05-11T22:17:22Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/180"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure_visibility_cli",
+      "displayName": "infrastructure_visibility_cli",
+      "type": "control-plane-cli",
+      "role": "checks infrastructure topology, inventory, provider status, and public-safe API contracts",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run infra:check",
+      "verification": "npm run infra:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "insight_analyzer",
+      "displayName": "insight_analyzer",
+      "type": "runtime-agent",
+      "role": "merges multiple raw domains into unified public-safe insight aggregates",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run brief:check",
+      "verification": "npm run brief:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "issue_workloop",
+      "displayName": "issue_workloop",
+      "type": "control-plane-cli",
+      "role": "performs bounded GitHub Issue delta triage, routing, and decision digest work",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run issue:delta -- --no-write",
+      "verification": "npm run issue:delta -- --no-write",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "kakao_information_triage_loop",
+      "displayName": "kakao_information_triage_loop",
+      "type": "life-loop-agent",
+      "role": "triages public-safe Kakao insight signals into bounded local actions and verification",
+      "status": "active",
+      "score": 65,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 3
+      },
+      "healthCheck": "npm run life:loop:kakao-triage:check",
+      "verification": "npm run life:loop:kakao-triage:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "knowledge_graphify",
+      "displayName": "knowledge_graphify",
+      "type": "control-plane-cli",
+      "role": "builds derived knowledge graph/index from source docs and runtime artifacts",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run knowledge:graphify:check",
+      "verification": "npm run knowledge:graphify:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "life_information_loop",
+      "displayName": "life_information_loop",
+      "type": "life-loop-agent",
+      "role": "turns information/learning life-process scope into collect-analyze-act-verify evidence",
+      "status": "attention",
+      "score": 43,
+      "metrics": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 1,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 3
+      },
+      "healthCheck": "npm run life:loop:check",
+      "verification": "npm run life:loop:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:10:59Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        }
+      ],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "opencode",
+      "displayName": "OpenCode Architecture Performance Review Pool",
+      "type": "role-pool",
+      "role": "opencode",
+      "status": "active",
+      "score": 68,
+      "metrics": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 1,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": null,
+      "verification": null,
+      "sessionStatus": "optional-reviewer",
+      "lastSeenAt": null,
+      "sampleOpenIssues": [
+        {
+          "number": 27,
+          "title": "Add Infrastructure Visibility Map for resources, routers, hubs, search, credentials, and connection health",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T09:00:49Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/27"
+        }
+      ],
+      "recentClosedIssues": [
+        {
+          "number": 127,
+          "title": "Reframe Life Agents from decision queue support to autonomous replacement loops",
+          "closedAt": "2026-05-11T00:53:46Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/127"
+        }
+      ]
+    },
+    {
+      "id": "ops_environment_auditor_cli",
+      "displayName": "ops_environment_auditor_cli",
+      "type": "reviewer-cli",
+      "role": "reviews and audits the operating environment itself: runtime agents, CLI agents, session agents, schedules, queues, stale claims, and infrastructure readiness",
+      "status": "idle",
+      "score": 65,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run ops:audit:check",
+      "verification": "npm run ops:audit:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "proposal_responder",
+      "displayName": "proposal_responder",
+      "type": "runtime-agent",
+      "role": "converts Telegram /decide replies into registry proposal.response events",
+      "status": "attention",
+      "score": 38,
+      "metrics": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 1,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [
+        {
+          "number": 6,
+          "title": "Future: Sync proposal.response to GitHub comments and Project status",
+          "priority": "P3",
+          "updatedAt": "2026-05-06T04:20:58Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/6"
+        }
+      ],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "stitch",
+      "displayName": "Stitch UI Prototype Support Pool",
+      "type": "role-pool",
+      "role": "stitch",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": null,
+      "verification": null,
+      "sessionStatus": "optional-reviewer",
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "telegram_issue_intake",
+      "displayName": "telegram_issue_intake",
+      "type": "runtime-agent",
+      "role": "turns Telegram /mission, /issue, and /todo commands into GitHub issues or registry events",
+      "status": "attention",
+      "score": 38,
+      "metrics": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 1,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [
+        {
+          "number": 3,
+          "title": "Verify Telegram to GitHub Issue intake",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T06:00:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/3"
+        }
+      ],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "telegram_notifier",
+      "displayName": "telegram_notifier",
+      "type": "runtime-agent",
+      "role": "fans out selected registry SSE events to Telegram",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "uiux_cli",
+      "displayName": "UI/UX CLI Review Pool",
+      "type": "reviewer-cli",
+      "role": "reviews user-visible UI/UX, responsive behavior, copy clarity, and accessibility evidence",
+      "status": "attention",
+      "score": 58,
+      "metrics": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 1,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 1,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run build:static",
+      "verification": "npm run uiux:audit",
+      "sessionStatus": "available-cli",
+      "lastSeenAt": "2026-05-14T08:15:57.000Z",
+      "sampleOpenIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-17T00:05:01Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        }
+      ],
+      "recentClosedIssues": [
+        {
+          "number": 127,
+          "title": "Reframe Life Agents from decision queue support to autonomous replacement loops",
+          "closedAt": "2026-05-11T00:53:46Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/127"
+        }
+      ]
+    },
+    {
+      "id": "voc_analyzer",
+      "displayName": "voc_analyzer",
+      "type": "runtime-agent",
+      "role": "summarizes raw VoC rows into public-safe aggregate insights",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run smoke",
+      "verification": "npm run smoke",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "voc_collector",
+      "displayName": "voc_collector",
+      "type": "runtime-agent",
+      "role": "collects VoC-like raw events into data/raw.jsonl",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run smoke",
+      "verification": "npm run smoke",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    },
+    {
+      "id": "voc_visualizer",
+      "displayName": "voc_visualizer",
+      "type": "runtime-agent",
+      "role": "renders VoC aggregate insights to a dashboard artifact",
+      "status": "idle",
+      "score": 55,
+      "metrics": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "needsHumanOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "closedRecentIssues": 0,
+        "lifeEvidenceRuns": 0
+      },
+      "healthCheck": "npm run smoke",
+      "verification": "npm run smoke",
+      "sessionStatus": null,
+      "lastSeenAt": null,
+      "sampleOpenIssues": [],
+      "recentClosedIssues": []
+    }
+  ],
+  "warnings": [],
+  "failures": [],
+  "safety": {
+    "writes": true,
+    "externalMutations": false,
+    "comments": false,
+    "labels": false,
+    "close": false,
+    "merge": false,
+    "deploy": false,
+    "publish": false,
+    "upload": false,
+    "secrets": false,
+    "rawPrivateDataIncluded": false
+  }
+}

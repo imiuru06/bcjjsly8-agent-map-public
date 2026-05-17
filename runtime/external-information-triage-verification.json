@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-05-13T00:00:00.000Z",
+  "agentId": "external_information_triage_loop",
+  "status": "ok",
+  "checks": [
+    {
+      "name": "external_snapshot_exists",
+      "status": "ok"
+    },
+    {
+      "name": "external_snapshot_current",
+      "status": "ok",
+      "freshness": {
+        "status": "current",
+        "newestItemPublishedAt": "2026-05-16T00:00:00.000Z",
+        "newestItemAgeHours": 24
+      }
+    },
+    {
+      "name": "public_feeds_only",
+      "status": "ok"
+    },
+    {
+      "name": "full_article_bodies_excluded",
+      "status": "ok"
+    },
+    {
+      "name": "comments_excluded",
+      "status": "ok"
+    },
+    {
+      "name": "priority_signals_selected",
+      "status": "ok",
+      "count": 7
+    },
+    {
+      "name": "bounded_local_actions_generated",
+      "status": "ok",
+      "count": 3
+    },
+    {
+      "name": "external_side_effects_not_executed",
+      "status": "ok"
+    },
+    {
+      "name": "replacement_ready_scoped_not_domain",
+      "status": "ok"
+    }
+  ],
+  "source": {
+    "snapshot": "runtime/external-info-input-snapshot.json",
+    "snapshotHash": "sha256:b2c018aa7a66e5375a9cb424991c096323c592695eb5ef3838ad4f14cf98adcf",
+    "collectedAt": "2026-05-17T00:19:21.700Z"
+  },
+  "safety": {
+    "publicFeedsOnly": true,
+    "fullArticleBodiesRead": false,
+    "commentsRead": false,
+    "privateDataIncluded": false,
+    "secretValuesIncluded": false,
+    "externalMessages": false,
+    "publishUpload": false,
+    "deploy": false,
+    "payments": false,
+    "destructiveActions": false
+  }
+}

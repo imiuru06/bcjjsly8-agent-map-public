@@ -1,0 +1,1914 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:26.167Z",
+  "agentId": "improvement_knowledge_sync_cli",
+  "sourceHash": "sha256:6c0d4bf14e7099e51d969674e44cf9615f92650c2a3dc6f5d1fef73260d1163e",
+  "status": "ok",
+  "ontology": {
+    "configPath": "config/improvement-knowledge-ontology.json",
+    "layers": [
+      "input",
+      "analysis",
+      "decision",
+      "action",
+      "verification",
+      "learning",
+      "surface",
+      "governance"
+    ],
+    "domains": [
+      "agent_ops",
+      "information",
+      "learning",
+      "infrastructure_ops",
+      "content",
+      "ux",
+      "workflow"
+    ],
+    "relationTypes": [
+      "feeds",
+      "depends_on",
+      "surfaces",
+      "verifies",
+      "blocks",
+      "improves",
+      "routes_to",
+      "replaces_manual_work"
+    ]
+  },
+  "summary": {
+    "conceptCount": 8,
+    "suggestionCount": 4,
+    "serviceSurfaceCount": 14,
+    "nodeCount": 97,
+    "edgeCount": 160,
+    "missingArtifactCount": 0,
+    "warnings": 0,
+    "failures": 0
+  },
+  "nodes": [
+    {
+      "id": "artifact:AGENTS.md",
+      "type": "artifact",
+      "label": "AGENTS.md",
+      "exists": true
+    },
+    {
+      "id": "artifact:config/agent-manifest.json",
+      "type": "artifact",
+      "label": "config/agent-manifest.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:config/agent-role-management.json",
+      "type": "artifact",
+      "label": "config/agent-role-management.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:config/life-agentization-scorecard.json",
+      "type": "artifact",
+      "label": "config/life-agentization-scorecard.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:config/service-integration.json",
+      "type": "artifact",
+      "label": "config/service-integration.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:config/session-agents.json",
+      "type": "artifact",
+      "label": "config/session-agents.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:docs/AGENT_MAP_UX_PHILOSOPHY.md",
+      "type": "artifact",
+      "label": "docs/AGENT_MAP_UX_PHILOSOPHY.md",
+      "exists": true
+    },
+    {
+      "id": "artifact:docs/RALF_LOOP.md",
+      "type": "artifact",
+      "label": "docs/RALF_LOOP.md",
+      "exists": true
+    },
+    {
+      "id": "artifact:docs/RALPH_ROLE_DRIVE.md",
+      "type": "artifact",
+      "label": "docs/RALPH_ROLE_DRIVE.md",
+      "exists": true
+    },
+    {
+      "id": "artifact:frontend/agent-map-control/src/main.jsx",
+      "type": "artifact",
+      "label": "frontend/agent-map-control/src/main.jsx",
+      "exists": true
+    },
+    {
+      "id": "artifact:graphify-out/graph.json",
+      "type": "artifact",
+      "label": "graphify-out/graph.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/agent-manifest-summary.json",
+      "type": "artifact",
+      "label": "runtime/agent-manifest-summary.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/agent-performance-report.json",
+      "type": "artifact",
+      "label": "runtime/agent-performance-report.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/agent-system-interface-assessment.json",
+      "type": "artifact",
+      "label": "runtime/agent-system-interface-assessment.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/capture-to-note-promotions.json",
+      "type": "artifact",
+      "label": "runtime/capture-to-note-promotions.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/content-replacement-scope-verification.json",
+      "type": "artifact",
+      "label": "runtime/content-replacement-scope-verification.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/decision-digest.json",
+      "type": "artifact",
+      "label": "runtime/decision-digest.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/decision-queue.json",
+      "type": "artifact",
+      "label": "runtime/decision-queue.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/external-info-input-brief.md",
+      "type": "artifact",
+      "label": "runtime/external-info-input-brief.md",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/external-info-input-snapshot.json",
+      "type": "artifact",
+      "label": "runtime/external-info-input-snapshot.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/external-information-triage-report.md",
+      "type": "artifact",
+      "label": "runtime/external-information-triage-report.md",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/github-info-input-snapshot.json",
+      "type": "artifact",
+      "label": "runtime/github-info-input-snapshot.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/improvement-execution-plan.json",
+      "type": "artifact",
+      "label": "runtime/improvement-execution-plan.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/improvement-governor-scorecard.json",
+      "type": "artifact",
+      "label": "runtime/improvement-governor-scorecard.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/improvement-suggestions.json",
+      "type": "artifact",
+      "label": "runtime/improvement-suggestions.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/infrastructure-map.json",
+      "type": "artifact",
+      "label": "runtime/infrastructure-map.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/kakao-information-triage-report.md",
+      "type": "artifact",
+      "label": "runtime/kakao-information-triage-report.md",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/kakao-information-triage-verification.json",
+      "type": "artifact",
+      "label": "runtime/kakao-information-triage-verification.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/kakao-insight-input-snapshot.json",
+      "type": "artifact",
+      "label": "runtime/kakao-insight-input-snapshot.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/knowledge-retrieval-index.json",
+      "type": "artifact",
+      "label": "runtime/knowledge-retrieval-index.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/knowledge-vault-summary.json",
+      "type": "artifact",
+      "label": "runtime/knowledge-vault-summary.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/life-agent-runs.jsonl",
+      "type": "artifact",
+      "label": "runtime/life-agent-runs.jsonl",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/life-process-graph.json",
+      "type": "artifact",
+      "label": "runtime/life-process-graph.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/llm-wiki-readiness.json",
+      "type": "artifact",
+      "label": "runtime/llm-wiki-readiness.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/llm-wiki-search-roi.json",
+      "type": "artifact",
+      "label": "runtime/llm-wiki-search-roi.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/ops-environment-audit.json",
+      "type": "artifact",
+      "label": "runtime/ops-environment-audit.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/ralph-role-drive-report.json",
+      "type": "artifact",
+      "label": "runtime/ralph-role-drive-report.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/retrieval-service-health.json",
+      "type": "artifact",
+      "label": "runtime/retrieval-service-health.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/service-usage-guide.json",
+      "type": "artifact",
+      "label": "runtime/service-usage-guide.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/session-agent-health.json",
+      "type": "artifact",
+      "label": "runtime/session-agent-health.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:runtime/weekly-knowledge-synthesis.json",
+      "type": "artifact",
+      "label": "runtime/weekly-knowledge-synthesis.json",
+      "exists": true
+    },
+    {
+      "id": "artifact:scripts/check-improvement-governor-performance.mjs",
+      "type": "artifact",
+      "label": "scripts/check-improvement-governor-performance.mjs",
+      "exists": true
+    },
+    {
+      "id": "artifact:scripts/collect-infrastructure-inventory.mjs",
+      "type": "artifact",
+      "label": "scripts/collect-infrastructure-inventory.mjs",
+      "exists": true
+    },
+    {
+      "id": "artifact:scripts/collect-live-provider-inventory.mjs",
+      "type": "artifact",
+      "label": "scripts/collect-live-provider-inventory.mjs",
+      "exists": true
+    },
+    {
+      "id": "concept:agent_system_interface",
+      "type": "concept",
+      "label": "Agent system interface",
+      "domain": "agent_ops",
+      "layer": "governance",
+      "ownerAgent": "agent_system_interface_assessor_cli",
+      "description": "Evaluates dynamic agent management, available role lanes, optional reviewers, and user-facing control points.",
+      "aliases": [
+        "agent interface",
+        "session agents",
+        "role lanes"
+      ]
+    },
+    {
+      "id": "concept:decision_governance",
+      "type": "concept",
+      "label": "Human decision governance",
+      "domain": "workflow",
+      "layer": "decision",
+      "ownerAgent": "codex",
+      "description": "Compresses real human decisions into explicit batches and prevents fake needs-human gates.",
+      "aliases": [
+        "needs human",
+        "human gate",
+        "decision"
+      ]
+    },
+    {
+      "id": "concept:external_signal_briefing",
+      "type": "concept",
+      "label": "External signal briefing",
+      "domain": "information",
+      "layer": "input",
+      "ownerAgent": "external_information_triage_loop",
+      "description": "Collects public technology/economy signals and turns them into daily issue-brief candidates.",
+      "aliases": [
+        "external trends",
+        "daily issue brief",
+        "public signals"
+      ]
+    },
+    {
+      "id": "concept:improvement_governor_accountability",
+      "type": "concept",
+      "label": "Improvement governor accountability",
+      "domain": "workflow",
+      "layer": "governance",
+      "ownerAgent": "improvement_governor_performance_cli",
+      "description": "Tracks whether improvement governor suggestions become owned execution lanes, verified artifacts, and user-visible service improvements.",
+      "aliases": [
+        "improvement governor",
+        "governor scorecard",
+        "suggestion execution",
+        "improvement performance"
+      ]
+    },
+    {
+      "id": "concept:infrastructure_visibility",
+      "type": "concept",
+      "label": "Infrastructure visibility",
+      "domain": "infrastructure_ops",
+      "layer": "verification",
+      "ownerAgent": "infrastructure_visibility_cli",
+      "description": "Maps cloud resources, provider readiness, topology, and public-safe live status.",
+      "aliases": [
+        "infra map",
+        "topology",
+        "provider status"
+      ]
+    },
+    {
+      "id": "concept:knowledge_os",
+      "type": "concept",
+      "label": "Knowledge OS / LLM-Wiki",
+      "domain": "learning",
+      "layer": "learning",
+      "ownerAgent": "knowledge_graphify",
+      "description": "Turns docs, runtime artifacts, and graph outputs into reusable knowledge and retrieval evidence.",
+      "aliases": [
+        "wiki",
+        "graphify",
+        "knowledge"
+      ]
+    },
+    {
+      "id": "concept:life_agentization",
+      "type": "concept",
+      "label": "Life process agentization",
+      "domain": "agent_ops",
+      "layer": "action",
+      "ownerAgent": "codex",
+      "description": "Turns life-process scopes into repeatable collect-analyze-act-verify agent loops.",
+      "aliases": [
+        "replacement",
+        "agentization",
+        "life graph"
+      ]
+    },
+    {
+      "id": "concept:service_ux_integration",
+      "type": "concept",
+      "label": "Service UX integration",
+      "domain": "ux",
+      "layer": "surface",
+      "ownerAgent": "uiux_cli",
+      "description": "Keeps user-facing guidance, navigation, theming, and service surfaces integrated instead of fragmented.",
+      "aliases": [
+        "ui",
+        "ux",
+        "service usage guide",
+        "wayfinding"
+      ]
+    },
+    {
+      "id": "dimension:dynamic_management",
+      "type": "agent_interface_dimension",
+      "label": "Dynamic agent management",
+      "score": 82
+    },
+    {
+      "id": "dimension:human_in_the_loop",
+      "type": "agent_interface_dimension",
+      "label": "Human gate compression",
+      "score": 60
+    },
+    {
+      "id": "dimension:observability",
+      "type": "agent_interface_dimension",
+      "label": "Observability and runtime evidence",
+      "score": 68
+    },
+    {
+      "id": "dimension:ralph_loop",
+      "type": "agent_interface_dimension",
+      "label": "Ralph loop drive",
+      "score": 74
+    },
+    {
+      "id": "dimension:stability",
+      "type": "agent_interface_dimension",
+      "label": "Stability and anti-sprawl",
+      "score": 58
+    },
+    {
+      "id": "dimension:user_interface",
+      "type": "agent_interface_dimension",
+      "label": "User-facing interface clarity",
+      "score": 66
+    },
+    {
+      "id": "service:agent_map_v10",
+      "type": "service_surface",
+      "label": "agent_map_v10",
+      "route": "/agent-map-v10.html",
+      "status": "active",
+      "kind": "control_hub"
+    },
+    {
+      "id": "service:agent_map_v9",
+      "type": "service_surface",
+      "label": "agent_map_v9",
+      "route": "/agent-map-v9.html",
+      "status": "deprecated",
+      "kind": "legacy_surface"
+    },
+    {
+      "id": "service:daily_brief",
+      "type": "service_surface",
+      "label": "daily_brief",
+      "route": "/daily-brief.html",
+      "status": "active",
+      "kind": "feature_surface"
+    },
+    {
+      "id": "service:external_trends",
+      "type": "service_surface",
+      "label": "external_trends",
+      "route": "/external-trends.html",
+      "status": "active",
+      "kind": "feature_surface"
+    },
+    {
+      "id": "service:improvement_governor_scorecard",
+      "type": "service_surface",
+      "label": "improvement_governor_scorecard",
+      "route": "/improvement-governor-scorecard.html",
+      "status": "active",
+      "kind": "feature_surface"
+    },
+    {
+      "id": "service:infrastructure_map",
+      "type": "service_surface",
+      "label": "infrastructure_map",
+      "route": "/infrastructure-map.html",
+      "status": "active",
+      "kind": "feature_surface"
+    },
+    {
+      "id": "service:kakao_public_analysis",
+      "type": "service_surface",
+      "label": "kakao_public_analysis",
+      "route": "/kakao-analysis.html",
+      "status": "active",
+      "kind": "feature_surface"
+    },
+    {
+      "id": "service:knowledge_map",
+      "type": "service_surface",
+      "label": "knowledge_map",
+      "route": "/knowledge-map.html",
+      "status": "active",
+      "kind": "feature_surface"
+    },
+    {
+      "id": "service:knowledge_retrieval",
+      "type": "service_surface",
+      "label": "knowledge_retrieval",
+      "route": "/knowledge-retrieval.html",
+      "status": "active",
+      "kind": "feature_surface"
+    },
+    {
+      "id": "service:legacy_voc_dashboard",
+      "type": "service_surface",
+      "label": "legacy_voc_dashboard",
+      "route": "/dashboard.html",
+      "status": "deprecated",
+      "kind": "legacy_surface"
+    },
+    {
+      "id": "service:life_graph_home",
+      "type": "service_surface",
+      "label": "life_graph_home",
+      "route": "/agent-map-life.html",
+      "status": "active",
+      "kind": "primary_home"
+    },
+    {
+      "id": "service:llm_wiki_readiness",
+      "type": "service_surface",
+      "label": "llm_wiki_readiness",
+      "route": "/llm-wiki-readiness.html",
+      "status": "active",
+      "kind": "feature_surface"
+    },
+    {
+      "id": "service:not_found",
+      "type": "service_surface",
+      "label": "not_found",
+      "route": "/404.html",
+      "status": "active",
+      "kind": "system_surface"
+    },
+    {
+      "id": "service:ops_environment_audit",
+      "type": "service_surface",
+      "label": "ops_environment_audit",
+      "route": "/ops-environment-audit.html",
+      "status": "active",
+      "kind": "feature_surface"
+    },
+    {
+      "id": "suggestion:increase-llm-wiki-roi-evidence",
+      "type": "improvement_suggestion",
+      "label": "LLM-Wiki 검색/재사용 ROI evidence 늘리기",
+      "priority": "P2",
+      "category": "knowledge",
+      "suggestedOwner": "codex",
+      "verification": "npm run llmwiki:assess && npm run knowledge:retrieval:check"
+    },
+    {
+      "id": "suggestion:raise-life-agentization-from-scoped-to-domain",
+      "type": "improvement_suggestion",
+      "label": "라이프 에이전트화를 scope 단위에서 domain 단위로 승격",
+      "priority": "P1",
+      "category": "agentization",
+      "suggestedOwner": "codex",
+      "verification": "npm run life:agentization && npm run life:check"
+    },
+    {
+      "id": "suggestion:reduce-decision-bottleneck",
+      "type": "improvement_suggestion",
+      "label": "Needs Human 결정 묶음을 더 줄이고 자동 위임 후보를 분리",
+      "priority": "P2",
+      "category": "workflow",
+      "suggestedOwner": "codex",
+      "verification": "npm run decision:digest:check && npm run decision:sync:check && npm run live:api:check"
+    },
+    {
+      "id": "suggestion:turn-external-signals-into-daily-issue-brief",
+      "type": "improvement_suggestion",
+      "label": "외부 기술/경제 신호를 KST 일일 이슈 브리프로 승격",
+      "priority": "P2",
+      "category": "briefing",
+      "suggestedOwner": "codex",
+      "verification": "npm run life:input:external && npm run deploy:briefing:check"
+    },
+    {
+      "id": "surface:./agent-map-life.html",
+      "type": "surface",
+      "label": "./agent-map-life.html",
+      "href": "./agent-map-life.html"
+    },
+    {
+      "id": "surface:./agent-map-v10.html",
+      "type": "surface",
+      "label": "./agent-map-v10.html",
+      "href": "./agent-map-v10.html"
+    },
+    {
+      "id": "surface:./agent-map-v10.html#agent-system-interface",
+      "type": "surface",
+      "label": "./agent-map-v10.html#agent-system-interface",
+      "href": "./agent-map-v10.html#agent-system-interface"
+    },
+    {
+      "id": "surface:./agent-map-v10.html#external-signals",
+      "type": "surface",
+      "label": "./agent-map-v10.html#external-signals",
+      "href": "./agent-map-v10.html#external-signals"
+    },
+    {
+      "id": "surface:./api/runtime/decision-digest",
+      "type": "surface",
+      "label": "./api/runtime/decision-digest",
+      "href": "./api/runtime/decision-digest"
+    },
+    {
+      "id": "surface:./api/runtime/external-info-input-snapshot",
+      "type": "surface",
+      "label": "./api/runtime/external-info-input-snapshot",
+      "href": "./api/runtime/external-info-input-snapshot"
+    },
+    {
+      "id": "surface:./api/runtime/improvement-suggestions",
+      "type": "surface",
+      "label": "./api/runtime/improvement-suggestions",
+      "href": "./api/runtime/improvement-suggestions"
+    },
+    {
+      "id": "surface:./api/runtime/infrastructure-live",
+      "type": "surface",
+      "label": "./api/runtime/infrastructure-live",
+      "href": "./api/runtime/infrastructure-live"
+    },
+    {
+      "id": "surface:./api/runtime/service-usage-guide",
+      "type": "surface",
+      "label": "./api/runtime/service-usage-guide",
+      "href": "./api/runtime/service-usage-guide"
+    },
+    {
+      "id": "surface:./daily-brief.html",
+      "type": "surface",
+      "label": "./daily-brief.html",
+      "href": "./daily-brief.html"
+    },
+    {
+      "id": "surface:./graphify-out/graph.html",
+      "type": "surface",
+      "label": "./graphify-out/graph.html",
+      "href": "./graphify-out/graph.html"
+    },
+    {
+      "id": "surface:./improvement-governor-scorecard.html",
+      "type": "surface",
+      "label": "./improvement-governor-scorecard.html",
+      "href": "./improvement-governor-scorecard.html"
+    },
+    {
+      "id": "surface:./infrastructure-map.html",
+      "type": "surface",
+      "label": "./infrastructure-map.html",
+      "href": "./infrastructure-map.html"
+    },
+    {
+      "id": "surface:./knowledge-map.html",
+      "type": "surface",
+      "label": "./knowledge-map.html",
+      "href": "./knowledge-map.html"
+    },
+    {
+      "id": "surface:./knowledge-retrieval.html",
+      "type": "surface",
+      "label": "./knowledge-retrieval.html",
+      "href": "./knowledge-retrieval.html"
+    },
+    {
+      "id": "surface:./llm-wiki-readiness.html",
+      "type": "surface",
+      "label": "./llm-wiki-readiness.html",
+      "href": "./llm-wiki-readiness.html"
+    },
+    {
+      "id": "surface:./ops-environment-audit.html",
+      "type": "surface",
+      "label": "./ops-environment-audit.html",
+      "href": "./ops-environment-audit.html"
+    },
+    {
+      "id": "surface:./runtime/decision-digest.json",
+      "type": "surface",
+      "label": "./runtime/decision-digest.json",
+      "href": "./runtime/decision-digest.json"
+    },
+    {
+      "id": "surface:./runtime/decision-queue.json",
+      "type": "surface",
+      "label": "./runtime/decision-queue.json",
+      "href": "./runtime/decision-queue.json"
+    },
+    {
+      "id": "surface:./runtime/external-info-input-brief.md",
+      "type": "surface",
+      "label": "./runtime/external-info-input-brief.md",
+      "href": "./runtime/external-info-input-brief.md"
+    },
+    {
+      "id": "surface:./runtime/life-process-graph.json",
+      "type": "surface",
+      "label": "./runtime/life-process-graph.json",
+      "href": "./runtime/life-process-graph.json"
+    }
+  ],
+  "edges": [
+    {
+      "id": "concept:agent_system_interface__improves__concept:service_ux_integration",
+      "from": "concept:agent_system_interface",
+      "to": "concept:service_ux_integration",
+      "type": "improves",
+      "reason": "Agent availability and bottleneck evidence should shape the control hub UX.",
+      "source": "ontology.canonicalEdges"
+    },
+    {
+      "id": "concept:agent_system_interface__surfaces__surface:./agent-map-v10.html#agent-system-interface",
+      "from": "concept:agent_system_interface",
+      "to": "surface:./agent-map-v10.html#agent-system-interface",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:agent_system_interface__surfaces__surface:./ops-environment-audit.html",
+      "from": "concept:agent_system_interface",
+      "to": "surface:./ops-environment-audit.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:agent_system_interface__verifies__artifact:config/agent-manifest.json",
+      "from": "concept:agent_system_interface",
+      "to": "artifact:config/agent-manifest.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:agent_system_interface__verifies__artifact:runtime/agent-performance-report.json",
+      "from": "concept:agent_system_interface",
+      "to": "artifact:runtime/agent-performance-report.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:agent_system_interface__verifies__artifact:runtime/agent-system-interface-assessment.json",
+      "from": "concept:agent_system_interface",
+      "to": "artifact:runtime/agent-system-interface-assessment.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:agent_system_interface__verifies__artifact:runtime/ops-environment-audit.json",
+      "from": "concept:agent_system_interface",
+      "to": "artifact:runtime/ops-environment-audit.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:decision_governance__routes_to__concept:life_agentization",
+      "from": "concept:decision_governance",
+      "to": "concept:life_agentization",
+      "type": "routes_to",
+      "reason": "Human-gated decisions should route to replacement loops, not stay as isolated tickets.",
+      "source": "ontology.canonicalEdges"
+    },
+    {
+      "id": "concept:decision_governance__surfaces__surface:./agent-map-v10.html",
+      "from": "concept:decision_governance",
+      "to": "surface:./agent-map-v10.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:decision_governance__surfaces__surface:./api/runtime/decision-digest",
+      "from": "concept:decision_governance",
+      "to": "surface:./api/runtime/decision-digest",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:decision_governance__verifies__artifact:runtime/decision-digest.json",
+      "from": "concept:decision_governance",
+      "to": "artifact:runtime/decision-digest.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:decision_governance__verifies__artifact:runtime/decision-queue.json",
+      "from": "concept:decision_governance",
+      "to": "artifact:runtime/decision-queue.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:decision_governance__verifies__artifact:runtime/github-info-input-snapshot.json",
+      "from": "concept:decision_governance",
+      "to": "artifact:runtime/github-info-input-snapshot.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:external_signal_briefing__feeds__concept:decision_governance",
+      "from": "concept:external_signal_briefing",
+      "to": "concept:decision_governance",
+      "type": "feeds",
+      "reason": "External signals may become daily issue brief decisions or issue-routing candidates.",
+      "source": "ontology.canonicalEdges"
+    },
+    {
+      "id": "concept:external_signal_briefing__surfaces__surface:./agent-map-v10.html#external-signals",
+      "from": "concept:external_signal_briefing",
+      "to": "surface:./agent-map-v10.html#external-signals",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:external_signal_briefing__surfaces__surface:./api/runtime/external-info-input-snapshot",
+      "from": "concept:external_signal_briefing",
+      "to": "surface:./api/runtime/external-info-input-snapshot",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:external_signal_briefing__surfaces__surface:./daily-brief.html",
+      "from": "concept:external_signal_briefing",
+      "to": "surface:./daily-brief.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:external_signal_briefing__verifies__artifact:runtime/external-info-input-brief.md",
+      "from": "concept:external_signal_briefing",
+      "to": "artifact:runtime/external-info-input-brief.md",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:external_signal_briefing__verifies__artifact:runtime/external-info-input-snapshot.json",
+      "from": "concept:external_signal_briefing",
+      "to": "artifact:runtime/external-info-input-snapshot.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:external_signal_briefing__verifies__artifact:runtime/external-information-triage-report.md",
+      "from": "concept:external_signal_briefing",
+      "to": "artifact:runtime/external-information-triage-report.md",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:improvement_governor_accountability__surfaces__concept:service_ux_integration",
+      "from": "concept:improvement_governor_accountability",
+      "to": "concept:service_ux_integration",
+      "type": "surfaces",
+      "reason": "Governor performance must be visible to the user as a service scorecard, not hidden in logs.",
+      "source": "ontology.canonicalEdges"
+    },
+    {
+      "id": "concept:improvement_governor_accountability__surfaces__surface:./agent-map-v10.html",
+      "from": "concept:improvement_governor_accountability",
+      "to": "surface:./agent-map-v10.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:improvement_governor_accountability__surfaces__surface:./api/runtime/improvement-suggestions",
+      "from": "concept:improvement_governor_accountability",
+      "to": "surface:./api/runtime/improvement-suggestions",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:improvement_governor_accountability__surfaces__surface:./improvement-governor-scorecard.html",
+      "from": "concept:improvement_governor_accountability",
+      "to": "surface:./improvement-governor-scorecard.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:improvement_governor_accountability__verifies__artifact:runtime/improvement-execution-plan.json",
+      "from": "concept:improvement_governor_accountability",
+      "to": "artifact:runtime/improvement-execution-plan.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:improvement_governor_accountability__verifies__artifact:runtime/improvement-governor-scorecard.json",
+      "from": "concept:improvement_governor_accountability",
+      "to": "artifact:runtime/improvement-governor-scorecard.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:improvement_governor_accountability__verifies__artifact:runtime/improvement-suggestions.json",
+      "from": "concept:improvement_governor_accountability",
+      "to": "artifact:runtime/improvement-suggestions.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:improvement_governor_accountability__verifies__artifact:scripts/check-improvement-governor-performance.mjs",
+      "from": "concept:improvement_governor_accountability",
+      "to": "artifact:scripts/check-improvement-governor-performance.mjs",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:improvement_governor_accountability__verifies__concept:decision_governance",
+      "from": "concept:improvement_governor_accountability",
+      "to": "concept:decision_governance",
+      "type": "verifies",
+      "reason": "Governor suggestions must reduce decision bottlenecks instead of adding unmanaged work.",
+      "source": "ontology.canonicalEdges"
+    },
+    {
+      "id": "concept:infrastructure_visibility__surfaces__surface:./api/runtime/infrastructure-live",
+      "from": "concept:infrastructure_visibility",
+      "to": "surface:./api/runtime/infrastructure-live",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:infrastructure_visibility__surfaces__surface:./infrastructure-map.html",
+      "from": "concept:infrastructure_visibility",
+      "to": "surface:./infrastructure-map.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:infrastructure_visibility__verifies__artifact:runtime/infrastructure-map.json",
+      "from": "concept:infrastructure_visibility",
+      "to": "artifact:runtime/infrastructure-map.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:infrastructure_visibility__verifies__artifact:scripts/collect-infrastructure-inventory.mjs",
+      "from": "concept:infrastructure_visibility",
+      "to": "artifact:scripts/collect-infrastructure-inventory.mjs",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:infrastructure_visibility__verifies__artifact:scripts/collect-live-provider-inventory.mjs",
+      "from": "concept:infrastructure_visibility",
+      "to": "artifact:scripts/collect-live-provider-inventory.mjs",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:infrastructure_visibility__verifies__concept:agent_system_interface",
+      "from": "concept:infrastructure_visibility",
+      "to": "concept:agent_system_interface",
+      "type": "verifies",
+      "reason": "Infrastructure readiness constrains which agent operations can be trusted.",
+      "source": "ontology.canonicalEdges"
+    },
+    {
+      "id": "concept:knowledge_os__surfaces__concept:service_ux_integration",
+      "from": "concept:knowledge_os",
+      "to": "concept:service_ux_integration",
+      "type": "surfaces",
+      "reason": "Knowledge must appear in the user-facing service and guide users to relevant evidence.",
+      "source": "ontology.canonicalEdges"
+    },
+    {
+      "id": "concept:knowledge_os__surfaces__surface:./graphify-out/graph.html",
+      "from": "concept:knowledge_os",
+      "to": "surface:./graphify-out/graph.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:knowledge_os__surfaces__surface:./knowledge-map.html",
+      "from": "concept:knowledge_os",
+      "to": "surface:./knowledge-map.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:knowledge_os__surfaces__surface:./knowledge-retrieval.html",
+      "from": "concept:knowledge_os",
+      "to": "surface:./knowledge-retrieval.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:knowledge_os__verifies__artifact:graphify-out/graph.json",
+      "from": "concept:knowledge_os",
+      "to": "artifact:graphify-out/graph.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:knowledge_os__verifies__artifact:runtime/knowledge-retrieval-index.json",
+      "from": "concept:knowledge_os",
+      "to": "artifact:runtime/knowledge-retrieval-index.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:knowledge_os__verifies__artifact:runtime/llm-wiki-readiness.json",
+      "from": "concept:knowledge_os",
+      "to": "artifact:runtime/llm-wiki-readiness.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:knowledge_os__verifies__artifact:runtime/llm-wiki-search-roi.json",
+      "from": "concept:knowledge_os",
+      "to": "artifact:runtime/llm-wiki-search-roi.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:life_agentization__feeds__concept:knowledge_os",
+      "from": "concept:life_agentization",
+      "to": "concept:knowledge_os",
+      "type": "feeds",
+      "reason": "Verified agent runs should become reusable operating knowledge.",
+      "source": "ontology.canonicalEdges"
+    },
+    {
+      "id": "concept:life_agentization__surfaces__surface:./agent-map-life.html",
+      "from": "concept:life_agentization",
+      "to": "surface:./agent-map-life.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:life_agentization__surfaces__surface:./agent-map-v10.html",
+      "from": "concept:life_agentization",
+      "to": "surface:./agent-map-v10.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:life_agentization__verifies__artifact:config/life-agentization-scorecard.json",
+      "from": "concept:life_agentization",
+      "to": "artifact:config/life-agentization-scorecard.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:life_agentization__verifies__artifact:runtime/life-agent-runs.jsonl",
+      "from": "concept:life_agentization",
+      "to": "artifact:runtime/life-agent-runs.jsonl",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:life_agentization__verifies__artifact:runtime/life-process-graph.json",
+      "from": "concept:life_agentization",
+      "to": "artifact:runtime/life-process-graph.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:service_ux_integration__surfaces__surface:./agent-map-v10.html",
+      "from": "concept:service_ux_integration",
+      "to": "surface:./agent-map-v10.html",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:service_ux_integration__surfaces__surface:./api/runtime/service-usage-guide",
+      "from": "concept:service_ux_integration",
+      "to": "surface:./api/runtime/service-usage-guide",
+      "type": "surfaces",
+      "source": "ontology.surfaces"
+    },
+    {
+      "id": "concept:service_ux_integration__verifies__artifact:config/service-integration.json",
+      "from": "concept:service_ux_integration",
+      "to": "artifact:config/service-integration.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:service_ux_integration__verifies__artifact:docs/AGENT_MAP_UX_PHILOSOPHY.md",
+      "from": "concept:service_ux_integration",
+      "to": "artifact:docs/AGENT_MAP_UX_PHILOSOPHY.md",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:service_ux_integration__verifies__artifact:frontend/agent-map-control/src/main.jsx",
+      "from": "concept:service_ux_integration",
+      "to": "artifact:frontend/agent-map-control/src/main.jsx",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "concept:service_ux_integration__verifies__artifact:runtime/service-usage-guide.json",
+      "from": "concept:service_ux_integration",
+      "to": "artifact:runtime/service-usage-guide.json",
+      "type": "verifies",
+      "source": "ontology.evidence"
+    },
+    {
+      "id": "dimension:dynamic_management__depends_on__artifact:config/agent-role-management.json",
+      "from": "dimension:dynamic_management",
+      "to": "artifact:config/agent-role-management.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:dynamic_management__depends_on__artifact:config/session-agents.json",
+      "from": "dimension:dynamic_management",
+      "to": "artifact:config/session-agents.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:dynamic_management__depends_on__artifact:runtime/ops-environment-audit.json",
+      "from": "dimension:dynamic_management",
+      "to": "artifact:runtime/ops-environment-audit.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:dynamic_management__verifies__concept:agent_system_interface",
+      "from": "dimension:dynamic_management",
+      "to": "concept:agent_system_interface",
+      "type": "verifies",
+      "source": "runtime/agent-system-interface-assessment.json"
+    },
+    {
+      "id": "dimension:human_in_the_loop__depends_on__artifact:AGENTS.md",
+      "from": "dimension:human_in_the_loop",
+      "to": "artifact:AGENTS.md",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:human_in_the_loop__depends_on__artifact:runtime/decision-digest.json",
+      "from": "dimension:human_in_the_loop",
+      "to": "artifact:runtime/decision-digest.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:human_in_the_loop__verifies__concept:agent_system_interface",
+      "from": "dimension:human_in_the_loop",
+      "to": "concept:agent_system_interface",
+      "type": "verifies",
+      "source": "runtime/agent-system-interface-assessment.json"
+    },
+    {
+      "id": "dimension:observability__depends_on__artifact:runtime/agent-manifest-summary.json",
+      "from": "dimension:observability",
+      "to": "artifact:runtime/agent-manifest-summary.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:observability__depends_on__artifact:runtime/agent-performance-report.json",
+      "from": "dimension:observability",
+      "to": "artifact:runtime/agent-performance-report.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:observability__depends_on__artifact:runtime/ops-environment-audit.json",
+      "from": "dimension:observability",
+      "to": "artifact:runtime/ops-environment-audit.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:observability__verifies__concept:agent_system_interface",
+      "from": "dimension:observability",
+      "to": "concept:agent_system_interface",
+      "type": "verifies",
+      "source": "runtime/agent-system-interface-assessment.json"
+    },
+    {
+      "id": "dimension:ralph_loop__depends_on__artifact:docs/RALF_LOOP.md",
+      "from": "dimension:ralph_loop",
+      "to": "artifact:docs/RALF_LOOP.md",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:ralph_loop__depends_on__artifact:docs/RALPH_ROLE_DRIVE.md",
+      "from": "dimension:ralph_loop",
+      "to": "artifact:docs/RALPH_ROLE_DRIVE.md",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:ralph_loop__depends_on__artifact:runtime/ralph-role-drive-report.json",
+      "from": "dimension:ralph_loop",
+      "to": "artifact:runtime/ralph-role-drive-report.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:ralph_loop__verifies__concept:agent_system_interface",
+      "from": "dimension:ralph_loop",
+      "to": "concept:agent_system_interface",
+      "type": "verifies",
+      "source": "runtime/agent-system-interface-assessment.json"
+    },
+    {
+      "id": "dimension:stability__depends_on__artifact:runtime/agent-performance-report.json",
+      "from": "dimension:stability",
+      "to": "artifact:runtime/agent-performance-report.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:stability__depends_on__artifact:runtime/ops-environment-audit.json",
+      "from": "dimension:stability",
+      "to": "artifact:runtime/ops-environment-audit.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:stability__verifies__concept:agent_system_interface",
+      "from": "dimension:stability",
+      "to": "concept:agent_system_interface",
+      "type": "verifies",
+      "source": "runtime/agent-system-interface-assessment.json"
+    },
+    {
+      "id": "dimension:user_interface__depends_on__artifact:frontend/agent-map-control/src/main.jsx",
+      "from": "dimension:user_interface",
+      "to": "artifact:frontend/agent-map-control/src/main.jsx",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:user_interface__depends_on__artifact:runtime/decision-digest.json",
+      "from": "dimension:user_interface",
+      "to": "artifact:runtime/decision-digest.json",
+      "type": "depends_on",
+      "source": "agentInterface.dimension.evidence"
+    },
+    {
+      "id": "dimension:user_interface__verifies__concept:agent_system_interface",
+      "from": "dimension:user_interface",
+      "to": "concept:agent_system_interface",
+      "type": "verifies",
+      "source": "runtime/agent-system-interface-assessment.json"
+    },
+    {
+      "id": "service:agent_map_v10__depends_on__artifact:runtime/agent-performance-report.json",
+      "from": "service:agent_map_v10",
+      "to": "artifact:runtime/agent-performance-report.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:agent_map_v10__depends_on__artifact:runtime/decision-digest.json",
+      "from": "service:agent_map_v10",
+      "to": "artifact:runtime/decision-digest.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:agent_map_v10__depends_on__artifact:runtime/improvement-suggestions.json",
+      "from": "service:agent_map_v10",
+      "to": "artifact:runtime/improvement-suggestions.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:agent_map_v10__surfaces__concept:external_signal_briefing",
+      "from": "service:agent_map_v10",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:agent_map_v10__surfaces__concept:life_agentization",
+      "from": "service:agent_map_v10",
+      "to": "concept:life_agentization",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "agent_ops"
+    },
+    {
+      "id": "service:agent_map_v9__depends_on__artifact:runtime/agent-performance-report.json",
+      "from": "service:agent_map_v9",
+      "to": "artifact:runtime/agent-performance-report.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:agent_map_v9__depends_on__artifact:runtime/decision-digest.json",
+      "from": "service:agent_map_v9",
+      "to": "artifact:runtime/decision-digest.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:agent_map_v9__depends_on__artifact:runtime/improvement-suggestions.json",
+      "from": "service:agent_map_v9",
+      "to": "artifact:runtime/improvement-suggestions.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:agent_map_v9__surfaces__concept:external_signal_briefing",
+      "from": "service:agent_map_v9",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:agent_map_v9__surfaces__concept:life_agentization",
+      "from": "service:agent_map_v9",
+      "to": "concept:life_agentization",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "agent_ops"
+    },
+    {
+      "id": "service:daily_brief__depends_on__artifact:runtime/external-info-input-snapshot.json",
+      "from": "service:daily_brief",
+      "to": "artifact:runtime/external-info-input-snapshot.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:daily_brief__depends_on__artifact:runtime/kakao-insight-input-snapshot.json",
+      "from": "service:daily_brief",
+      "to": "artifact:runtime/kakao-insight-input-snapshot.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:daily_brief__depends_on__artifact:runtime/life-agent-runs.jsonl",
+      "from": "service:daily_brief",
+      "to": "artifact:runtime/life-agent-runs.jsonl",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:daily_brief__surfaces__concept:external_signal_briefing",
+      "from": "service:daily_brief",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:daily_brief__surfaces__concept:knowledge_os",
+      "from": "service:daily_brief",
+      "to": "concept:knowledge_os",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "learning"
+    },
+    {
+      "id": "service:external_trends__depends_on__artifact:runtime/external-info-input-brief.md",
+      "from": "service:external_trends",
+      "to": "artifact:runtime/external-info-input-brief.md",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:external_trends__depends_on__artifact:runtime/external-info-input-snapshot.json",
+      "from": "service:external_trends",
+      "to": "artifact:runtime/external-info-input-snapshot.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:external_trends__depends_on__artifact:runtime/external-information-triage-report.md",
+      "from": "service:external_trends",
+      "to": "artifact:runtime/external-information-triage-report.md",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:external_trends__surfaces__concept:external_signal_briefing",
+      "from": "service:external_trends",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:external_trends__surfaces__concept:knowledge_os",
+      "from": "service:external_trends",
+      "to": "concept:knowledge_os",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "learning"
+    },
+    {
+      "id": "service:improvement_governor_scorecard__depends_on__artifact:runtime/improvement-execution-plan.json",
+      "from": "service:improvement_governor_scorecard",
+      "to": "artifact:runtime/improvement-execution-plan.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:improvement_governor_scorecard__depends_on__artifact:runtime/improvement-governor-scorecard.json",
+      "from": "service:improvement_governor_scorecard",
+      "to": "artifact:runtime/improvement-governor-scorecard.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:improvement_governor_scorecard__depends_on__artifact:runtime/improvement-suggestions.json",
+      "from": "service:improvement_governor_scorecard",
+      "to": "artifact:runtime/improvement-suggestions.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:improvement_governor_scorecard__surfaces__concept:decision_governance",
+      "from": "service:improvement_governor_scorecard",
+      "to": "concept:decision_governance",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "workflow"
+    },
+    {
+      "id": "service:improvement_governor_scorecard__surfaces__concept:external_signal_briefing",
+      "from": "service:improvement_governor_scorecard",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:improvement_governor_scorecard__surfaces__concept:knowledge_os",
+      "from": "service:improvement_governor_scorecard",
+      "to": "concept:knowledge_os",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "learning"
+    },
+    {
+      "id": "service:improvement_governor_scorecard__surfaces__concept:life_agentization",
+      "from": "service:improvement_governor_scorecard",
+      "to": "concept:life_agentization",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "agent_ops"
+    },
+    {
+      "id": "service:infrastructure_map__depends_on__artifact:runtime/infrastructure-map.json",
+      "from": "service:infrastructure_map",
+      "to": "artifact:runtime/infrastructure-map.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:infrastructure_map__depends_on__artifact:scripts/collect-infrastructure-inventory.mjs",
+      "from": "service:infrastructure_map",
+      "to": "artifact:scripts/collect-infrastructure-inventory.mjs",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:infrastructure_map__depends_on__artifact:scripts/collect-live-provider-inventory.mjs",
+      "from": "service:infrastructure_map",
+      "to": "artifact:scripts/collect-live-provider-inventory.mjs",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:infrastructure_map__surfaces__concept:infrastructure_visibility",
+      "from": "service:infrastructure_map",
+      "to": "concept:infrastructure_visibility",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "infrastructure_ops"
+    },
+    {
+      "id": "service:infrastructure_map__surfaces__concept:life_agentization",
+      "from": "service:infrastructure_map",
+      "to": "concept:life_agentization",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "agent_ops"
+    },
+    {
+      "id": "service:kakao_public_analysis__depends_on__artifact:runtime/kakao-information-triage-report.md",
+      "from": "service:kakao_public_analysis",
+      "to": "artifact:runtime/kakao-information-triage-report.md",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:kakao_public_analysis__depends_on__artifact:runtime/kakao-information-triage-verification.json",
+      "from": "service:kakao_public_analysis",
+      "to": "artifact:runtime/kakao-information-triage-verification.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:kakao_public_analysis__depends_on__artifact:runtime/kakao-insight-input-snapshot.json",
+      "from": "service:kakao_public_analysis",
+      "to": "artifact:runtime/kakao-insight-input-snapshot.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:kakao_public_analysis__surfaces__concept:external_signal_briefing",
+      "from": "service:kakao_public_analysis",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:kakao_public_analysis__surfaces__concept:knowledge_os",
+      "from": "service:kakao_public_analysis",
+      "to": "concept:knowledge_os",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "learning"
+    },
+    {
+      "id": "service:knowledge_map__depends_on__artifact:graphify-out/graph.json",
+      "from": "service:knowledge_map",
+      "to": "artifact:graphify-out/graph.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:knowledge_map__depends_on__artifact:runtime/knowledge-vault-summary.json",
+      "from": "service:knowledge_map",
+      "to": "artifact:runtime/knowledge-vault-summary.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:knowledge_map__depends_on__artifact:runtime/weekly-knowledge-synthesis.json",
+      "from": "service:knowledge_map",
+      "to": "artifact:runtime/weekly-knowledge-synthesis.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:knowledge_map__surfaces__concept:external_signal_briefing",
+      "from": "service:knowledge_map",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:knowledge_map__surfaces__concept:knowledge_os",
+      "from": "service:knowledge_map",
+      "to": "concept:knowledge_os",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "learning"
+    },
+    {
+      "id": "service:knowledge_retrieval__depends_on__artifact:runtime/knowledge-retrieval-index.json",
+      "from": "service:knowledge_retrieval",
+      "to": "artifact:runtime/knowledge-retrieval-index.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:knowledge_retrieval__depends_on__artifact:runtime/llm-wiki-search-roi.json",
+      "from": "service:knowledge_retrieval",
+      "to": "artifact:runtime/llm-wiki-search-roi.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:knowledge_retrieval__depends_on__artifact:runtime/retrieval-service-health.json",
+      "from": "service:knowledge_retrieval",
+      "to": "artifact:runtime/retrieval-service-health.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:knowledge_retrieval__surfaces__concept:external_signal_briefing",
+      "from": "service:knowledge_retrieval",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:knowledge_retrieval__surfaces__concept:knowledge_os",
+      "from": "service:knowledge_retrieval",
+      "to": "concept:knowledge_os",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "learning"
+    },
+    {
+      "id": "service:life_graph_home__depends_on__artifact:config/life-agentization-scorecard.json",
+      "from": "service:life_graph_home",
+      "to": "artifact:config/life-agentization-scorecard.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:life_graph_home__depends_on__artifact:runtime/content-replacement-scope-verification.json",
+      "from": "service:life_graph_home",
+      "to": "artifact:runtime/content-replacement-scope-verification.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:life_graph_home__depends_on__artifact:runtime/life-agent-runs.jsonl",
+      "from": "service:life_graph_home",
+      "to": "artifact:runtime/life-agent-runs.jsonl",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:life_graph_home__depends_on__artifact:runtime/life-process-graph.json",
+      "from": "service:life_graph_home",
+      "to": "artifact:runtime/life-process-graph.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:life_graph_home__surfaces__concept:external_signal_briefing",
+      "from": "service:life_graph_home",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:life_graph_home__surfaces__concept:knowledge_os",
+      "from": "service:life_graph_home",
+      "to": "concept:knowledge_os",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "learning"
+    },
+    {
+      "id": "service:llm_wiki_readiness__depends_on__artifact:runtime/capture-to-note-promotions.json",
+      "from": "service:llm_wiki_readiness",
+      "to": "artifact:runtime/capture-to-note-promotions.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:llm_wiki_readiness__depends_on__artifact:runtime/llm-wiki-readiness.json",
+      "from": "service:llm_wiki_readiness",
+      "to": "artifact:runtime/llm-wiki-readiness.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:llm_wiki_readiness__depends_on__artifact:runtime/llm-wiki-search-roi.json",
+      "from": "service:llm_wiki_readiness",
+      "to": "artifact:runtime/llm-wiki-search-roi.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:llm_wiki_readiness__surfaces__concept:external_signal_briefing",
+      "from": "service:llm_wiki_readiness",
+      "to": "concept:external_signal_briefing",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "information"
+    },
+    {
+      "id": "service:llm_wiki_readiness__surfaces__concept:knowledge_os",
+      "from": "service:llm_wiki_readiness",
+      "to": "concept:knowledge_os",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "learning"
+    },
+    {
+      "id": "service:ops_environment_audit__depends_on__artifact:runtime/agent-performance-report.json",
+      "from": "service:ops_environment_audit",
+      "to": "artifact:runtime/agent-performance-report.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:ops_environment_audit__depends_on__artifact:runtime/decision-queue.json",
+      "from": "service:ops_environment_audit",
+      "to": "artifact:runtime/decision-queue.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:ops_environment_audit__depends_on__artifact:runtime/ops-environment-audit.json",
+      "from": "service:ops_environment_audit",
+      "to": "artifact:runtime/ops-environment-audit.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:ops_environment_audit__depends_on__artifact:runtime/session-agent-health.json",
+      "from": "service:ops_environment_audit",
+      "to": "artifact:runtime/session-agent-health.json",
+      "type": "depends_on",
+      "source": "surface.replacementImpact.evidence"
+    },
+    {
+      "id": "service:ops_environment_audit__surfaces__concept:infrastructure_visibility",
+      "from": "service:ops_environment_audit",
+      "to": "concept:infrastructure_visibility",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "infrastructure_ops"
+    },
+    {
+      "id": "service:ops_environment_audit__surfaces__concept:life_agentization",
+      "from": "service:ops_environment_audit",
+      "to": "concept:life_agentization",
+      "type": "surfaces",
+      "source": "config/service-integration.json",
+      "linkedDomain": "agent_ops"
+    },
+    {
+      "id": "suggestion:increase-llm-wiki-roi-evidence__depends_on__artifact:runtime/llm-wiki-readiness.json",
+      "from": "suggestion:increase-llm-wiki-roi-evidence",
+      "to": "artifact:runtime/llm-wiki-readiness.json",
+      "type": "depends_on",
+      "source": "suggestion.evidence"
+    },
+    {
+      "id": "suggestion:increase-llm-wiki-roi-evidence__depends_on__artifact:runtime/llm-wiki-search-roi.json",
+      "from": "suggestion:increase-llm-wiki-roi-evidence",
+      "to": "artifact:runtime/llm-wiki-search-roi.json",
+      "type": "depends_on",
+      "source": "suggestion.evidence"
+    },
+    {
+      "id": "suggestion:increase-llm-wiki-roi-evidence__improves__concept:knowledge_os",
+      "from": "suggestion:increase-llm-wiki-roi-evidence",
+      "to": "concept:knowledge_os",
+      "type": "improves",
+      "source": "runtime/improvement-suggestions.json"
+    },
+    {
+      "id": "suggestion:increase-llm-wiki-roi-evidence__routes_to__surface:./knowledge-retrieval.html",
+      "from": "suggestion:increase-llm-wiki-roi-evidence",
+      "to": "surface:./knowledge-retrieval.html",
+      "type": "routes_to",
+      "source": "suggestion.sourceUrls"
+    },
+    {
+      "id": "suggestion:increase-llm-wiki-roi-evidence__routes_to__surface:./llm-wiki-readiness.html",
+      "from": "suggestion:increase-llm-wiki-roi-evidence",
+      "to": "surface:./llm-wiki-readiness.html",
+      "type": "routes_to",
+      "source": "suggestion.sourceUrls"
+    },
+    {
+      "id": "suggestion:raise-life-agentization-from-scoped-to-domain__depends_on__artifact:runtime/life-process-graph.json",
+      "from": "suggestion:raise-life-agentization-from-scoped-to-domain",
+      "to": "artifact:runtime/life-process-graph.json",
+      "type": "depends_on",
+      "source": "suggestion.evidence"
+    },
+    {
+      "id": "suggestion:raise-life-agentization-from-scoped-to-domain__improves__concept:life_agentization",
+      "from": "suggestion:raise-life-agentization-from-scoped-to-domain",
+      "to": "concept:life_agentization",
+      "type": "improves",
+      "source": "runtime/improvement-suggestions.json"
+    },
+    {
+      "id": "suggestion:raise-life-agentization-from-scoped-to-domain__routes_to__surface:./agent-map-life.html",
+      "from": "suggestion:raise-life-agentization-from-scoped-to-domain",
+      "to": "surface:./agent-map-life.html",
+      "type": "routes_to",
+      "source": "suggestion.sourceUrls"
+    },
+    {
+      "id": "suggestion:raise-life-agentization-from-scoped-to-domain__routes_to__surface:./runtime/life-process-graph.json",
+      "from": "suggestion:raise-life-agentization-from-scoped-to-domain",
+      "to": "surface:./runtime/life-process-graph.json",
+      "type": "routes_to",
+      "source": "suggestion.sourceUrls"
+    },
+    {
+      "id": "suggestion:reduce-decision-bottleneck__depends_on__artifact:runtime/decision-digest.json",
+      "from": "suggestion:reduce-decision-bottleneck",
+      "to": "artifact:runtime/decision-digest.json",
+      "type": "depends_on",
+      "source": "suggestion.evidence"
+    },
+    {
+      "id": "suggestion:reduce-decision-bottleneck__depends_on__artifact:runtime/decision-queue.json",
+      "from": "suggestion:reduce-decision-bottleneck",
+      "to": "artifact:runtime/decision-queue.json",
+      "type": "depends_on",
+      "source": "suggestion.evidence"
+    },
+    {
+      "id": "suggestion:reduce-decision-bottleneck__depends_on__artifact:runtime/github-info-input-snapshot.json",
+      "from": "suggestion:reduce-decision-bottleneck",
+      "to": "artifact:runtime/github-info-input-snapshot.json",
+      "type": "depends_on",
+      "source": "suggestion.evidence"
+    },
+    {
+      "id": "suggestion:reduce-decision-bottleneck__improves__concept:decision_governance",
+      "from": "suggestion:reduce-decision-bottleneck",
+      "to": "concept:decision_governance",
+      "type": "improves",
+      "source": "runtime/improvement-suggestions.json"
+    },
+    {
+      "id": "suggestion:reduce-decision-bottleneck__routes_to__surface:./api/runtime/decision-digest",
+      "from": "suggestion:reduce-decision-bottleneck",
+      "to": "surface:./api/runtime/decision-digest",
+      "type": "routes_to",
+      "source": "suggestion.sourceUrls"
+    },
+    {
+      "id": "suggestion:reduce-decision-bottleneck__routes_to__surface:./runtime/decision-digest.json",
+      "from": "suggestion:reduce-decision-bottleneck",
+      "to": "surface:./runtime/decision-digest.json",
+      "type": "routes_to",
+      "source": "suggestion.sourceUrls"
+    },
+    {
+      "id": "suggestion:reduce-decision-bottleneck__routes_to__surface:./runtime/decision-queue.json",
+      "from": "suggestion:reduce-decision-bottleneck",
+      "to": "surface:./runtime/decision-queue.json",
+      "type": "routes_to",
+      "source": "suggestion.sourceUrls"
+    },
+    {
+      "id": "suggestion:turn-external-signals-into-daily-issue-brief__depends_on__artifact:runtime/external-info-input-snapshot.json",
+      "from": "suggestion:turn-external-signals-into-daily-issue-brief",
+      "to": "artifact:runtime/external-info-input-snapshot.json",
+      "type": "depends_on",
+      "source": "suggestion.evidence"
+    },
+    {
+      "id": "suggestion:turn-external-signals-into-daily-issue-brief__improves__concept:external_signal_briefing",
+      "from": "suggestion:turn-external-signals-into-daily-issue-brief",
+      "to": "concept:external_signal_briefing",
+      "type": "improves",
+      "source": "runtime/improvement-suggestions.json"
+    },
+    {
+      "id": "suggestion:turn-external-signals-into-daily-issue-brief__routes_to__surface:./api/runtime/external-info-input-snapshot",
+      "from": "suggestion:turn-external-signals-into-daily-issue-brief",
+      "to": "surface:./api/runtime/external-info-input-snapshot",
+      "type": "routes_to",
+      "source": "suggestion.sourceUrls"
+    },
+    {
+      "id": "suggestion:turn-external-signals-into-daily-issue-brief__routes_to__surface:./runtime/external-info-input-brief.md",
+      "from": "suggestion:turn-external-signals-into-daily-issue-brief",
+      "to": "surface:./runtime/external-info-input-brief.md",
+      "type": "routes_to",
+      "source": "suggestion.sourceUrls"
+    }
+  ],
+  "missingArtifacts": [],
+  "warnings": [],
+  "failures": [],
+  "hookContract": {
+    "runtimeArtifact": "runtime/improvement-knowledge-map.json",
+    "publicDoc": "docs/IMPROVEMENT_KNOWLEDGE_MAP.md",
+    "preCommitHook": ".githooks/pre-commit",
+    "checkCommand": "npm run improvement:knowledge:check",
+    "writeCommand": "npm run improvement:knowledge",
+    "buildIntegration": "scripts/build-static-site.sh",
+    "failurePolicy": "fail if required concepts, evidence links, or suggestion mappings are missing"
+  },
+  "safety": {
+    "publicSafeOnly": true,
+    "secretValuesIncluded": false,
+    "privateRawDataIncluded": false,
+    "externalMutations": false,
+    "deployOrPublish": false
+  }
+}

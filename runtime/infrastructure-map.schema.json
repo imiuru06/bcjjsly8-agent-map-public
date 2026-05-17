@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/imiuru06/bcjjsly8/runtime/infrastructure-map.schema.json",
+  "title": "Agent Map Infrastructure Visibility Map",
+  "type": "object",
+  "required": ["schemaVersion", "generatedAt", "nodes", "edges"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "infrastructure-map-v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "source": { "type": "string" },
+        "publicView": { "type": "boolean" },
+        "privateFieldsRedacted": { "type": "boolean" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/edge" }
+    },
+    "checks": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/check" }
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": ["id", "type", "name"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": [
+            "service",
+            "agent",
+            "repo",
+            "deployment",
+            "database",
+            "cache",
+            "storage",
+            "queue",
+            "router",
+            "hub",
+            "registry",
+            "workflow",
+            "scheduler",
+            "apiEndpoint",
+            "webhook",
+            "searchEngine",
+            "index",
+            "credentialRef",
+            "envVar",
+            "cloudResource",
+            "healthCheck",
+            "issue",
+            "pullRequest",
+            "runbook"
+          ]
+        },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "owner": { "type": "string" },
+        "visibility": {
+          "type": "string",
+          "enum": ["public", "private", "restricted", "internal"],
+          "default": "public"
+        },
+        "connectionStatus": {
+          "type": "string",
+          "enum": ["connected", "disconnected", "unknown", "stale", "not_configured"]
+        },
+        "health": {
+          "type": "string",
+          "enum": ["healthy", "degraded", "unhealthy", "unknown"]
+        },
+        "resourceKind": {
+          "type": "string",
+          "enum": [
+            "memory",
+            "local_file",
+            "sqlite",
+            "postgres",
+            "supabase",
+            "cloudflare",
+            "vercel",
+            "render",
+            "github",
+            "notion",
+            "telegram",
+            "n8n",
+            "custom",
+            "unknown"
+          ]
+        },
+        "persistence": {
+          "type": "string",
+          "enum": ["memory", "ephemeral", "local", "cloud", "external", "unknown"]
+        },
+        "credentialRefs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/credentialRef" },
+          "default": []
+        },
+        "secretValuesVisible": {
+          "const": false
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        },
+        "links": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/link" },
+          "default": []
+        },
+        "lastCheckedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastSeenAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string"
+        },
+        "sourceHash": {
+          "type": "string"
+        },
+        "snapshotId": {
+          "type": "string"
+        },
+        "ttlSeconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "driftStatus": {
+          "type": "string",
+          "enum": ["in_sync", "drifted", "missing", "unknown"]
+        },
+        "redaction": {
+          "$ref": "#/$defs/redaction"
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "required": ["id", "from", "to", "type"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "from": { "type": "string" },
+        "to": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": [
+            "service_uses_database",
+            "service_uses_cache",
+            "service_calls_endpoint",
+            "service_deployed_to_resource",
+            "agent_emits_event_to_hub",
+            "router_routes_to_agent",
+            "workflow_triggers_service",
+            "workflow_calls_endpoint",
+            "workflow_requires_credential",
+            "workflow_triggered_by",
+            "search_indexes_source",
+            "credential_required_by_resource",
+            "env_var_backs_credential_ref",
+            "health_check_monitors_resource",
+            "issue_tracks_resource_change",
+            "pull_request_changes_resource",
+            "runbook_remediates_resource",
+            "repo_defines_resource"
+          ]
+        },
+        "visibility": {
+          "type": "string",
+          "enum": ["public", "private", "restricted", "internal"],
+          "default": "public"
+        },
+        "connectionStatus": {
+          "type": "string",
+          "enum": ["connected", "disconnected", "unknown", "stale", "not_configured"]
+        },
+        "label": { "type": "string" }
+      }
+    },
+    "credentialRef": {
+      "type": "object",
+      "required": ["name", "presence"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "publicAlias": { "type": "string" },
+        "category": {
+          "type": "string",
+          "enum": ["api_key", "bot_token", "database_url", "webhook_secret", "oauth", "provider_secret", "unknown"]
+        },
+        "presence": {
+          "type": "string",
+          "enum": ["present", "missing", "expired", "unknown", "not_required"]
+        },
+        "provider": {
+          "type": "string",
+          "enum": ["github", "cloudflare", "local_env", "provider_secret", "unknown"]
+        },
+        "secretValuesVisible": {
+          "const": false
+        },
+        "rawNameVisibleInPublic": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "check": {
+      "type": "object",
+      "required": ["id", "targetNodeId", "status"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "targetNodeId": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warn", "fail", "unknown"]
+        },
+        "checkedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "summary": { "type": "string" },
+        "publicSummary": { "type": "string" },
+        "privateDetailRedacted": {
+          "type": "boolean",
+          "default": true
+        },
+        "source": { "type": "string" },
+        "sourceHash": { "type": "string" },
+        "snapshotId": { "type": "string" },
+        "ttlSeconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stale": { "type": "boolean" },
+        "driftStatus": {
+          "type": "string",
+          "enum": ["in_sync", "drifted", "missing", "unknown"]
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "required": ["label", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "url": { "type": "string" },
+        "visibility": {
+          "type": "string",
+          "enum": ["public", "private", "restricted", "internal"],
+          "default": "public"
+        }
+      }
+    },
+    "redaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "publicLabel": { "type": "string" },
+        "privateFieldsRedacted": {
+          "type": "boolean",
+          "default": true
+        },
+        "reason": {
+          "type": "string",
+          "enum": ["secret", "internal_topology", "provider_account", "private_endpoint", "personal_data", "none"]
+        }
+      }
+    }
+  }
+}

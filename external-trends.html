@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>External Trends · Agent Map</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7fbff;
+      --panel: rgba(255, 255, 255, .86);
+      --panel-strong: #ffffff;
+      --text: #14213d;
+      --muted: #5c6f82;
+      --line: rgba(32, 86, 144, .14);
+      --brand: #2563eb;
+      --brand-2: #10b981;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --shadow: 0 24px 70px rgba(35, 74, 128, .13);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, .16), transparent 34rem),
+        radial-gradient(circle at 85% 10%, rgba(16, 185, 129, .14), transparent 32rem),
+        linear-gradient(135deg, #f8fbff 0%, #eef7ff 48%, #fff8ee 100%);
+      color: var(--text);
+    }
+    a { color: inherit; }
+    .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 56px; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: start;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background: rgba(255, 255, 255, .72);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+    .eyebrow { margin: 0 0 10px; color: var(--brand); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+    h1 { margin: 0; font-size: clamp(34px, 7vw, 68px); line-height: .95; letter-spacing: -.07em; text-wrap: balance; }
+    .lede { max-width: 760px; color: var(--muted); font-size: 17px; line-height: 1.7; overflow-wrap: anywhere; }
+    .nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+    .nav a, button, .link-button {
+      border: 1px solid rgba(37, 99, 235, .18);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, .82);
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, .08);
+    }
+    button.primary { background: linear-gradient(135deg, #2563eb, #14b8a6); color: #fff; }
+    .grid { display: grid; gap: 18px; }
+    .summary-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 22px 0; }
+    .card, .panel, .signal-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: 0 16px 48px rgba(35, 74, 128, .09);
+    }
+    .card { padding: 18px; min-width: 0; }
+    .card span { display: block; color: var(--muted); font-size: 13px; font-weight: 800; }
+    .card b { display: block; font-size: 28px; margin-top: 6px; overflow-wrap: anywhere; }
+    .panel { padding: 22px; margin-top: 18px; }
+    .panel-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    h2 { margin: 0; font-size: 24px; letter-spacing: -.04em; }
+    .meta { color: var(--muted); line-height: 1.6; overflow-wrap: anywhere; }
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    input, select {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 11px 12px;
+      min-width: 180px;
+      background: rgba(255,255,255,.88);
+      color: var(--text);
+      font: inherit;
+    }
+    .signal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .signal-card { padding: 18px; min-width: 0; display: grid; gap: 10px; }
+    .signal-card h3 { margin: 0; font-size: 19px; line-height: 1.35; overflow-wrap: anywhere; }
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-size: 12px;
+      font-weight: 900;
+      background: rgba(37, 99, 235, .09);
+      color: #1d4ed8;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+    .badge.high, .badge.critical { background: rgba(239, 68, 68, .12); color: #b91c1c; }
+    .badge.medium { background: rgba(245, 158, 11, .13); color: #92400e; }
+    .badge.low, .badge.watch { background: rgba(16, 185, 129, .12); color: #047857; }
+    .signal-card p { margin: 0; color: var(--muted); line-height: 1.62; overflow-wrap: anywhere; }
+    .signal-card a { color: #1d4ed8; font-weight: 800; overflow-wrap: anywhere; }
+    .action-list, .source-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .action-list li, .source-list li { padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.68); overflow-wrap: anywhere; }
+    .status-ok { color: #047857; }
+    .status-warn { color: #b45309; }
+    .error { color: #b91c1c; font-weight: 800; }
+    .empty { color: var(--muted); padding: 18px; border: 1px dashed var(--line); border-radius: 18px; }
+    footer { margin-top: 24px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .nav { justify-content: flex-start; }
+      .summary-grid, .signal-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 18px, 1180px); padding-top: 10px; }
+      .hero, .panel { border-radius: 22px; padding: 18px; }
+      input, select, button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Live External Trends</p>
+        <h1>최신 기술·경제 동향 브리핑</h1>
+        <p class="lede">
+          공개 RSS/Atom 메타데이터를 바탕으로 오늘 볼 신호, 왜 중요한지, 다음 행동 후보를 한 화면에서 확인합니다.
+          문서/JSON만 보지 않아도 되도록 Agent Map 서비스 안에 읽기용 페이지로 제공합니다.
+        </p>
+      </div>
+      <nav class="nav" aria-label="navigation">
+        <a href="./agent-map-v10.html">Agent Map v10</a>
+        <a href="./daily-brief.html">Daily Brief</a>
+        <a href="./agent-map-life.html">Life Graph</a>
+        <a href="./api/runtime/external-info-input-snapshot">Live JSON</a>
+      </nav>
+    </section>
+
+    <section class="summary-grid grid" id="summaryCards" aria-label="external trend summary">
+      <article class="card"><span>status</span><b>loading</b></article>
+      <article class="card"><span>signals</span><b>-</b></article>
+      <article class="card"><span>priority</span><b>-</b></article>
+      <article class="card"><span>mode</span><b>-</b></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Briefing</p>
+          <h2 id="briefTitle">외부 동향을 불러오는 중입니다…</h2>
+          <p class="meta" id="briefMeta">잠시만 기다려 주세요.</p>
+        </div>
+        <div class="controls">
+          <button class="primary" type="button" id="refreshButton">최신 동향 새로고침</button>
+        </div>
+      </div>
+      <p class="meta" id="briefSummary"></p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Priority Signals</p>
+          <h2>오늘 우선 확인할 신호</h2>
+        </div>
+        <div class="controls">
+          <input id="searchInput" type="search" placeholder="제목/출처/주제 검색">
+          <select id="importanceFilter" aria-label="importance filter">
+            <option value="">중요도 전체</option>
+            <option value="critical">critical</option>
+            <option value="high">high</option>
+            <option value="medium">medium</option>
+            <option value="watch">watch/low</option>
+          </select>
+          <select id="topicFilter" aria-label="topic filter">
+            <option value="">주제 전체</option>
+          </select>
+        </div>
+      </div>
+      <div class="signal-grid grid" id="signalGrid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Action Candidates</p>
+          <h2>서비스 개선/아이디어로 승격할 후보</h2>
+        </div>
+      </div>
+      <ul class="action-list" id="actionList"></ul>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Pipeline</p>
+          <h2>수집 → 정제 → 페이지 노출 흐름</h2>
+        </div>
+      </div>
+      <ul class="source-list">
+        <li><b>1. 수집</b><br>npm run life:input:external · public RSS/Atom metadata only</li>
+        <li><b>2. 분석</b><br>npm run life:loop:external-triage · 우선순위/행동 후보 생성</li>
+        <li><b>3. 노출</b><br>external-trends.html · Daily Brief · Agent Map v10 · Live JSON</li>
+        <li><b>4. 검증</b><br>npm run deploy:briefing:check · live/static fallback과 페이지 marker 확인</li>
+      </ul>
+    </section>
+
+    <footer>
+      원문 전체 기사나 유료 데이터, 개인 메시지, secret 값은 포함하지 않습니다.
+      이 페이지는 public-safe metadata와 요약 신호만 보여줍니다.
+    </footer>
+  </main>
+
+  <script>
+    const state = { payload: null, signals: [] };
+    const endpointCandidates = [
+      './api/runtime/external-info-input-snapshot',
+      './runtime/external-info-input-snapshot.json'
+    ];
+
+    const $ = (id) => document.getElementById(id);
+    const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    })[char]);
+    const clip = (value, max = 220) => {
+      const text = String(value ?? '').trim();
+      return text.length > max ? `${text.slice(0, max - 1)}…` : text;
+    };
+
+    async function fetchFirst() {
+      const errors = [];
+      for (const url of endpointCandidates) {
+        try {
+          const response = await fetch(`${url}${url.includes('?') ? '&' : '?'}ts=${Date.now()}`, { cache: 'no-store' });
+          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+          const payload = await response.json();
+          payload.__sourceUrl = url;
+          return payload;
+        } catch (error) {
+          errors.push(`${url}: ${error.message}`);
+        }
+      }
+      throw new Error(errors.join(' | '));
+    }
+
+    function normalizeSignals(payload) {
+      const priority = Array.isArray(payload?.briefing?.prioritySignals) ? payload.briefing.prioritySignals : [];
+      const publicSignals = Array.isArray(payload?.publicSignals) ? payload.publicSignals : [];
+      const seen = new Set();
+      return [...priority, ...publicSignals].filter((signal) => {
+        const key = signal.signalId || signal.link || signal.title;
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
+    function importanceClass(value) {
+      const text = String(value || '').toLowerCase();
+      if (text.includes('critical')) return 'critical';
+      if (text.includes('high')) return 'high';
+      if (text.includes('medium')) return 'medium';
+      return 'watch';
+    }
+
+    function renderSummary(payload) {
+      const summary = payload.summary || {};
+      const briefing = payload.briefing || {};
+      const mode = payload.liveData?.mode || 'static';
+      $('summaryCards').innerHTML = [
+        ['status', briefing.status || payload.status || 'ready'],
+        ['signals', `${summary.totalSignals ?? state.signals.length}`],
+        ['priority', `${briefing.prioritySignals?.length ?? 0}`],
+        ['mode', mode],
+      ].map(([label, value]) => `<article class="card"><span>${esc(label)}</span><b>${esc(value)}</b></article>`).join('');
+      $('briefTitle').textContent = briefing.oneLineSummary || '외부 기술·경제 신호 브리핑';
+      $('briefMeta').textContent = [
+        `collected: ${payload.collectedAt || payload.generatedAt || '-'}`,
+        `source: ${payload.__sourceUrl || '-'}`,
+        `sources ok/error: ${summary.sourcesOk ?? '-'} / ${summary.sourcesError ?? '-'}`
+      ].join(' · ');
+      $('briefSummary').textContent = briefing.summary || '중요 신호를 아래 카드에서 확인하세요.';
+    }
+
+    function renderFilters(signals) {
+      const topics = [...new Set(signals.map((signal) => signal.topic || signal.projectRelevance).filter(Boolean))].sort();
+      $('topicFilter').innerHTML = '<option value="">주제 전체</option>' + topics.map((topic) => `<option value="${esc(topic)}">${esc(topic)}</option>`).join('');
+    }
+
+    function filteredSignals() {
+      const q = $('searchInput').value.trim().toLowerCase();
+      const importance = $('importanceFilter').value;
+      const topic = $('topicFilter').value;
+      return state.signals.filter((signal) => {
+        const searchable = [signal.title, signal.sourceName, signal.topic, signal.projectRelevance, signal.whyItMatters, signal.suggestedAction].join(' ').toLowerCase();
+        const signalImportance = importanceClass(signal.importance);
+        const signalTopic = signal.topic || signal.projectRelevance || '';
+        return (!q || searchable.includes(q))
+          && (!importance || signalImportance === importance || (importance === 'watch' && ['watch', 'low'].includes(signalImportance)))
+          && (!topic || signalTopic === topic);
+      });
+    }
+
+    function renderSignals() {
+      const items = filteredSignals();
+      $('signalGrid').innerHTML = items.length ? items.map((signal) => {
+        const tone = importanceClass(signal.importance);
+        const link = signal.link ? `<a href="${esc(signal.link)}" rel="noopener noreferrer" target="_blank">원문 메타데이터 출처 열기</a>` : '';
+        return `
+          <article class="signal-card">
+            <div class="badge-row">
+              <span class="badge ${tone}">${esc(signal.importance || tone)} ${esc(signal.importanceScore ?? '')}</span>
+              <span class="badge">${esc(signal.sourceName || signal.sourceId || 'external')}</span>
+              <span class="badge">${esc(signal.topic || signal.projectRelevance || 'general')}</span>
+            </div>
+            <h3>${esc(signal.title || 'Untitled signal')}</h3>
+            <p>${esc(clip(signal.oneLineSummary || signal.summary || signal.description || '요약 정보가 없습니다.'))}</p>
+            <p><b>왜 중요한가</b><br>${esc(clip(signal.whyItMatters || signal.projectRelevance || '-'))}</p>
+            <p><b>다음 행동</b><br>${esc(clip(signal.suggestedAction || signal.nextStep || 'Watch and compare with current Agent Map priorities.'))}</p>
+            ${link}
+          </article>
+        `;
+      }).join('') : '<div class="empty">조건에 맞는 신호가 없습니다.</div>';
+    }
+
+    function renderActions(payload) {
+      const actions = Array.isArray(payload?.briefing?.actionCandidates) ? payload.briefing.actionCandidates : [];
+      $('actionList').innerHTML = actions.length ? actions.map((action) => `
+        <li>
+          <b>${esc(action.title || action.actionId || 'Action candidate')}</b><br>
+          <span class="meta">${esc(clip(action.nextStep || action.summary || action.reason || '-'))}</span><br>
+          <span class="badge ${importanceClass(action.priority)}">${esc(action.priority || 'watch')}</span>
+        </li>
+      `).join('') : '<li class="empty">현재 승격할 행동 후보가 없습니다.</li>';
+    }
+
+    async function load() {
+      try {
+        $('briefTitle').textContent = '최신 외부 동향을 불러오는 중입니다…';
+        const payload = await fetchFirst();
+        state.payload = payload;
+        state.signals = normalizeSignals(payload);
+        renderSummary(payload);
+        renderFilters(state.signals);
+        renderSignals();
+        renderActions(payload);
+      } catch (error) {
+        $('briefTitle').innerHTML = '<span class="error">외부 동향 로드 실패</span>';
+        $('briefMeta').textContent = error.message;
+        $('signalGrid').innerHTML = '<div class="empty">Live API와 fallback artifact를 모두 불러오지 못했습니다.</div>';
+      }
+    }
+
+    $('refreshButton').addEventListener('click', load);
+    $('searchInput').addEventListener('input', renderSignals);
+    $('importanceFilter').addEventListener('change', renderSignals);
+    $('topicFilter').addEventListener('change', renderSignals);
+    load();
+  </script>
+  <script src="./assets/stitch-service-shell.js" defer></script>
+</body>
+</html>

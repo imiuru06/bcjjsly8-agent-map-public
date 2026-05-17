@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-05-13T15:00:00.000Z",
+  "agentId": "content_replacement_dry_run_loop",
+  "domainId": "content",
+  "scopeId": "content_trend_to_video_no_upload_dry_run",
+  "status": "ok",
+  "checks": [
+    {
+      "name": "pipeline_manifest_exists",
+      "status": "ok",
+      "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/manifest.json"
+    },
+    {
+      "name": "trend_seed_public_safe",
+      "status": "ok"
+    },
+    {
+      "name": "dry_run_enabled",
+      "status": "ok"
+    },
+    {
+      "name": "youtube_upload_disabled",
+      "status": "ok"
+    },
+    {
+      "name": "validation_passed",
+      "status": "ok"
+    },
+    {
+      "name": "legal_passed",
+      "status": "ok"
+    },
+    {
+      "name": "human_approval_required",
+      "status": "ok"
+    },
+    {
+      "name": "allowed_next_action_review_only",
+      "status": "ok"
+    },
+    {
+      "name": "script_sections_present",
+      "status": "ok"
+    },
+    {
+      "name": "storyboard_has_scenes",
+      "status": "ok",
+      "scenes": 3
+    },
+    {
+      "name": "external_side_effects_not_executed",
+      "status": "ok"
+    },
+    {
+      "name": "replacement_ready_scoped_not_domain",
+      "status": "ok"
+    }
+  ],
+  "source": {
+    "kind": "public_safe_trend_seed",
+    "topic": "AI agent workflow trend",
+    "source": "replacement_scope_public_trend_seed",
+    "trendScore": 0.82,
+    "targetAudience": "Korean tech founders",
+    "targetPlatform": "youtube_shorts"
+  },
+  "inputSnapshotHash": "sha256:24e3e3720b4a479b1600706ffd8eb2dd2da6d6a6a0e62249cafb3ce8f7b29565",
+  "safety": {
+    "publicSeedOnly": true,
+    "privateDataIncluded": false,
+    "secretValuesIncluded": false,
+    "externalMessages": false,
+    "publishUpload": false,
+    "deploy": false,
+    "payments": false,
+    "destructiveActions": false,
+    "youtubeCredentialsUsed": false
+  },
+  "hardGates": [
+    "upload",
+    "publish",
+    "external_posting",
+    "copyright_risk_acceptance",
+    "paid_provider_invocation",
+    "private_source_use"
+  ]
+}

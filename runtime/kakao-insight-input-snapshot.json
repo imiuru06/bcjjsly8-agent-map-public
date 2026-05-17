@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "kakao_insight_processed",
+  "sourceType": "processed_sanitized_kakao_insight",
+  "collectedAt": "2026-05-17T00:19:19.623Z",
+  "generatedAt": "2026-05-17T00:05:18.274854Z",
+  "period": {
+    "from": "2026-05-16T00:05:18.274854Z",
+    "to": "2026-05-17T00:05:18.274854Z"
+  },
+  "freshness": {
+    "status": "current",
+    "generatedAgeMinutes": 14,
+    "checkedAgeMinutes": 14,
+    "maxFreshnessMinutes": 1440
+  },
+  "health": {
+    "healthy": true,
+    "checkedAt": "2026-05-17T00:05:30.134616Z",
+    "issueCount": 0,
+    "warningCount": 1
+  },
+  "acceptance": {
+    "passed": true,
+    "score": 5,
+    "checkedAt": "2026-05-17T00:05:26.459947Z",
+    "checkCount": 7
+  },
+  "metrics": {
+    "totalRecords": 0,
+    "totalMessages": 0,
+    "sentimentDistribution": {
+      "positive": 0,
+      "negative": 0,
+      "neutral": 0,
+      "urgent": 0
+    },
+    "sentimentMajority": "positive",
+    "roomCount": 0,
+    "roomMessageCounts": [],
+    "actionItemCount": 0,
+    "scheduleCount": 0,
+    "linkCount": 0,
+    "recentSummaryCount": 0
+  },
+  "sourceHashes": {
+    "unified": "sha256:ad85e4401437e3f3ccf19a4fc055bddeb858a12bc49b4f24003b78a4335c9b1d",
+    "acceptance": "sha256:62cffa9b7c6cc94b4f92237670609427cfa032ad1fa09916d4941da8b99f0b68",
+    "alert": "sha256:c7beadf5d7d3e86c1e43f7b5d7d1a26cfce92721b04068519f29d9728bfade8a"
+  },
+  "privacy": {
+    "rawMessagesIncluded": false,
+    "rawMessagePathsIncluded": false,
+    "roomIdsIncluded": false,
+    "roomLabelsIncluded": false,
+    "rawLinksIncluded": false,
+    "summaryTextIncluded": false,
+    "secretValuesIncluded": false
+  },
+  "allowedUse": [
+    "prove real/current processed input exists",
+    "drive information-domain triage metrics",
+    "feed learning loop usefulness metrics",
+    "surface only aggregate/freshness status in public-safe artifacts"
+  ],
+  "blockedUse": [
+    "raw private message analysis in this repo",
+    "publishing private summaries or raw links",
+    "external messaging",
+    "deleting or mutating source data"
+  ],
+  "snapshotHash": "sha256:4a18e687369fe7941dd66239b62f6aa2c9581e7d5f0c011f0d7382cd7b4871ed"
+}

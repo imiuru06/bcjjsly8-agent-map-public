@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Knowledge Map</title>
+  <style>
+    :root { color-scheme: light; --bg:#f8fbff; --panel:#fff; --ink:#102033; --muted:#64748b; --line:#dbe7f5; --brand:#2563eb; --ok:#16a34a; --warn:#f59e0b; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:radial-gradient(circle at 10% 5%, rgba(37,99,235,.13), transparent 28rem), var(--bg); }
+    main { width:min(1180px, calc(100vw - 28px)); margin:0 auto; padding:28px 0 42px; }
+    header, section { border:1px solid var(--line); background:rgba(255,255,255,.9); border-radius:26px; box-shadow:0 20px 54px rgba(15,23,42,.08); padding:22px; margin-bottom:16px; }
+    h1 { margin:8px 0; font-size:clamp(32px,5vw,58px); letter-spacing:-.05em; line-height:.98; }
+    h2 { margin:0 0 12px; font-size:20px; }
+    p { color:var(--muted); line-height:1.6; }
+    code { background:#f1f5f9; border:1px solid var(--line); border-radius:7px; padding:2px 5px; overflow-wrap:anywhere; }
+    .eyebrow { color:var(--brand); font-weight:900; letter-spacing:.08em; text-transform:uppercase; font-size:12px; }
+    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+    .stat, .note-card, .lookup-card { border:1px solid var(--line); background:var(--panel); border-radius:18px; padding:14px; min-width:0; }
+    .stat b { display:block; font-size:28px; letter-spacing:-.04em; }
+    .stat span, .note-head span, .path, .links { color:var(--muted); font-size:12px; font-weight:750; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; }
+    .note-head { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+    .note-card strong { overflow-wrap:anywhere; }
+    .chips { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+    .chips span, .pill { display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:6px 9px; color:#334155; background:#f8fafc; font-size:12px; font-weight:800; }
+    .active { border-left:5px solid var(--ok); }
+    .draft { border-left:5px solid var(--warn); }
+    a { color:var(--brand); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    ul { padding-left:18px; }
+    footer { text-align:center; color:var(--muted); font-size:12px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Knowledge Management · Obsidian-style vault</div>
+    <h1>Agent Knowledge Map</h1>
+    <p>
+      Obsidian-compatible vault <code>knowledge</code>의 public-safe index입니다.
+      원본 편집과 깊은 탐색은 Obsidian에서 하고, 서비스에서는 현재 note 상태·lookup mode·Graphify 준비 상태를 확인합니다.
+    </p>
+    <div class="chips">
+      <a class="pill" href="./docs/KNOWLEDGE_MANAGEMENT.md">Knowledge Management Doc</a>
+      <a class="pill" href="./docs/OBSIDIAN_GRAPH_VIEW_GUIDE.md">Obsidian Graph Guide</a>
+      <a class="pill" href="./runtime/knowledge-vault-summary.json">Runtime JSON</a>
+      <a class="pill" href="./knowledge-retrieval.html">Retrieval Pilot</a>
+      <a class="pill" href="./graphify-out/graph.html">Graph Browser Index</a>
+      <a class="pill" href="./agent-map-life.html">Life Graph</a>
+      <a class="pill" href="./infrastructure-map.html">Infrastructure Map</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Open in Obsidian</h2>
+    <p>빠른 탐색은 <code>knowledge/</code> 폴더를 vault로 열고, repo-wide 확인은 전체 repo를 vault로 엽니다. 시작 노트는 <code>README.md</code>, <code>00-maps/agent-knowledge-map.md</code>, <code>00-maps/derived-graph-index.md</code>입니다.</p>
+    <div class="chips">
+      <span>focused vault: <code>&lt;bcjjsly8 repo&gt;/knowledge</code></span>
+      <span>local graph depth: <code>2</code></span>
+      <a class="pill" href="./docs/OBSIDIAN_GRAPH_VIEW_GUIDE.md">가이드 열기</a>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="knowledge stats">
+    <div class="stat"><b>17</b><span>notes</span></div>
+    <div class="stat"><b>7</b><span>note types</span></div>
+    <div class="stat"><b>89</b><span>wikilinks</span></div>
+    <div class="stat"><b>0</b><span>unresolved links</span></div>
+    <div class="stat"><b>built</b><span>Graphify</span></div>
+  </section>
+
+  <section>
+    <h2>Graphify derived layer</h2>
+    <p>Graphify는 source of truth가 아니라 파생 index입니다. 현재 상태: <code>built</code></p>
+    <div class="grid">
+      <article class="lookup-card"><strong>graphify-out/GRAPH_REPORT.md</strong><p><a href="./graphify-out/GRAPH_REPORT.md">open</a></p></article><article class="lookup-card"><strong>graphify-out/graph.json</strong><p><a href="./graphify-out/graph.json">open</a></p></article><article class="lookup-card"><strong>graphify-out/graph.html</strong><p><a href="./graphify-out/graph.html">open</a></p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lookup modes</h2>
+    <div class="grid">
+    <article class="lookup-card">
+      <strong>beforeAnyAgentWork</strong>
+      <ul><li><code>knowledge/90-indexes/agent-lookup-index.md</code></li><li><code>knowledge/00-maps/agent-knowledge-map.md</code></li><li><code>AGENTS.md</code></li></ul>
+    </article>
+    <article class="lookup-card">
+      <strong>whenAssigningWork</strong>
+      <ul><li><code>knowledge/40-runbooks/assign-session-agent-work.md</code></li><li><code>config/agent-role-management.json</code></li><li><code>config/session-agents.json</code></li></ul>
+    </article>
+    <article class="lookup-card">
+      <strong>whenHumanDecisionAppears</strong>
+      <ul><li><code>knowledge/10-principles/human-gates.md</code></li><li><code>knowledge/50-decisions/decision-queue.md</code></li><li><code>docs/AUTONOMOUS_ISSUE_WORK_LOOP.md</code></li></ul>
+    </article>
+    <article class="lookup-card">
+      <strong>whenRoutingAgents</strong>
+      <ul><li><code>knowledge/30-protocols/agent-routing.md</code></li><li><code>docs/CHANNELS.md</code></li><li><code>docs/EXTERNAL_SESSION_WATCHER_CONTRACT.md</code></li></ul>
+    </article>
+    <article class="lookup-card">
+      <strong>whenExpandingKnowledgeSystem</strong>
+      <ul><li><code>knowledge/10-principles/llm-wiki-adoption-gates.md</code></li><li><code>knowledge/40-runbooks/zero-friction-capture.md</code></li><li><code>knowledge/40-runbooks/weekly-knowledge-synthesis.md</code></li><li><code>docs/KNOWLEDGE_MANAGEMENT.md</code></li></ul>
+    </article></div>
+  </section>
+
+  <section>
+    <h2>Atomic notes</h2>
+    <div class="grid">
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Agent Knowledge Map</strong>
+        <span>map · active</span>
+      </div>
+      <p><code>agent-knowledge-map</code></p>
+      <div class="chips">
+        <span>knowledge</span><span>map</span><span>obsidian</span><span>agent-map</span>
+      </div>
+      <p class="path">knowledge/00-maps/agent-knowledge-map.md</p>
+      <p class="links">links: <code>source-of-truth</code> <code>human-gates</code> <code>collaboration-first</code> <code>llm-wiki-adoption-gates</code> <code>codex-mainstream-role</code> <code>review-agent-roles</code> <code>issue-project-queue</code> <code>agent-routing</code> <code>knowledge-lookup-before-work</code> <code>assign-session-agent-work</code> <code>zero-friction-capture</code> <code>weekly-knowledge-synthesis</code> <code>decision-queue</code> <code>agent-lookup-index</code> <code>derived-graph-index</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Derived Graph Index</strong>
+        <span>map · active</span>
+      </div>
+      <p><code>derived-graph-index</code></p>
+      <div class="chips">
+        <span>knowledge</span><span>graphify</span><span>retrieval</span><span>obsidian</span><span>llm-wiki</span>
+      </div>
+      <p class="path">knowledge/00-maps/derived-graph-index.md</p>
+      <p class="links">links: <code>source-of-truth</code> <code>agent-knowledge-map</code> <code>agent-lookup-index</code> <code>knowledge-lookup-before-work</code> <code>llm-wiki-adoption-gates</code> <code>zero-friction-capture</code> <code>weekly-knowledge-synthesis</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Collaboration-First Invariant</strong>
+        <span>principle · active</span>
+      </div>
+      <p><code>collaboration-first</code></p>
+      <div class="chips">
+        <span>collaboration</span><span>multi-agent</span><span>queue</span><span>delegation</span><span>invariant</span>
+      </div>
+      <p class="path">knowledge/10-principles/collaboration-first.md</p>
+      <p class="links">links: <code>assign-session-agent-work</code> <code>agent-routing</code> <code>review-agent-roles</code> <code>source-of-truth</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Human Approval Gates</strong>
+        <span>principle · active</span>
+      </div>
+      <p><code>human-gates</code></p>
+      <div class="chips">
+        <span>human-gated</span><span>approval</span><span>safety</span><span>decisions</span>
+      </div>
+      <p class="path">knowledge/10-principles/human-gates.md</p>
+      <p class="links">links: <code>decision-queue</code> <code>issue-project-queue</code> <code>source-of-truth</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>LLM-Wiki Adoption Gates</strong>
+        <span>principle · active</span>
+      </div>
+      <p><code>llm-wiki-adoption-gates</code></p>
+      <div class="chips">
+        <span>llm-wiki</span><span>pkm</span><span>rag</span><span>mcp</span><span>roi</span><span>capture</span>
+      </div>
+      <p class="path">knowledge/10-principles/llm-wiki-adoption-gates.md</p>
+      <p class="links">links: <code>zero-friction-capture</code> <code>weekly-knowledge-synthesis</code> <code>knowledge-lookup-before-work</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Source of Truth Boundary</strong>
+        <span>principle · active</span>
+      </div>
+      <p><code>source-of-truth</code></p>
+      <div class="chips">
+        <span>source-of-truth</span><span>policy</span><span>git</span><span>knowledge</span>
+      </div>
+      <p class="path">knowledge/10-principles/source-of-truth.md</p>
+      <p class="links">links: <code>agent-knowledge-map</code> <code>issue-project-queue</code> <code>agent-routing</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Codex Mainstream Coordinator Role</strong>
+        <span>role · active</span>
+      </div>
+      <p><code>codex-mainstream-role</code></p>
+      <div class="chips">
+        <span>role</span><span>codex</span><span>daalgo</span><span>coordinator</span>
+      </div>
+      <p class="path">knowledge/20-roles/codex-mainstream-role.md</p>
+      <p class="links">links: <code>human-gates</code> <code>assign-session-agent-work</code> <code>agent-routing</code> <code>source-of-truth</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Review Agent Roles</strong>
+        <span>role · active</span>
+      </div>
+      <p><code>review-agent-roles</code></p>
+      <div class="chips">
+        <span>role</span><span>review</span><span>claude</span><span>gemini</span><span>opencode</span><span>stitch</span><span>uiux-cli</span>
+      </div>
+      <p class="path">knowledge/20-roles/review-agent-roles.md</p>
+      <p class="links">links: <code>assign-session-agent-work</code> <code>agent-routing</code> <code>codex-mainstream-role</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Agent Routing Protocol</strong>
+        <span>protocol · active</span>
+      </div>
+      <p><code>agent-routing</code></p>
+      <div class="chips">
+        <span>routing</span><span>registry</span><span>direct-message</span><span>github</span><span>agent-request</span>
+      </div>
+      <p class="path">knowledge/30-protocols/agent-routing.md</p>
+      <p class="links">links: <code>issue-project-queue</code> <code>assign-session-agent-work</code> <code>source-of-truth</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>GitHub Issue and Project Queue</strong>
+        <span>protocol · active</span>
+      </div>
+      <p><code>issue-project-queue</code></p>
+      <div class="chips">
+        <span>github</span><span>issue</span><span>project</span><span>queue</span><span>kanban</span>
+      </div>
+      <p class="path">knowledge/30-protocols/issue-project-queue.md</p>
+      <p class="links">links: <code>human-gates</code> <code>assign-session-agent-work</code> <code>agent-routing</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Assign Session Agent Work</strong>
+        <span>runbook · active</span>
+      </div>
+      <p><code>assign-session-agent-work</code></p>
+      <div class="chips">
+        <span>runbook</span><span>assignment</span><span>session-agent</span><span>queue</span>
+      </div>
+      <p class="path">knowledge/40-runbooks/assign-session-agent-work.md</p>
+      <p class="links">links: <code>human-gates</code> <code>review-agent-roles</code> <code>codex-mainstream-role</code> <code>issue-project-queue</code> <code>agent-routing</code> <code>knowledge-lookup-before-work</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Knowledge Lookup Before Work</strong>
+        <span>runbook · active</span>
+      </div>
+      <p><code>knowledge-lookup-before-work</code></p>
+      <div class="chips">
+        <span>runbook</span><span>search</span><span>knowledge</span><span>obsidian</span>
+      </div>
+      <p class="path">knowledge/40-runbooks/knowledge-lookup-before-work.md</p>
+      <p class="links">links: <code>agent-lookup-index</code> <code>llm-wiki-adoption-gates</code> <code>agent-knowledge-map</code> <code>source-of-truth</code> <code>human-gates</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Weekly Knowledge Synthesis</strong>
+        <span>runbook · active</span>
+      </div>
+      <p><code>weekly-knowledge-synthesis</code></p>
+      <div class="chips">
+        <span>synthesis</span><span>weekly-review</span><span>knowledge-gap</span><span>compound-loop</span>
+      </div>
+      <p class="path">knowledge/40-runbooks/weekly-knowledge-synthesis.md</p>
+      <p class="links">links: <code>llm-wiki-adoption-gates</code> <code>zero-friction-capture</code> <code>agent-lookup-index</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Zero-Friction Capture</strong>
+        <span>runbook · active</span>
+      </div>
+      <p><code>zero-friction-capture</code></p>
+      <div class="chips">
+        <span>capture</span><span>inbox</span><span>pkm</span><span>llm-wiki</span><span>low-friction</span>
+      </div>
+      <p class="path">knowledge/40-runbooks/zero-friction-capture.md</p>
+      <p class="links">links: <code>human-gates</code> <code>source-of-truth</code> <code>llm-wiki-adoption-gates</code> <code>knowledge-lookup-before-work</code> <code>weekly-knowledge-synthesis</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Decision Queue</strong>
+        <span>decision · active</span>
+      </div>
+      <p><code>decision-queue</code></p>
+      <div class="chips">
+        <span>decision</span><span>needs-human</span><span>queue</span><span>approval</span>
+      </div>
+      <p class="path">knowledge/50-decisions/decision-queue.md</p>
+      <p class="links">links: <code>human-gates</code> <code>issue-project-queue</code> <code>codex-mainstream-role</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Agent Lookup Index</strong>
+        <span>index · active</span>
+      </div>
+      <p><code>agent-lookup-index</code></p>
+      <div class="chips">
+        <span>index</span><span>search</span><span>lookup</span><span>agent-map</span>
+      </div>
+      <p class="path">knowledge/90-indexes/agent-lookup-index.md</p>
+      <p class="links">links: <code>source-of-truth</code> <code>human-gates</code> <code>codex-mainstream-role</code> <code>collaboration-first</code> <code>review-agent-roles</code> <code>assign-session-agent-work</code> <code>issue-project-queue</code> <code>decision-queue</code> <code>agent-routing</code> <code>knowledge-lookup-before-work</code> <code>agent-knowledge-map</code> <code>llm-wiki-adoption-gates</code> <code>zero-friction-capture</code> <code>weekly-knowledge-synthesis</code></p>
+    </article>
+    <article class="note-card active">
+      <div class="note-head">
+        <strong>Agent Knowledge Vault README</strong>
+        <span>map · active</span>
+      </div>
+      <p><code>knowledge-vault-readme</code></p>
+      <div class="chips">
+        <span>knowledge</span><span>obsidian</span><span>agent-map</span>
+      </div>
+      <p class="path">knowledge/README.md</p>
+      <p class="links">links: <code>agent-knowledge-map</code> <code>derived-graph-index</code> <code>agent-lookup-index</code> <code>knowledge-lookup-before-work</code> <code>source-of-truth</code></p>
+    </article></div>
+  </section>
+
+  <footer>generated 2026-05-17T00:19:22.282Z · source docs win on conflict</footer>
+</main>
+  <script src="./assets/stitch-service-shell.js" defer></script>
+</body>
+</html>

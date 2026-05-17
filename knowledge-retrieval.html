@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Map Knowledge Retrieval Pilot</title>
+  <style>
+    :root { color-scheme:light; --bg:#f8fafc; --panel:#fff; --ink:#0f172a; --muted:#64748b; --line:#dbeafe; --brand:#2563eb; --ok:#16a34a; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(circle at 10% 0%, rgba(37,99,235,.14), transparent 24rem), var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif; }
+    main { width:min(1180px, calc(100vw - 28px)); margin:0 auto; padding:28px 0 44px; }
+    header, section { border:1px solid var(--line); background:rgba(255,255,255,.9); border-radius:26px; padding:20px; margin-bottom:14px; box-shadow:0 18px 48px rgba(15,23,42,.08); }
+    h1 { margin:6px 0 8px; font-size:clamp(30px,5vw,56px); letter-spacing:-.05em; }
+    p, code, span { color:var(--muted); line-height:1.55; }
+    a { color:var(--brand); text-decoration:none; }
+    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+    .stat, .entry { border:1px solid var(--line); background:var(--panel); border-radius:18px; padding:14px; min-width:0; }
+    .stat b { display:block; font-size:30px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:10px; }
+    .entry-head { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+    .entry-head strong { overflow-wrap:anywhere; }
+    .entry-head span { color:var(--brand); font-size:12px; font-weight:850; }
+    code { display:inline-block; max-width:100%; overflow-wrap:anywhere; background:#eff6ff; border:1px solid var(--line); border-radius:8px; padding:2px 6px; }
+    .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+    .chips span { border:1px solid var(--line); border-radius:999px; padding:5px 8px; background:#f8fafc; font-size:12px; font-weight:800; }
+    .healthy { color:var(--ok); font-weight:900; }
+    .search-box { display:grid; gap:8px; margin-bottom:14px; }
+    input, select { width:100%; border:1px solid var(--line); border-radius:14px; padding:12px; font:inherit; background:#fff; color:var(--ink); }
+    .helper { font-size:13px; color:var(--muted); }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p><a href="./agent-map-v10.html">← Agent Map</a> · <a href="./knowledge-map.html">Knowledge Map</a> · <a href="./llm-wiki-readiness.html">LLM-Wiki Readiness</a></p>
+    <h1>Knowledge Retrieval Pilot</h1>
+    <p>무거운 RAG/MCP/vector DB 전에, 공개 안전 산출물에서 어떤 증거를 검색 가능한지 확인하는 static retrieval baseline입니다.</p>
+  </header>
+  <section class="stats">
+    <div class="stat"><b>21</b><span>entries</span></div>
+    <div class="stat"><b>17</b><span>knowledge notes</span></div>
+    <div class="stat"><b>0</b><span>public captures</span></div>
+    <div class="stat"><b>387</b><span>tokens</span></div>
+    <div class="stat"><b class="healthy">healthy</b><span>health</span></div>
+  </section>
+  <section>
+    <h2>Retrievable evidence</h2>
+    <div class="search-box">
+      <input id="entry-search" type="search" placeholder="Filter public-safe entries, e.g. Graphify, source-of-truth, synthesis">
+      <div class="helper">Browser filtering only. Private capture inbox entries are excluded unless explicitly approved. To record ROI safely, use <code>npm run knowledge:search -- --query "..." --public-safe-query-confirmed --write-event</code>.</div>
+    </div>
+    <div class="grid">
+    <article class="entry" data-search="agent knowledge map knowledge-map knowledge/00-maps/agent-knowledge-map.md agent knowledge map use this map to move from an operating question to the right atomic note. principles - source-of-truth - human-gates - collaboration-first - llm-wiki-adoption-gates roles - codex-mainstream-role - review-agent-roles protocols - issue-projec note agent-knowledge-map knowledge-map agent knowledge map 00-maps md use this to move from an operating question the right atomic principles source-of-truth human-gates collaboration-first llm-wiki-adoption-gates roles codex-mainstream-role review-agent-roles protocols issue-projec obsidian agent-map all-agents">
+      <div class="entry-head">
+        <strong>Agent Knowledge Map</strong>
+        <span>knowledge-map</span>
+      </div>
+      <p>Agent Knowledge Map Use this map to move from an operating question to the right atomic note. Principles - source-of-truth - human-gates - collaboration-first - llm-wiki-adoption-gates Roles - codex-mainstream-role - review-agent-roles Protocols - issue-projec</p>
+      <code>knowledge/00-maps/agent-knowledge-map.md</code>
+      <div class="chips"><span>note</span><span>agent-knowledge-map</span><span>knowledge-map</span><span>agent</span><span>knowledge</span><span>map</span><span>00-maps</span><span>md</span><span>use</span><span>this</span></div>
+    </article>
+    <article class="entry" data-search="derived graph index knowledge-map knowledge/00-maps/derived-graph-index.md derived graph index this note is the obsidian-visible bridge between the atomic vault and generated graph/retrieval artifacts. core rule generated graph files are derived indexes. they help orientation, but source-of-truth wins on conflict. generated artifacts note derived-graph-index knowledge-map derived graph index knowledge 00-maps md this is the obsidian-visible bridge between atomic vault and generated retrieval artifacts core rule files are indexes they help orientation but source-of-truth wins on conflict graphify obsidian llm-wiki codex review-agents all-agents">
+      <div class="entry-head">
+        <strong>Derived Graph Index</strong>
+        <span>knowledge-map</span>
+      </div>
+      <p>Derived Graph Index This note is the Obsidian-visible bridge between the atomic vault and generated graph/retrieval artifacts. Core rule Generated graph files are derived indexes. They help orientation, but source-of-truth wins on conflict. Generated artifacts</p>
+      <code>knowledge/00-maps/derived-graph-index.md</code>
+      <div class="chips"><span>note</span><span>derived-graph-index</span><span>knowledge-map</span><span>derived</span><span>graph</span><span>index</span><span>knowledge</span><span>00-maps</span><span>md</span><span>this</span></div>
+    </article>
+    <article class="entry" data-search="collaboration-first invariant knowledge-principle knowledge/10-principles/collaboration-first.md collaboration-first invariant atomic claim codex / 다알고 is the mainstream coordinator, not a solo worker by default. every meaningful task should be checked for safe delegation, review, or session agent participation before being completed entirely in one sessi note collaboration-first knowledge-principle invariant knowledge 10-principles md atomic claim codex 다알고 is the mainstream coordinator not solo worker by default every meaningful task should be checked for safe delegation review or session agent participation before being completed entirely in one sessi collaboration multi-agent queue daalgo all-agents">
+      <div class="entry-head">
+        <strong>Collaboration-First Invariant</strong>
+        <span>knowledge-principle</span>
+      </div>
+      <p>Collaboration-First Invariant Atomic claim Codex / 다알고 is the mainstream coordinator, not a solo worker by default. Every meaningful task should be checked for safe delegation, review, or session agent participation before being completed entirely in one sessi</p>
+      <code>knowledge/10-principles/collaboration-first.md</code>
+      <div class="chips"><span>note</span><span>collaboration-first</span><span>knowledge-principle</span><span>invariant</span><span>knowledge</span><span>10-principles</span><span>md</span><span>atomic</span><span>claim</span><span>codex</span></div>
+    </article>
+    <article class="entry" data-search="human approval gates knowledge-principle knowledge/10-principles/human-gates.md human approval gates atomic claim secrets, credentials, payments, public deploy, publish/upload, destructive data operations, production config, and final close require explicit user approval or a repo-recorded delegation marker. use when - an issue has needs: note human-gates knowledge-principle human approval gates knowledge 10-principles md atomic claim secrets credentials payments public deploy publish upload destructive data operations production config and final close require explicit user or repo-recorded delegation marker use when an issue has needs human-gated safety decisions all-agents">
+      <div class="entry-head">
+        <strong>Human Approval Gates</strong>
+        <span>knowledge-principle</span>
+      </div>
+      <p>Human Approval Gates Atomic claim Secrets, credentials, payments, public deploy, publish/upload, destructive data operations, production config, and final close require explicit user approval or a repo-recorded delegation marker. Use when - an issue has needs:</p>
+      <code>knowledge/10-principles/human-gates.md</code>
+      <div class="chips"><span>note</span><span>human-gates</span><span>knowledge-principle</span><span>human</span><span>approval</span><span>gates</span><span>knowledge</span><span>10-principles</span><span>md</span><span>atomic</span></div>
+    </article>
+    <article class="entry" data-search="llm-wiki adoption gates knowledge-principle knowledge/10-principles/llm-wiki-adoption-gates.md llm-wiki adoption gates atomic claim do not turn the vault into heavy rag/mcp/vector infrastructure until capture friction is low and search roi is visible. why this matters personal knowledge systems fail when the cost of organizing notes is higher than the v note llm-wiki-adoption-gates knowledge-principle llm-wiki adoption gates knowledge 10-principles md atomic claim do not turn the vault into heavy rag mcp vector infrastructure until capture friction is low and search roi visible why this matters personal systems fail when cost of organizing notes higher than pkm all-agents">
+      <div class="entry-head">
+        <strong>LLM-Wiki Adoption Gates</strong>
+        <span>knowledge-principle</span>
+      </div>
+      <p>LLM-Wiki Adoption Gates Atomic claim Do not turn the vault into heavy RAG/MCP/vector infrastructure until capture friction is low and search ROI is visible. Why this matters Personal knowledge systems fail when the cost of organizing notes is higher than the v</p>
+      <code>knowledge/10-principles/llm-wiki-adoption-gates.md</code>
+      <div class="chips"><span>note</span><span>llm-wiki-adoption-gates</span><span>knowledge-principle</span><span>llm-wiki</span><span>adoption</span><span>gates</span><span>knowledge</span><span>10-principles</span><span>md</span><span>atomic</span></div>
+    </article>
+    <article class="entry" data-search="source of truth boundary knowledge-principle knowledge/10-principles/source-of-truth.md source of truth boundary atomic claim imiuru06/bcjjsly8 is the source of truth for multi-agent coordination, policy, issue routing, responsibility, and public-safe agent map runtime data. project implementation repos may remain separate. use when - an agent is note source-of-truth knowledge-principle source of truth boundary knowledge 10-principles md atomic claim imiuru06 bcjjsly8 is the for multi-agent coordination policy issue routing responsibility and public-safe agent map runtime data project implementation repos may remain separate use when an git all-agents">
+      <div class="entry-head">
+        <strong>Source of Truth Boundary</strong>
+        <span>knowledge-principle</span>
+      </div>
+      <p>Source of Truth Boundary Atomic claim imiuru06/bcjjsly8 is the Source of Truth for multi-agent coordination, policy, issue routing, responsibility, and public-safe Agent Map runtime data. Project implementation repos may remain separate. Use when - an agent is</p>
+      <code>knowledge/10-principles/source-of-truth.md</code>
+      <div class="chips"><span>note</span><span>source-of-truth</span><span>knowledge-principle</span><span>source</span><span>of</span><span>truth</span><span>boundary</span><span>knowledge</span><span>10-principles</span><span>md</span></div>
+    </article>
+    <article class="entry" data-search="codex mainstream coordinator role knowledge-role knowledge/20-roles/codex-mainstream-role.md codex mainstream coordinator role atomic claim codex / 다알고 owns mainstream implementation, coordination, validation, and user-facing responsibility for this control-plane. use when - deciding who owns final issue responsibility; - coordinating external session note codex-mainstream-role knowledge-role codex mainstream coordinator role knowledge 20-roles md atomic claim 다알고 owns implementation coordination validation and user-facing responsibility for this control-plane use when deciding who final issue coordinating external session daalgo">
+      <div class="entry-head">
+        <strong>Codex Mainstream Coordinator Role</strong>
+        <span>knowledge-role</span>
+      </div>
+      <p>Codex Mainstream Coordinator Role Atomic claim Codex / 다알고 owns mainstream implementation, coordination, validation, and user-facing responsibility for this control-plane. Use when - deciding who owns final issue responsibility; - coordinating external session</p>
+      <code>knowledge/20-roles/codex-mainstream-role.md</code>
+      <div class="chips"><span>note</span><span>codex-mainstream-role</span><span>knowledge-role</span><span>codex</span><span>mainstream</span><span>coordinator</span><span>role</span><span>knowledge</span><span>20-roles</span><span>md</span></div>
+    </article>
+    <article class="entry" data-search="review agent roles knowledge-role knowledge/20-roles/review-agent-roles.md review agent roles atomic claim review agents add distinct viewpoints; they do not duplicate codex implementation work unless explicitly reassigned. role split - claude review 01 : security, edge cases, missed requirements, quality risk. - gemini : ux and busi note review-agent-roles knowledge-role review agent roles knowledge 20-roles md atomic claim agents add distinct viewpoints they do not duplicate codex implementation work unless explicitly reassigned role split claude 01 security edge cases missed requirements quality risk gemini ux and busi opencode stitch uiux-cli claude_review_01 uiux_cli">
+      <div class="entry-head">
+        <strong>Review Agent Roles</strong>
+        <span>knowledge-role</span>
+      </div>
+      <p>Review Agent Roles Atomic claim Review agents add distinct viewpoints; they do not duplicate Codex implementation work unless explicitly reassigned. Role split - claude review 01 : security, edge cases, missed requirements, quality risk. - gemini : UX and busi</p>
+      <code>knowledge/20-roles/review-agent-roles.md</code>
+      <div class="chips"><span>note</span><span>review-agent-roles</span><span>knowledge-role</span><span>review</span><span>agent</span><span>roles</span><span>knowledge</span><span>20-roles</span><span>md</span><span>atomic</span></div>
+    </article>
+    <article class="entry" data-search="agent routing protocol knowledge-protocol knowledge/30-protocols/agent-routing.md agent routing protocol atomic claim agents are routed through github issue labels/comments, registry agent. events, or direct bot transport. user telegram messages are not agent-to-agent transport. use when - waking another agent; - leaving an auditable reques note agent-routing knowledge-protocol agent routing protocol knowledge 30-protocols md atomic claim agents are routed through github issue labels comments registry events or direct bot transport user telegram messages not agent-to-agent use when waking another leaving an auditable reques direct-message agent-request all-agents">
+      <div class="entry-head">
+        <strong>Agent Routing Protocol</strong>
+        <span>knowledge-protocol</span>
+      </div>
+      <p>Agent Routing Protocol Atomic claim Agents are routed through GitHub Issue labels/comments, Registry agent. events, or direct bot transport. User Telegram messages are not agent-to-agent transport. Use when - waking another agent; - leaving an auditable reques</p>
+      <code>knowledge/30-protocols/agent-routing.md</code>
+      <div class="chips"><span>note</span><span>agent-routing</span><span>knowledge-protocol</span><span>agent</span><span>routing</span><span>protocol</span><span>knowledge</span><span>30-protocols</span><span>md</span><span>atomic</span></div>
+    </article>
+    <article class="entry" data-search="github issue and project queue knowledge-protocol knowledge/30-protocols/issue-project-queue.md github issue and project queue atomic claim github issues and project v2 are the durable work queue and status board. agent requests should be represented with labels and comments, not hidden in chat. use when - assigning work to another session agent; - check note issue-project-queue knowledge-protocol github issue and project queue knowledge 30-protocols md atomic claim issues v2 are the durable work status board agent requests should be represented with labels comments not hidden in chat use when assigning to another session check kanban all-agents">
+      <div class="entry-head">
+        <strong>GitHub Issue and Project Queue</strong>
+        <span>knowledge-protocol</span>
+      </div>
+      <p>GitHub Issue and Project Queue Atomic claim GitHub Issues and Project v2 are the durable work queue and status board. Agent requests should be represented with labels and comments, not hidden in chat. Use when - assigning work to another session agent; - check</p>
+      <code>knowledge/30-protocols/issue-project-queue.md</code>
+      <div class="chips"><span>note</span><span>issue-project-queue</span><span>knowledge-protocol</span><span>github</span><span>issue</span><span>and</span><span>project</span><span>queue</span><span>knowledge</span><span>30-protocols</span></div>
+    </article>
+    <article class="entry" data-search="assign session agent work knowledge-runbook knowledge/40-runbooks/assign-session-agent-work.md assign session agent work atomic claim a session agent receives work only when the issue has an actionable needs:agent state and a matching agent:&lt;target label or route. steps 1. confirm the task is not blocked by human-gates . 2. choose one primary owner from note assign-session-agent-work knowledge-runbook assign session agent work knowledge 40-runbooks md atomic claim receives only when the issue has an actionable needs state and matching target label or route steps confirm task is not blocked by human-gates choose one primary owner from runbook assignment session-agent queue codex daalgo_external_codex_01 claude_review_01 gemini opencode stitch uiux_cli">
+      <div class="entry-head">
+        <strong>Assign Session Agent Work</strong>
+        <span>knowledge-runbook</span>
+      </div>
+      <p>Assign Session Agent Work Atomic claim A session agent receives work only when the issue has an actionable needs:agent state and a matching agent:&lt;target label or route. Steps 1. Confirm the task is not blocked by human-gates . 2. Choose one primary owner from</p>
+      <code>knowledge/40-runbooks/assign-session-agent-work.md</code>
+      <div class="chips"><span>note</span><span>assign-session-agent-work</span><span>knowledge-runbook</span><span>assign</span><span>session</span><span>agent</span><span>work</span><span>knowledge</span><span>40-runbooks</span><span>md</span></div>
+    </article>
+    <article class="entry" data-search="knowledge lookup before work knowledge-runbook knowledge/40-runbooks/knowledge-lookup-before-work.md knowledge lookup before work atomic claim before acting, an agent should search the knowledge vault for the role, protocol, decision gate, and runbook that apply to the issue. steps 1. open agent-lookup-index . 2. match the issue to one of: role, protocol, run note knowledge-lookup-before-work knowledge-runbook knowledge lookup before work 40-runbooks md atomic claim acting an agent should search the vault for role protocol decision gate and runbook that apply to issue steps open agent-lookup-index match one of run obsidian all-agents">
+      <div class="entry-head">
+        <strong>Knowledge Lookup Before Work</strong>
+        <span>knowledge-runbook</span>
+      </div>
+      <p>Knowledge Lookup Before Work Atomic claim Before acting, an agent should search the knowledge vault for the role, protocol, decision gate, and runbook that apply to the issue. Steps 1. Open agent-lookup-index . 2. Match the issue to one of: role, protocol, run</p>
+      <code>knowledge/40-runbooks/knowledge-lookup-before-work.md</code>
+      <div class="chips"><span>note</span><span>knowledge-lookup-before-work</span><span>knowledge-runbook</span><span>knowledge</span><span>lookup</span><span>before</span><span>work</span><span>40-runbooks</span><span>md</span><span>atomic</span></div>
+    </article>
+    <article class="entry" data-search="weekly knowledge synthesis knowledge-runbook knowledge/40-runbooks/weekly-knowledge-synthesis.md weekly knowledge synthesis atomic claim the vault compounds only when new notes are linked back to old notes and periodically summarized into gaps, decisions, and next learning directions. weekly loop 1. review new inbox and atomic notes. 2. link new durable n note weekly-knowledge-synthesis knowledge-runbook weekly knowledge synthesis 40-runbooks md atomic claim the vault compounds only when new notes are linked back to old and periodically summarized into gaps decisions next learning directions loop review inbox link durable weekly-review knowledge-gap compound-loop codex daalgo all-agents">
+      <div class="entry-head">
+        <strong>Weekly Knowledge Synthesis</strong>
+        <span>knowledge-runbook</span>
+      </div>
+      <p>Weekly Knowledge Synthesis Atomic claim The vault compounds only when new notes are linked back to old notes and periodically summarized into gaps, decisions, and next learning directions. Weekly loop 1. Review new inbox and atomic notes. 2. Link new durable n</p>
+      <code>knowledge/40-runbooks/weekly-knowledge-synthesis.md</code>
+      <div class="chips"><span>note</span><span>weekly-knowledge-synthesis</span><span>knowledge-runbook</span><span>weekly</span><span>knowledge</span><span>synthesis</span><span>40-runbooks</span><span>md</span><span>atomic</span><span>claim</span></div>
+    </article>
+    <article class="entry" data-search="zero-friction capture knowledge-runbook knowledge/40-runbooks/zero-friction-capture.md zero-friction capture atomic claim capture must be easier than ignoring the idea. if capture requires manual taxonomy work up front, the vault will decay. steps 1. capture raw knowledge into an inbox first. 2. keep the first capture format simple: title, sourc note zero-friction-capture knowledge-runbook zero-friction capture knowledge 40-runbooks md atomic claim must be easier than ignoring the idea if requires manual taxonomy work up front vault will decay steps raw into an inbox first keep format simple title sourc pkm llm-wiki low-friction all-agents">
+      <div class="entry-head">
+        <strong>Zero-Friction Capture</strong>
+        <span>knowledge-runbook</span>
+      </div>
+      <p>Zero-Friction Capture Atomic claim Capture must be easier than ignoring the idea. If capture requires manual taxonomy work up front, the vault will decay. Steps 1. Capture raw knowledge into an inbox first. 2. Keep the first capture format simple: title, sourc</p>
+      <code>knowledge/40-runbooks/zero-friction-capture.md</code>
+      <div class="chips"><span>note</span><span>zero-friction-capture</span><span>knowledge-runbook</span><span>zero-friction</span><span>capture</span><span>knowledge</span><span>40-runbooks</span><span>md</span><span>atomic</span><span>claim</span></div>
+    </article>
+    <article class="entry" data-search="decision queue knowledge-decision knowledge/50-decisions/decision-queue.md decision queue atomic claim human decisions should be batched, labeled, and summarized instead of scattered across unrelated comments or chat messages. use when - an issue needs user approval; - a secret, deploy, publish, destructive action, payment, or final  note decision-queue knowledge-decision decision queue knowledge 50-decisions md atomic claim human decisions should be batched labeled and summarized instead of scattered across unrelated comments or chat messages use when an issue needs user approval secret deploy publish destructive action payment final needs-human codex daalgo all-agents">
+      <div class="entry-head">
+        <strong>Decision Queue</strong>
+        <span>knowledge-decision</span>
+      </div>
+      <p>Decision Queue Atomic claim Human decisions should be batched, labeled, and summarized instead of scattered across unrelated comments or chat messages. Use when - an issue needs user approval; - a secret, deploy, publish, destructive action, payment, or final </p>
+      <code>knowledge/50-decisions/decision-queue.md</code>
+      <div class="chips"><span>note</span><span>decision-queue</span><span>knowledge-decision</span><span>decision</span><span>queue</span><span>knowledge</span><span>50-decisions</span><span>md</span><span>atomic</span><span>claim</span></div>
+    </article>
+    <article class="entry" data-search="agent lookup index knowledge-index knowledge/90-indexes/agent-lookup-index.md agent lookup index use this index as the first stop before acting. if the question is about authority - source of truth: source-of-truth - human approval: human-gates - final responsibility: codex-mainstream-role - collaboration-first invariant: collaboration- note agent-lookup-index knowledge-index agent lookup index knowledge 90-indexes md use this as the first stop before acting if question is about authority source of truth source-of-truth human approval human-gates final responsibility codex-mainstream-role collaboration-first invariant collaboration- search agent-map all-agents">
+      <div class="entry-head">
+        <strong>Agent Lookup Index</strong>
+        <span>knowledge-index</span>
+      </div>
+      <p>Agent Lookup Index Use this index as the first stop before acting. If the question is about authority - Source of Truth: source-of-truth - Human approval: human-gates - Final responsibility: codex-mainstream-role - Collaboration-first invariant: collaboration-</p>
+      <code>knowledge/90-indexes/agent-lookup-index.md</code>
+      <div class="chips"><span>note</span><span>agent-lookup-index</span><span>knowledge-index</span><span>agent</span><span>lookup</span><span>index</span><span>knowledge</span><span>90-indexes</span><span>md</span><span>use</span></div>
+    </article>
+    <article class="entry" data-search="agent knowledge vault readme knowledge-map knowledge/readme.md agent knowledge vault this folder is an obsidian-compatible vault for the agent map control-plane. start here: - agent-knowledge-map - derived-graph-index - agent-lookup-index - knowledge-lookup-before-work core rule: the vault helps agents find and apply know note knowledge-vault-readme knowledge-map agent knowledge vault readme md this folder is an obsidian-compatible for the map control-plane start here agent-knowledge-map derived-graph-index agent-lookup-index knowledge-lookup-before-work core rule helps agents find and apply know obsidian agent-map all-agents">
+      <div class="entry-head">
+        <strong>Agent Knowledge Vault README</strong>
+        <span>knowledge-map</span>
+      </div>
+      <p>Agent Knowledge Vault This folder is an Obsidian-compatible vault for the Agent Map control-plane. Start here: - agent-knowledge-map - derived-graph-index - agent-lookup-index - knowledge-lookup-before-work Core rule: the vault helps agents find and apply know</p>
+      <code>knowledge/README.md</code>
+      <div class="chips"><span>note</span><span>knowledge-vault-readme</span><span>knowledge-map</span><span>agent</span><span>knowledge</span><span>vault</span><span>readme</span><span>md</span><span>this</span><span>folder</span></div>
+    </article>
+    <article class="entry" data-search="llm-wiki foundation is forming weekly-synthesis-theme runtime/weekly-knowledge-synthesis.json knowledge vault exists · public-safe kakao analysis exists · runtime artifacts are deployed synthesis llm-wiki-foundation weekly-synthesis-theme llm-wiki foundation is forming runtime weekly-knowledge-synthesis json knowledge vault exists public-safe kakao analysis artifacts are deployed">
+      <div class="entry-head">
+        <strong>LLM-Wiki foundation is forming</strong>
+        <span>weekly-synthesis-theme</span>
+      </div>
+      <p>knowledge vault exists · public-safe Kakao analysis exists · runtime artifacts are deployed</p>
+      <code>runtime/weekly-knowledge-synthesis.json</code>
+      <div class="chips"><span>synthesis</span><span>llm-wiki-foundation</span><span>weekly-synthesis-theme</span><span>llm-wiki</span><span>foundation</span><span>is</span><span>forming</span><span>runtime</span><span>weekly-knowledge-synthesis</span><span>json</span></div>
+    </article>
+    <article class="entry" data-search="capture and reuse should precede rag/mcp weekly-synthesis-theme runtime/weekly-knowledge-synthesis.json capture inbox baseline created · roi counters are now instrumented as baseline synthesis capture-before-rag weekly-synthesis-theme capture and reuse should precede rag mcp runtime weekly-knowledge-synthesis json inbox baseline created roi counters are now instrumented as llm-wiki">
+      <div class="entry-head">
+        <strong>Capture and reuse should precede RAG/MCP</strong>
+        <span>weekly-synthesis-theme</span>
+      </div>
+      <p>capture inbox baseline created · ROI counters are now instrumented as baseline</p>
+      <code>runtime/weekly-knowledge-synthesis.json</code>
+      <div class="chips"><span>synthesis</span><span>capture-before-rag</span><span>weekly-synthesis-theme</span><span>capture</span><span>and</span><span>reuse</span><span>should</span><span>precede</span><span>rag</span><span>mcp</span></div>
+    </article>
+    <article class="entry" data-search="agent loops exist but replacement is not ready weekly-synthesis-theme runtime/weekly-knowledge-synthesis.json life-agent run evidence exists · replacementreadydomaincount remains zero synthesis agent-loop-not-replacement weekly-synthesis-theme agent loops exist but replacement is not ready runtime weekly-knowledge-synthesis json life-agent run evidence exists replacementreadydomaincount remains zero llm-wiki">
+      <div class="entry-head">
+        <strong>Agent loops exist but replacement is not ready</strong>
+        <span>weekly-synthesis-theme</span>
+      </div>
+      <p>life-agent run evidence exists · replacementReadyDomainCount remains zero</p>
+      <code>runtime/weekly-knowledge-synthesis.json</code>
+      <div class="chips"><span>synthesis</span><span>agent-loop-not-replacement</span><span>weekly-synthesis-theme</span><span>agent</span><span>loops</span><span>exist</span><span>but</span><span>replacement</span><span>is</span><span>not</span></div>
+    </article>
+    <article class="entry" data-search="graphify-compatible derived graph derived-graph graphify-out/graph.json nodes 21, edges 89, unresolved 0 graphify derived-graph graphify-compatible derived graph graphify-out json nodes 21 edges 89 unresolved retrieval llm-wiki">
+      <div class="entry-head">
+        <strong>Graphify-compatible derived graph</strong>
+        <span>derived-graph</span>
+      </div>
+      <p>nodes 21, edges 89, unresolved 0</p>
+      <code>graphify-out/graph.json</code>
+      <div class="chips"><span>graphify</span><span>derived-graph</span><span>graphify-compatible</span><span>derived</span><span>graph</span><span>graphify-out</span><span>json</span><span>nodes</span><span>21</span><span>edges</span></div>
+    </article></div>
+  </section>
+</main>
+<script>
+  const input = document.getElementById('entry-search');
+  const cards = [...document.querySelectorAll('.entry')];
+  input?.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    cards.forEach((card) => {
+      card.hidden = Boolean(query) && !card.dataset.search.includes(query);
+    });
+  });
+</script>
+  <script src="./assets/stitch-service-shell.js" defer></script>
+</body>
+</html>

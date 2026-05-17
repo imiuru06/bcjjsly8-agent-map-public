@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "kakao_public_analysis",
+  "sourceType": "sanitized_public_kakao_analysis_excerpt",
+  "approvedPublicArtifact": true,
+  "approvalBasis": "sanitized_public_excerpt_only; raw messages, room identifiers, room labels, raw URLs, and secrets are excluded",
+  "generatedAt": "2026-05-17T00:19:22.093Z",
+  "sourceGeneratedAt": "2026-05-17T00:05:18.274854Z",
+  "sourceUnifiedPath": "external_kakao_insight_workspace",
+  "period": {
+    "from": "2026-05-16T00:05:18.274854Z",
+    "to": "2026-05-17T00:05:18.274854Z"
+  },
+  "metrics": {
+    "totalRecords": 0,
+    "totalMessages": 0,
+    "sentimentDistribution": {
+      "positive": 0,
+      "negative": 0,
+      "neutral": 0,
+      "urgent": 0
+    },
+    "sentimentMajority": "positive",
+    "roomCount": 0,
+    "roomMessageCounts": [],
+    "actionItemCount": 0,
+    "scheduleCount": 0,
+    "linkCount": 0,
+    "recentSummaryCount": 0
+  },
+  "summaries": [],
+  "actionItems": [],
+  "schedules": [],
+  "linkDomains": [],
+  "rooms": [],
+  "sourceHashes": {
+    "unified": "sha256:ad85e4401437e3f3ccf19a4fc055bddeb858a12bc49b4f24003b78a4335c9b1d",
+    "acceptance": "sha256:62cffa9b7c6cc94b4f92237670609427cfa032ad1fa09916d4941da8b99f0b68",
+    "alert": "sha256:c7beadf5d7d3e86c1e43f7b5d7d1a26cfce92721b04068519f29d9728bfade8a"
+  },
+  "privacy": {
+    "rawMessagesIncluded": false,
+    "rawUrlsIncluded": false,
+    "roomIdsIncluded": false,
+    "roomLabelsIncluded": false,
+    "secretValuesIncluded": false,
+    "sanitizedSummaryTextIncluded": false,
+    "sanitizedActionTextIncluded": false,
+    "sanitizedScheduleTextIncluded": false,
+    "linkDomainsOnly": true
+  },
+  "safetyBoundary": [
+    "Raw Kakao messages are not included.",
+    "Room ids and room labels are not included.",
+    "Raw URLs are not included; only link domains are exposed.",
+    "Summaries/action/schedule candidates are sanitized and truncated public excerpts."
+  ]
+}

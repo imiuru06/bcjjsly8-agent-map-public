@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kakao Public Analysis</title>
+  <style>
+    :root { color-scheme: light; --bg:#f8fafc; --panel:#fff; --ink:#0f172a; --muted:#64748b; --line:#dbeafe; --accent:#2563eb; --ok:#16a34a; --warn:#f59e0b; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,var(--bg),#fff); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif; }
+    .shell { max-width:1100px; margin:0 auto; padding:28px; }
+    a { color:var(--accent); text-decoration:none; }
+    .eyebrow { color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { margin:4px 0 10px; font-size:clamp(28px,5vw,44px); letter-spacing:-.05em; }
+    .lede { margin:0 0 18px; color:var(--muted); line-height:1.6; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+    .card { background:rgba(255,255,255,.86); border:1px solid var(--line); border-radius:22px; padding:16px; box-shadow:0 18px 50px rgba(15,23,42,.08); min-width:0; }
+    .wide { grid-column:1 / -1; }
+    h2 { margin:0 0 10px; font-size:17px; }
+    ul { margin:0; padding-left:20px; color:var(--ink); line-height:1.55; }
+    li { margin:6px 0; overflow-wrap:anywhere; }
+    .muted { color:var(--muted); }
+    .metric { display:flex; justify-content:space-between; gap:12px; margin:7px 0; color:var(--muted); font-size:13px; }
+    .metric b { color:var(--ink); text-align:right; }
+    .pill { display:inline-flex; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; border:1px solid var(--line); border-radius:999px; padding:7px 10px; background:#fff; color:var(--muted); font-size:13px; }
+    .toolbar { display:flex; gap:8px; flex-wrap:wrap; margin:16px 0 0; }
+    .status { color:var(--muted); font-size:13px; margin-top:10px; overflow-wrap:anywhere; }
+    .status strong { color:var(--ink); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="eyebrow">Kakao Public Analysis</div>
+    <h1>카카오 분석 공개 요약</h1>
+    <p class="lede">원문 메시지, 방 ID, 방 이름, raw URL 없이 Agent Map에서 볼 수 있는 공개 안전 분석 발췌입니다.</p>
+    <div class="toolbar">
+      <a class="pill" href="./agent-map-v10.html">Agent Map으로 돌아가기</a>
+      <a class="pill" href="./api/runtime/kakao-public-analysis">API JSON 보기</a>
+      <a class="pill" href="./runtime/kakao-public-analysis.json">JSON 보기</a>
+      <span class="pill" id="sourceGeneratedAt">source -</span>
+    </div>
+    <p class="status" id="runtimeStatus">최신 공개 분석 데이터를 불러오는 중입니다.</p>
+    <section class="grid" style="margin-top:18px">
+      <article class="card">
+        <h2>집계</h2>
+        <div class="metric"><span>records</span><b id="metricRecords">-</b></div>
+        <div class="metric"><span>messages</span><b id="metricMessages">-</b></div>
+        <div class="metric"><span>links</span><b id="metricLinks">-</b></div>
+        <div class="metric"><span>sentiment</span><b id="metricSentiment">-</b></div>
+      </article>
+      <article class="card">
+        <h2>링크 도메인</h2>
+        <ul id="linkDomains"><li class="muted">불러오는 중입니다.</li></ul>
+      </article>
+      <article class="card">
+        <h2>룸 단위 분포</h2>
+        <ul id="rooms"><li class="muted">불러오는 중입니다.</li></ul>
+      </article>
+      <article class="card wide">
+        <h2>최근 분석 요약</h2>
+        <ul id="summaries"><li class="muted">불러오는 중입니다.</li></ul>
+      </article>
+      <article class="card">
+        <h2>할 일 후보</h2>
+        <ul id="actionItems"><li class="muted">불러오는 중입니다.</li></ul>
+      </article>
+      <article class="card">
+        <h2>일정 후보</h2>
+        <ul id="schedules"><li class="muted">불러오는 중입니다.</li></ul>
+      </article>
+      <article class="card wide">
+        <h2>공개 경계</h2>
+        <ul id="safetyBoundary"><li class="muted">불러오는 중입니다.</li></ul>
+      </article>
+    </section>
+  </main>
+  <script type="application/json" id="fallbackData">{"schemaVersion":1,"sourceId":"kakao_public_analysis","sourceType":"sanitized_public_kakao_analysis_excerpt","approvedPublicArtifact":true,"approvalBasis":"sanitized_public_excerpt_only; raw messages, room identifiers, room labels, raw URLs, and secrets are excluded","generatedAt":"2026-05-17T00:19:22.093Z","sourceGeneratedAt":"2026-05-17T00:05:18.274854Z","sourceUnifiedPath":"external_kakao_insight_workspace","period":{"from":"2026-05-16T00:05:18.274854Z","to":"2026-05-17T00:05:18.274854Z"},"metrics":{"totalRecords":0,"totalMessages":0,"sentimentDistribution":{"positive":0,"negative":0,"neutral":0,"urgent":0},"sentimentMajority":"positive","roomCount":0,"roomMessageCounts":[],"actionItemCount":0,"scheduleCount":0,"linkCount":0,"recentSummaryCount":0},"summaries":[],"actionItems":[],"schedules":[],"linkDomains":[],"rooms":[],"sourceHashes":{"unified":"sha256:ad85e4401437e3f3ccf19a4fc055bddeb858a12bc49b4f24003b78a4335c9b1d","acceptance":"sha256:62cffa9b7c6cc94b4f92237670609427cfa032ad1fa09916d4941da8b99f0b68","alert":"sha256:c7beadf5d7d3e86c1e43f7b5d7d1a26cfce92721b04068519f29d9728bfade8a"},"privacy":{"rawMessagesIncluded":false,"rawUrlsIncluded":false,"roomIdsIncluded":false,"roomLabelsIncluded":false,"secretValuesIncluded":false,"sanitizedSummaryTextIncluded":false,"sanitizedActionTextIncluded":false,"sanitizedScheduleTextIncluded":false,"linkDomainsOnly":true},"safetyBoundary":["Raw Kakao messages are not included.","Room ids and room labels are not included.","Raw URLs are not included; only link domains are exposed.","Summaries/action/schedule candidates are sanitized and truncated public excerpts."]}</script>
+  <script>
+    const fallbackData = JSON.parse(document.getElementById('fallbackData').textContent);
+    const $ = (id) => document.getElementById(id);
+    const text = (value, fallback = '-') => String(value ?? fallback);
+    const setText = (id, value) => { $(id).textContent = text(value); };
+    const list = (id, items, empty = '표시할 항목이 없습니다.') => {
+      const node = $(id);
+      const values = Array.isArray(items) ? items.filter(Boolean) : [];
+      node.textContent = '';
+      if (!values.length) {
+        const li = document.createElement('li');
+        li.className = 'muted';
+        li.textContent = empty;
+        node.appendChild(li);
+        return;
+      }
+      for (const item of values) {
+        const li = document.createElement('li');
+        li.textContent = String(item);
+        node.appendChild(li);
+      }
+    };
+    async function fetchJson(path) {
+      const response = await fetch(path, { headers: { accept: 'application/json' }, cache: 'no-store' });
+      if (!response.ok) throw new Error(path + ' returned ' + response.status);
+      return response.json();
+    }
+    async function loadArtifact() {
+      const attempts = ['./api/runtime/kakao-public-analysis', './runtime/kakao-public-analysis.json'];
+      const errors = [];
+      for (const path of attempts) {
+        try {
+          const payload = await fetchJson(path);
+          return { payload, sourcePath: path, errors };
+        } catch (error) {
+          errors.push(String(error && error.message ? error.message : error));
+        }
+      }
+      return { payload: fallbackData, sourcePath: 'embedded build fallback', errors };
+    }
+    function render(artifact, sourcePath, errors) {
+      const metrics = artifact.metrics || {};
+      const sentiment = metrics.sentimentDistribution || {};
+      setText('sourceGeneratedAt', 'source ' + text(artifact.sourceGeneratedAt || artifact.generatedAt));
+      setText('metricRecords', metrics.totalRecords);
+      setText('metricMessages', metrics.totalMessages);
+      setText('metricLinks', metrics.linkCount);
+      setText('metricSentiment', '긍정 ' + text(sentiment.positive, 0) + ' · 중립 ' + text(sentiment.neutral, 0) + ' · 부정 ' + text(sentiment.negative, 0) + ' · 긴급 ' + text(sentiment.urgent, 0));
+      list('linkDomains', artifact.linkDomains, '표시 가능한 링크 도메인이 없습니다.');
+      list('rooms', (artifact.rooms || []).map((room) => 'room ' + room.index + ': messages ' + room.count + ', summaries ' + room.summaryCount), '표시 가능한 룸 분포가 없습니다.');
+      list('summaries', artifact.summaries);
+      list('actionItems', artifact.actionItems);
+      list('schedules', artifact.schedules);
+      list('safetyBoundary', artifact.safetyBoundary);
+      const live = artifact.liveData ? ' · liveData=' + artifact.liveData.mode : '';
+      const warning = errors && errors.length ? ' · fallback attempts: ' + errors.join(' / ') : '';
+      $('runtimeStatus').innerHTML = '<strong>data:</strong> ' + sourcePath + live + ' · generatedAt ' + text(artifact.generatedAt) + warning;
+    }
+    loadArtifact().then(({ payload, sourcePath, errors }) => render(payload, sourcePath, errors));
+  </script>
+  <script src="./assets/stitch-service-shell.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,945 @@
+{
+  "schemaVersion": "infrastructure-map-v1",
+  "generatedAt": "2026-04-30T21:37:06Z",
+  "meta": {
+    "source": "issue-38-static-mvp",
+    "publicView": true,
+    "privateFieldsRedacted": true,
+    "snapshotId": "infra-map-2026-04-30-static-mvp",
+    "notes": [
+      "Public-safe static MVP snapshot.",
+      "Credential entries are aliases only and never contain raw env names or secret values.",
+      "Live provider calls and private ops fields are intentionally out of scope for this public view."
+    ],
+    "backendBoundary": "scripts/prepare-infrastructure-map.mjs",
+    "publicApiPath": "/api/public-map",
+    "privateApiPath": "/api/private-map"
+  },
+  "groups": [
+    {
+      "id": "data",
+      "title": "Data Layer",
+      "description": "Persistent and generated data sources used by Agent Map.",
+      "color": "#2563eb"
+    },
+    {
+      "id": "runtime",
+      "title": "Runtime Layer",
+      "description": "Agents, local registry contract, schedulers, and static runtime state.",
+      "color": "#0d9488"
+    },
+    {
+      "id": "communication",
+      "title": "Communication Layer",
+      "description": "GitHub, Telegram, and Registry event channels used as agent workflow queues.",
+      "color": "#7c3aed"
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud / Deploy Layer",
+      "description": "Public deployment surface and cloud resource ownership.",
+      "color": "#f97316"
+    },
+    {
+      "id": "search",
+      "title": "Search / Index Layer",
+      "description": "Search and index capabilities, including explicit absence when not configured.",
+      "color": "#06b6d4"
+    },
+    {
+      "id": "secrets",
+      "title": "Secrets / Config Layer",
+      "description": "Credential reference presence only. Secret values are never serialized.",
+      "color": "#e11d48"
+    },
+    {
+      "id": "observability",
+      "title": "Observability Layer",
+      "description": "Health checks, issue delta monitoring, and stale/drift indicators.",
+      "color": "#16a34a"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "agent-map-life-ui",
+      "type": "service",
+      "name": "Agent Map Life Graph UI",
+      "description": "Canonical public Agent Map entry that renders life/process graph and links to infrastructure visibility.",
+      "owner": "codex",
+      "group": "runtime",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "health": "healthy",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "canonical",
+        "static-ui"
+      ],
+      "links": [
+        {
+          "label": "Life Graph",
+          "url": "./agent-map-life.html",
+          "visibility": "public"
+        },
+        {
+          "label": "Issue #18",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/18",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-30T21:37:06Z",
+      "source": "repo-public",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "in_sync",
+      "redaction": {
+        "publicLabel": "Agent Map UI",
+        "privateFieldsRedacted": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "infrastructure-map-ui",
+      "type": "service",
+      "name": "Infrastructure Visibility UI",
+      "description": "Public-safe infrastructure topology view implemented for Issue #38.",
+      "owner": "codex",
+      "group": "runtime",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "health": "healthy",
+      "resourceKind": "custom",
+      "persistence": "cloud",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "infrastructure",
+        "public-redacted"
+      ],
+      "links": [
+        {
+          "label": "Infrastructure Map",
+          "url": "./infrastructure-map.html",
+          "visibility": "public"
+        },
+        {
+          "label": "Issue #38",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/38",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-30T21:37:06Z",
+      "source": "issue-38",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "in_sync",
+      "redaction": {
+        "publicLabel": "Infrastructure Visibility UI",
+        "privateFieldsRedacted": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "cloudflare-pages",
+      "type": "cloudResource",
+      "name": "Cloudflare Pages",
+      "description": "Public static deployment target for Agent Map dashboards.",
+      "owner": "user+codex",
+      "group": "cloud",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "health": "healthy",
+      "resourceKind": "cloudflare",
+      "persistence": "cloud",
+      "credentialRefs": [
+        {
+          "name": "credential.cloudflare-pages-deploy",
+          "publicAlias": "Cloudflare deploy credential",
+          "category": "provider_secret",
+          "presence": "present",
+          "provider": "cloudflare",
+          "secretValuesVisible": false,
+          "rawNameVisibleInPublic": false
+        }
+      ],
+      "secretValuesVisible": false,
+      "tags": [
+        "deploy",
+        "public"
+      ],
+      "links": [
+        {
+          "label": "Production",
+          "url": "https://bcjjsly8-agent-map.pages.dev/",
+          "visibility": "public"
+        },
+        {
+          "label": "Issue #5",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/5",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-30T21:37:06Z",
+      "source": "github-actions-cloudflare-pages",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "in_sync",
+      "redaction": {
+        "publicLabel": "Cloudflare Pages",
+        "privateFieldsRedacted": true,
+        "reason": "provider_account"
+      }
+    },
+    {
+      "id": "github-repo",
+      "type": "repo",
+      "name": "imiuru06/bcjjsly8",
+      "description": "Source of Truth repo for Agent Map control-plane code, docs, workflows, and runtime snapshots.",
+      "owner": "user+codex",
+      "group": "communication",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "health": "healthy",
+      "resourceKind": "github",
+      "persistence": "external",
+      "credentialRefs": [
+        {
+          "name": "credential.github-repo-access",
+          "publicAlias": "GitHub repo access credential",
+          "category": "provider_secret",
+          "presence": "present",
+          "provider": "github",
+          "secretValuesVisible": false,
+          "rawNameVisibleInPublic": false
+        }
+      ],
+      "secretValuesVisible": false,
+      "tags": [
+        "source-of-truth",
+        "workflow"
+      ],
+      "links": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/imiuru06/bcjjsly8",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-30T21:37:06Z",
+      "source": "github",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 3600,
+      "stale": false,
+      "driftStatus": "in_sync",
+      "redaction": {
+        "publicLabel": "GitHub Repo",
+        "privateFieldsRedacted": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "github-issues-project",
+      "type": "hub",
+      "name": "GitHub Issues / Project",
+      "description": "Durable work queue, Kanban status, final close ownership, and cross-agent routing surface.",
+      "owner": "user+codex",
+      "group": "communication",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "health": "healthy",
+      "resourceKind": "github",
+      "persistence": "external",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "kanban",
+        "issue-queue",
+        "review"
+      ],
+      "links": [
+        {
+          "label": "Project Board",
+          "url": "https://github.com/users/imiuru06/projects/1",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-30T21:37:06Z",
+      "source": "github-project",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 3600,
+      "stale": false,
+      "driftStatus": "in_sync",
+      "redaction": {
+        "publicLabel": "GitHub Work Queue",
+        "privateFieldsRedacted": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "agent-registry-local",
+      "type": "registry",
+      "name": "Agent Map Registry",
+      "description": "Local-first Registry event contract. Public deployment does not expose private live registry state.",
+      "owner": "codex",
+      "group": "runtime",
+      "visibility": "public",
+      "connectionStatus": "unknown",
+      "health": "unknown",
+      "resourceKind": "custom",
+      "persistence": "local",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "registry",
+        "local-first",
+        "sse"
+      ],
+      "links": [
+        {
+          "label": "Protocol",
+          "url": "./docs/INFRA_VISIBILITY_PLATFORM_ARCHITECTURE.md",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-28T17:10:13Z",
+      "source": "runtime-snapshot",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 3600,
+      "stale": true,
+      "driftStatus": "unknown",
+      "redaction": {
+        "publicLabel": "Local Registry Contract",
+        "privateFieldsRedacted": true,
+        "reason": "private_endpoint"
+      }
+    },
+    {
+      "id": "telegram-intake-agents",
+      "type": "agent",
+      "name": "Telegram Intake Agents",
+      "description": "telegram_notifier, proposal_responder, and telegram_issue_intake contracts for human and agent workflow events.",
+      "owner": "codex",
+      "group": "communication",
+      "visibility": "public",
+      "connectionStatus": "stale",
+      "health": "unknown",
+      "resourceKind": "telegram",
+      "persistence": "external",
+      "credentialRefs": [
+        {
+          "name": "credential.telegram-bot",
+          "publicAlias": "Telegram bot credential",
+          "category": "bot_token",
+          "presence": "present",
+          "provider": "provider_secret",
+          "secretValuesVisible": false,
+          "rawNameVisibleInPublic": false
+        }
+      ],
+      "secretValuesVisible": false,
+      "tags": [
+        "telegram",
+        "proposal",
+        "mission-intake"
+      ],
+      "links": [
+        {
+          "label": "Channels",
+          "url": "./docs/CHANNELS.md",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-28T17:10:13Z",
+      "source": "repo-contract",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 3600,
+      "stale": true,
+      "driftStatus": "unknown",
+      "redaction": {
+        "publicLabel": "Telegram Workflow Agents",
+        "privateFieldsRedacted": true,
+        "reason": "secret"
+      }
+    },
+    {
+      "id": "kakao-insight-public-summary",
+      "type": "database",
+      "name": "Kakao Insight Public Summary",
+      "description": "Public-safe processed Kakao insight result surface for collector → analyzer → daily brief visualizer. Raw messages, room identifiers, room labels, raw links, and private summary text remain excluded.",
+      "owner": "codex",
+      "group": "data",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "health": "healthy",
+      "resourceKind": "local_file",
+      "persistence": "local",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "summary-json",
+        "redacted",
+        "processed-kakao",
+        "daily-brief",
+        "life-agent-result"
+      ],
+      "links": [
+        {
+          "label": "Message Daily Brief",
+          "url": "./daily-brief.html",
+          "visibility": "public"
+        },
+        {
+          "label": "Processed Snapshot",
+          "url": "./runtime/kakao-insight-input-snapshot.json",
+          "visibility": "public"
+        },
+        {
+          "label": "Bounded Actions",
+          "url": "./runtime/kakao-information-bounded-actions.json",
+          "visibility": "public"
+        },
+        {
+          "label": "Triage Verification",
+          "url": "./runtime/kakao-information-triage-verification.json",
+          "visibility": "public"
+        },
+        {
+          "label": "Life Graph Main",
+          "url": "./agent-map-life.html",
+          "visibility": "public"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Message Daily Brief HTML",
+          "kind": "html",
+          "path": "./daily-brief.html",
+          "publicUrl": "./daily-brief.html",
+          "status": "healthy",
+          "description": "Integrated public-safe daily view generated by daily_brief_visualizer."
+        },
+        {
+          "label": "Processed Kakao Snapshot",
+          "kind": "json",
+          "path": "./runtime/kakao-insight-input-snapshot.json",
+          "publicUrl": "./runtime/kakao-insight-input-snapshot.json",
+          "status": "healthy",
+          "description": "Processed aggregate metrics only; raw source content is excluded."
+        },
+        {
+          "label": "Kakao Triage Bounded Actions",
+          "kind": "json",
+          "path": "./runtime/kakao-information-bounded-actions.json",
+          "publicUrl": "./runtime/kakao-information-bounded-actions.json",
+          "status": "healthy",
+          "description": "Local bounded next-action proposals produced from processed aggregate signals."
+        },
+        {
+          "label": "Kakao Triage Verification",
+          "kind": "json",
+          "path": "./runtime/kakao-information-triage-verification.json",
+          "publicUrl": "./runtime/kakao-information-triage-verification.json",
+          "status": "healthy",
+          "description": "Safety and currentness verification for the processed Kakao triage loop."
+        }
+      ],
+      "metrics": {
+        "totalRecords": 10,
+        "totalMessages": 14,
+        "linkCount": 4,
+        "boundedActionCount": 1,
+        "acceptancePassed": true,
+        "rawPrivateDataVisible": false
+      },
+      "lastCheckedAt": "2026-05-03T00:41:51Z",
+      "lastSeenAt": "2026-05-03T00:41:51Z",
+      "source": "processed-kakao-life-agent-brief",
+      "sourceHash": "sha256:97241ad99883a20ea66fc99c7a820130dc1ade8718cd1417cab627bde6aac500",
+      "snapshotId": "infra-map-2026-05-03-kakao-brief",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "in_sync",
+      "redaction": {
+        "publicLabel": "Kakao Insight Summary",
+        "privateFieldsRedacted": true,
+        "reason": "personal_data"
+      }
+    },
+    {
+      "id": "n8n-integration-layer",
+      "type": "workflow",
+      "name": "n8n Integration Layer",
+      "description": "Planned read-only inventory and workflow proposal/deploy guard layer. Public snapshot marks live connection as not configured until collector confirms it.",
+      "owner": "codex",
+      "group": "runtime",
+      "visibility": "public",
+      "connectionStatus": "not_configured",
+      "health": "unknown",
+      "resourceKind": "n8n",
+      "persistence": "external",
+      "credentialRefs": [
+        {
+          "name": "credential.n8n-inventory-readonly",
+          "publicAlias": "n8n read-only inventory credential",
+          "category": "api_key",
+          "presence": "unknown",
+          "provider": "provider_secret",
+          "secretValuesVisible": false,
+          "rawNameVisibleInPublic": false
+        }
+      ],
+      "secretValuesVisible": false,
+      "tags": [
+        "planned",
+        "readonly",
+        "guarded"
+      ],
+      "links": [
+        {
+          "label": "Mission #27",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/27",
+          "visibility": "public"
+        },
+        {
+          "label": "PR #30",
+          "url": "https://github.com/imiuru06/bcjjsly8/pull/30",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-30T21:37:06Z",
+      "source": "github-issues",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "unknown",
+      "redaction": {
+        "publicLabel": "n8n Integration Layer",
+        "privateFieldsRedacted": true,
+        "reason": "secret"
+      }
+    },
+    {
+      "id": "knowledge-vault-public-summary",
+      "type": "index",
+      "name": "Knowledge Vault Public Summary",
+      "description": "Public-safe Obsidian-style knowledge vault index for agent rules, protocols, roles, runbooks, and decision notes. Obsidian remains the local authoring/navigation interface; Agent Map exposes the service-safe status and result surface.",
+      "owner": "codex",
+      "group": "search",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "health": "healthy",
+      "resourceKind": "local_file",
+      "persistence": "local",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "knowledge",
+        "obsidian",
+        "llm-wiki",
+        "public-index"
+      ],
+      "links": [
+        {
+          "label": "Knowledge Map",
+          "url": "./knowledge-map.html",
+          "visibility": "public"
+        },
+        {
+          "label": "Knowledge Runtime JSON",
+          "url": "./runtime/knowledge-vault-summary.json",
+          "visibility": "public"
+        },
+        {
+          "label": "Knowledge Management Doc",
+          "url": "./docs/KNOWLEDGE_MANAGEMENT.md",
+          "visibility": "public"
+        }
+      ],
+      "artifacts": [
+        {
+          "label": "Knowledge Map HTML",
+          "kind": "html",
+          "path": "./knowledge-map.html",
+          "publicUrl": "./knowledge-map.html",
+          "status": "healthy",
+          "description": "Browser view of public-safe vault status, lookup modes, notes, and Graphify readiness."
+        },
+        {
+          "label": "Knowledge Vault Summary",
+          "kind": "json",
+          "path": "./runtime/knowledge-vault-summary.json",
+          "publicUrl": "./runtime/knowledge-vault-summary.json",
+          "status": "healthy",
+          "description": "Machine-readable public-safe index generated from the Obsidian-style vault."
+        }
+      ],
+      "metrics": {
+        "noteCount": 16,
+        "noteTypes": 7,
+        "graphifyBuilt": false,
+        "rawPrivateDataVisible": false
+      },
+      "lastCheckedAt": "2026-05-03T00:54:51Z",
+      "lastSeenAt": "2026-05-03T00:54:51Z",
+      "source": "npm run knowledge:prepare",
+      "sourceHash": "knowledge-vault-public-summary",
+      "snapshotId": "infra-map-2026-05-03-knowledge-map",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "in_sync",
+      "redaction": {
+        "publicLabel": "Knowledge Vault",
+        "privateFieldsRedacted": true,
+        "reason": "public-safe-index"
+      }
+    },
+    {
+      "id": "search-index-capability",
+      "type": "searchEngine",
+      "name": "Search / Index Capability",
+      "description": "No dedicated search engine or vector index is currently configured for Infrastructure Visibility MVP.",
+      "owner": "codex",
+      "group": "search",
+      "visibility": "public",
+      "connectionStatus": "not_configured",
+      "health": "unknown",
+      "resourceKind": "unknown",
+      "persistence": "unknown",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "explicit-absence",
+        "future"
+      ],
+      "links": [
+        {
+          "label": "Architecture",
+          "url": "./docs/INFRA_VISIBILITY_PLATFORM_ARCHITECTURE.md",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-30T21:37:06Z",
+      "source": "architecture-contract",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "missing",
+      "redaction": {
+        "publicLabel": "Search Capability",
+        "privateFieldsRedacted": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "credential-ref-policy",
+      "type": "credentialRef",
+      "name": "CredentialRef Policy",
+      "description": "Public view can show credential category and presence only. Values and raw provider config are redacted.",
+      "owner": "codex",
+      "group": "secrets",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "health": "healthy",
+      "resourceKind": "custom",
+      "persistence": "external",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "redaction",
+        "release-gate"
+      ],
+      "links": [
+        {
+          "label": "Safety Contract",
+          "url": "./docs/INFRA_VISIBILITY_PLATFORM_ARCHITECTURE.md",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-30T21:37:06Z",
+      "source": "policy-check",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "in_sync",
+      "redaction": {
+        "publicLabel": "Credential Policy",
+        "privateFieldsRedacted": true,
+        "reason": "secret"
+      }
+    },
+    {
+      "id": "issue-delta-monitor",
+      "type": "scheduler",
+      "name": "Hourly Issue Delta Monitor",
+      "description": "Scheduled ticket delta checker that reads changed issues only and updates baseline after routing.",
+      "owner": "codex",
+      "group": "observability",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "health": "healthy",
+      "resourceKind": "custom",
+      "persistence": "local",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "schedule",
+        "delta",
+        "efficiency"
+      ],
+      "links": [
+        {
+          "label": "Project Board",
+          "url": "https://github.com/users/imiuru06/projects/1",
+          "visibility": "public"
+        }
+      ],
+      "lastCheckedAt": "2026-04-30T21:37:06Z",
+      "lastSeenAt": "2026-04-30T21:33:55Z",
+      "source": "issue-delta",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 3600,
+      "stale": false,
+      "driftStatus": "in_sync",
+      "redaction": {
+        "publicLabel": "Issue Delta Monitor",
+        "privateFieldsRedacted": true,
+        "reason": "none"
+      }
+    },
+    {
+      "id": "health-monitor",
+      "type": "healthCheck",
+      "name": "Health Monitor",
+      "description": "Checks public insight outputs and reports stale or missing inputs without exposing private file details.",
+      "owner": "codex",
+      "group": "observability",
+      "visibility": "public",
+      "connectionStatus": "stale",
+      "health": "degraded",
+      "resourceKind": "custom",
+      "persistence": "local",
+      "credentialRefs": [],
+      "secretValuesVisible": false,
+      "tags": [
+        "health",
+        "alert"
+      ],
+      "links": [],
+      "lastCheckedAt": "2026-04-30T21:05:20Z",
+      "lastSeenAt": "2026-04-30T21:05:20Z",
+      "source": "health-monitor-alert",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 3600,
+      "stale": true,
+      "driftStatus": "unknown",
+      "redaction": {
+        "publicLabel": "Health Monitor",
+        "privateFieldsRedacted": true,
+        "reason": "personal_data"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-life-ui-to-infra-ui",
+      "from": "agent-map-life-ui",
+      "to": "infrastructure-map-ui",
+      "type": "service_calls_endpoint",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "navigation"
+    },
+    {
+      "id": "edge-life-ui-to-cloudflare",
+      "from": "agent-map-life-ui",
+      "to": "cloudflare-pages",
+      "type": "service_deployed_to_resource",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "deployed on"
+    },
+    {
+      "id": "edge-infra-ui-to-runtime",
+      "from": "infrastructure-map-ui",
+      "to": "github-repo",
+      "type": "repo_defines_resource",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "loads snapshot"
+    },
+    {
+      "id": "edge-cloudflare-to-github",
+      "from": "github-repo",
+      "to": "cloudflare-pages",
+      "type": "pull_request_changes_resource",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "build/deploy"
+    },
+    {
+      "id": "edge-issues-to-registry",
+      "from": "github-issues-project",
+      "to": "agent-registry-local",
+      "type": "agent_emits_event_to_hub",
+      "visibility": "public",
+      "connectionStatus": "unknown",
+      "label": "agent.request"
+    },
+    {
+      "id": "edge-telegram-to-issues",
+      "from": "telegram-intake-agents",
+      "to": "github-issues-project",
+      "type": "router_routes_to_agent",
+      "visibility": "public",
+      "connectionStatus": "stale",
+      "label": "mission/issue/todo"
+    },
+    {
+      "id": "edge-kakao-summary-to-ui",
+      "from": "kakao-insight-public-summary",
+      "to": "agent-map-life-ui",
+      "type": "service_uses_database",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "processed summary + brief"
+    },
+    {
+      "id": "edge-n8n-to-registry",
+      "from": "n8n-integration-layer",
+      "to": "agent-registry-local",
+      "type": "workflow_triggers_service",
+      "visibility": "public",
+      "connectionStatus": "not_configured",
+      "label": "planned collector"
+    },
+    {
+      "id": "edge-search-to-infra",
+      "from": "search-index-capability",
+      "to": "infrastructure-map-ui",
+      "type": "search_indexes_source",
+      "visibility": "public",
+      "connectionStatus": "not_configured",
+      "label": "future search"
+    },
+    {
+      "id": "edge-knowledge-to-life-ui",
+      "from": "knowledge-vault-public-summary",
+      "to": "agent-map-life-ui",
+      "type": "search_indexes_source",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "knowledge context"
+    },
+    {
+      "id": "edge-knowledge-to-infra-ui",
+      "from": "knowledge-vault-public-summary",
+      "to": "infrastructure-map-ui",
+      "type": "search_indexes_source",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "public index"
+    },
+    {
+      "id": "edge-credential-policy-to-cloudflare",
+      "from": "credential-ref-policy",
+      "to": "cloudflare-pages",
+      "type": "credential_required_by_resource",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "presence only"
+    },
+    {
+      "id": "edge-health-to-kakao-summary",
+      "from": "health-monitor",
+      "to": "kakao-insight-public-summary",
+      "type": "health_check_monitors_resource",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "healthy"
+    },
+    {
+      "id": "edge-delta-to-issues",
+      "from": "issue-delta-monitor",
+      "to": "github-issues-project",
+      "type": "health_check_monitors_resource",
+      "visibility": "public",
+      "connectionStatus": "connected",
+      "label": "hourly delta"
+    }
+  ],
+  "checks": [
+    {
+      "id": "check-public-redaction",
+      "targetNodeId": "credential-ref-policy",
+      "status": "pass",
+      "checkedAt": "2026-04-30T21:37:06Z",
+      "summary": "Public snapshot uses aliases only and declares secretValuesVisible=false.",
+      "publicSummary": "Credential references are redacted.",
+      "privateDetailRedacted": true,
+      "source": "scripts/check-infrastructure-map-data.mjs",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "in_sync"
+    },
+    {
+      "id": "check-kakao-health",
+      "targetNodeId": "kakao-insight-public-summary",
+      "status": "pass",
+      "checkedAt": "2026-05-03T00:41:51Z",
+      "summary": "Processed Kakao snapshot, daily brief, bounded actions, and verification artifacts are present and public-safe.",
+      "publicSummary": "Insight summary and daily brief are current, healthy, and redacted.",
+      "privateDetailRedacted": true,
+      "source": "npm run brief:check",
+      "sourceHash": "sha256:97241ad99883a20ea66fc99c7a820130dc1ade8718cd1417cab627bde6aac500",
+      "snapshotId": "infra-map-2026-05-03-kakao-brief",
+      "ttlSeconds": 3600,
+      "stale": false,
+      "driftStatus": "in_sync"
+    },
+    {
+      "id": "check-n8n-inventory",
+      "targetNodeId": "n8n-integration-layer",
+      "status": "unknown",
+      "checkedAt": "2026-04-30T21:37:06Z",
+      "summary": "n8n live inventory is not configured in this public MVP snapshot.",
+      "publicSummary": "n8n connection is intentionally shown as not configured.",
+      "privateDetailRedacted": true,
+      "source": "issue-27",
+      "sourceHash": "public-static-mvp",
+      "snapshotId": "infra-map-2026-04-30-static-mvp",
+      "ttlSeconds": 86400,
+      "stale": false,
+      "driftStatus": "missing"
+    }
+  ]
+}

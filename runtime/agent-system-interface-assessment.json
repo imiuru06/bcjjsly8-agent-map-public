@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:25.981Z",
+  "command": "agent:interface",
+  "agentId": "agent_system_interface_assessor_cli",
+  "status": "improving",
+  "score": 68,
+  "sourceHash": "sha256:eb9cd6787164ccab77ae547d38e7e8735c5ff7e5cb95da671c9ece77a6b6ce54",
+  "summary": {
+    "totalAgents": 31,
+    "implementedAgents": 25,
+    "assignableAgents": 5,
+    "optionalReviewers": 3,
+    "roleLanes": 10,
+    "routingRules": 6,
+    "mustActRoles": 9,
+    "attentionAgents": 8,
+    "staleOpenIssues": 18,
+    "needsHuman": 5,
+    "decisionBatches": 3,
+    "topFindingCount": 0
+  },
+  "dimensions": [
+    {
+      "id": "dynamic_management",
+      "label": "Dynamic agent management",
+      "score": 82,
+      "evidence": [
+        "config/session-agents.json",
+        "config/agent-role-management.json",
+        "runtime/ops-environment-audit.json"
+      ],
+      "rationale": "5 assignable agents, 3 optional reviewers, 10 work lanes."
+    },
+    {
+      "id": "observability",
+      "label": "Observability and runtime evidence",
+      "score": 68,
+      "evidence": [
+        "runtime/ops-environment-audit.json",
+        "runtime/agent-performance-report.json",
+        "runtime/agent-manifest-summary.json"
+      ],
+      "rationale": "ops status=ok, implemented=25/31, attention=8."
+    },
+    {
+      "id": "user_interface",
+      "label": "User-facing interface clarity",
+      "score": 66,
+      "evidence": [
+        "runtime/decision-digest.json",
+        "frontend/agent-map-control/src/main.jsx"
+      ],
+      "rationale": "5 human decisions across 3 batches; v10 exposes summary panels but decision execution still requires clearer user actions."
+    },
+    {
+      "id": "ralph_loop",
+      "label": "Ralph loop drive",
+      "score": 74,
+      "evidence": [
+        "runtime/ralph-role-drive-report.json",
+        "docs/RALF_LOOP.md",
+        "docs/RALPH_ROLE_DRIVE.md"
+      ],
+      "rationale": "9 must-act roles are generated from stale/attention/improvement evidence."
+    },
+    {
+      "id": "human_in_the_loop",
+      "label": "Human gate compression",
+      "score": 60,
+      "evidence": [
+        "runtime/decision-digest.json",
+        "AGENTS.md"
+      ],
+      "rationale": "5 items still need human decision; digest batching exists but should be directly visible in v10."
+    },
+    {
+      "id": "stability",
+      "label": "Stability and anti-sprawl",
+      "score": 58,
+      "evidence": [
+        "runtime/agent-performance-report.json",
+        "runtime/ops-environment-audit.json"
+      ],
+      "rationale": "18 stale open issues; duplicate schedules=0."
+    }
+  ],
+  "userInterface": {
+    "primaryUrl": "https://bcjjsly8-agent-map.pages.dev/agent-map-v10.html",
+    "primaryPanel": "Agent System Interface",
+    "decisionSurface": "runtime/decision-digest.json",
+    "ralphSurface": "runtime/ralph-role-drive-report.json",
+    "opsSurface": "runtime/ops-environment-audit.json",
+    "userShouldSee": [
+      "which agents are available now",
+      "which roles are optional only",
+      "what requires human decision",
+      "what Ralph says must act next",
+      "what evidence verifies the system state"
+    ]
+  },
+  "ralphLoopPlan": [
+    {
+      "stage": "Research",
+      "status": "done",
+      "evidence": [
+        "OpenAI Agents SDK tracing uses traces/spans for agent runs, tools, handoffs, guardrails, and custom events.",
+        "OpenTelemetry correlates logs, traces, and metrics through trace/span/resource context.",
+        "LangGraph Studio-style observability emphasizes graph/state debugging and traced runs.",
+        "HITL patterns require clear pause/approval points instead of hidden autonomous mutation."
+      ]
+    },
+    {
+      "stage": "Design",
+      "status": "done",
+      "evidence": [
+        "runtime/agent-system-interface-assessment.json schema",
+        "Agent Map v10 cockpit panel contract"
+      ]
+    },
+    {
+      "stage": "Implement",
+      "status": "done",
+      "evidence": [
+        "scripts/assess-agent-system-interface.mjs",
+        "frontend/agent-map-control/src/main.jsx"
+      ]
+    },
+    {
+      "stage": "Verify",
+      "status": "done",
+      "evidence": [
+        "npm run agent:interface:check",
+        "npm run uiux:audit",
+        "npm run policy:check"
+      ]
+    },
+    {
+      "stage": "Improve",
+      "status": "active",
+      "evidence": [
+        "Turn stale issue pressure into visible user/agent next actions",
+        "Compress user decisions into fewer explicit action cards",
+        "Separate available agents from optional role pools"
+      ]
+    },
+    {
+      "stage": "Re-verify and deploy",
+      "status": "ready",
+      "evidence": [
+        "npm run build:static",
+        "npm run deploy:briefing:check"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "title": "Turn stale issue pressure into visible user/agent next actions",
+      "action": "Expose stale/attention/needs-human counts in one v10 cockpit and route to Ralph Role Drive commands."
+    },
+    {
+      "priority": "P1",
+      "title": "Compress user decisions into fewer explicit action cards",
+      "action": "Show decision batches instead of raw issue lists; only ask the user for irreversible or credential decisions."
+    },
+    {
+      "priority": "P2",
+      "title": "Separate available agents from optional role pools",
+      "action": "Keep Gemini/OpenCode/Stitch assist-only until a live session marker or verified local command exists."
+    }
+  ],
+  "findings": [],
+  "guardrails": {
+    "publicSafeOnly": true,
+    "rawPrivateDataIncluded": false,
+    "secretValuesIncluded": false,
+    "externalMutations": false,
+    "deployOrCloseActions": false
+  },
+  "failures": []
+}

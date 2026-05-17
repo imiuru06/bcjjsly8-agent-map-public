@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Map LLM-Wiki Readiness</title>
+  <style>
+    :root { color-scheme: light; --bg:#f8fafc; --panel:#fff; --ink:#0f172a; --muted:#64748b; --line:#dbeafe; --accent:#2563eb; --ok:#16a34a; --warn:#f59e0b; --bad:#dc2626; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,var(--bg),#fff); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif; }
+    .shell { max-width:1160px; margin:0 auto; padding:28px; }
+    a { color:var(--accent); text-decoration:none; }
+    .eyebrow { color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { margin:4px 0 10px; font-size:clamp(28px,5vw,46px); letter-spacing:-.05em; }
+    .lede { margin:0; color:var(--muted); line-height:1.6; max-width:850px; }
+    .toolbar { display:flex; gap:8px; flex-wrap:wrap; margin:16px 0 22px; }
+    .pill { display:inline-flex; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; border:1px solid var(--line); border-radius:999px; padding:7px 10px; background:#fff; color:var(--muted); font-size:13px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+    .card { background:rgba(255,255,255,.86); border:1px solid var(--line); border-radius:22px; padding:16px; box-shadow:0 18px 50px rgba(15,23,42,.08); min-width:0; }
+    .wide { grid-column:1 / -1; }
+    h2 { margin:0 0 10px; font-size:17px; }
+    h3 { margin:0 0 6px; font-size:14px; }
+    p, li { color:var(--muted); line-height:1.5; }
+    ul { margin:0; padding-left:20px; }
+    .metric { display:flex; justify-content:space-between; gap:12px; margin:7px 0; color:var(--muted); font-size:13px; }
+    .metric b { color:var(--ink); text-align:right; }
+    .score { font-size:54px; letter-spacing:-.06em; line-height:1; font-weight:850; }
+    .bar { height:10px; background:#e2e8f0; border-radius:999px; overflow:hidden; margin:10px 0 0; }
+    .bar span { display:block; height:100%; width:84%; background:linear-gradient(135deg,var(--accent),#06b6d4); }
+    .dimension { display:grid; gap:6px; }
+    .badge { display:inline-flex; width:max-content; border-radius:999px; padding:5px 8px; font-size:12px; font-weight:800; background:#fff; border:1px solid var(--line); }
+    .strong { color:var(--ok); } .partial { color:var(--warn); } .weak { color:var(--bad); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="eyebrow">LLM-Wiki Readiness</div>
+    <h1>Agent Map LLM-Wiki 평가</h1>
+    <p class="lede">영상의 관점 — 입력 마찰, 검색 ROI, RAG/MCP 과투자 방지, 지식 복리 루프 — 으로 현재 Agent Map을 평가합니다. 기존 강점인 GitHub control-plane, 안전 경계, 멀티 에이전트 라우팅은 유지합니다.</p>
+    <div class="toolbar">
+      <a class="pill" href="./agent-map-v10.html">Agent Map으로 돌아가기</a>
+      <a class="pill" href="./runtime/llm-wiki-readiness.json">JSON 보기</a>
+      <span class="pill">ready_for_retrieval_pilot</span>
+    </div>
+    <section class="grid">
+      <article class="card">
+        <h2>총점</h2>
+        <div class="score">84%</div>
+        <div class="bar"><span></span></div>
+        <div class="metric"><span>score</span><b>84/100</b></div>
+        <div class="metric"><span>raw score</span><b>97% before caps</b></div>
+        <div class="metric"><span>band</span><b>ready_for_retrieval_pilot</b></div>
+      </article>
+      <article class="card">
+        <h2>핵심 지표</h2>
+        <div class="metric"><span>knowledge notes</span><b>17</b></div>
+        <div class="metric"><span>graphify</span><b>built</b></div>
+        <div class="metric"><span>retrieval</span><b>healthy · 21 entries</b></div>
+        <div class="metric"><span>life runs</span><b>12</b></div>
+        <div class="metric"><span>capture inbox items</span><b>11</b></div>
+        <div class="metric"><span>promotion candidates</span><b>6</b></div>
+        <div class="metric"><span>search events</span><b>1</b></div>
+        <div class="metric"><span>replacement-ready domains</span><b>1</b></div>
+      </article>
+      <article class="card">
+        <h2>현재 결론</h2>
+        <p>Agent Map은 LLM-Wiki의 기반은 갖췄지만, 아직 “검색 ROI가 검증된 RAG/MCP 시스템”은 아닙니다. 지금은 capture → sanitize → visible artifact → agent loop → synthesis로 가는 MVP를 강화해야 합니다.</p>
+      </article>
+      <article class="card wide">
+        <h2>평가 차원</h2>
+        <div class="grid">
+          <section class="card dimension">
+            <h3>Zero-friction capture</h3>
+            <span class="badge strong">strong · 15/15</span>
+            <p><b>강점:</b> Kakao, GitHub issue, session-agent, and runtime artifacts already act as capture channels.</p>
+            <p><b>갭:</b> Capture is still source-specific and does not yet produce a unified inbox note stream.</p>
+            <p><b>다음:</b> Create a normalized capture inbox schema before adding heavier RAG infrastructure.</p>
+          </section><section class="card dimension">
+            <h3>Public/private safety boundary</h3>
+            <span class="badge strong">strong · 15/15</span>
+            <p><b>강점:</b> The project has a strong public-safe artifact pattern: raw messages, room ids, raw URLs, and secrets stay out of public pages.</p>
+            <p><b>갭:</b> Private local views and public views are not yet first-class separate surfaces.</p>
+            <p><b>다음:</b> Keep the public-safe layer, but add explicit private/local-only retrieval contracts.</p>
+          </section><section class="card dimension">
+            <h3>Atomic knowledge vault</h3>
+            <span class="badge strong">strong · 15/15</span>
+            <p><b>강점:</b> Obsidian-style atomic notes, frontmatter, wikilinks, and lookup modes already exist.</p>
+            <p><b>갭:</b> Captured operational outputs are not yet automatically converted into durable atomic notes.</p>
+            <p><b>다음:</b> Add capture-to-note promotion rules with provenance and stale-note checks.</p>
+          </section><section class="card dimension">
+            <h3>Retrieval and graph index</h3>
+            <span class="badge strong">strong · 15/15</span>
+            <p><b>강점:</b> Graphify is already treated correctly as a derived index, not the source of truth.</p>
+            <p><b>갭:</b> A static retrieval pilot exists before full vector DB/RAG, but real search/reuse events are still needed.</p>
+            <p><b>다음:</b> Use the static retrieval pilot to collect cited-answer and reuse events before evaluating BGE-M3 + Qdrant.</p>
+          </section><section class="card dimension">
+            <h3>Agent execution loop</h3>
+            <span class="badge strong">strong · 15/15</span>
+            <p><b>강점:</b> The repo already records loop evidence and separates bounded actions from human-gated work.</p>
+            <p><b>갭:</b> Actual replacement-ready life domains are still not achieved.</p>
+            <p><b>다음:</b> Convert repeated low-risk loops into measurable replacement candidates before claiming agentization.</p>
+          </section><section class="card dimension">
+            <h3>Synthesis and feedback</h3>
+            <span class="badge strong">strong · 10/10</span>
+            <p><b>강점:</b> Weekly synthesis exists as a principle/runbook and life-loop feedback exists as runtime evidence.</p>
+            <p><b>갭:</b> Synthesis is not yet a consistently scheduled, user-facing weekly artifact.</p>
+            <p><b>다음:</b> Create a weekly synthesis artifact that links new captures, decisions, and knowledge gaps.</p>
+          </section><section class="card dimension">
+            <h3>Search and reuse ROI measurement</h3>
+            <span class="badge partial">partial · 7/10</span>
+            <p><b>강점:</b> Runtime artifacts make future ROI measurement possible.</p>
+            <p><b>갭:</b> Search/citation/reuse events are now logged, but the sample size is still too small for durable ROI conclusions.</p>
+            <p><b>다음:</b> Keep logging real search, cited-answer, reused-note, and action-conversion events before investing in full RAG/MCP automation.</p>
+          </section><section class="card dimension">
+            <h3>Integrated UX visibility</h3>
+            <span class="badge strong">strong · 5/5</span>
+            <p><b>강점:</b> Agent Map already exposes public results, infrastructure, knowledge, and Kakao analysis in one deployed surface.</p>
+            <p><b>갭:</b> The UX is still more dashboard/index than true knowledge workbench.</p>
+            <p><b>다음:</b> Add one workbench-style path: ask → retrieve evidence → show source → create issue/action.</p>
+          </section>
+        </div>
+      </article>
+      <article class="card">
+        <h2>막는 요인</h2>
+        <ul><li>Search/reuse ROI has started but needs at least 5/3/3 search/citation/reuse events.</li></ul>
+      </article>
+      <article class="card">
+        <h2>보수 평가 cap</h2>
+        <ul><li>Search/reuse ROI sample is below minimum evidence (5/3/3). <code>max 84%</code></li></ul>
+      </article>
+      <article class="card">
+        <h2>구현 방향</h2>
+        <ul><li>Do not replace Agent Map with a generic PKM tool; keep GitHub/Registry/static dashboards as the control-plane.</li><li>Promote captured signals into atomic notes only after sanitization and provenance checks.</li><li>Keep Graphify/RAG/MCP as derived capability layers, never source of truth.</li><li>Prioritize measured reuse: search count, cited answer count, action conversion, and stale-note reduction.</li><li>Preserve human-gated boundaries while letting agents run bounded evidence-producing loops.</li></ul>
+      </article>
+      <article class="card">
+        <h2>추천 다음 단계</h2>
+        <ul><li>Keep Agent Map as the control-plane and add LLM-Wiki capability as a measured layer.</li><li>Next milestone: real search/citation/reuse event logging from the retrieval pilot.</li><li>Do not claim full RAG/MCP or full-domain replacement readiness until ROI and replacement-ready domains are visible; use scoped replacement as the next honest milestone.</li></ul>
+      </article>
+    </section>
+  </main>
+  <script src="./assets/stitch-service-shell.js" defer></script>
+</body>
+</html>

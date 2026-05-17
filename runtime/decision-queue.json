@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:22.864Z",
+  "source": "github-open-issues-gh",
+  "sourceRepo": "imiuru06/bcjjsly8",
+  "visibility": "public",
+  "summary": {
+    "totalItems": 5,
+    "needsHuman": 5,
+    "readyForAgent": 10,
+    "sourceOpenIssues": 16,
+    "defaultSafeAction": "summarize and request user decision"
+  },
+  "items": [
+    {
+      "issue": 26,
+      "title": "Implement n8n read-only inventory collector",
+      "domain": "infrastructure_ops",
+      "status": "needs_human",
+      "labels": [
+        "phase:platform",
+        "agent:codex",
+        "priority:P2",
+        "needs:human",
+        "needs:agent",
+        "needs:secret"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "decisionNeeded": "Provide or confirm the required secret/access scope without exposing secret values in chat.",
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/26",
+      "updatedAt": "2026-05-06T06:06:34Z"
+    },
+    {
+      "issue": 29,
+      "title": "Add approved n8n deploy guard",
+      "domain": "infrastructure_ops",
+      "status": "needs_human",
+      "labels": [
+        "phase:platform",
+        "agent:codex",
+        "priority:P2",
+        "needs:agent",
+        "needs:approval"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "decisionNeeded": "Approve the proposed execution boundary before the agent performs the gated action.",
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/29",
+      "updatedAt": "2026-05-06T21:05:58Z"
+    },
+    {
+      "issue": 56,
+      "title": "[content-pipeline] Implement gated video render and YouTube upload adapter",
+      "domain": "content_publishing",
+      "status": "needs_human",
+      "labels": [
+        "phase:platform",
+        "agent:codex",
+        "priority:P2",
+        "needs:agent",
+        "needs:approval"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "decisionNeeded": "Approve the proposed execution boundary before the agent performs the gated action.",
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/56",
+      "updatedAt": "2026-05-07T00:06:00Z"
+    },
+    {
+      "issue": 148,
+      "title": "Configure remote Registry URL for live Agent Map registry route",
+      "domain": "infrastructure_ops",
+      "status": "needs_human",
+      "labels": [
+        "phase:platform",
+        "agent:codex",
+        "priority:P2",
+        "needs:human",
+        "needs:agent",
+        "needs:secret"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "decisionNeeded": "Provide or confirm the required secret/access scope without exposing secret values in chat.",
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/148",
+      "updatedAt": "2026-05-06T15:07:03Z"
+    },
+    {
+      "issue": 152,
+      "title": "Incident: GitHub Actions blocked by billing/spending limit",
+      "domain": "agent_ops",
+      "status": "needs_human",
+      "labels": [
+        "phase:ops",
+        "agent:codex",
+        "priority:P1",
+        "needs:human"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "decisionNeeded": "Resolve the external billing/spending limit or keep the documented fallback path active.",
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/152",
+      "updatedAt": "2026-05-08T06:04:56Z"
+    }
+  ],
+  "safety": {
+    "rawPrivateDataIncluded": false,
+    "secretValuesIncluded": false,
+    "decisionsExecuted": false
+  }
+}

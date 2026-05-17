@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-13T15:00:00.000Z",
+  "agentId": "content_replacement_dry_run_loop",
+  "domainId": "content",
+  "scopeId": "content_trend_to_video_no_upload_dry_run",
+  "status": "ok",
+  "replacesManualWork": "public trend seed -> no-upload video package planning, script/storyboard draft, validation/legal gate, and review-only publish proposal",
+  "selectedLocalActions": [
+    {
+      "actionId": "content_trend_package_analysis",
+      "riskLevel": "low",
+      "actionType": "local_analysis",
+      "summary": "Convert a public trend seed into target audience, angle, platform, and risk notes.",
+      "replacesManualWork": "manually turning a trend idea into a first-pass content plan.",
+      "output": "runtime/content-replacement-scope-report.md"
+    },
+    {
+      "actionId": "content_script_storyboard_package",
+      "riskLevel": "low",
+      "actionType": "local_artifact_generation",
+      "summary": "Generate script, storyboard, and non-publishable video placeholder artifacts.",
+      "replacesManualWork": "manually drafting the first script/storyboard package before creative review.",
+      "output": "runtime/content-replacement-bounded-actions.json"
+    },
+    {
+      "actionId": "content_publish_gate_verification",
+      "riskLevel": "low",
+      "actionType": "hard_gate_enforcement",
+      "summary": "Verify upload/publish remains blocked and create a review-only publish proposal.",
+      "replacesManualWork": "manually checking that no external posting happens before approval.",
+      "output": "runtime/content-replacement-scope-verification.json"
+    }
+  ],
+  "source": {
+    "kind": "public_safe_trend_seed",
+    "topic": "AI agent workflow trend",
+    "source": "replacement_scope_public_trend_seed",
+    "trendScore": 0.82,
+    "targetAudience": "Korean tech founders",
+    "targetPlatform": "youtube_shorts"
+  },
+  "artifacts": {
+    "files": [
+      {
+        "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/trends.json",
+        "exists": true,
+        "bytes": 389
+      },
+      {
+        "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/plan.json",
+        "exists": true,
+        "bytes": 639
+      },
+      {
+        "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/script.md",
+        "exists": true,
+        "bytes": 429
+      },
+      {
+        "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/storyboard.json",
+        "exists": true,
+        "bytes": 813
+      },
+      {
+        "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/video-placeholder.json",
+        "exists": true,
+        "bytes": 334
+      },
+      {
+        "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/validation-report.json",
+        "exists": true,
+        "bytes": 531
+      },
+      {
+        "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/legal-report.json",
+        "exists": true,
+        "bytes": 394
+      },
+      {
+        "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/publish-proposal.json",
+        "exists": true,
+        "bytes": 851
+      },
+      {
+        "path": "runtime/content-replacement-scope/ctv-replacement-scope-001/manifest.json",
+        "exists": true,
+        "bytes": 4518
+      }
+    ],
+    "manifest": "runtime/content-replacement-scope/ctv-replacement-scope-001/manifest.json",
+    "report": "runtime/content-replacement-scope-report.md",
+    "actions": "runtime/content-replacement-bounded-actions.json",
+    "verification": "runtime/content-replacement-scope-verification.json"
+  },
+  "safety": {
+    "publicSeedOnly": true,
+    "privateDataIncluded": false,
+    "secretValuesIncluded": false,
+    "externalMessages": false,
+    "publishUpload": false,
+    "deploy": false,
+    "payments": false,
+    "destructiveActions": false,
+    "youtubeCredentialsUsed": false
+  },
+  "hardGates": [
+    "upload",
+    "publish",
+    "external_posting",
+    "copyright_risk_acceptance",
+    "paid_provider_invocation",
+    "private_source_use"
+  ]
+}

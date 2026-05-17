@@ -1,0 +1,1401 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:23.245Z",
+  "sourceId": "agent_map_static_retrieval_pilot",
+  "purpose": "Public-safe retrieval pilot before heavier RAG/MCP/vector DB infrastructure.",
+  "mode": "static_keyword_index",
+  "entries": [
+    {
+      "id": "note:agent-knowledge-map",
+      "type": "knowledge-map",
+      "title": "Agent Knowledge Map",
+      "path": "knowledge/00-maps/agent-knowledge-map.md",
+      "snippet": "Agent Knowledge Map Use this map to move from an operating question to the right atomic note. Principles - source-of-truth - human-gates - collaboration-first - llm-wiki-adoption-gates Roles - codex-mainstream-role - review-agent-roles Protocols - issue-projec",
+      "tags": [
+        "knowledge",
+        "map",
+        "obsidian",
+        "agent-map"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "agent-knowledge-map",
+        "knowledge-map",
+        "agent",
+        "knowledge",
+        "map",
+        "00-maps",
+        "md",
+        "use",
+        "this",
+        "to",
+        "move",
+        "from",
+        "an",
+        "operating",
+        "question",
+        "the",
+        "right",
+        "atomic",
+        "principles",
+        "source-of-truth",
+        "human-gates",
+        "collaboration-first",
+        "llm-wiki-adoption-gates",
+        "roles",
+        "codex-mainstream-role",
+        "review-agent-roles",
+        "protocols",
+        "issue-projec",
+        "obsidian",
+        "agent-map",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:derived-graph-index",
+      "type": "knowledge-map",
+      "title": "Derived Graph Index",
+      "path": "knowledge/00-maps/derived-graph-index.md",
+      "snippet": "Derived Graph Index This note is the Obsidian-visible bridge between the atomic vault and generated graph/retrieval artifacts. Core rule Generated graph files are derived indexes. They help orientation, but source-of-truth wins on conflict. Generated artifacts",
+      "tags": [
+        "knowledge",
+        "graphify",
+        "retrieval",
+        "obsidian",
+        "llm-wiki"
+      ],
+      "appliesTo": [
+        "codex",
+        "review-agents",
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "derived-graph-index",
+        "knowledge-map",
+        "derived",
+        "graph",
+        "index",
+        "knowledge",
+        "00-maps",
+        "md",
+        "this",
+        "is",
+        "the",
+        "obsidian-visible",
+        "bridge",
+        "between",
+        "atomic",
+        "vault",
+        "and",
+        "generated",
+        "retrieval",
+        "artifacts",
+        "core",
+        "rule",
+        "files",
+        "are",
+        "indexes",
+        "they",
+        "help",
+        "orientation",
+        "but",
+        "source-of-truth",
+        "wins",
+        "on",
+        "conflict",
+        "graphify",
+        "obsidian",
+        "llm-wiki",
+        "codex",
+        "review-agents",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:collaboration-first",
+      "type": "knowledge-principle",
+      "title": "Collaboration-First Invariant",
+      "path": "knowledge/10-principles/collaboration-first.md",
+      "snippet": "Collaboration-First Invariant Atomic claim Codex / 다알고 is the mainstream coordinator, not a solo worker by default. Every meaningful task should be checked for safe delegation, review, or session agent participation before being completed entirely in one sessi",
+      "tags": [
+        "collaboration",
+        "multi-agent",
+        "queue",
+        "delegation",
+        "invariant"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "collaboration-first",
+        "knowledge-principle",
+        "invariant",
+        "knowledge",
+        "10-principles",
+        "md",
+        "atomic",
+        "claim",
+        "codex",
+        "다알고",
+        "is",
+        "the",
+        "mainstream",
+        "coordinator",
+        "not",
+        "solo",
+        "worker",
+        "by",
+        "default",
+        "every",
+        "meaningful",
+        "task",
+        "should",
+        "be",
+        "checked",
+        "for",
+        "safe",
+        "delegation",
+        "review",
+        "or",
+        "session",
+        "agent",
+        "participation",
+        "before",
+        "being",
+        "completed",
+        "entirely",
+        "in",
+        "one",
+        "sessi",
+        "collaboration",
+        "multi-agent",
+        "queue",
+        "daalgo",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:human-gates",
+      "type": "knowledge-principle",
+      "title": "Human Approval Gates",
+      "path": "knowledge/10-principles/human-gates.md",
+      "snippet": "Human Approval Gates Atomic claim Secrets, credentials, payments, public deploy, publish/upload, destructive data operations, production config, and final close require explicit user approval or a repo-recorded delegation marker. Use when - an issue has needs:",
+      "tags": [
+        "human-gated",
+        "approval",
+        "safety",
+        "decisions"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "human-gates",
+        "knowledge-principle",
+        "human",
+        "approval",
+        "gates",
+        "knowledge",
+        "10-principles",
+        "md",
+        "atomic",
+        "claim",
+        "secrets",
+        "credentials",
+        "payments",
+        "public",
+        "deploy",
+        "publish",
+        "upload",
+        "destructive",
+        "data",
+        "operations",
+        "production",
+        "config",
+        "and",
+        "final",
+        "close",
+        "require",
+        "explicit",
+        "user",
+        "or",
+        "repo-recorded",
+        "delegation",
+        "marker",
+        "use",
+        "when",
+        "an",
+        "issue",
+        "has",
+        "needs",
+        "human-gated",
+        "safety",
+        "decisions",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:llm-wiki-adoption-gates",
+      "type": "knowledge-principle",
+      "title": "LLM-Wiki Adoption Gates",
+      "path": "knowledge/10-principles/llm-wiki-adoption-gates.md",
+      "snippet": "LLM-Wiki Adoption Gates Atomic claim Do not turn the vault into heavy RAG/MCP/vector infrastructure until capture friction is low and search ROI is visible. Why this matters Personal knowledge systems fail when the cost of organizing notes is higher than the v",
+      "tags": [
+        "llm-wiki",
+        "pkm",
+        "rag",
+        "mcp",
+        "roi",
+        "capture"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "llm-wiki-adoption-gates",
+        "knowledge-principle",
+        "llm-wiki",
+        "adoption",
+        "gates",
+        "knowledge",
+        "10-principles",
+        "md",
+        "atomic",
+        "claim",
+        "do",
+        "not",
+        "turn",
+        "the",
+        "vault",
+        "into",
+        "heavy",
+        "rag",
+        "mcp",
+        "vector",
+        "infrastructure",
+        "until",
+        "capture",
+        "friction",
+        "is",
+        "low",
+        "and",
+        "search",
+        "roi",
+        "visible",
+        "why",
+        "this",
+        "matters",
+        "personal",
+        "systems",
+        "fail",
+        "when",
+        "cost",
+        "of",
+        "organizing",
+        "notes",
+        "higher",
+        "than",
+        "pkm",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:source-of-truth",
+      "type": "knowledge-principle",
+      "title": "Source of Truth Boundary",
+      "path": "knowledge/10-principles/source-of-truth.md",
+      "snippet": "Source of Truth Boundary Atomic claim imiuru06/bcjjsly8 is the Source of Truth for multi-agent coordination, policy, issue routing, responsibility, and public-safe Agent Map runtime data. Project implementation repos may remain separate. Use when - an agent is",
+      "tags": [
+        "source-of-truth",
+        "policy",
+        "git",
+        "knowledge"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "source-of-truth",
+        "knowledge-principle",
+        "source",
+        "of",
+        "truth",
+        "boundary",
+        "knowledge",
+        "10-principles",
+        "md",
+        "atomic",
+        "claim",
+        "imiuru06",
+        "bcjjsly8",
+        "is",
+        "the",
+        "for",
+        "multi-agent",
+        "coordination",
+        "policy",
+        "issue",
+        "routing",
+        "responsibility",
+        "and",
+        "public-safe",
+        "agent",
+        "map",
+        "runtime",
+        "data",
+        "project",
+        "implementation",
+        "repos",
+        "may",
+        "remain",
+        "separate",
+        "use",
+        "when",
+        "an",
+        "git",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:codex-mainstream-role",
+      "type": "knowledge-role",
+      "title": "Codex Mainstream Coordinator Role",
+      "path": "knowledge/20-roles/codex-mainstream-role.md",
+      "snippet": "Codex Mainstream Coordinator Role Atomic claim Codex / 다알고 owns mainstream implementation, coordination, validation, and user-facing responsibility for this control-plane. Use when - deciding who owns final issue responsibility; - coordinating external session",
+      "tags": [
+        "role",
+        "codex",
+        "daalgo",
+        "coordinator"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo"
+      ],
+      "tokens": [
+        "note",
+        "codex-mainstream-role",
+        "knowledge-role",
+        "codex",
+        "mainstream",
+        "coordinator",
+        "role",
+        "knowledge",
+        "20-roles",
+        "md",
+        "atomic",
+        "claim",
+        "다알고",
+        "owns",
+        "implementation",
+        "coordination",
+        "validation",
+        "and",
+        "user-facing",
+        "responsibility",
+        "for",
+        "this",
+        "control-plane",
+        "use",
+        "when",
+        "deciding",
+        "who",
+        "final",
+        "issue",
+        "coordinating",
+        "external",
+        "session",
+        "daalgo"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:review-agent-roles",
+      "type": "knowledge-role",
+      "title": "Review Agent Roles",
+      "path": "knowledge/20-roles/review-agent-roles.md",
+      "snippet": "Review Agent Roles Atomic claim Review agents add distinct viewpoints; they do not duplicate Codex implementation work unless explicitly reassigned. Role split - claude review 01 : security, edge cases, missed requirements, quality risk. - gemini : UX and busi",
+      "tags": [
+        "role",
+        "review",
+        "claude",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux-cli"
+      ],
+      "appliesTo": [
+        "claude_review_01",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux_cli"
+      ],
+      "tokens": [
+        "note",
+        "review-agent-roles",
+        "knowledge-role",
+        "review",
+        "agent",
+        "roles",
+        "knowledge",
+        "20-roles",
+        "md",
+        "atomic",
+        "claim",
+        "agents",
+        "add",
+        "distinct",
+        "viewpoints",
+        "they",
+        "do",
+        "not",
+        "duplicate",
+        "codex",
+        "implementation",
+        "work",
+        "unless",
+        "explicitly",
+        "reassigned",
+        "role",
+        "split",
+        "claude",
+        "01",
+        "security",
+        "edge",
+        "cases",
+        "missed",
+        "requirements",
+        "quality",
+        "risk",
+        "gemini",
+        "ux",
+        "and",
+        "busi",
+        "opencode",
+        "stitch",
+        "uiux-cli",
+        "claude_review_01",
+        "uiux_cli"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:agent-routing",
+      "type": "knowledge-protocol",
+      "title": "Agent Routing Protocol",
+      "path": "knowledge/30-protocols/agent-routing.md",
+      "snippet": "Agent Routing Protocol Atomic claim Agents are routed through GitHub Issue labels/comments, Registry agent. events, or direct bot transport. User Telegram messages are not agent-to-agent transport. Use when - waking another agent; - leaving an auditable reques",
+      "tags": [
+        "routing",
+        "registry",
+        "direct-message",
+        "github",
+        "agent-request"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "agent-routing",
+        "knowledge-protocol",
+        "agent",
+        "routing",
+        "protocol",
+        "knowledge",
+        "30-protocols",
+        "md",
+        "atomic",
+        "claim",
+        "agents",
+        "are",
+        "routed",
+        "through",
+        "github",
+        "issue",
+        "labels",
+        "comments",
+        "registry",
+        "events",
+        "or",
+        "direct",
+        "bot",
+        "transport",
+        "user",
+        "telegram",
+        "messages",
+        "not",
+        "agent-to-agent",
+        "use",
+        "when",
+        "waking",
+        "another",
+        "leaving",
+        "an",
+        "auditable",
+        "reques",
+        "direct-message",
+        "agent-request",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:issue-project-queue",
+      "type": "knowledge-protocol",
+      "title": "GitHub Issue and Project Queue",
+      "path": "knowledge/30-protocols/issue-project-queue.md",
+      "snippet": "GitHub Issue and Project Queue Atomic claim GitHub Issues and Project v2 are the durable work queue and status board. Agent requests should be represented with labels and comments, not hidden in chat. Use when - assigning work to another session agent; - check",
+      "tags": [
+        "github",
+        "issue",
+        "project",
+        "queue",
+        "kanban"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "issue-project-queue",
+        "knowledge-protocol",
+        "github",
+        "issue",
+        "and",
+        "project",
+        "queue",
+        "knowledge",
+        "30-protocols",
+        "md",
+        "atomic",
+        "claim",
+        "issues",
+        "v2",
+        "are",
+        "the",
+        "durable",
+        "work",
+        "status",
+        "board",
+        "agent",
+        "requests",
+        "should",
+        "be",
+        "represented",
+        "with",
+        "labels",
+        "comments",
+        "not",
+        "hidden",
+        "in",
+        "chat",
+        "use",
+        "when",
+        "assigning",
+        "to",
+        "another",
+        "session",
+        "check",
+        "kanban",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:assign-session-agent-work",
+      "type": "knowledge-runbook",
+      "title": "Assign Session Agent Work",
+      "path": "knowledge/40-runbooks/assign-session-agent-work.md",
+      "snippet": "Assign Session Agent Work Atomic claim A session agent receives work only when the issue has an actionable needs:agent state and a matching agent:<target label or route. Steps 1. Confirm the task is not blocked by human-gates . 2. Choose one primary owner from",
+      "tags": [
+        "runbook",
+        "assignment",
+        "session-agent",
+        "queue"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo_external_codex_01",
+        "claude_review_01",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux_cli"
+      ],
+      "tokens": [
+        "note",
+        "assign-session-agent-work",
+        "knowledge-runbook",
+        "assign",
+        "session",
+        "agent",
+        "work",
+        "knowledge",
+        "40-runbooks",
+        "md",
+        "atomic",
+        "claim",
+        "receives",
+        "only",
+        "when",
+        "the",
+        "issue",
+        "has",
+        "an",
+        "actionable",
+        "needs",
+        "state",
+        "and",
+        "matching",
+        "target",
+        "label",
+        "or",
+        "route",
+        "steps",
+        "confirm",
+        "task",
+        "is",
+        "not",
+        "blocked",
+        "by",
+        "human-gates",
+        "choose",
+        "one",
+        "primary",
+        "owner",
+        "from",
+        "runbook",
+        "assignment",
+        "session-agent",
+        "queue",
+        "codex",
+        "daalgo_external_codex_01",
+        "claude_review_01",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux_cli"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:knowledge-lookup-before-work",
+      "type": "knowledge-runbook",
+      "title": "Knowledge Lookup Before Work",
+      "path": "knowledge/40-runbooks/knowledge-lookup-before-work.md",
+      "snippet": "Knowledge Lookup Before Work Atomic claim Before acting, an agent should search the knowledge vault for the role, protocol, decision gate, and runbook that apply to the issue. Steps 1. Open agent-lookup-index . 2. Match the issue to one of: role, protocol, run",
+      "tags": [
+        "runbook",
+        "search",
+        "knowledge",
+        "obsidian"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "knowledge-lookup-before-work",
+        "knowledge-runbook",
+        "knowledge",
+        "lookup",
+        "before",
+        "work",
+        "40-runbooks",
+        "md",
+        "atomic",
+        "claim",
+        "acting",
+        "an",
+        "agent",
+        "should",
+        "search",
+        "the",
+        "vault",
+        "for",
+        "role",
+        "protocol",
+        "decision",
+        "gate",
+        "and",
+        "runbook",
+        "that",
+        "apply",
+        "to",
+        "issue",
+        "steps",
+        "open",
+        "agent-lookup-index",
+        "match",
+        "one",
+        "of",
+        "run",
+        "obsidian",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:weekly-knowledge-synthesis",
+      "type": "knowledge-runbook",
+      "title": "Weekly Knowledge Synthesis",
+      "path": "knowledge/40-runbooks/weekly-knowledge-synthesis.md",
+      "snippet": "Weekly Knowledge Synthesis Atomic claim The vault compounds only when new notes are linked back to old notes and periodically summarized into gaps, decisions, and next learning directions. Weekly loop 1. Review new inbox and atomic notes. 2. Link new durable n",
+      "tags": [
+        "synthesis",
+        "weekly-review",
+        "knowledge-gap",
+        "compound-loop"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "weekly-knowledge-synthesis",
+        "knowledge-runbook",
+        "weekly",
+        "knowledge",
+        "synthesis",
+        "40-runbooks",
+        "md",
+        "atomic",
+        "claim",
+        "the",
+        "vault",
+        "compounds",
+        "only",
+        "when",
+        "new",
+        "notes",
+        "are",
+        "linked",
+        "back",
+        "to",
+        "old",
+        "and",
+        "periodically",
+        "summarized",
+        "into",
+        "gaps",
+        "decisions",
+        "next",
+        "learning",
+        "directions",
+        "loop",
+        "review",
+        "inbox",
+        "link",
+        "durable",
+        "weekly-review",
+        "knowledge-gap",
+        "compound-loop",
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:zero-friction-capture",
+      "type": "knowledge-runbook",
+      "title": "Zero-Friction Capture",
+      "path": "knowledge/40-runbooks/zero-friction-capture.md",
+      "snippet": "Zero-Friction Capture Atomic claim Capture must be easier than ignoring the idea. If capture requires manual taxonomy work up front, the vault will decay. Steps 1. Capture raw knowledge into an inbox first. 2. Keep the first capture format simple: title, sourc",
+      "tags": [
+        "capture",
+        "inbox",
+        "pkm",
+        "llm-wiki",
+        "low-friction"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "zero-friction-capture",
+        "knowledge-runbook",
+        "zero-friction",
+        "capture",
+        "knowledge",
+        "40-runbooks",
+        "md",
+        "atomic",
+        "claim",
+        "must",
+        "be",
+        "easier",
+        "than",
+        "ignoring",
+        "the",
+        "idea",
+        "if",
+        "requires",
+        "manual",
+        "taxonomy",
+        "work",
+        "up",
+        "front",
+        "vault",
+        "will",
+        "decay",
+        "steps",
+        "raw",
+        "into",
+        "an",
+        "inbox",
+        "first",
+        "keep",
+        "format",
+        "simple",
+        "title",
+        "sourc",
+        "pkm",
+        "llm-wiki",
+        "low-friction",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:decision-queue",
+      "type": "knowledge-decision",
+      "title": "Decision Queue",
+      "path": "knowledge/50-decisions/decision-queue.md",
+      "snippet": "Decision Queue Atomic claim Human decisions should be batched, labeled, and summarized instead of scattered across unrelated comments or chat messages. Use when - an issue needs user approval; - a secret, deploy, publish, destructive action, payment, or final ",
+      "tags": [
+        "decision",
+        "needs-human",
+        "queue",
+        "approval"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "decision-queue",
+        "knowledge-decision",
+        "decision",
+        "queue",
+        "knowledge",
+        "50-decisions",
+        "md",
+        "atomic",
+        "claim",
+        "human",
+        "decisions",
+        "should",
+        "be",
+        "batched",
+        "labeled",
+        "and",
+        "summarized",
+        "instead",
+        "of",
+        "scattered",
+        "across",
+        "unrelated",
+        "comments",
+        "or",
+        "chat",
+        "messages",
+        "use",
+        "when",
+        "an",
+        "issue",
+        "needs",
+        "user",
+        "approval",
+        "secret",
+        "deploy",
+        "publish",
+        "destructive",
+        "action",
+        "payment",
+        "final",
+        "needs-human",
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:agent-lookup-index",
+      "type": "knowledge-index",
+      "title": "Agent Lookup Index",
+      "path": "knowledge/90-indexes/agent-lookup-index.md",
+      "snippet": "Agent Lookup Index Use this index as the first stop before acting. If the question is about authority - Source of Truth: source-of-truth - Human approval: human-gates - Final responsibility: codex-mainstream-role - Collaboration-first invariant: collaboration-",
+      "tags": [
+        "index",
+        "search",
+        "lookup",
+        "agent-map"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "agent-lookup-index",
+        "knowledge-index",
+        "agent",
+        "lookup",
+        "index",
+        "knowledge",
+        "90-indexes",
+        "md",
+        "use",
+        "this",
+        "as",
+        "the",
+        "first",
+        "stop",
+        "before",
+        "acting",
+        "if",
+        "question",
+        "is",
+        "about",
+        "authority",
+        "source",
+        "of",
+        "truth",
+        "source-of-truth",
+        "human",
+        "approval",
+        "human-gates",
+        "final",
+        "responsibility",
+        "codex-mainstream-role",
+        "collaboration-first",
+        "invariant",
+        "collaboration-",
+        "search",
+        "agent-map",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "note:knowledge-vault-readme",
+      "type": "knowledge-map",
+      "title": "Agent Knowledge Vault README",
+      "path": "knowledge/README.md",
+      "snippet": "Agent Knowledge Vault This folder is an Obsidian-compatible vault for the Agent Map control-plane. Start here: - agent-knowledge-map - derived-graph-index - agent-lookup-index - knowledge-lookup-before-work Core rule: the vault helps agents find and apply know",
+      "tags": [
+        "knowledge",
+        "obsidian",
+        "agent-map"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "tokens": [
+        "note",
+        "knowledge-vault-readme",
+        "knowledge-map",
+        "agent",
+        "knowledge",
+        "vault",
+        "readme",
+        "md",
+        "this",
+        "folder",
+        "is",
+        "an",
+        "obsidian-compatible",
+        "for",
+        "the",
+        "map",
+        "control-plane",
+        "start",
+        "here",
+        "agent-knowledge-map",
+        "derived-graph-index",
+        "agent-lookup-index",
+        "knowledge-lookup-before-work",
+        "core",
+        "rule",
+        "helps",
+        "agents",
+        "find",
+        "and",
+        "apply",
+        "know",
+        "obsidian",
+        "agent-map",
+        "all-agents"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "synthesis:llm-wiki-foundation",
+      "type": "weekly-synthesis-theme",
+      "title": "LLM-Wiki foundation is forming",
+      "path": "runtime/weekly-knowledge-synthesis.json",
+      "snippet": "knowledge vault exists · public-safe Kakao analysis exists · runtime artifacts are deployed",
+      "tags": [
+        "synthesis"
+      ],
+      "appliesTo": [
+        "llm-wiki"
+      ],
+      "tokens": [
+        "synthesis",
+        "llm-wiki-foundation",
+        "weekly-synthesis-theme",
+        "llm-wiki",
+        "foundation",
+        "is",
+        "forming",
+        "runtime",
+        "weekly-knowledge-synthesis",
+        "json",
+        "knowledge",
+        "vault",
+        "exists",
+        "public-safe",
+        "kakao",
+        "analysis",
+        "artifacts",
+        "are",
+        "deployed"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "synthesis:capture-before-rag",
+      "type": "weekly-synthesis-theme",
+      "title": "Capture and reuse should precede RAG/MCP",
+      "path": "runtime/weekly-knowledge-synthesis.json",
+      "snippet": "capture inbox baseline created · ROI counters are now instrumented as baseline",
+      "tags": [
+        "synthesis"
+      ],
+      "appliesTo": [
+        "llm-wiki"
+      ],
+      "tokens": [
+        "synthesis",
+        "capture-before-rag",
+        "weekly-synthesis-theme",
+        "capture",
+        "and",
+        "reuse",
+        "should",
+        "precede",
+        "rag",
+        "mcp",
+        "runtime",
+        "weekly-knowledge-synthesis",
+        "json",
+        "inbox",
+        "baseline",
+        "created",
+        "roi",
+        "counters",
+        "are",
+        "now",
+        "instrumented",
+        "as",
+        "llm-wiki"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "synthesis:agent-loop-not-replacement",
+      "type": "weekly-synthesis-theme",
+      "title": "Agent loops exist but replacement is not ready",
+      "path": "runtime/weekly-knowledge-synthesis.json",
+      "snippet": "life-agent run evidence exists · replacementReadyDomainCount remains zero",
+      "tags": [
+        "synthesis"
+      ],
+      "appliesTo": [
+        "llm-wiki"
+      ],
+      "tokens": [
+        "synthesis",
+        "agent-loop-not-replacement",
+        "weekly-synthesis-theme",
+        "agent",
+        "loops",
+        "exist",
+        "but",
+        "replacement",
+        "is",
+        "not",
+        "ready",
+        "runtime",
+        "weekly-knowledge-synthesis",
+        "json",
+        "life-agent",
+        "run",
+        "evidence",
+        "exists",
+        "replacementreadydomaincount",
+        "remains",
+        "zero",
+        "llm-wiki"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    },
+    {
+      "id": "graphify:derived-graph",
+      "type": "derived-graph",
+      "title": "Graphify-compatible derived graph",
+      "path": "graphify-out/graph.json",
+      "snippet": "nodes 21, edges 89, unresolved 0",
+      "tags": [
+        "graphify",
+        "retrieval"
+      ],
+      "appliesTo": [
+        "llm-wiki"
+      ],
+      "tokens": [
+        "graphify",
+        "derived-graph",
+        "graphify-compatible",
+        "derived",
+        "graph",
+        "graphify-out",
+        "json",
+        "nodes",
+        "21",
+        "edges",
+        "89",
+        "unresolved",
+        "retrieval",
+        "llm-wiki"
+      ],
+      "privacy": {
+        "rawPrivateDataIncluded": false,
+        "publicSafe": true
+      }
+    }
+  ],
+  "stats": {
+    "entryCount": 21,
+    "knowledgeNoteEntries": 17,
+    "captureEntries": 0,
+    "synthesisEntries": 3,
+    "graphEntries": 1,
+    "uniqueTokenCount": 387
+  },
+  "topTokens": [
+    {
+      "token": "knowledge",
+      "count": 18
+    },
+    {
+      "token": "md",
+      "count": 17
+    },
+    {
+      "token": "note",
+      "count": 17
+    },
+    {
+      "token": "atomic",
+      "count": 15
+    },
+    {
+      "token": "all-agents",
+      "count": 14
+    },
+    {
+      "token": "and",
+      "count": 13
+    },
+    {
+      "token": "claim",
+      "count": 13
+    },
+    {
+      "token": "the",
+      "count": 12
+    },
+    {
+      "token": "agent",
+      "count": 11
+    },
+    {
+      "token": "an",
+      "count": 9
+    },
+    {
+      "token": "is",
+      "count": 9
+    },
+    {
+      "token": "when",
+      "count": 9
+    },
+    {
+      "token": "issue",
+      "count": 8
+    },
+    {
+      "token": "use",
+      "count": 8
+    },
+    {
+      "token": "codex",
+      "count": 7
+    },
+    {
+      "token": "llm-wiki",
+      "count": 7
+    },
+    {
+      "token": "not",
+      "count": 7
+    },
+    {
+      "token": "vault",
+      "count": 7
+    },
+    {
+      "token": "are",
+      "count": 6
+    },
+    {
+      "token": "this",
+      "count": 6
+    },
+    {
+      "token": "for",
+      "count": 5
+    },
+    {
+      "token": "of",
+      "count": 5
+    },
+    {
+      "token": "or",
+      "count": 5
+    },
+    {
+      "token": "should",
+      "count": 5
+    },
+    {
+      "token": "work",
+      "count": 5
+    },
+    {
+      "token": "10-principles",
+      "count": 4
+    },
+    {
+      "token": "40-runbooks",
+      "count": 4
+    },
+    {
+      "token": "be",
+      "count": 4
+    },
+    {
+      "token": "daalgo",
+      "count": 4
+    },
+    {
+      "token": "final",
+      "count": 4
+    }
+  ],
+  "safety": {
+    "rawPrivateDataIncluded": false,
+    "containsSecretValues": false,
+    "publicSafeByDefault": true,
+    "sourceDocsWinOnConflict": true
+  }
+}

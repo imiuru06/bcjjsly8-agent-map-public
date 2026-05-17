@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="ko" data-theme="sky">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Map v9 Runtime</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg:#f8fafc;
+      --panel:#ffffff;
+      --panel-soft:#f1f5f9;
+      --ink:#0f172a;
+      --muted:#64748b;
+      --line:#dbeafe;
+      --accent:#2563eb;
+      --accent-2:#06b6d4;
+      --ok:#16a34a;
+      --info:#2563eb;
+      --warn:#f59e0b;
+      --bad:#dc2626;
+      --shadow:0 18px 50px rgba(15,23,42,.08);
+    }
+    html[data-theme="mint"] {
+      --bg:#f4fbf7; --panel-soft:#ecfdf5; --line:#bbf7d0;
+      --accent:#059669; --accent-2:#14b8a6;
+    }
+    html[data-theme="lavender"] {
+      --bg:#fbf7ff; --panel-soft:#f5f3ff; --line:#ddd6fe;
+      --accent:#7c3aed; --accent-2:#ec4899;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 16%, transparent), transparent 32rem),
+        linear-gradient(135deg, var(--bg), #ffffff);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif;
+    }
+    a { color:var(--accent); text-decoration:none; }
+    button {
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.8);
+      color:var(--ink);
+      cursor:pointer;
+      padding:8px 12px;
+      font:inherit;
+    }
+    button[aria-pressed="true"] {
+      color:#fff;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      border-color:transparent;
+    }
+    .shell { max-width:1200px; margin:0 auto; padding:28px; }
+    header {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:18px;
+      align-items:start;
+      margin-bottom:20px;
+    }
+    .eyebrow { color:var(--accent); font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { margin:4px 0 8px; font-size:clamp(28px,5vw,48px); letter-spacing:-.055em; line-height:1; }
+    .lede { margin:0; color:var(--muted); line-height:1.6; max-width:760px; }
+    .toolbar { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    .meta {
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .pill {
+      max-width:100%;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.72);
+      border-radius:999px;
+      padding:7px 10px;
+    }
+    code { background:var(--panel-soft); padding:2px 6px; border-radius:6px; }
+    .stats {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+      margin:22px 0;
+    }
+    .stat, .panel, .agent-card {
+      background:rgba(255,255,255,.82);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
+    }
+    .stat { padding:16px; min-width:0; }
+    .stat span { color:var(--muted); font-size:13px; }
+    .stat b { display:block; margin-top:5px; font-size:30px; letter-spacing:-.04em; }
+    .panel { padding:18px; margin-bottom:18px; }
+    .section-title { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; }
+    .section-title h2 { margin:0; font-size:18px; letter-spacing:-.02em; }
+    .result-hub {
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);
+      gap:14px;
+      align-items:stretch;
+    }
+    .journey {
+      display:grid;
+      gap:10px;
+      min-width:0;
+    }
+    .journey-step {
+      display:grid;
+      grid-template-columns:42px minmax(0,1fr) auto;
+      gap:12px;
+      align-items:center;
+      min-width:0;
+      border:1px solid var(--line);
+      background:linear-gradient(135deg, rgba(255,255,255,.9), var(--panel-soft));
+      border-radius:18px;
+      padding:12px;
+    }
+    .step-index {
+      display:grid;
+      place-items:center;
+      width:42px;
+      height:42px;
+      border-radius:16px;
+      color:#fff;
+      font-weight:800;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 10px 26px color-mix(in srgb, var(--accent) 22%, transparent);
+    }
+    .step-main { min-width:0; }
+    .step-main h3 { margin:0 0 5px; font-size:15px; letter-spacing:-.01em; }
+    .step-main p { margin:0; color:var(--muted); font-size:13px; line-height:1.45; overflow-wrap:anywhere; }
+    .status-badge {
+      justify-self:end;
+      max-width:150px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:12px;
+      font-weight:700;
+      background:rgba(255,255,255,.78);
+    }
+    .status-badge.ok { color:var(--ok); border-color:color-mix(in srgb, var(--ok) 35%, var(--line)); }
+    .status-badge.warn { color:var(--warn); border-color:color-mix(in srgb, var(--warn) 35%, var(--line)); }
+    .status-badge.info { color:var(--info); border-color:color-mix(in srgb, var(--info) 35%, var(--line)); }
+    .artifact-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+      min-width:0;
+    }
+    .artifact-card {
+      min-width:0;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px;
+      background:rgba(255,255,255,.78);
+    }
+    .artifact-card h3 { margin:0 0 8px; font-size:14px; }
+    .artifact-card p { margin:0 0 8px; color:var(--muted); font-size:12px; line-height:1.45; overflow-wrap:anywhere; }
+    .metric-row {
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      margin:6px 0;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .metric-row b { color:var(--ink); text-align:right; overflow-wrap:anywhere; min-width:0; }
+    .artifact-links { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+    .artifact-links a {
+      display:inline-flex;
+      max-width:100%;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      border:1px solid var(--line);
+      background:var(--panel-soft);
+      border-radius:999px;
+      padding:6px 8px;
+      font-size:12px;
+    }
+    .content-preview-grid {
+      grid-column:1 / -1;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:10px;
+      min-width:0;
+    }
+    .preview-card {
+      min-width:0;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:13px;
+      background:rgba(255,255,255,.72);
+    }
+    .preview-card h3 { margin:0 0 6px; font-size:14px; letter-spacing:-.01em; }
+    .preview-card p { margin:0 0 10px; color:var(--muted); font-size:12px; line-height:1.45; }
+    .preview-list { display:grid; gap:7px; margin:0; padding:0; list-style:none; }
+    .preview-list li {
+      display:grid;
+      gap:3px;
+      min-width:0;
+      border:1px solid color-mix(in srgb, var(--line) 78%, transparent);
+      border-radius:12px;
+      background:rgba(255,255,255,.78);
+      padding:8px;
+    }
+    .preview-title {
+      color:var(--ink);
+      font-size:12px;
+      font-weight:750;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .preview-meta {
+      color:var(--muted);
+      font-size:11px;
+      line-height:1.35;
+      overflow-wrap:anywhere;
+    }
+    details.preview-card summary {
+      cursor:pointer;
+      font-weight:800;
+      color:var(--ink);
+      list-style:none;
+    }
+    details.preview-card summary::-webkit-details-marker { display:none; }
+    details.preview-card summary::after {
+      content:"펼치기";
+      float:right;
+      color:var(--accent);
+      font-size:12px;
+      font-weight:700;
+    }
+    details.preview-card[open] summary::after { content:"접기"; }
+    .lane-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .lane {
+      background:var(--panel-soft);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px;
+      min-width:0;
+    }
+    .lane h3 { margin:0 0 8px; font-size:14px; color:var(--muted); display:flex; justify-content:space-between; gap:8px; }
+    .mini-list { display:grid; gap:7px; }
+    .mini {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      min-width:0;
+      border-radius:12px;
+      background:rgba(255,255,255,.72);
+      padding:8px 9px;
+      font-size:13px;
+    }
+    .dot { width:10px; height:10px; border-radius:999px; background:var(--muted); flex:none; }
+    .alive .dot { background:var(--ok); }
+    .registered .dot { background:var(--info); }
+    .stale .dot { background:var(--warn); }
+    .unreachable .dot, .offline .dot, .failed .dot { background:var(--bad); }
+    .name { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .agent-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+    .agent-card { padding:16px; min-width:0; }
+    .agent-card h3 { margin:0 0 12px; display:flex; align-items:center; gap:8px; font-size:17px; min-width:0; }
+    .row { display:flex; justify-content:space-between; gap:14px; margin:7px 0; color:var(--muted); font-size:13px; min-width:0; }
+    .row b, .row span:last-child { color:var(--ink); text-align:right; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .empty {
+      padding:36px;
+      text-align:center;
+      color:var(--muted);
+      border:1px dashed var(--line);
+      border-radius:22px;
+      background:rgba(255,255,255,.6);
+    }
+    footer { color:var(--muted); font-size:12px; padding:18px 0 8px; }
+    @media (max-width:800px) {
+      .shell { padding:20px; }
+      header { grid-template-columns:1fr; }
+      .toolbar { justify-content:flex-start; }
+      .stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .result-hub { grid-template-columns:1fr; }
+      .artifact-grid { grid-template-columns:1fr; }
+      .journey-step { grid-template-columns:38px minmax(0,1fr); }
+      .status-badge { grid-column:2; justify-self:start; }
+    }
+  </style>
+</head>
+<body>
+  <div data-deprecated-surface="agent_map_v9" style="position:sticky;top:0;z-index:20;padding:10px 16px;background:#fff7ed;border-bottom:1px solid #fed7aa;color:#9a3412;font:14px -apple-system,BlinkMacSystemFont,'Segoe UI',Pretendard,sans-serif;">
+    DEPRECATED_SURFACE: Agent Map v9 is now a compatibility route. Use
+    <a href="./agent-map-v10.html" style="color:#1d4ed8;font-weight:700;">Agent Map v10 React Control Hub</a>.
+  </div>
+  <div class="shell">
+    <header>
+      <div>
+        <div class="eyebrow">Agent Map v9</div>
+        <h1>Runtime Control Dashboard</h1>
+        <p class="lede">Registry snapshot과 정적 배포 runtime을 한 화면에서 확인하는 공식 Agent Map v9입니다.</p>
+        <div class="meta">
+          <span class="pill">runtime <code id="runtime-url">./runtime/agent-map-runtime.json</code></span>
+          <span class="pill">generated <b id="generated">-</b></span>
+          <span class="pill">source <code id="source-url">-</code></span>
+        </div>
+      </div>
+      <nav class="toolbar" aria-label="toolbar">
+        <button type="button" data-theme="sky" aria-pressed="true">Sky</button>
+        <button type="button" data-theme="mint">Mint</button>
+        <button type="button" data-theme="lavender">Lavender</button>
+        <button id="refresh" type="button">Refresh</button>
+        <a class="pill" href="./agent-map-life.html">Life Graph Main</a>
+        <a class="pill" href="./infrastructure-map.html">Infrastructure Map</a>
+        <a class="pill" href="./daily-brief.html">Message Daily Brief</a>
+        <a class="pill" href="./kakao-analysis.html">Kakao Analysis</a>
+        <a class="pill" href="./knowledge-map.html">Knowledge Map</a>
+        <a class="pill" href="./knowledge-retrieval.html">Retrieval Pilot</a>
+        <a class="pill" href="./llm-wiki-readiness.html">LLM-Wiki Readiness</a>
+        <a class="pill" href="./runtime/agent-performance-report.json">Agent Performance</a>
+      </nav>
+    </header>
+
+    <section class="stats" aria-label="runtime stats">
+      <div class="stat"><span>included agents</span><b id="included">0</b></div>
+      <div class="stat"><span>raw registry agents</span><b id="raw">0</b></div>
+      <div class="stat"><span>filtered smoke_*</span><b id="filtered">0</b></div>
+      <div class="stat"><span>status groups</span><b id="groups">0</b></div>
+    </section>
+
+    <section class="panel" aria-labelledby="integrated-result-hub-title">
+      <div class="section-title">
+        <h2 id="integrated-result-hub-title">Integrated Result Hub</h2>
+        <span class="pill">capture → analyze → brief → knowledge → map</span>
+      </div>
+      <div id="result-hub" class="result-hub">
+        <div class="empty">통합 결과 흐름을 불러오는 중…</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <h2>Status lanes</h2>
+        <span class="pill">source updated <b id="source-updated">-</b></span>
+      </div>
+      <div id="lanes" class="lane-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <h2>Agents</h2>
+        <span class="pill">auto-refresh 5s</span>
+      </div>
+      <main id="app" class="agent-grid">
+        <div class="empty">runtime을 불러오는 중…</div>
+      </main>
+    </section>
+
+    <footer>bcjjsly8 · Agent Map v9 · runtime-driven static dashboard</footer>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const STATIC_RUNTIME_URL = './runtime/agent-map-runtime.json';
+    const STATIC_MIRROR_MODE = params.get('data') === 'static' || location.hostname.endsWith('github.io');
+    const RUNTIME_URL = params.get('runtime') || (STATIC_MIRROR_MODE ? STATIC_RUNTIME_URL : './api/runtime/agent-map');
+    const app = document.getElementById('app');
+    const lanes = document.getElementById('lanes');
+    const resultHub = document.getElementById('result-hub');
+    const generated = document.getElementById('generated');
+    const sourceUrl = document.getElementById('source-url');
+    const sourceUpdated = document.getElementById('source-updated');
+    const included = document.getElementById('included');
+    const raw = document.getElementById('raw');
+    const filtered = document.getElementById('filtered');
+    const groups = document.getElementById('groups');
+    document.getElementById('runtime-url').textContent = `${RUNTIME_URL} → fallback ${STATIC_RUNTIME_URL}`;
+    document.getElementById('refresh').addEventListener('click', load);
+
+    document.querySelectorAll('[data-theme]').forEach((button) => {
+      button.addEventListener('click', () => {
+        document.documentElement.dataset.theme = button.dataset.theme;
+        document.querySelectorAll('[data-theme]').forEach((b) =>
+          b.setAttribute('aria-pressed', String(b === button)));
+      });
+    });
+
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
+      ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+
+    async function load() {
+      try {
+        render(await fetchJsonStrict(RUNTIME_URL, STATIC_RUNTIME_URL));
+        loadIntegratedHub();
+      } catch (error) {
+        app.className = '';
+        lanes.innerHTML = '';
+        app.innerHTML = `<div class="empty">runtime 로드 실패: <code>${esc(error.message)}</code></div>`;
+      }
+    }
+
+    async function fetchJson(path, fallbackPath = null) {
+      const paths = STATIC_MIRROR_MODE && fallbackPath
+        ? [fallbackPath]
+        : (fallbackPath ? [path, fallbackPath] : [path]);
+      const errors = [];
+      for (const currentPath of paths) {
+        try {
+          const res = await fetch(currentPath, { cache: 'no-store' });
+          if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+          const payload = await res.json();
+          payload.__loadSource = currentPath;
+          payload.__fallbackUsed = currentPath !== path;
+          return payload;
+        } catch (error) {
+          errors.push(`${currentPath}: ${error.message}`);
+        }
+      }
+      return { __error: errors.join(' · '), __path: path };
+    }
+
+    async function fetchJsonStrict(path, fallbackPath = null) {
+      try {
+        const payload = await fetchJson(path, fallbackPath);
+        if (payload.__error) throw new Error(payload.__error);
+        return payload;
+      } catch (error) {
+        return { __error: error.message, __path: path };
+      }
+    }
+
+    function badge(label, tone = 'info') {
+      return `<span class="status-badge ${esc(tone)}" title="${esc(label)}">${esc(label)}</span>`;
+    }
+
+    function metric(label, value) {
+      return `<div class="metric-row"><span>${esc(label)}</span><b>${esc(value ?? '-')}</b></div>`;
+    }
+
+    function link(label, href) {
+      return `<a href="${esc(href)}">${esc(label)}</a>`;
+    }
+
+    function truncate(value, max = 92) {
+      const text = String(value ?? '');
+      return text.length > max ? `${text.slice(0, max - 1)}…` : text;
+    }
+
+    function previewItems(items, renderItem, empty = '표시할 항목이 없습니다.') {
+      if (!Array.isArray(items) || !items.length) {
+        return `<ul class="preview-list"><li><span class="preview-meta">${esc(empty)}</span></li></ul>`;
+      }
+      return `<ul class="preview-list">${items.map(renderItem).join('')}</ul>`;
+    }
+
+    async function loadIntegratedHub() {
+      const [kakao, githubInfo, externalInfo, actions, kakaoAnalysis, knowledge, retrieval, llmWiki, life, infra, decisionDigest, improvements, improvementPlan, ralfLoop, ralphRoleDrive, agentManifest, agentPerformance] = await Promise.all([
+        fetchJsonStrict('./api/runtime/kakao-insight-input-snapshot', './runtime/kakao-insight-input-snapshot.json'),
+        fetchJsonStrict('./api/runtime/github-info-input-snapshot', './runtime/github-info-input-snapshot.json'),
+        fetchJsonStrict('./api/runtime/external-info-input-snapshot', './runtime/external-info-input-snapshot.json'),
+        fetchJsonStrict('./api/runtime/kakao-information-bounded-actions', './runtime/kakao-information-bounded-actions.json'),
+        fetchJsonStrict('./api/runtime/kakao-public-analysis', './runtime/kakao-public-analysis.json'),
+        fetchJsonStrict('./api/runtime/knowledge-vault-summary', './runtime/knowledge-vault-summary.json'),
+        fetchJsonStrict('./api/runtime/retrieval-service-health', './runtime/retrieval-service-health.json'),
+        fetchJsonStrict('./api/runtime/llm-wiki-readiness', './runtime/llm-wiki-readiness.json'),
+        fetchJsonStrict('./api/runtime/life-graph', './runtime/life-process-graph.json'),
+        fetchJsonStrict('./api/runtime/infrastructure-map', './runtime/infrastructure-map.json'),
+        fetchJsonStrict('./api/runtime/decision-digest', './runtime/decision-digest.json'),
+        fetchJsonStrict('./api/runtime/improvement-suggestions', './runtime/improvement-suggestions.json'),
+        fetchJsonStrict('./api/runtime/improvement-execution-plan', './runtime/improvement-execution-plan.json'),
+        fetchJsonStrict('./api/runtime/ralf-loop-report', './runtime/ralf-loop-report.json'),
+        fetchJsonStrict('./api/runtime/ralph-role-drive-report', './runtime/ralph-role-drive-report.json'),
+        fetchJsonStrict('./api/runtime/agent-manifest-summary', './runtime/agent-manifest-summary.json'),
+        fetchJsonStrict('./runtime/agent-performance-report.json')
+      ]);
+      renderIntegratedHub({ kakao, githubInfo, externalInfo, actions, kakaoAnalysis, knowledge, retrieval, llmWiki, life, infra, decisionDigest, improvements, improvementPlan, ralfLoop, ralphRoleDrive, agentManifest, agentPerformance });
+    }
+
+    function renderIntegratedHub({ kakao, githubInfo, externalInfo, actions, kakaoAnalysis, knowledge, retrieval, llmWiki, life, infra, decisionDigest, improvements, improvementPlan, ralfLoop, ralphRoleDrive, agentManifest, agentPerformance }) {
+      const kakaoOk = kakao.health?.healthy === true && kakao.acceptance?.passed === true;
+      const githubInfoOk = !githubInfo.__error && Number.isFinite(githubInfo.summary?.openIssues);
+      const externalInfoOk = !externalInfo.__error && Number.isFinite(externalInfo.summary?.totalSignals);
+      const githubOpenIssues = githubInfo.summary?.openIssues ?? '-';
+      const githubNeedsAgent = githubInfo.summary?.needsAgent ?? '-';
+      const githubNeedsHuman = githubInfo.summary?.needsHuman ?? '-';
+      const githubRouteable = githubInfo.summary?.routeableAgentWork ?? '-';
+      const externalSignals = externalInfo.summary?.totalSignals ?? '-';
+      const externalTechSignals = externalInfo.summary?.technologySignals ?? '-';
+      const externalEconomySignals = externalInfo.summary?.economySignals ?? '-';
+      const externalRecentSignals = externalInfo.summary?.recentSignals ?? '-';
+      const externalLiveMode = externalInfo.liveData?.mode || (externalInfo.__error ? 'unavailable' : 'static fallback');
+      const externalIsLive = externalInfo.liveData?.mode === 'live';
+      const externalBriefing = externalInfo.briefing || {};
+      const externalBriefLine = externalBriefing.oneLineSummary || '외부 신호 브리프가 아직 생성되지 않았습니다.';
+      const externalPrioritySignals = Array.isArray(externalBriefing.prioritySignals) ? externalBriefing.prioritySignals.slice(0, 5) : [];
+      const externalActionCandidates = Array.isArray(externalBriefing.actionCandidates) ? externalBriefing.actionCandidates.slice(0, 4) : [];
+      const externalTopThemes = Array.isArray(externalBriefing.topThemes) ? externalBriefing.topThemes.slice(0, 4) : [];
+      const actionCount = Array.isArray(actions.actions) ? actions.actions.length : 0;
+      const knowledgeGraphify = knowledge.graphify?.status || knowledge.graphify?.outputStatus || 'not_built';
+      const knowledgeOk = Number(knowledge.noteCount || 0) > 0;
+      const retrievalStatus = retrieval.status || 'missing';
+      const retrievalEntries = retrieval.metrics?.entryCount ?? '-';
+      const lifePipelines = Array.isArray(life.pipelines) ? life.pipelines.length : 0;
+      const lifeDomains = Array.isArray(life.lifeDomains) ? life.lifeDomains.length : 0;
+      const lifeAgentization = life.lifeAgentization || {};
+      const scopedReplacement = lifeAgentization.scopeReplacementPercent ?? 0;
+      const replacementScopes = lifeAgentization.replacementReadyScopes ?? 0;
+      const domainReplacement = lifeAgentization.domainReplacementPercent ?? 0;
+      const domainPromotionCandidates = Array.isArray(lifeAgentization.domainPromotionCandidates)
+        ? lifeAgentization.domainPromotionCandidates
+        : [];
+      const firstDomainPromotionCandidate = domainPromotionCandidates[0]?.id || '-';
+      const infraNodes = Array.isArray(infra.nodes) ? infra.nodes.length : 0;
+      const infraEdges = Array.isArray(infra.edges) ? infra.edges.length : 0;
+      const decisionSummary = decisionDigest.summary || {};
+      const decisionGroups = Array.isArray(decisionDigest.groups) ? decisionDigest.groups.slice(0, 5) : [];
+      const decisionBatches = Array.isArray(decisionDigest.batches) ? decisionDigest.batches.slice(0, 5) : [];
+      const decisionMode = decisionDigest.liveData?.mode || (decisionDigest.__error ? 'unavailable' : 'static fallback');
+      const improvementSuggestions = Array.isArray(improvements.suggestions) ? improvements.suggestions.slice(0, 5) : [];
+      const improvementSummary = improvements.summary || {};
+      const improvementPlanSummary = improvementPlan.summary || {};
+      const improvementPlanActions = Array.isArray(improvementPlan.actions) ? improvementPlan.actions.slice(0, 5) : [];
+      const ralfStages = Array.isArray(ralfLoop.stages) ? ralfLoop.stages : [];
+      const roleDriveSummary = ralphRoleDrive.summary || {};
+      const roleDriveDirectives = Array.isArray(ralphRoleDrive.topDirectives) ? ralphRoleDrive.topDirectives.slice(0, 8) : [];
+      const manifestSummary = agentManifest.summary || {};
+      const manifestAgents = Array.isArray(agentManifest.agents) ? agentManifest.agents.slice(0, 8) : [];
+      const performanceSummary = agentPerformance.summary || {};
+      const performanceAttention = Array.isArray(agentPerformance.attentionAgents) ? agentPerformance.attentionAgents.slice(0, 8) : [];
+      const performanceAgents = Array.isArray(agentPerformance.agents)
+        ? [...agentPerformance.agents].sort((a, b) => Number(a.score ?? 0) - Number(b.score ?? 0)).slice(0, 8)
+        : [];
+      const llmWikiScore = llmWiki.score?.percent ?? '-';
+      const llmWikiBand = llmWiki.score?.band?.label || 'not_assessed';
+      const sentiment = kakao.metrics?.sentimentDistribution || {};
+      const actionItems = Array.isArray(actions.actions) ? actions.actions.slice(0, 4) : [];
+      const analysisSummaries = Array.isArray(kakaoAnalysis.summaries) ? kakaoAnalysis.summaries.slice(0, 6) : [];
+      const analysisActionItems = Array.isArray(kakaoAnalysis.actionItems) ? kakaoAnalysis.actionItems.slice(0, 6) : [];
+      const analysisSchedules = Array.isArray(kakaoAnalysis.schedules) ? kakaoAnalysis.schedules.slice(0, 6) : [];
+      const analysisLinkDomains = Array.isArray(kakaoAnalysis.linkDomains) ? kakaoAnalysis.linkDomains.slice(0, 8) : [];
+      const githubSignals = Array.isArray(githubInfo.issueSignals) ? githubInfo.issueSignals.slice(0, 6) : [];
+      const externalSignalsPreview = Array.isArray(externalInfo.publicSignals) ? externalInfo.publicSignals.slice(0, 8) : [];
+      const notes = Array.isArray(knowledge.notes) ? knowledge.notes.slice(0, 6) : [];
+      const domains = Array.isArray(life.lifeDomains) ? life.lifeDomains.slice(0, 6) : [];
+      const pipelines = Array.isArray(life.pipelines) ? life.pipelines.slice(0, 4) : [];
+      const infraPreviewNodes = Array.isArray(infra.nodes) ? infra.nodes.slice(0, 8) : [];
+      const hasErrors = [kakao, githubInfo, externalInfo, actions, kakaoAnalysis, knowledge, retrieval, llmWiki, life, infra, decisionDigest, improvements, improvementPlan, ralfLoop, ralphRoleDrive, agentManifest, agentPerformance].some((item) => item.__error);
+      const integrationTone = hasErrors ? 'warn' : 'ok';
+      const integrationLabel = hasErrors ? 'partial data' : 'linked';
+
+      resultHub.innerHTML = `
+        <div class="journey" aria-label="integrated source to result flow">
+          <div class="journey-step">
+            <div class="step-index">1</div>
+            <div class="step-main">
+              <h3>다중 입력 수집</h3>
+              <p>카카오 처리 집계, GitHub 이슈/라벨, 외부 기술·경제 공개 feed를 별도 입력 루트로 연결합니다. 외부 이슈는 live API를 우선 사용하고, 정적 스냅샷은 fallback/cache로만 둡니다.</p>
+            </div>
+            ${badge(kakaoOk && githubInfoOk && externalInfoOk ? '3 routes healthy' : 'needs check', kakaoOk && githubInfoOk && externalInfoOk ? 'ok' : 'warn')}
+          </div>
+          <div class="journey-step">
+            <div class="step-index">2</div>
+            <div class="step-main">
+              <h3>분석과 제한 실행 후보</h3>
+              <p>수집된 신호에서 판단 가능한 bounded action만 분리하고, 사람 승인이 필요한 항목은 gate로 남깁니다.</p>
+            </div>
+            ${badge(`${actionCount} action${actionCount === 1 ? '' : 's'}`, actionCount ? 'info' : 'warn')}
+          </div>
+          <div class="journey-step">
+            <div class="step-index">3</div>
+            <div class="step-main">
+              <h3>일일 브리프와 지식화</h3>
+              <p>메시지 브리프와 Knowledge Vault 요약을 별도 페이지가 아닌 같은 결과 체계의 산출물로 묶습니다.</p>
+            </div>
+            ${badge(knowledgeOk ? 'visible' : 'empty', knowledgeOk ? 'ok' : 'warn')}
+          </div>
+          <div class="journey-step">
+            <div class="step-index">4</div>
+            <div class="step-main">
+              <h3>라이프 그래프와 인프라맵 반영</h3>
+              <p>삶의 프로세스/에이전트/서비스/인프라 노드가 같은 UX에서 추적되도록 연결합니다.</p>
+            </div>
+            ${badge(integrationLabel, integrationTone)}
+          </div>
+          <div class="journey-step">
+            <div class="step-index">5</div>
+            <div class="step-main">
+              <h3>LLM-Wiki 활용 준비도</h3>
+              <p>입력 마찰, 검색 ROI, Graphify/RAG/MCP 준비도, 지식 복리 루프를 보수적으로 평가합니다.</p>
+            </div>
+            ${badge(`${llmWikiScore}% · ${llmWikiBand}`, Number(llmWikiScore) >= 70 ? 'ok' : 'warn')}
+          </div>
+        </div>
+        <div class="artifact-grid" aria-label="integrated artifacts">
+          <section class="artifact-card">
+            <h3>Information Inputs</h3>
+            <p>카카오, GitHub Issue/Project, 외부 기술·경제 공개 feed를 다중 정보 수집 루트로 사용합니다.</p>
+            ${metric('kakao health', kakaoOk ? 'healthy' : 'needs check')}
+            ${metric('github open issues', githubOpenIssues)}
+            ${metric('needs agent / human', `${githubNeedsAgent} / ${githubNeedsHuman}`)}
+            ${metric('routeable work', githubRouteable)}
+            ${metric('external signals', `${externalSignals} · tech ${externalTechSignals} · econ ${externalEconomySignals}`)}
+            ${metric('external recent', externalRecentSignals)}
+            ${metric('external mode', externalLiveMode)}
+            ${metric('external briefing', externalBriefing.status || '-')}
+            <div class="artifact-links">
+              ${link('GitHub 입력 스냅샷', './runtime/github-info-input-snapshot.json')}
+              ${link('GitHub 입력 브리프', './runtime/github-info-input-brief.md')}
+              ${link('외부 이슈 Live API', './api/runtime/external-info-input-snapshot')}
+              ${link('외부 이슈 fallback cache', './runtime/external-info-input-snapshot.json')}
+              ${link('외부 이슈 브리프', './runtime/external-info-input-brief.md')}
+              ${link('카카오 입력 스냅샷', './runtime/kakao-insight-input-snapshot.json')}
+            </div>
+          </section>
+          <section class="artifact-card">
+            <h3>Decision Digest</h3>
+            <p>Needs Human 항목을 이슈 단건이 아니라 판단 묶음으로 정리해 사용자 병목을 줄입니다.</p>
+            ${metric('needs human', decisionSummary.totalNeedsHuman ?? decisionSummary.totalItems ?? '-')}
+            ${metric('domains / batches', `${decisionSummary.domains ?? 0} / ${decisionSummary.batches ?? 0}`)}
+            ${metric('mode', decisionMode)}
+            ${metric('safe action', decisionSummary.defaultSafeAction || '-')}
+            <div class="artifact-links">
+              ${link('Decision Digest Live API', './api/runtime/decision-digest')}
+              ${link('Decision Digest JSON', './runtime/decision-digest.json')}
+              ${link('Decision Queue Live API', './api/runtime/decision-queue')}
+            </div>
+          </section>
+          <section class="artifact-card">
+            <h3>Message Daily Brief</h3>
+            <p>카카오 분석 결과를 사용자가 확인 가능한 일일 브리프 화면으로 제공합니다.</p>
+            ${metric('records', kakao.metrics?.totalRecords)}
+            ${metric('messages', kakao.metrics?.totalMessages)}
+            ${metric('links', kakao.metrics?.linkCount)}
+            <div class="artifact-links">
+              ${link('브리프 보기', './daily-brief.html')}
+              ${link('분석 내용 보기', './kakao-analysis.html')}
+              ${link('입력 스냅샷', './runtime/kakao-insight-input-snapshot.json')}
+            </div>
+          </section>
+          <section class="artifact-card">
+            <h3>Knowledge Map</h3>
+            <p>에이전트 역할, 원칙, 프로토콜, 런북을 Obsidian-style vault 요약으로 노출합니다.</p>
+            ${metric('notes', knowledge.noteCount)}
+            ${metric('links', Array.isArray(knowledge.links) ? knowledge.links.length : '-')}
+            ${metric('graphify', knowledgeGraphify)}
+            ${metric('retrieval', `${retrievalStatus} · ${retrievalEntries} entries`)}
+            <div class="artifact-links">
+              ${link('지식맵 보기', './knowledge-map.html')}
+              ${link('Obsidian 가이드', './docs/OBSIDIAN_GRAPH_VIEW_GUIDE.md')}
+              ${link('검색 Pilot', './knowledge-retrieval.html')}
+              ${link('Graph 보기', './graphify-out/graph.html')}
+              ${link('LLM-Wiki 평가', './llm-wiki-readiness.html')}
+              ${link('검색 ROI', './runtime/llm-wiki-search-roi.json')}
+              ${link('Vault 요약', './runtime/knowledge-vault-summary.json')}
+            </div>
+          </section>
+          <section class="artifact-card">
+            <h3>Improvement Governor</h3>
+            <p>현재 런타임 신호를 바탕으로 다음 개선 후보를 제안하고, 개선 close에는 증거를 요구합니다.</p>
+            ${metric('suggestions', improvementSummary.total ?? '-')}
+            ${metric('P1 / P2 / P3', `${improvementSummary.p1 ?? 0} / ${improvementSummary.p2 ?? 0} / ${improvementSummary.p3 ?? 0}`)}
+            ${metric('execution now / next', `${improvementPlanSummary.nowActions ?? 0} / ${improvementPlanSummary.nextActions ?? 0}`)}
+            ${metric('primary direction', improvementPlanSummary.primaryDirection || '-')}
+            ${metric('RALF focus', ralfLoop.focus?.primaryAction || '-')}
+            ${metric('Ralph role drive', `${roleDriveSummary.mustActRoles ?? 0} must act · stale ${roleDriveSummary.staleOpenIssues ?? 0}`)}
+            ${metric('status', improvements.status || '-')}
+            <div class="artifact-links">
+              ${link('개선 제안 Live API', './api/runtime/improvement-suggestions')}
+              ${link('개선 제안 JSON', './runtime/improvement-suggestions.json')}
+              ${link('실행 계획 JSON', './runtime/improvement-execution-plan.json')}
+              ${link('RALF 루프 JSON', './runtime/ralf-loop-report.json')}
+              ${link('Ralph Role Drive JSON', './runtime/ralph-role-drive-report.json')}
+              ${link('Ralph Role Drive 문서', './docs/RALPH_ROLE_DRIVE.md')}
+              ${link('RALF 문서', './docs/RALF_LOOP.md')}
+              ${link('Governor 문서', './docs/IMPROVEMENT_GOVERNOR.md')}
+            </div>
+          </section>
+          <section class="artifact-card">
+            <h3>Agent Performance</h3>
+            <p>각 에이전트/CLI/세션이 실제 개선 증거를 만들고 있는지 점수, 미해결 이슈, stale/P1 부하로 관리합니다.</p>
+            ${metric('active / attention / idle', `${performanceSummary.activeAgents ?? '-'} / ${performanceSummary.attentionAgents ?? '-'} / ${performanceSummary.idleAgents ?? '-'}`)}
+            ${metric('open / P1 / stale', `${performanceSummary.openIssues ?? '-'} / ${performanceSummary.p1OpenIssues ?? '-'} / ${performanceSummary.staleOpenIssues ?? '-'}`)}
+            ${metric('needs agent / human', `${performanceSummary.needsAgentOpenIssues ?? '-'} / ${performanceSummary.needsHumanOpenIssues ?? '-'}`)}
+            ${metric('issue source', agentPerformance.issueSource || '-')}
+            <div class="artifact-links">
+              ${link('실적관리 JSON', './runtime/agent-performance-report.json')}
+              ${link('실적관리 문서', './docs/AGENT_PERFORMANCE.md')}
+            </div>
+          </section>
+          <section class="artifact-card">
+            <h3>Agent Manifest</h3>
+            <p>런타임 에이전트, CLI 역할, control-plane job, life-loop agent의 실제 자동화 경계를 명시합니다.</p>
+            ${metric('total agents', manifestSummary.totalAgents ?? '-')}
+            ${metric('agent-like', manifestSummary.agentLikeCount ?? '-')}
+            ${metric('runtime / pipeline / life', `${manifestSummary.runtimeAgentCount ?? 0} / ${manifestSummary.pipelineAgentCount ?? 0} / ${manifestSummary.lifeLoopAgentCount ?? 0}`)}
+            ${metric('CLI / reviewer', `${manifestSummary.controlPlaneCliCount ?? 0} / ${manifestSummary.reviewerCliCount ?? 0}`)}
+            ${metric('standalone capable', `${manifestSummary.standaloneCapableCount ?? '-'} · registry required ${manifestSummary.standaloneRegistryRequiredCount ?? '-'}`)}
+            ${metric('completeness', `${manifestSummary.manifestCompletenessPercent ?? '-'}%`)}
+            <div class="artifact-links">
+              ${link('Manifest Live API', './api/runtime/agent-manifest-summary')}
+              ${link('Manifest JSON', './runtime/agent-manifest-summary.json')}
+              ${link('Manifest 문서', './docs/AGENT_MANIFEST.md')}
+            </div>
+          </section>
+          <section class="artifact-card">
+            <h3>Life Graph Main</h3>
+            <p>라이프 프로세스와 에이전트화 대상 영역을 그래프/파이프라인 관점에서 확인합니다.</p>
+            ${metric('domains', lifeDomains)}
+            ${metric('pipelines', lifePipelines)}
+            ${metric('domain replacement', `${domainReplacement}%`)}
+            ${metric('scoped replacement', `${scopedReplacement}% · ${replacementScopes} scope${replacementScopes === 1 ? '' : 's'}`)}
+            ${metric('domain promotion candidates', `${domainPromotionCandidates.length} · ${firstDomainPromotionCandidate}`)}
+            ${metric('generated', life.generatedAt || '-')}
+            <div class="artifact-links">
+              ${link('라이프 그래프', './agent-map-life.html')}
+              ${link('그래프 JSON', './runtime/life-process-graph.json')}
+            </div>
+          </section>
+          <section class="artifact-card">
+            <h3>Infrastructure Map</h3>
+            <p>서비스, 런타임, 데이터, 배포, 시크릿 참조를 공개 가능한 구조로 도식화합니다.</p>
+            ${metric('nodes', infraNodes)}
+            ${metric('edges', infraEdges)}
+            ${metric('checks', Array.isArray(infra.checks) ? infra.checks.length : '-')}
+            <div class="artifact-links">
+              ${link('인프라맵', './infrastructure-map.html')}
+              ${link('인프라 JSON', './runtime/infrastructure-map.json')}
+            </div>
+          </section>
+        </div>
+        <div class="content-preview-grid" aria-label="inside integrated results">
+          <details class="preview-card" open>
+            <summary>Agent Manifest 실제 구성</summary>
+            <p>“에이전트”라고 부르는 단위가 runtime인지, CLI인지, life-loop인지 구분해 보여줍니다.</p>
+            ${previewItems(manifestAgents, (item) => `<li>
+              <span class="preview-title">${esc(item.id)} · ${esc(item.type)}</span>
+              <span class="preview-meta">${esc(truncate(item.role || '-', 150))}</span>
+              <span class="preview-meta">standalone: ${esc(item.standalone?.capable === true ? 'yes' : 'no')} · ${esc(item.standalone?.mode || '-')} · ${esc(item.standalone?.supervisor || '-')}</span>
+              <span class="preview-meta">trigger: ${esc(truncate(item.trigger || '-', 130))}</span>
+              <span class="preview-meta">verify: ${esc(item.verification || '-')}</span>
+            </li>`, '현재 표시할 agent manifest가 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>RALF Loop</summary>
+            <p>작업을 Review → Act → Learn → Feedback 순서로 묶어, 실행 후 다음 개선 사이클까지 남깁니다.</p>
+            ${metric('status', ralfLoop.status || '-')}
+            ${metric('focus', ralfLoop.focus?.primaryActionTitle || ralfLoop.focus?.primaryAction || '-')}
+            ${metric('metrics', `P1 ${ralfLoop.metrics?.p1Actions ?? 0} · scope ${ralfLoop.metrics?.scopedReplacementPercent ?? 0}% · needsHuman ${ralfLoop.metrics?.needsHuman ?? 0}`)}
+            ${previewItems(ralfStages, (stage) => `<li>
+              <span class="preview-title">${esc(stage.label || stage.id)} · ${esc(stage.output || '-')}</span>
+              <span class="preview-meta">${esc(truncate(stage.purpose || '-', 160))}</span>
+              <span class="preview-meta">signal: ${esc(truncate(stage.currentSignal || '-', 160))}</span>
+            </li>`, '현재 RALF stage가 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>Ralph Role Drive</summary>
+            <p>기존 역할들이 passive watcher로 멈추지 않도록 must-act 역할, 우선순위, 실행 명령을 산출합니다.</p>
+            ${metric('status', ralphRoleDrive.status || '-')}
+            ${metric('must act / review roles', `${roleDriveSummary.mustActRoles ?? 0} / ${roleDriveSummary.reviewOnlyRoles ?? 0}`)}
+            ${metric('needs agent / stale', `${roleDriveSummary.needsAgentOpenIssues ?? 0} / ${roleDriveSummary.staleOpenIssues ?? 0}`)}
+            ${previewItems(roleDriveDirectives, (item) => `<li>
+              <span class="preview-title">${esc(item.priority || 'P?')} · ${esc(item.agentId || '-')} · ${esc(item.mode || '-')}</span>
+              <span class="preview-meta">${esc(truncate(item.ralphDirective || '-', 170))}</span>
+              <span class="preview-meta">command: ${esc(truncate(item.command || '-', 170))}</span>
+            </li>`, '현재 must-act role directive가 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>Improvement Execution Plan</summary>
+            <p>개선 제안을 실제 실행 방향, 검증 명령, visible delta로 바꾼 계획입니다.</p>
+            ${metric('strategy', improvementPlan.strategicDirection?.oneLine || '-')}
+            ${metric('primary action', improvementPlanSummary.primaryAction || '-')}
+            ${previewItems(improvementPlanActions, (item) => `<li>
+              <span class="preview-title">${esc(item.priority || 'P?')} · ${esc(item.status || '-')} · ${esc(item.title || item.id)}</span>
+              <span class="preview-meta">objective: ${esc(truncate(item.objective || '-', 150))}</span>
+              <span class="preview-meta">next: ${esc(truncate((item.nextConcreteActions || []).join(' / ') || '-', 180))}</span>
+              <span class="preview-meta">verify: ${esc(truncate((item.verificationCommands || []).join(' && ') || '-', 160))}</span>
+            </li>`, '현재 실행 계획이 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>Improvement Governor 제안</summary>
+            <p>“개선했다”는 주장 전에, 다음으로 실제 체감 개선을 만들 후보를 근거와 함께 제안합니다.</p>
+            ${previewItems(improvementSuggestions, (item) => `<li>
+              <span class="preview-title">${esc(item.priority || 'P?')} · ${esc(item.category || '-')} · ${esc(item.title || item.id)}</span>
+              <span class="preview-meta">기대 변화: ${esc(truncate(item.expectedVisibleDelta || '-', 150))}</span>
+              <span class="preview-meta">검증: ${esc(truncate(item.verification || '-', 150))}</span>
+              <span class="preview-meta">리스크: ${esc(truncate(item.residualRisk || '-', 150))}</span>
+            </li>`, '현재 표시할 개선 제안이 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>에이전트 실적관리 주의 항목</summary>
+            <p>개선이 정체되지 않도록 attention 상태와 낮은 점수 순서를 먼저 봅니다.</p>
+            ${previewItems(performanceAttention, (item) => `<li>
+              <span class="preview-title">${esc(item.id || item.displayName || 'agent')} · score ${esc(item.score ?? '-')}</span>
+              <span class="preview-meta">open ${esc(item.openIssues ?? 0)} · stale ${esc(item.staleOpenIssues ?? 0)} · P1 ${esc(item.p1OpenIssues ?? 0)} · session ${esc(item.sessionStatus || '-')}</span>
+              <span class="preview-meta">samples: ${esc((item.sampleOpenIssues || []).map((issue) => `#${issue.number}`).join(', ') || '-')}</span>
+            </li>`, '현재 attention 상태 에이전트가 없습니다.')}
+            ${previewItems(performanceAgents, (item) => `<li>
+              <span class="preview-title">${esc(item.id || item.displayName)} · ${esc(item.status || '-')} · score ${esc(item.score ?? '-')}</span>
+              <span class="preview-meta">type: ${esc(item.type || '-')} · role: ${esc(truncate(item.role || '-', 110))}</span>
+              <span class="preview-meta">evidence: closedRecent ${esc(item.metrics?.closedRecentIssues ?? 0)} · lifeRuns ${esc(item.metrics?.lifeEvidenceRuns ?? 0)} · verify ${esc(item.verification || '-')}</span>
+            </li>`, '현재 표시할 실적관리 row가 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>Needs Human 결정 묶음</summary>
+            <p>사람 확인이 필요한 항목을 domain별 batch로 묶고, 각 묶음의 권장 질문을 표시합니다.</p>
+            ${metric('priority', JSON.stringify(decisionSummary.priorityCounts || {}))}
+            ${metric('kind', JSON.stringify(decisionSummary.decisionKindCounts || {}))}
+            ${previewItems(decisionBatches.length ? decisionBatches : decisionGroups, (item) => `<li>
+              <span class="preview-title">${esc(item.priorityHint || 'P?')} · ${esc(item.domain || '-')} · ${esc(item.count ?? 0)} item${item.count === 1 ? '' : 's'}</span>
+              <span class="preview-meta">issues: ${esc((item.issues || (item.decisions || []).map((decision) => decision.issue)).join(', ') || '-')}</span>
+              <span class="preview-meta">${esc(truncate(item.recommendedQuestion || '각 이슈를 approve / reject / snooze / delegate 중 하나로 판단하세요.', 160))}</span>
+            </li>`, '현재 표시할 Needs Human 결정 묶음이 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>카카오 분석 내부 요약</summary>
+            <p>원문 메시지 없이 공개 가능한 분석 요약과 후보 작업을 표시합니다.</p>
+            ${metric('freshness', kakao.freshness?.status || '-')}
+            ${metric('acceptance', kakao.acceptance?.passed === true ? `pass / score ${kakao.acceptance?.score ?? '-'}` : 'needs check')}
+            ${metric('sentiment', `긍정 ${sentiment.positive ?? 0} · 중립 ${sentiment.neutral ?? 0} · 부정 ${sentiment.negative ?? 0} · 긴급 ${sentiment.urgent ?? 0}`)}
+            ${metric('action/schedule', `${kakao.metrics?.actionItemCount ?? 0} / ${kakao.metrics?.scheduleCount ?? 0}`)}
+            ${previewItems(analysisSummaries, (item) => `<li>
+              <span class="preview-title">분석 요약</span>
+              <span class="preview-meta">${esc(item)}</span>
+            </li>`, '표시 가능한 분석 요약이 없습니다.')}
+            <div class="artifact-links">${link('카카오 분석 전체 보기', './kakao-analysis.html')}</div>
+          </details>
+          <details class="preview-card" open>
+            <summary>GitHub 이슈 입력 신호</summary>
+            <p>이슈 본문/댓글 없이 공개 가능한 제목·라벨·갱신시각 기반 운영 신호만 표시합니다.</p>
+            ${metric('open / recent / stale', `${githubOpenIssues} / ${githubInfo.summary?.recentlyUpdated ?? '-'} / ${githubInfo.summary?.stale ?? '-'}`)}
+            ${metric('routeable / gated', `${githubRouteable} / ${githubNeedsHuman}`)}
+            ${previewItems(githubSignals, (item) => `<li>
+              <span class="preview-title">#${esc(item.number)} · ${esc(item.domain || 'agent_ops')}</span>
+              <span class="preview-meta">${esc(truncate(item.title || '-', 120))}</span>
+              <span class="preview-meta">labels: ${esc((item.labels || []).slice(0, 6).join(', ') || '-')}</span>
+            </li>`, '표시 가능한 GitHub 입력 신호가 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>외부 기술·경제 이슈 신호</summary>
+            <p>공개 RSS/Atom의 제목·링크·게시시각만 사용해 대외 기술/경제/정책 변화를 live-first로 감지하고, 원문 수집 없이 브리프/중요도/후속 액션 후보를 만듭니다.</p>
+            ${badge(externalIsLive ? 'live API' : 'fallback cache', externalIsLive ? 'ok' : 'warn')}
+            ${metric('brief', externalBriefLine)}
+            ${metric('sources ok/error', `${externalInfo.summary?.sourcesOk ?? '-'} / ${externalInfo.summary?.sourcesError ?? '-'}`)}
+            ${metric('tech / economy', `${externalTechSignals} / ${externalEconomySignals}`)}
+            ${metric('high / medium', `${externalInfo.summary?.highImportanceSignals ?? 0} / ${externalInfo.summary?.mediumImportanceSignals ?? 0}`)}
+            ${previewItems(externalTopThemes, (item) => `<li>
+              <span class="preview-title">theme · ${esc(item.label || item.theme || '-')}</span>
+              <span class="preview-meta">${esc(item.count ?? 0)} signals</span>
+            </li>`, '표시 가능한 외부 테마가 없습니다.')}
+            ${previewItems(externalPrioritySignals, (item) => `<li>
+              <span class="preview-title">${esc(item.importance || 'watch')} ${esc(item.importanceScore ?? '-')} · ${esc(item.sourceName || 'external')}</span>
+              <span class="preview-meta">${esc(truncate(item.oneLineSummary || item.title || '-', 130))}</span>
+              <span class="preview-meta">왜 중요: ${esc(truncate(item.whyItMatters || '-', 150))}</span>
+              <span class="preview-meta">연결: ${esc(truncate(item.projectRelevance || '-', 120))}</span>
+            </li>`, '우선 검토할 외부 신호가 없습니다.')}
+            ${previewItems(externalActionCandidates, (item) => `<li>
+              <span class="preview-title">${esc(item.priority || 'P?')} · ${esc(truncate(item.title || '-', 120))}</span>
+              <span class="preview-meta">${esc(truncate(item.nextStep || '-', 150))}</span>
+            </li>`, '외부 신호 기반 후속 액션 후보가 없습니다.')}
+            ${previewItems(externalSignalsPreview, (item) => `<li>
+              <span class="preview-title">${esc(item.sourceName || item.sourceId || 'external')} · ${esc(item.topic || '-')}</span>
+              <span class="preview-meta">${esc(truncate(item.oneLineSummary || item.title || '-', 130))}</span>
+              <span class="preview-meta">${esc(item.linkHost || '-')} · ${esc(item.publishedAt || 'unknown')}</span>
+            </li>`, '표시 가능한 외부 이슈 신호가 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>제한 실행 후보</summary>
+            <p>사람 승인 전 자동 실행하지 않는 후보 작업입니다.</p>
+            ${previewItems(analysisActionItems, (item) => `<li>
+              <span class="preview-title">할 일 후보</span>
+              <span class="preview-meta">${esc(item)}</span>
+            </li>`, '표시 가능한 할 일 후보가 없습니다.')}
+            ${previewItems(analysisSchedules, (item) => `<li>
+              <span class="preview-title">일정 후보</span>
+              <span class="preview-meta">${esc(item)}</span>
+            </li>`, '표시 가능한 일정 후보가 없습니다.')}
+            ${previewItems(actionItems, (item) => `<li>
+              <span class="preview-title">${esc(item.priority || 'P?')} · ${esc(item.id || item.type || 'action')}</span>
+              <span class="preview-meta">${esc(truncate(item.rationale || item.execution || '-', 140))}</span>
+              <span class="preview-meta">gate: ${esc(item.humanGate || 'none')}</span>
+            </li>`)}
+            ${previewItems(analysisLinkDomains, (item) => `<li>
+              <span class="preview-title">링크 도메인</span>
+              <span class="preview-meta">${esc(item)}</span>
+            </li>`, '표시 가능한 링크 도메인이 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>Knowledge Vault 내부 노트</summary>
+            <p>역할/원칙/프로토콜/런북의 실제 공개 노트 일부입니다.</p>
+            ${previewItems(notes, (note) => `<li>
+              <span class="preview-title">${esc(note.title || note.id)}</span>
+              <span class="preview-meta">${esc(note.type || '-')} · ${esc(note.status || '-')} · links ${esc((note.links || []).length)}</span>
+              <span class="preview-meta">${esc(note.path || '-')}</span>
+            </li>`)}
+          </details>
+          <details class="preview-card" open>
+            <summary>LLM-Wiki 평가/활용 방향</summary>
+            <p>우리 강점을 유지하면서 LLM-Wiki 레이어를 붙이기 위한 준비도입니다.</p>
+            ${metric('readiness', `${llmWikiScore}%`)}
+            ${metric('band', llmWikiBand)}
+            ${previewItems(Array.isArray(llmWiki.blockers) ? llmWiki.blockers.slice(0, 5) : [], (item) => `<li>
+              <span class="preview-title">blocker</span>
+              <span class="preview-meta">${esc(item)}</span>
+            </li>`, '현재 표시할 blocker가 없습니다.')}
+            ${previewItems(Array.isArray(llmWiki.implementationDirection) ? llmWiki.implementationDirection.slice(0, 5) : [], (item) => `<li>
+              <span class="preview-title">방향</span>
+              <span class="preview-meta">${esc(item)}</span>
+            </li>`, '표시할 구현 방향이 없습니다.')}
+            <div class="artifact-links">${link('LLM-Wiki 평가 전체 보기', './llm-wiki-readiness.html')}</div>
+          </details>
+          <details class="preview-card" open>
+            <summary>라이프 영역/파이프라인</summary>
+            <p>에이전트화 대상 삶의 영역과 현재 프로세스 흐름입니다.</p>
+            ${previewItems(domains, (domain) => `<li>
+              <span class="preview-title">${esc(domain.icon || '')} ${esc(domain.name || domain.id)}</span>
+              <span class="preview-meta">${esc(domain.status || '-')} · ${esc(domain.priority || '-')} · ${(domain.primaryProcesses || []).slice(0, 3).map(esc).join(', ')}</span>
+            </li>`)}
+            ${previewItems(pipelines, (pipeline) => `<li>
+              <span class="preview-title">pipeline · ${esc(pipeline.name || pipeline.id)}</span>
+              <span class="preview-meta">${esc(truncate(pipeline.description || '-', 120))}</span>
+            </li>`, '표시할 파이프라인이 없습니다.')}
+          </details>
+          <details class="preview-card" open>
+            <summary>인프라/서비스 노드</summary>
+            <p>배포, 런타임, 데이터, 시크릿 참조 상태의 공개 가능한 노드입니다.</p>
+            ${previewItems(infraPreviewNodes, (node) => `<li>
+              <span class="preview-title">${esc(node.name || node.id)}</span>
+              <span class="preview-meta">${esc(node.group || '-')} · ${esc(node.connectionStatus || '-')} · ${esc(node.health || '-')}</span>
+              <span class="preview-meta">${esc(truncate(node.description || '-', 120))}</span>
+            </li>`)}
+          </details>
+        </div>
+      `;
+    }
+
+    function statusOf(agent) {
+      return agent.heartbeat?.status || 'unknown';
+    }
+
+    function publicOutputHref(output) {
+      const value = String(output || '');
+      if (value === 'public/daily-brief.html') return './daily-brief.html';
+      if (value.startsWith('public/')) return `./${value.slice('public/'.length)}`;
+      if (value.startsWith('runtime/kakao-')) return `./${value}`;
+      return '';
+    }
+
+    function normalizeAgents(rt) {
+      return Array.isArray(rt.agents) ? rt.agents : Object.values(rt.agents || {});
+    }
+
+    function render(rt) {
+      const agents = normalizeAgents(rt).sort((a, b) => String(a.id).localeCompare(String(b.id)));
+      const source = rt.source || {};
+      const byStatus = new Map();
+      agents.forEach((agent) => {
+        const status = statusOf(agent);
+        if (!byStatus.has(status)) byStatus.set(status, []);
+        byStatus.get(status).push(agent);
+      });
+
+      generated.textContent = rt.generatedAt || '-';
+      sourceUrl.textContent = source.registryUrl || '-';
+      sourceUpdated.textContent = source.updatedAt || '-';
+      included.textContent = agents.length;
+      raw.textContent = source.rawAgentCount ?? agents.length;
+      filtered.textContent = source.excludedAgentCount ?? 0;
+      groups.textContent = byStatus.size;
+
+      lanes.innerHTML = [...byStatus.entries()].sort().map(([status, items]) => `
+        <section class="lane">
+          <h3><span>${esc(status)}</span><b>${items.length}</b></h3>
+          <div class="mini-list">
+            ${items.map((agent) => `<div class="mini ${esc(status)}"><span class="dot"></span><span class="name" title="${esc(agent.id)}">${esc(agent.id)}</span></div>`).join('')}
+          </div>
+        </section>`).join('') || '<div class="empty">status data 없음</div>';
+
+      app.className = agents.length ? 'agent-grid' : '';
+      if (!agents.length) {
+        app.innerHTML = '<div class="empty">등록된 agent가 없습니다.</div>';
+        return;
+      }
+      app.innerHTML = agents.map((agent) => {
+        const heartbeat = agent.heartbeat || {};
+        const status = statusOf(agent);
+        const lastEvent = agent.lastEvent ? `${agent.lastEvent.type} · ${agent.lastEvent.at || '-'}` : 'no event';
+        const endpoints = agent.endpoints || {};
+        const outputHref = publicOutputHref(endpoints.output);
+        return `<section class="agent-card ${esc(status)}">
+          <h3><span class="dot"></span><span class="name" title="${esc(agent.id)}">${esc(agent.id)}</span></h3>
+          <div class="row"><span>status</span><b>${esc(status)}</b></div>
+          <div class="row"><span>last seen</span><span title="${esc(heartbeat.lastSeen || '-')}">${esc(heartbeat.lastSeen || '-')}</span></div>
+          <div class="row"><span>since</span><span>${esc(heartbeat.sinceSec ?? '-')}s</span></div>
+          <div class="row"><span>protocols</span><span>${esc((agent.protocols || []).join(', ') || '-')}</span></div>
+          <div class="row"><span>public result</span><span>${outputHref ? `<a href="${esc(outputHref)}">${esc(endpoints.output)}</a>` : 'not public'}</span></div>
+          <div class="row"><span>last event</span><span title="${esc(lastEvent)}">${esc(lastEvent)}</span></div>
+        </section>`;
+      }).join('');
+    }
+
+    load();
+    setInterval(load, 5000);
+  </script>
+</body>
+</html>

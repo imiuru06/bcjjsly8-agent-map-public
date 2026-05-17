@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "agentId": "ralf_loop_coordinator_cli",
+  "generatedAt": "2026-05-17T00:19:23.648Z",
+  "status": "active",
+  "definition": {
+    "acronym": "RALF",
+    "expansion": "Review → Act → Learn → Feedback",
+    "purpose": "Make every work cycle evidence-seeking, bounded, learning-producing, and feedback-driven.",
+    "codexNativeLoop": {
+      "featureFlag": "goals",
+      "interactiveCommand": "/goal",
+      "colloquialName": "Ralph loop",
+      "useWhen": "interactive Codex TUI/session can maintain a persisted goal workflow",
+      "fallbackWhenNonInteractive": "npm run ralph:loop"
+    },
+    "autonomousCodingGuide": {
+      "plannerRole": "human/user defines intent and reviews business fit",
+      "codexRole": "Codex performs analysis, planning, implementation, validation, and evidence reporting",
+      "stages": [
+        {
+          "id": "analysis",
+          "name": "Stage 1. Analysis",
+          "purpose": "Understand repository structure, conventions, current state, and target objective before editing."
+        },
+        {
+          "id": "deep_interview",
+          "name": "Stage 2. Deep Interview",
+          "purpose": "Turn vague intent into explicit requirements, edge cases, data sources, UI location, and human gates."
+        },
+        {
+          "id": "ralph_plan",
+          "name": "Stage 3. Ralph Plan",
+          "purpose": "Create a bounded implementation plan and success criteria before autonomous execution."
+        },
+        {
+          "id": "ralph_run",
+          "name": "Stage 4. Ralph Run / Execute & Vision",
+          "purpose": "Implement, run tests, use Playwright/browser evidence where UI is involved, and iterate."
+        },
+        {
+          "id": "finalize",
+          "name": "Stage 5. Finalize",
+          "purpose": "Summarize evidence, surface remaining decisions, update issue/PR/runtime outputs, and stop at approval gates."
+        }
+      ]
+    }
+  },
+  "focus": {
+    "primaryAction": "execute-raise-life-agentization-from-scoped-to-domain",
+    "primaryActionTitle": "라이프 에이전트화를 scope 단위에서 domain 단위로 승격",
+    "primaryPriority": "P1",
+    "domainPromotionCandidate": null,
+    "strategicDirection": "Stop page-only progress; create the next verified replacement candidate from live runtime evidence."
+  },
+  "metrics": {
+    "improvementSuggestions": 4,
+    "p1Actions": 1,
+    "nowActions": 1,
+    "scopedReplacementPercent": 37.5,
+    "replacementReadyScopes": 3,
+    "needsHuman": 5,
+    "attentionAgents": 8,
+    "opsFindings": 3
+  },
+  "stages": [
+    {
+      "id": "review",
+      "label": "Review",
+      "purpose": "Read only the changed/runtime evidence needed for the current task, not every artifact.",
+      "inputs": [
+        "runtime/improvement-execution-plan.json",
+        "runtime/life-process-graph.json",
+        "runtime/decision-digest.json",
+        "runtime/agent-performance-report.json",
+        "runtime/ops-environment-audit.json"
+      ],
+      "output": "ranked bottleneck and current primary action",
+      "currentSignal": "execute-raise-life-agentization-from-scoped-to-domain"
+    },
+    {
+      "id": "act",
+      "label": "Act",
+      "purpose": "Perform the smallest bounded action that improves replacement evidence or reduces a bottleneck.",
+      "inputs": [
+        "runtime/life-process-graph.json:lifeAgentization"
+      ],
+      "output": "bounded implementation, route, or artifact update",
+      "currentSignal": "라이프 에이전트화를 scope 단위에서 domain 단위로 승격",
+      "hardStop": "Do not merge, close, deploy, publish, spend, expose secrets, or mutate external systems unless explicitly approved."
+    },
+    {
+      "id": "learn",
+      "label": "Learn",
+      "purpose": "Convert the result into reusable evidence, metrics, docs, or knowledge graph entries.",
+      "inputs": [
+        "runtime/life-agent-runs.jsonl",
+        "runtime/llm-wiki-search-roi.json",
+        "runtime/knowledge-vault-summary.json",
+        "graphify-out/graph.json"
+      ],
+      "output": "updated evidence and reusable knowledge",
+      "currentSignal": "scopedReplacement=37.5%"
+    },
+    {
+      "id": "feedback",
+      "label": "Feedback",
+      "purpose": "Report only meaningful deltas, update PR/issue evidence, and feed the next cycle.",
+      "inputs": [
+        "runtime/improvement-suggestions.json",
+        "runtime/improvement-execution-plan.json",
+        "runtime/ralf-loop-report.json"
+      ],
+      "output": "next cycle command list and concise operator summary",
+      "currentSignal": "needsHuman=5, attentionAgents=8, opsFindings=3"
+    }
+  ],
+  "nextCycle": {
+    "commandSequence": [
+      "Codex interactive preferred: /goal <bounded objective>",
+      "For ambiguous work: run analysis/deep interview before /goal",
+      "npm run improvement:suggest",
+      "npm run improvement:plan",
+      "npm run ralph:loop",
+      "npm run improvement:review",
+      "npm run policy:check"
+    ],
+    "enableCodexGoalFeature": "codex features enable goals",
+    "ifLifeReplacementWork": [
+      "npm run life:agentization",
+      "npm run life:check"
+    ],
+    "stopConditions": [
+      "hard human gate encountered",
+      "verification command fails",
+      "candidate action would only add a page without runtime evidence",
+      "secret/private/raw data boundary is unclear"
+    ]
+  },
+  "safety": {
+    "publicSafeOnly": true,
+    "secretValuesIncluded": false,
+    "privateRawDataIncluded": false,
+    "externalMutations": false,
+    "closeMergeDeployPublish": false,
+    "realWorldAutonomyClaimed": false
+  }
+}

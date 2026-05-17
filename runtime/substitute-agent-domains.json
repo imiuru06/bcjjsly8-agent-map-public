@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-02T02:30:00+09:00",
+  "principle": "substitute agents recommend and draft by default; real-world actions require explicit approval",
+  "domains": [
+    {
+      "id": "self_decision",
+      "displayName": "Self / Decision",
+      "agentId": "self_decision_guardian",
+      "lifeFunctionName": "최종 판단 보호자",
+      "canRead": ["decision metadata", "approval markers", "issue status"],
+      "canDraft": ["decision summaries", "approval requests", "delegation summaries"],
+      "canAct": ["create proposal", "request review"],
+      "requiresApprovalFor": ["final decision", "issue close", "delegation expansion"],
+      "fallbackOwner": ["user", "codex"]
+    },
+    {
+      "id": "life_operations",
+      "displayName": "Life Operations",
+      "agentId": "life_ops_steward",
+      "lifeFunctionName": "생활 루틴 감시자",
+      "canRead": ["sanitized schedule metadata", "routine status metadata"],
+      "canDraft": ["routine summaries", "reminders", "issue proposals"],
+      "canAct": ["create issue", "create proposal"],
+      "requiresApprovalFor": ["external message", "purchase", "commitment", "private data mutation"],
+      "fallbackOwner": ["codex"]
+    },
+    {
+      "id": "knowledge_information",
+      "displayName": "Knowledge / Information",
+      "agentId": "knowledge_curator",
+      "lifeFunctionName": "지식 정리자",
+      "canRead": ["sanitized notes metadata", "evidence links", "summary artifacts"],
+      "canDraft": ["summaries", "tags", "graph links", "briefs"],
+      "canAct": ["update generated public-safe artifacts after validation"],
+      "requiresApprovalFor": ["delete private data", "publish private information", "expose raw source"],
+      "fallbackOwner": ["codex"]
+    },
+    {
+      "id": "money_business",
+      "displayName": "Money / Business",
+      "agentId": "money_business_operator",
+      "lifeFunctionName": "지출/투자 이상 감지자",
+      "canRead": ["redacted finance workflow metadata", "business issue status"],
+      "canDraft": ["anomaly reports", "decision proposals", "checklists"],
+      "canAct": ["create proposal", "request human decision"],
+      "requiresApprovalFor": ["transaction", "billing", "contract", "public commitment"],
+      "fallbackOwner": ["user"]
+    },
+    {
+      "id": "content_publishing",
+      "displayName": "Content / Publishing",
+      "agentId": "content_studio_operator",
+      "lifeFunctionName": "콘텐츠 기회 탐색자",
+      "canRead": ["public trend metadata", "content pipeline artifacts"],
+      "canDraft": ["plans", "scripts", "storyboards", "validation reports"],
+      "canAct": ["local artifact generation", "dry-run validation"],
+      "requiresApprovalFor": ["upload", "publish", "external posting", "copyright risk acceptance"],
+      "fallbackOwner": ["codex", "user"]
+    },
+    {
+      "id": "agent_ops",
+      "displayName": "Agent Ops",
+      "agentId": "agent_ops_coordinator",
+      "lifeFunctionName": "에이전트 운영 조정자",
+      "canRead": ["issue queues", "session markers", "registry status", "throughput policy"],
+      "canDraft": ["routing comments", "status summaries", "blocker reports"],
+      "canAct": ["safe labels", "safe comments", "diagnostics"],
+      "requiresApprovalFor": ["close", "merge", "deploy", "secret read", "destructive action"],
+      "fallbackOwner": ["codex"]
+    },
+    {
+      "id": "infrastructure_ops",
+      "displayName": "Infrastructure Ops",
+      "agentId": "infra_ops_steward",
+      "lifeFunctionName": "연결 인프라 감시자",
+      "canRead": ["resource metadata by view permission", "credential presence", "health status"],
+      "canDraft": ["topology reports", "health summaries", "private read-model proposals"],
+      "canAct": ["read-only checks", "public-safe snapshot validation"],
+      "requiresApprovalFor": ["cloud mutation", "secret rotation", "deploy", "public topology release"],
+      "fallbackOwner": ["codex", "user"]
+    }
+  ]
+}

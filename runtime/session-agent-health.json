@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-14T08:15:57.000Z",
+  "source": "config/session-agents.json + GitHub session markers",
+  "visibility": "public",
+  "summary": {
+    "totalAgents": 8,
+    "confirmedSessions": 3,
+    "rolePoolsUnconfirmed": 0,
+    "optionalReviewers": 3,
+    "cliReviewersAvailable": 2,
+    "activeClaims": 0,
+    "staleClaims": 0,
+    "queueMode": "read-only",
+    "fallbackAvailable": true
+  },
+  "agents": [
+    {
+      "id": "daalgo",
+      "displayName": "다알고",
+      "role": "codex",
+      "kind": "coordinator",
+      "status": "active",
+      "lastSeenAt": "2026-05-02T02:24:08+09:00",
+      "evidence": ["current Telegram/Codex coordinator session"],
+      "fallbackOrder": ["daalgo_external_codex_01", "agent:codex", "needs:human"]
+    },
+    {
+      "id": "daalgo_external_codex_01",
+      "displayName": "DaAlgo External Codex Watcher 01",
+      "role": "codex",
+      "kind": "external-session-watcher",
+      "status": "confirmed",
+      "lastSeenAt": "2026-05-01T17:14:23Z",
+      "evidence": ["issue #1 SESSION_AGENT_RESULT", "issue #66 SESSION_AGENT_RESULT"],
+      "fallbackOrder": ["agent:codex", "daalgo", "needs:human"]
+    },
+    {
+      "id": "claude_review_01",
+      "displayName": "Claude Review Session 01",
+      "role": "claude",
+      "kind": "external-session-reviewer",
+      "status": "confirmed",
+      "lastSeenAt": "2026-05-01T16:59:28Z",
+      "evidence": ["issue #66 SESSION_AGENT_CLAIM", "issue #66 SESSION_AGENT_RESULT", "issue #66 SESSION_AGENT_BLOCKED"],
+      "fallbackOrder": ["agent:claude", "agent:codex", "needs:human"]
+    },
+    {
+      "id": "gemini",
+      "displayName": "Gemini UX Business Critique Pool",
+      "role": "gemini",
+      "kind": "role-pool",
+      "status": "optional-reviewer",
+      "lastSeenAt": null,
+      "evidence": ["issue #207 downgraded to optional reviewer until a live session marker or verified command exists"],
+      "fallbackOrder": ["agent:codex", "needs:human"]
+    },
+    {
+      "id": "opencode",
+      "displayName": "OpenCode Architecture Performance Review Pool",
+      "role": "opencode",
+      "kind": "role-pool",
+      "status": "optional-reviewer",
+      "lastSeenAt": null,
+      "evidence": ["issue #207 downgraded to optional reviewer until a live session marker or verified command exists"],
+      "fallbackOrder": ["agent:codex", "needs:human"]
+    },
+    {
+      "id": "stitch",
+      "displayName": "Stitch UI Prototype Support Pool",
+      "role": "stitch",
+      "kind": "role-pool",
+      "status": "optional-reviewer",
+      "lastSeenAt": null,
+      "evidence": ["issue #207 downgraded to optional reviewer until a live session marker or verified command exists"],
+      "fallbackOrder": ["agent:codex", "needs:human"]
+    },
+    {
+      "id": "uiux_cli",
+      "displayName": "UI/UX CLI Review Pool",
+      "role": "uiux_cli",
+      "kind": "cli-reviewer",
+      "status": "available-cli",
+      "lastSeenAt": "2026-05-14T08:15:57.000Z",
+      "evidence": ["issue #92 requested dedicated UI/UX CLI role", "npm run uiux:audit available in repo", "issue #207 promoted to available CLI reviewer"],
+      "fallbackOrder": ["agent:stitch", "agent:gemini", "agent:codex", "needs:human"]
+    },
+    {
+      "id": "collaboration_auditor_cli",
+      "displayName": "Collaboration Auditor CLI",
+      "role": "collaboration_auditor_cli",
+      "kind": "cli-reviewer",
+      "status": "available-cli",
+      "lastSeenAt": "2026-05-08T05:58:00.000Z",
+      "evidence": ["issue #118 requested dedicated collaboration effectiveness audit CLI role", "npm run collab:audit available in repo"],
+      "fallbackOrder": ["agent:codex", "daalgo", "needs:human"]
+    }
+  ],
+  "safety": {
+    "rawMessagesIncluded": false,
+    "secretValuesIncluded": false,
+    "directBotRequired": false
+  }
+}

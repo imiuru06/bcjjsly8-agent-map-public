@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:23.157Z",
+  "sourceId": "llm_wiki_search_roi_baseline",
+  "purpose": "Baseline instrumentation for the video recommendation: measure investment by actual search/reuse value.",
+  "measurementStatus": "usage_events_recorded",
+  "eventLog": {
+    "path": "runtime/knowledge-search-events.jsonl",
+    "publicSafe": true,
+    "exists": true
+  },
+  "counters": {
+    "searchEvents": 1,
+    "citedAnswerEvents": 1,
+    "reusedNoteEvents": 1,
+    "actionConversionCandidates": 5,
+    "capturedItems": 11,
+    "notePromotionCandidates": 6
+  },
+  "roiPolicy": {
+    "doNotAddHeavyRagUntil": [
+      "searchEvents and citedAnswerEvents are non-zero",
+      "at least one capture is reused in an issue, answer, or weekly synthesis",
+      "Graphify output exists and helps reduce orientation/search time"
+    ]
+  }
+}

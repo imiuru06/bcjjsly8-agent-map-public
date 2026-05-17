@@ -1,0 +1,1499 @@
+{
+  "schemaVersion": "life-process-graph-v1",
+  "generatedAt": "2026-05-17T00:19:28.611Z",
+  "source": {
+    "workspace": "redacted-local-workspace",
+    "files": [
+      "life-process-map.md",
+      "agent-map-v9.html",
+      "agent-map-spec.json",
+      "agent-map-runtime.json"
+    ],
+    "oldDashboardTitle": "Noah Agent Map — Stitch Refresh",
+    "restorationIssue": "#18"
+  },
+  "meta": {
+    "owner": "Noah",
+    "purpose": "삶의 프로세스, 에이전트, 프로젝트, 관계를 노드/엣지로 등록하고 현황 업데이트와 관계성 분석을 가능하게 한다.",
+    "status": "restored-first-pass",
+    "canonicalControlPlane": "bcjjsly8"
+  },
+  "lifeAgentization": {
+    "generatedAt": "2026-05-17T00:19:26.653Z",
+    "source": "config/life-agentization-scorecard.json",
+    "status": "domain_replacement_progress",
+    "domainReplacementPercent": 10,
+    "replacementReadyDomains": 1,
+    "domainCount": 10,
+    "scopeCoverageMetric": "verified_replacement_scope_coverage",
+    "scopeReplacementPercent": 37.5,
+    "replacementReadyScopes": 3,
+    "scopeTargetCount": 8,
+    "minimumDomainPromotionScopeCount": 2,
+    "domainPromotionCandidates": [],
+    "minimumDomainPromotionCriteria": {
+      "readyScopedReplacementCount": 2,
+      "autonomousLoopCriteria": [
+        "realInputCurrent",
+        "autonomousAnalysis",
+        "safeDecisionPolicy",
+        "boundedExecution",
+        "verification",
+        "monitoringFallback",
+        "learningFeedback",
+        "humanGateEnforcement"
+      ],
+      "requiredEvidence": [
+        "append-only loop run log entry with runId/domainId/actionKey",
+        "current input snapshot hash or source freshness proof",
+        "policy decision proving the selected action is within allowed boundaries",
+        "bounded execution artifact or explicit dry-run artifact",
+        "verification artifact with pass/fail outcome",
+        "retry/fallback or human-gate evidence when the run cannot complete safely",
+        "learning feedback artifact such as scorecard, runbook, issue, or metric update",
+        "repeated successful runs before replacementReady can be true"
+      ],
+      "hardHumanGatesRemainEnforced": true,
+      "noRealWorldAutonomyOverclaim": true
+    },
+    "summary": "1/10 life domains are replacement-ready within approved safety boundaries; 3 scoped replacements remain as supporting evidence toward the 80% target.",
+    "replacementScopes": [
+      {
+        "id": "processed_kakao_information_triage",
+        "domainId": "information",
+        "displayName": "Processed Kakao aggregate → information triage",
+        "replacementReady": true,
+        "replacementLevel": "replacement_ready_scoped",
+        "replacesManualWork": "manually opening the processed Kakao aggregate snapshot, checking whether there are information/action/schedule/link signals, deciding the safe local next action, and recording monitoring status",
+        "scopeBoundary": "Only public-safe processed aggregate metadata is used. Raw/private messages, raw URLs, room identifiers, external messages, calendar mutations, publish/upload, deploy, payment, and destructive operations remain blocked or human-gated.",
+        "evidence": [
+          "runtime/kakao-insight-input-snapshot.json",
+          "runtime/kakao-information-triage-report.md",
+          "runtime/kakao-information-bounded-actions.json",
+          "runtime/kakao-information-triage-verification.json",
+          "runtime/life-agent-runs.jsonl:life-loop-kakao-information-analysis-001",
+          "runtime/life-agent-runs.jsonl:life-loop-kakao-information-bounded-action-001",
+          "runtime/life-agent-runs.jsonl:life-loop-kakao-information-monitoring-001",
+          "npm run life:loop:kakao-triage:check"
+        ]
+      },
+      {
+        "id": "external_public_signal_daily_triage",
+        "domainId": "information",
+        "displayName": "External public tech/economy signals → daily issue triage",
+        "replacementReady": true,
+        "replacementLevel": "replacement_ready_scoped",
+        "replacesManualWork": "manually opening multiple public technology/economy sources, scanning titles and recency, ranking project-relevant signals, and deciding whether to monitor or route them into the daily issue brief",
+        "scopeBoundary": "Only public RSS/Atom metadata is used: title, source, link, publishedAt, topic tags, and derived importance. Full article bodies, comments, private data, secret values, external messages, publish/upload, deploy, payment, and destructive operations remain blocked or human-gated.",
+        "evidence": [
+          "runtime/external-info-input-snapshot.json",
+          "runtime/external-info-input-brief.md",
+          "runtime/external-information-triage-report.md",
+          "runtime/external-information-bounded-actions.json",
+          "runtime/external-information-triage-verification.json",
+          "runtime/life-agent-runs.jsonl:life-loop-external-information-analysis-001",
+          "runtime/life-agent-runs.jsonl:life-loop-external-information-bounded-action-001",
+          "runtime/life-agent-runs.jsonl:life-loop-external-information-monitoring-001",
+          "npm run life:loop:external-triage:check"
+        ]
+      },
+      {
+        "id": "content_trend_to_video_no_upload_dry_run",
+        "domainId": "content",
+        "displayName": "Public trend seed → no-upload content package",
+        "replacementReady": true,
+        "replacementLevel": "replacement_ready_scoped",
+        "replacesManualWork": "manually turning a public trend idea into a first-pass video content package: plan, script, storyboard, validation/legal report, and review-only publish proposal",
+        "scopeBoundary": "Only public-safe trend seed metadata is used. Final creative approval, copyright acceptance, YouTube credentials, upload, publishing, external posting, paid provider invocation, private source use, deploy, payment, and destructive operations remain blocked or human-gated.",
+        "evidence": [
+          "runtime/content-replacement-scope-report.md",
+          "runtime/content-replacement-bounded-actions.json",
+          "runtime/content-replacement-scope-verification.json",
+          "runtime/life-agent-runs.jsonl:life-loop-content-trend-video-dry-run-analysis-001",
+          "runtime/life-agent-runs.jsonl:life-loop-content-trend-video-dry-run-artifact-001",
+          "runtime/life-agent-runs.jsonl:life-loop-content-trend-video-dry-run-gate-001",
+          "npm run life:loop:content-dry-run:check"
+        ]
+      }
+    ],
+    "notClaimed": [
+      "Safe control-plane readiness does not mean actual agentization.",
+      "Actual agentization means the work or domain can be substantially replaced by automation in real operation, within approved safety boundaries.",
+      "This score does not mean all domains have full autonomous real-world execution.",
+      "Medical, financial, relationship, publishing, payment, deployment, and destructive actions remain human-gated.",
+      "Role-pool agents are not treated as live sessions until they leave session markers."
+    ]
+  },
+  "metaProcess": [
+    {
+      "id": "step1",
+      "name": "문제정의",
+      "loop": false,
+      "ownerType": "human",
+      "automation": 0
+    },
+    {
+      "id": "step2",
+      "name": "자료수집",
+      "loop": false,
+      "ownerType": "agent",
+      "automation": 35
+    },
+    {
+      "id": "step3",
+      "name": "분석/설계",
+      "loop": true,
+      "ownerType": "agent",
+      "automation": 40
+    },
+    {
+      "id": "step4",
+      "name": "구현",
+      "loop": true,
+      "ownerType": "agent",
+      "automation": 40
+    },
+    {
+      "id": "step5",
+      "name": "검증",
+      "loop": true,
+      "ownerType": "agent",
+      "automation": 40
+    },
+    {
+      "id": "step6",
+      "name": "모니터링",
+      "loop": true,
+      "ownerType": "agent",
+      "automation": 20
+    }
+  ],
+  "tracks": [
+    {
+      "id": "A",
+      "name": "회사 업무",
+      "status": "active",
+      "color": "#64748b",
+      "description": "본업, 상시 진행"
+    },
+    {
+      "id": "B",
+      "name": "주식 자동화",
+      "status": "active",
+      "color": "#10b981",
+      "description": "수입 창출 #1, 구축+개선 루프"
+    },
+    {
+      "id": "C",
+      "name": "신규 서비스",
+      "status": "planning",
+      "color": "#8b5cf6",
+      "description": "수입 창출 #2, 기획/탐색"
+    },
+    {
+      "id": "L",
+      "name": "개인 삶",
+      "status": "planning",
+      "color": "#14b8a6",
+      "description": "업무 외 생활 도메인 자동화"
+    }
+  ],
+  "visualGroups": [
+    {
+      "id": "core",
+      "name": "Core / Decision",
+      "color": "#2563eb",
+      "tone": "blue",
+      "description": "사람의 최종 판단과 Codex 중심 오케스트레이션",
+      "domains": [
+        "mission_genesis",
+        "reflection"
+      ],
+      "agents": [
+        "human",
+        "codex",
+        "knowledge_graph_agent"
+      ]
+    },
+    {
+      "id": "life-ops",
+      "name": "Life Ops",
+      "color": "#14b8a6",
+      "tone": "teal",
+      "description": "건강, 관계, 시간, 일상 운영처럼 삶을 유지하는 반복 프로세스",
+      "domains": [
+        "health",
+        "relationship",
+        "time",
+        "logistics"
+      ],
+      "agents": [
+        "health_collector",
+        "relationship_tracker",
+        "calendar_collector",
+        "journal_agent",
+        "cokacdir"
+      ]
+    },
+    {
+      "id": "money-info",
+      "name": "Money / Info",
+      "color": "#10b981",
+      "tone": "green",
+      "description": "개인 재무, 정보 다이어트, 데이터 수집과 요약",
+      "domains": [
+        "finance_personal",
+        "information",
+        "learning"
+      ],
+      "agents": [
+        "finance_collector",
+        "kakao_collector",
+        "insight_analyzer",
+        "daily_brief_visualizer"
+      ]
+    },
+    {
+      "id": "content-growth",
+      "name": "Content / Growth",
+      "color": "#8b5cf6",
+      "tone": "violet",
+      "description": "콘텐츠 창작, 트렌드 분석, 검증, 게시 제안",
+      "domains": [
+        "content"
+      ],
+      "agents": [
+        "content_planner",
+        "legal_checker",
+        "content_publisher",
+        "gemini",
+        "claude",
+        "opencode"
+      ]
+    },
+    {
+      "id": "agent-ops",
+      "name": "Agent Ops",
+      "color": "#0ea5e9",
+      "tone": "sky",
+      "description": "GitHub Issue, Registry, schedule, deployment, MCP처럼 에이전트 운영 흐름을 유지하는 control-plane",
+      "domains": [
+        "mission_genesis"
+      ],
+      "agents": [
+        "github_issue_router",
+        "telegram_issue_intake",
+        "cokacdir"
+      ]
+    },
+    {
+      "id": "process",
+      "name": "Meta Process",
+      "color": "#f59e0b",
+      "tone": "amber",
+      "description": "문제정의부터 모니터링까지 모든 흐름에 공통으로 적용되는 단계",
+      "domains": [],
+      "agents": []
+    }
+  ],
+  "currentness": {
+    "source": "github-issues-project",
+    "sourceRepo": "imiuru06/bcjjsly8",
+    "sourceProject": "https://github.com/users/imiuru06/projects/1",
+    "lastVerifiedAt": "2026-05-17T00:19:28.611Z",
+    "totalIssues": 123,
+    "openIssues": 16,
+    "closedIssues": 107,
+    "reviewItems": 0,
+    "needsHuman": 11,
+    "needsAgent": 14,
+    "snapshots": {
+      "sessionAgentHealth": "runtime/session-agent-health.json",
+      "decisionQueue": "runtime/decision-queue.json",
+      "githubInfoInput": "runtime/github-info-input-snapshot.json",
+      "externalInfoInput": "runtime/external-info-input-snapshot.json",
+      "substituteAgentDomains": "runtime/substitute-agent-domains.json",
+      "throughputPolicy": "config/agent-throughput.json"
+    },
+    "note": "Generated from GitHub issues/project metadata by scripts/prepare-life-graph-public.mjs."
+  },
+  "nodeTypes": [
+    "domain",
+    "agent",
+    "process",
+    "pipeline",
+    "issue",
+    "decision",
+    "evidence",
+    "schedule",
+    "integration",
+    "runtimeEvent"
+  ],
+  "edgeTypes": [
+    "owns",
+    "supports",
+    "depends_on",
+    "blocked_by",
+    "requires_decision",
+    "routes_to",
+    "produces",
+    "verifies",
+    "updates",
+    "belongs_to",
+    "implemented_by",
+    "evidenced_by"
+  ],
+  "actionNodes": [
+    {
+      "id": "issue:222",
+      "name": "#222 [Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+      "type": "action",
+      "projectStatus": "Inbox",
+      "status": "active",
+      "phase": "ops",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 222,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/222",
+      "labels": [
+        "priority:P1",
+        "agent:codex",
+        "agent:daalgo",
+        "needs:agent",
+        "agent:uiux_cli",
+        "agent:collaboration_auditor_cli"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "Route or complete the next agent task for codex."
+    },
+    {
+      "id": "issue:211",
+      "name": "#211 Promote life agentization from scoped loops to domain-level replacement",
+      "type": "action",
+      "projectStatus": "Inbox",
+      "status": "active",
+      "phase": "platform",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 211,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/211",
+      "labels": [
+        "priority:P1",
+        "agent:codex",
+        "agent:daalgo",
+        "needs:agent",
+        "agent:claude_review_01",
+        "agent:collaboration_auditor_cli",
+        "agent:life_information_loop"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "Route or complete the next agent task for codex."
+    },
+    {
+      "id": "issue:194",
+      "name": "#194 Remove deprecated legacy VoC dashboard after notice period",
+      "type": "action",
+      "projectStatus": "Inbox",
+      "status": "active",
+      "phase": "platform",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 194,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/194",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "needs:agent"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "Route or complete the next agent task for codex."
+    },
+    {
+      "id": "issue:152",
+      "name": "#152 Incident: GitHub Actions blocked by billing/spending limit",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "ops",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 152,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/152",
+      "labels": [
+        "priority:P1",
+        "agent:codex",
+        "needs:human"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:148",
+      "name": "#148 Configure remote Registry URL for live Agent Map registry route",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "platform",
+      "domain": "mission_genesis",
+      "visualGroup": "core",
+      "sourceIssue": 148,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/148",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "needs:human",
+        "needs:agent",
+        "needs:secret"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:98",
+      "name": "#98 Review Obsidian-style agent knowledge vault and session assignment protocol",
+      "type": "action",
+      "projectStatus": "Inbox",
+      "status": "active",
+      "phase": "ops",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 98,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/98",
+      "labels": [
+        "priority:P2",
+        "needs:agent",
+        "agent:claude_review_01"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "Route or complete the next agent task for claude_review_01."
+    },
+    {
+      "id": "issue:56",
+      "name": "#56 [content-pipeline] Implement gated video render and YouTube upload adapter",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "platform",
+      "domain": "content",
+      "visualGroup": "content-growth",
+      "sourceIssue": 56,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/56",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "needs:agent",
+        "needs:approval"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:29",
+      "name": "#29 Add approved n8n deploy guard",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "platform",
+      "domain": "cross",
+      "visualGroup": "service-infra",
+      "sourceIssue": 29,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/29",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "needs:agent",
+        "needs:approval"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:28",
+      "name": "#28 Add n8n draft workflow proposal and validation flow",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "platform",
+      "domain": "cross",
+      "visualGroup": "service-infra",
+      "sourceIssue": 28,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/28",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "needs:agent"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:27",
+      "name": "#27 Add Infrastructure Visibility Map for resources, routers, hubs, search, credentials, and connection health",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "platform",
+      "domain": "cross",
+      "visualGroup": "service-infra",
+      "sourceIssue": 27,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/27",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "agent:opencode",
+        "needs:agent",
+        "agent:collaboration_auditor_cli"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:26",
+      "name": "#26 Implement n8n read-only inventory collector",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "platform",
+      "domain": "cross",
+      "visualGroup": "service-infra",
+      "sourceIssue": 26,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/26",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "needs:human",
+        "needs:agent",
+        "needs:secret"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:9",
+      "name": "#9 [meta-ppt-agent] Verify MCP integration",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "ops",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 9,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/9",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "needs:agent"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:8",
+      "name": "#8 Meta PPT Agent 상태 업데이트 및 메인스트림 연결 조치",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "ops",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 8,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/8",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "agent:daalgo",
+        "needs:agent"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:7",
+      "name": "#7 [pipeline/y11mbopc] 인사이트 품질 개선 일괄 반영 완료 — 후속 조치 필요",
+      "type": "action",
+      "projectStatus": "In Progress",
+      "status": "active",
+      "phase": "ops",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 7,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/7",
+      "labels": [
+        "priority:P2",
+        "agent:codex",
+        "needs:agent"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "Route or complete the next agent task for codex."
+    },
+    {
+      "id": "issue:6",
+      "name": "#6 Future: Sync proposal.response to GitHub comments and Project status",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "ops",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 6,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/6",
+      "labels": [
+        "priority:P3",
+        "agent:proposal_responder"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    },
+    {
+      "id": "issue:3",
+      "name": "#3 Verify Telegram to GitHub Issue intake",
+      "type": "decision",
+      "projectStatus": "Needs Human",
+      "status": "blocked",
+      "phase": "ops",
+      "domain": "cross",
+      "visualGroup": "agent-ops",
+      "sourceIssue": 3,
+      "sourceUrl": "https://github.com/imiuru06/bcjjsly8/issues/3",
+      "labels": [
+        "priority:P2",
+        "agent:telegram_issue_intake",
+        "needs:agent"
+      ],
+      "owner": [
+        "user",
+        "codex"
+      ],
+      "evidence": {
+        "source": "github-issue",
+        "lastCheckedAt": "2026-05-17T00:19:28.611Z",
+        "confidence": "high",
+        "driftStatus": "current"
+      },
+      "nextAction": "User/Codex review or decision is required before close."
+    }
+  ],
+  "actionLinks": [
+    {
+      "from": "issue:222",
+      "to": "codex",
+      "type": "updates",
+      "label": "Route or complete the next agent task for codex."
+    },
+    {
+      "from": "issue:211",
+      "to": "codex",
+      "type": "updates",
+      "label": "Route or complete the next agent task for codex."
+    },
+    {
+      "from": "issue:194",
+      "to": "codex",
+      "type": "updates",
+      "label": "Route or complete the next agent task for codex."
+    },
+    {
+      "from": "issue:152",
+      "to": "codex",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:148",
+      "to": "codex",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:98",
+      "to": "claude_review_01",
+      "type": "updates",
+      "label": "Route or complete the next agent task for claude_review_01."
+    },
+    {
+      "from": "issue:56",
+      "to": "codex",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:29",
+      "to": "codex",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:28",
+      "to": "codex",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:27",
+      "to": "codex",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:26",
+      "to": "codex",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:9",
+      "to": "codex",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:8",
+      "to": "codex",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:7",
+      "to": "codex",
+      "type": "updates",
+      "label": "Route or complete the next agent task for codex."
+    },
+    {
+      "from": "issue:6",
+      "to": "proposal_responder",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    },
+    {
+      "from": "issue:3",
+      "to": "telegram_issue_intake",
+      "type": "requires_decision",
+      "label": "User/Codex review or decision is required before close."
+    }
+  ],
+  "lifeDomains": [
+    {
+      "id": "health",
+      "name": "건강/신체",
+      "icon": "🏃",
+      "description": "수면·운동·식단·컨디션",
+      "priority": "medium",
+      "status": "planned",
+      "primaryProcesses": [
+        "수면 추적",
+        "운동 계획",
+        "식단 기록",
+        "컨디션 모니터링"
+      ],
+      "agents": [
+        "health_collector",
+        "cokacdir",
+        "claude"
+      ]
+    },
+    {
+      "id": "relationship",
+      "name": "관계/소통",
+      "icon": "💬",
+      "description": "가족·친구 안부, 생일·기념일, 약속",
+      "priority": "medium",
+      "status": "planned",
+      "primaryProcesses": [
+        "연락 주기 관리",
+        "기념일 환기",
+        "약속 환기"
+      ],
+      "agents": [
+        "relationship_tracker",
+        "gemini",
+        "cokacdir"
+      ]
+    },
+    {
+      "id": "finance_personal",
+      "name": "개인 재무",
+      "icon": "💰",
+      "description": "가계부·구독료·세금·청구서",
+      "priority": "high",
+      "status": "planned",
+      "primaryProcesses": [
+        "거래내역 수집",
+        "월간 리포트",
+        "구독 관리",
+        "3트랙 수익 통합"
+      ],
+      "agents": [
+        "finance_collector",
+        "codex",
+        "claude"
+      ]
+    },
+    {
+      "id": "time",
+      "name": "시간/일정",
+      "icon": "📅",
+      "description": "캘린더·할일·우선순위",
+      "priority": "high",
+      "status": "planned",
+      "primaryProcesses": [
+        "일정 수집",
+        "우선순위 결정",
+        "아침 브리핑",
+        "저녁 회고"
+      ],
+      "agents": [
+        "calendar_collector",
+        "claude",
+        "gemini",
+        "cokacdir"
+      ]
+    },
+    {
+      "id": "learning",
+      "name": "학습/자기계발",
+      "icon": "📚",
+      "description": "학습 큐·복습·적용",
+      "priority": "low",
+      "status": "planned",
+      "primaryProcesses": [
+        "학습거리 수집",
+        "요약",
+        "적용 과제화"
+      ],
+      "agents": [
+        "learning_queue",
+        "gemini"
+      ]
+    },
+    {
+      "id": "information",
+      "name": "정보 다이어트",
+      "icon": "🧠",
+      "description": "인박스·채팅·뉴스·자료 정리",
+      "priority": "medium",
+      "status": "transitioning",
+      "primaryProcesses": [
+        "인박스 triage",
+        "카톡 기록 수집",
+        "요약",
+        "액션 추출"
+      ],
+      "agents": [
+        "inbox_triage",
+        "kakao_collector",
+        "claude"
+      ]
+    },
+    {
+      "id": "reflection",
+      "name": "회고/내적 성장",
+      "icon": "🪞",
+      "description": "일지·감정·결정 기록",
+      "priority": "high",
+      "status": "planned",
+      "primaryProcesses": [
+        "일일 회고",
+        "감정 태깅",
+        "결정 로그",
+        "패턴 분석"
+      ],
+      "agents": [
+        "journal_agent",
+        "claude",
+        "gemini"
+      ]
+    },
+    {
+      "id": "logistics",
+      "name": "일상 운영",
+      "icon": "🧰",
+      "description": "반복 업무·예약·심부름·생활 운영",
+      "priority": "low",
+      "status": "planned",
+      "primaryProcesses": [
+        "반복 업무 목록화",
+        "예약/구매 체크",
+        "리마인더"
+      ],
+      "agents": [
+        "logistics_agent",
+        "cokacdir",
+        "codex"
+      ]
+    },
+    {
+      "id": "mission_genesis",
+      "name": "미션 발굴",
+      "icon": "🧭",
+      "description": "문제 발견·가치 판단·실행 미션화",
+      "priority": "high",
+      "status": "active",
+      "primaryProcesses": [
+        "VOC 수집",
+        "문제 합성",
+        "영향도 분석",
+        "UX 리서치",
+        "GitHub 미션화"
+      ],
+      "agents": [
+        "voc_collector",
+        "problem_synthesizer",
+        "impact_analyzer",
+        "ux_researcher",
+        "claude",
+        "gemini"
+      ]
+    },
+    {
+      "id": "content",
+      "name": "콘텐츠 창작",
+      "icon": "🎬",
+      "description": "트렌드 분석 → 기획 → 영상 검증 → 게시 제안",
+      "priority": "high",
+      "status": "designing",
+      "primaryProcesses": [
+        "트렌드 감지",
+        "콘텐츠 기획",
+        "스크립트/스토리보드",
+        "검증",
+        "게시 승인"
+      ],
+      "agents": [
+        "insight_analyzer",
+        "content_planner",
+        "legal_checker",
+        "content_publisher",
+        "content_monitor",
+        "gemini",
+        "claude",
+        "codex"
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "human",
+      "name": "Noah",
+      "category": "principal",
+      "status": "active",
+      "phase": "decide",
+      "domain": "cross",
+      "role": "최종 판단과 close 승인"
+    },
+    {
+      "id": "codex",
+      "name": "Codex / 다알고",
+      "category": "coordinator",
+      "status": "active",
+      "phase": "orchestrate",
+      "domain": "cross",
+      "role": "메인스트림 구현·조정·검증"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "category": "reviewer",
+      "status": "review-only",
+      "phase": "review",
+      "domain": "cross",
+      "role": "보안·엣지케이스·품질 리스크 리뷰"
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "category": "reviewer",
+      "status": "planned",
+      "phase": "critique",
+      "domain": "cross",
+      "role": "UX/business critique"
+    },
+    {
+      "id": "opencode",
+      "name": "OpenCode",
+      "category": "reviewer",
+      "status": "planned",
+      "phase": "review",
+      "domain": "cross",
+      "role": "아키텍처·성능 리뷰"
+    },
+    {
+      "id": "cokacdir",
+      "name": "cokacdir",
+      "category": "scheduler",
+      "status": "active",
+      "phase": "ops",
+      "domain": "cross",
+      "role": "스케줄·파일전달·bot transport"
+    },
+    {
+      "id": "github_issue_router",
+      "name": "GitHub Issue Router",
+      "category": "ops",
+      "status": "active",
+      "phase": "ops",
+      "domain": "cross",
+      "role": "이슈/댓글을 agent request로 라우팅"
+    },
+    {
+      "id": "telegram_issue_intake",
+      "name": "Telegram Issue Intake",
+      "category": "ops",
+      "status": "ready",
+      "phase": "ops",
+      "domain": "cross",
+      "role": "Telegram 명령을 GitHub Issue로 변환"
+    },
+    {
+      "id": "insight_analyzer",
+      "name": "Insight Analyzer",
+      "category": "analyst",
+      "status": "active",
+      "phase": "analyze",
+      "domain": "cross",
+      "role": "도메인 통합 분석"
+    },
+    {
+      "id": "daily_brief_visualizer",
+      "name": "Daily Brief Visualizer",
+      "category": "visualizer",
+      "status": "active",
+      "phase": "visualize",
+      "domain": "cross",
+      "role": "브리핑/요약 시각화"
+    },
+    {
+      "id": "knowledge_graph_agent",
+      "name": "Knowledge Graph Agent",
+      "category": "planned-agent",
+      "status": "planned",
+      "phase": "analyze",
+      "domain": "cross",
+      "role": "미션·기억·프로세스 관계 그래프화"
+    },
+    {
+      "id": "relationship_tracker",
+      "name": "관계 트래커",
+      "category": "planned-agent",
+      "status": "planned",
+      "phase": "collect",
+      "domain": "relationship",
+      "role": "연락 주기와 기념일, 약속 이벤트 추적"
+    },
+    {
+      "id": "health_collector",
+      "name": "건강 수집기",
+      "category": "planned-agent",
+      "status": "planned",
+      "phase": "collect",
+      "domain": "health",
+      "role": "수면·운동·컨디션 데이터 수집"
+    },
+    {
+      "id": "finance_collector",
+      "name": "개인 재무 수집기",
+      "category": "collector",
+      "status": "active",
+      "phase": "collect",
+      "domain": "finance_personal",
+      "role": "재무 데이터 수집/요약"
+    },
+    {
+      "id": "calendar_collector",
+      "name": "일정 수집기",
+      "category": "collector",
+      "status": "active",
+      "phase": "collect",
+      "domain": "time",
+      "role": "일정 데이터 수집"
+    },
+    {
+      "id": "kakao_collector",
+      "name": "카톡 수집기",
+      "category": "collector",
+      "status": "external",
+      "phase": "collect",
+      "domain": "information",
+      "role": "대화/인사이트 수집"
+    },
+    {
+      "id": "github_issue_collector",
+      "name": "GitHub 이슈 수집기",
+      "category": "collector",
+      "status": "active",
+      "phase": "collect",
+      "domain": "information",
+      "role": "이슈/라벨/라우팅 신호 수집"
+    },
+    {
+      "id": "external_signal_collector",
+      "name": "외부 이슈 수집기",
+      "category": "collector",
+      "status": "active",
+      "phase": "collect",
+      "domain": "information",
+      "role": "대외 기술/경제/정책 신호 수집"
+    },
+    {
+      "id": "journal_agent",
+      "name": "저널 에이전트",
+      "category": "collector",
+      "status": "active",
+      "phase": "collect",
+      "domain": "reflection",
+      "role": "회고/일지 수집"
+    },
+    {
+      "id": "content_planner",
+      "name": "Content Planner",
+      "category": "planned-agent",
+      "status": "designing",
+      "phase": "plan",
+      "domain": "content",
+      "role": "트렌드 기반 콘텐츠 기획"
+    },
+    {
+      "id": "legal_checker",
+      "name": "Legal Checker",
+      "category": "planned-agent",
+      "status": "planned",
+      "phase": "verify",
+      "domain": "content",
+      "role": "저작권·정책·법적 리스크 검증"
+    },
+    {
+      "id": "content_publisher",
+      "name": "Content Publisher",
+      "category": "planned-agent",
+      "status": "planned",
+      "phase": "publish",
+      "domain": "content",
+      "role": "승인 후 게시 실행"
+    }
+  ],
+  "pipelines": [
+    {
+      "id": "meta-workflow",
+      "name": "메타 프로세스",
+      "track": "L",
+      "description": "문제정의 → 자료수집 → 분석/설계 → 구현 → 검증 → 모니터링",
+      "sequence": [
+        "human",
+        "codex",
+        "claude",
+        "codex",
+        "opencode",
+        "cokacdir"
+      ]
+    },
+    {
+      "id": "daily-brief",
+      "name": "일상 인사이트 브리핑",
+      "track": "L",
+      "description": "collector → insight_analyzer → daily_brief_visualizer; Kakao, GitHub Issue metadata, and external public feeds are separate public-safe input routes",
+      "sequence": [
+        "kakao_collector",
+        "github_issue_collector",
+        "external_signal_collector",
+        "finance_collector",
+        "calendar_collector",
+        "journal_agent",
+        "insight_analyzer",
+        "daily_brief_visualizer"
+      ],
+      "artifacts": [
+        {
+          "label": "Message Daily Brief",
+          "kind": "html",
+          "path": "./daily-brief.html",
+          "publicUrl": "./daily-brief.html",
+          "status": "healthy",
+          "description": "Public-safe daily brief output generated by daily_brief_visualizer."
+        },
+        {
+          "label": "Processed Kakao Snapshot",
+          "kind": "json",
+          "path": "./runtime/kakao-insight-input-snapshot.json",
+          "publicUrl": "./runtime/kakao-insight-input-snapshot.json",
+          "status": "healthy",
+          "description": "Processed aggregate Kakao metrics only; raw messages and raw links excluded."
+        },
+        {
+          "label": "GitHub Issue Input Snapshot",
+          "kind": "json",
+          "path": "./runtime/github-info-input-snapshot.json",
+          "publicUrl": "./runtime/github-info-input-snapshot.json",
+          "status": "healthy",
+          "description": "Public-safe operational issue metadata only; issue bodies, comments, PR diffs, and secrets excluded."
+        },
+        {
+          "label": "External Tech/Economy Signal Snapshot",
+          "kind": "json",
+          "path": "./runtime/external-info-input-snapshot.json",
+          "publicUrl": "./runtime/external-info-input-snapshot.json",
+          "status": "healthy",
+          "description": "Public RSS/Atom titles and links for technology/economy/policy signals; full article bodies and private data excluded."
+        },
+        {
+          "label": "Kakao Triage Actions",
+          "kind": "json",
+          "path": "./runtime/kakao-information-bounded-actions.json",
+          "publicUrl": "./runtime/kakao-information-bounded-actions.json",
+          "status": "healthy",
+          "description": "Safe local next-action artifact from the processed Kakao triage loop."
+        }
+      ],
+      "metrics": {
+        "totalRecords": 10,
+        "totalMessages": 14,
+        "linkCount": 4,
+        "githubOpenIssues": 14,
+        "externalSignals": 56,
+        "boundedActionCount": 1,
+        "rawPrivateDataVisible": false
+      }
+    },
+    {
+      "id": "mission-genesis",
+      "name": "미션 발굴",
+      "track": "C",
+      "description": "문제 발견 → 가치 판단 → GitHub 미션화",
+      "sequence": [
+        "voc_collector",
+        "insight_analyzer",
+        "codex",
+        "github_issue_router"
+      ]
+    },
+    {
+      "id": "trend-to-video",
+      "name": "트렌드→영상 dry-run",
+      "track": "C",
+      "description": "trend → plan → script/storyboard → validation/legal → publish proposal",
+      "sequence": [
+        "insight_analyzer",
+        "content_planner",
+        "legal_checker",
+        "content_publisher"
+      ]
+    },
+    {
+      "id": "knowledge-graph",
+      "name": "지식 그래프화",
+      "track": "L",
+      "description": "미션·프로세스·관계·증거를 재사용 가능한 graph node/edge로 변환",
+      "sequence": [
+        "codex",
+        "knowledge_graph_agent",
+        "daily_brief_visualizer"
+      ],
+      "artifacts": [
+        {
+          "label": "Knowledge Map",
+          "kind": "html",
+          "path": "./knowledge-map.html",
+          "publicUrl": "./knowledge-map.html",
+          "status": "healthy",
+          "description": "Public-safe browser view of the Obsidian-style knowledge vault."
+        },
+        {
+          "label": "Knowledge Vault Summary",
+          "kind": "json",
+          "path": "./runtime/knowledge-vault-summary.json",
+          "publicUrl": "./runtime/knowledge-vault-summary.json",
+          "status": "healthy",
+          "description": "Machine-readable note index, lookup modes, and Graphify readiness."
+        }
+      ],
+      "metrics": {
+        "noteCount": 16,
+        "noteTypes": 7,
+        "graphifyBuilt": false,
+        "rawPrivateDataVisible": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "human-codex",
+      "from": "human",
+      "to": "codex",
+      "type": "request",
+      "label": "Telegram request / final decision"
+    },
+    {
+      "id": "codex-claude",
+      "from": "codex",
+      "to": "claude",
+      "type": "review",
+      "label": "quality/security review"
+    },
+    {
+      "id": "codex-gemini",
+      "from": "codex",
+      "to": "gemini",
+      "type": "critique",
+      "label": "UX/business critique"
+    },
+    {
+      "id": "codex-opencode",
+      "from": "codex",
+      "to": "opencode",
+      "type": "review",
+      "label": "architecture/performance review"
+    },
+    {
+      "id": "codex-cokacdir",
+      "from": "codex",
+      "to": "cokacdir",
+      "type": "ops",
+      "label": "schedule/file/bot transport"
+    },
+    {
+      "id": "knowledge-codex",
+      "from": "knowledge_graph_agent",
+      "to": "codex",
+      "type": "memory",
+      "label": "process and mission graph evidence"
+    }
+  ],
+  "publicSafety": {
+    "visibility": "public",
+    "privateFieldsRedacted": true,
+    "detail": "Local paths, tokens, raw endpoints, and private message payloads are not serialized in this public runtime."
+  }
+}

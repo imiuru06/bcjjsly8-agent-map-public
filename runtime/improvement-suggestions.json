@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "agentId": "improvement_governor_cli",
+  "generatedAt": "2026-05-17T00:19:23.454Z",
+  "source": "Improvement Governor deterministic runtime synthesis",
+  "status": "suggestions_available",
+  "summary": {
+    "total": 4,
+    "p1": 1,
+    "p2": 3,
+    "p3": 0,
+    "categories": {
+      "agentization": 1,
+      "briefing": 1,
+      "knowledge": 1,
+      "workflow": 1
+    }
+  },
+  "suggestions": [
+    {
+      "id": "raise-life-agentization-from-scoped-to-domain",
+      "priority": "P1",
+      "category": "agentization",
+      "title": "라이프 에이전트화를 scope 단위에서 domain 단위로 승격",
+      "rationale": "현재 domainReplacementPercent=10%, scopeReplacementPercent=37.5%입니다. 실제 업무 대체 목표에는 domain-level evidence가 필요합니다.",
+      "expectedVisibleDelta": "Life Graph에서 replacement-ready domain이 0개가 아니라 최소 1개 이상으로 보입니다.",
+      "evidence": [
+        "runtime/life-process-graph.json:lifeAgentization"
+      ],
+      "suggestedOwner": "codex",
+      "verification": "npm run life:agentization && npm run life:check",
+      "residualRisk": "대체율을 올리려면 실제 입력 데이터와 반복 실행 evidence가 필요합니다.",
+      "sourceUrls": [
+        "./runtime/life-process-graph.json",
+        "./agent-map-life.html"
+      ]
+    },
+    {
+      "id": "increase-llm-wiki-roi-evidence",
+      "priority": "P2",
+      "category": "knowledge",
+      "title": "LLM-Wiki 검색/재사용 ROI evidence 늘리기",
+      "rationale": "LLM-Wiki readiness=84%이고 global cap이 남아 있습니다. 지식관리 체계가 “보이는 지도”에서 “실제로 재사용되는 시스템”으로 가려면 검색/인용/재사용 event가 더 필요합니다.",
+      "expectedVisibleDelta": "LLM-Wiki Readiness와 Knowledge Retrieval 페이지에서 ROI 샘플 수가 증가합니다.",
+      "evidence": [
+        "runtime/llm-wiki-readiness.json",
+        "runtime/llm-wiki-search-roi.json"
+      ],
+      "suggestedOwner": "codex",
+      "verification": "npm run llmwiki:assess && npm run knowledge:retrieval:check",
+      "residualRisk": "의미 있는 ROI는 실제 사용 이벤트가 쌓여야 하므로 단발성 샘플 생성만으로는 부족합니다.",
+      "sourceUrls": [
+        "./llm-wiki-readiness.html",
+        "./knowledge-retrieval.html"
+      ]
+    },
+    {
+      "id": "reduce-decision-bottleneck",
+      "priority": "P2",
+      "category": "workflow",
+      "title": "Needs Human 결정 묶음을 더 줄이고 자동 위임 후보를 분리",
+      "rationale": "현재 needsHuman=3, decisionQueue=5, decisionBatches=3입니다. 결정 항목이 흩어지면 사용자가 계속 확인 병목이 됩니다.",
+      "expectedVisibleDelta": "Agent Map v10에서 이미 batch 단위로 보이며, 다음 개선은 자동 위임/보류/승인 후보를 더 분리하는 것입니다.",
+      "evidence": [
+        "runtime/decision-digest.json",
+        "runtime/decision-queue.json",
+        "runtime/github-info-input-snapshot.json"
+      ],
+      "suggestedOwner": "codex",
+      "verification": "npm run decision:digest:check && npm run decision:sync:check && npm run live:api:check",
+      "residualRisk": "실제 결정 자체는 사용자/Codex 책임이므로 자동 승인으로 대체하지 않습니다.",
+      "sourceUrls": [
+        "./api/runtime/decision-digest",
+        "./runtime/decision-digest.json",
+        "./runtime/decision-queue.json"
+      ]
+    },
+    {
+      "id": "turn-external-signals-into-daily-issue-brief",
+      "priority": "P2",
+      "category": "briefing",
+      "title": "외부 기술/경제 신호를 KST 일일 이슈 브리프로 승격",
+      "rationale": "external prioritySignals=8, high=2입니다. 현재는 rolling signal이고, 사용자가 기대하는 것은 일일 판단 구간입니다.",
+      "expectedVisibleDelta": "기본 페이지에 오늘/어제/최근 7일로 분리된 Daily Issue Brief 카드가 보입니다.",
+      "evidence": [
+        "runtime/external-info-input-snapshot.json"
+      ],
+      "suggestedOwner": "codex",
+      "verification": "npm run life:input:external && npm run deploy:briefing:check",
+      "residualRisk": "원문 본문을 수집하지 않는 안전 경계를 유지하므로 제목 기반 신호 해석임을 표시해야 합니다.",
+      "sourceUrls": [
+        "./api/runtime/external-info-input-snapshot",
+        "./runtime/external-info-input-brief.md"
+      ]
+    }
+  ],
+  "safety": {
+    "publicSafeOnly": true,
+    "secretValuesIncluded": false,
+    "privateRawDataIncluded": false,
+    "externalMutations": false,
+    "financialOrLegalDecisionMade": false
+  }
+}

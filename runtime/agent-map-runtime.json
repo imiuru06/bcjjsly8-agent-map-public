@@ -1,0 +1,180 @@
+{
+  "generatedAt": "2026-04-28T17:28:51.157Z",
+  "source": {
+    "registryUrl": "http://localhost:7474",
+    "updatedAt": "2026-04-28T17:10:13.945Z",
+    "rawAgentCount": 19,
+    "includedAgentCount": 9,
+    "excludedAgentCount": 10,
+    "excludedPatterns": [
+      "smoke_*"
+    ]
+  },
+  "agents": [
+    {
+      "id": "acceptance_checker",
+      "manifestUrl": null,
+      "protocols": [
+        "rest"
+      ],
+      "endpoints": {
+        "executionType": "batch",
+        "input": "data/insights/unified.json",
+        "output": "data/insights/acceptance-report.json"
+      },
+      "heartbeat": {
+        "status": "registered",
+        "lastSeen": "2026-04-28T17:10:13.943Z",
+        "sinceSec": 1117.2,
+        "source": "registry"
+      },
+      "lastEvent": null
+    },
+    {
+      "id": "calendar_collector",
+      "manifestUrl": null,
+      "protocols": [
+        "rest"
+      ],
+      "endpoints": {
+        "executionType": "batch",
+        "input": "[redacted-home-path]",
+        "output": "data/calendar/events.json"
+      },
+      "heartbeat": {
+        "status": "registered",
+        "lastSeen": "2026-04-28T17:00:46.912Z",
+        "sinceSec": 1684.2,
+        "source": "registry"
+      },
+      "lastEvent": null
+    },
+    {
+      "id": "daily_brief_visualizer",
+      "manifestUrl": null,
+      "protocols": [
+        "rest"
+      ],
+      "endpoints": {
+        "executionType": "batch",
+        "input": "data/insights/unified.json",
+        "output": "public/daily-brief.html"
+      },
+      "heartbeat": {
+        "status": "registered",
+        "lastSeen": "2026-04-28T17:00:47.111Z",
+        "sinceSec": 1684,
+        "source": "registry"
+      },
+      "lastEvent": null
+    },
+    {
+      "id": "finance_collector",
+      "manifestUrl": null,
+      "protocols": [
+        "a2a",
+        "rest"
+      ],
+      "endpoints": {},
+      "heartbeat": {
+        "status": "registered",
+        "lastSeen": "2026-04-27T18:38:19.849Z",
+        "sinceSec": 82231.3,
+        "source": "registry"
+      },
+      "lastEvent": null
+    },
+    {
+      "id": "health_monitor",
+      "manifestUrl": null,
+      "protocols": [
+        "rest"
+      ],
+      "endpoints": {
+        "executionType": "batch",
+        "input": [
+          "data/insights/unified.json",
+          "data/insights/acceptance-report.json",
+          "[redacted-home-path]"
+        ],
+        "output": "data/health/alert.json"
+      },
+      "heartbeat": {
+        "status": "registered",
+        "lastSeen": "2026-04-28T17:00:14.661Z",
+        "sinceSec": 1716.5,
+        "source": "registry"
+      },
+      "lastEvent": null
+    },
+    {
+      "id": "insight_analyzer",
+      "manifestUrl": null,
+      "protocols": [
+        "rest"
+      ],
+      "endpoints": {
+        "executionType": "batch",
+        "input": "[redacted-home-path]",
+        "output": "data/insights/unified.json"
+      },
+      "heartbeat": {
+        "status": "registered",
+        "lastSeen": "2026-04-28T17:00:46.998Z",
+        "sinceSec": 1684.2,
+        "source": "registry"
+      },
+      "lastEvent": null
+    },
+    {
+      "id": "journal_agent",
+      "manifestUrl": null,
+      "protocols": [
+        "a2a",
+        "rest"
+      ],
+      "endpoints": {},
+      "heartbeat": {
+        "status": "registered",
+        "lastSeen": "2026-04-27T18:38:19.861Z",
+        "sinceSec": 82231.3,
+        "source": "registry"
+      },
+      "lastEvent": null
+    },
+    {
+      "id": "kakao_collector",
+      "manifestUrl": null,
+      "protocols": [
+        "a2a",
+        "rest"
+      ],
+      "endpoints": {},
+      "heartbeat": {
+        "status": "registered",
+        "lastSeen": "2026-04-27T18:38:19.866Z",
+        "sinceSec": 82231.3,
+        "source": "registry"
+      },
+      "lastEvent": null
+    },
+    {
+      "id": "voc_collector",
+      "manifestUrl": "[redacted-local-file]",
+      "protocols": [
+        "a2a",
+        "rest"
+      ],
+      "endpoints": {
+        "card": "/.well-known/agent.json"
+      },
+      "heartbeat": {
+        "status": "alive",
+        "lastSeen": "2026-04-28T12:48:11.636Z",
+        "sinceSec": 16839.5,
+        "source": "registry"
+      },
+      "lastEvent": null
+    }
+  ]
+}

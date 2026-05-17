@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "agentId": "improvement_governor_cli",
+  "generatedAt": "2026-05-17T00:19:23.557Z",
+  "source": "Improvement Governor execution planner",
+  "sourceHash": "sha256:3bcf72365eca30a34a96e758565131cc24724f3d31bacb8379ce06e3ef15644d",
+  "status": "actionable_plan_available",
+  "strategicDirection": {
+    "oneLine": "Stop page-only progress; create the next verified replacement candidate from live runtime evidence.",
+    "operatingMode": "replacement-first, evidence-gated, no-overclaim",
+    "notDoing": [
+      "Do not count new pages as agentization progress by themselves.",
+      "Do not close improvement work without runtime evidence and verification commands.",
+      "Do not move hard human gates into autonomous execution."
+    ]
+  },
+  "summary": {
+    "actions": 4,
+    "p1Actions": 1,
+    "nowActions": 1,
+    "nextActions": 3,
+    "primaryAction": "execute-raise-life-agentization-from-scoped-to-domain",
+    "primaryDirection": "라이프 에이전트화를 scope 단위에서 domain 단위로 승격",
+    "domainPromotionCandidate": null
+  },
+  "bottlenecks": [
+    {
+      "id": "domain_replacement_zero",
+      "severity": "medium",
+      "metric": "domainReplacementPercent",
+      "value": 10,
+      "direction": "Create at least one domain promotion candidate from scoped replacement evidence."
+    },
+    {
+      "id": "decision_bottleneck",
+      "severity": "medium",
+      "metric": "needsHuman",
+      "value": 5,
+      "direction": "Split human-only gates from delegatable safe actions."
+    },
+    {
+      "id": "knowledge_roi_cap",
+      "severity": "medium",
+      "metric": "llmWikiReadiness",
+      "value": 84,
+      "direction": "Increase real search/citation/reuse events instead of adding static pages."
+    },
+    {
+      "id": "ops_findings_remaining",
+      "severity": "medium",
+      "metric": "opsFindings",
+      "value": 3,
+      "direction": "Keep collaboration/runtime drift checks in the improvement loop."
+    }
+  ],
+  "actions": [
+    {
+      "id": "execute-raise-life-agentization-from-scoped-to-domain",
+      "sourceSuggestionId": "raise-life-agentization-from-scoped-to-domain",
+      "priority": "P1",
+      "category": "agentization",
+      "status": "now",
+      "title": "라이프 에이전트화를 scope 단위에서 domain 단위로 승격",
+      "owner": "codex",
+      "targetIssue": 211,
+      "targetIssueState": "open",
+      "targetAgent": "life_information_loop",
+      "targetReviewer": "claude_review_01",
+      "routeRationale": "P1 life-agentization promotion is tracked by #211 with life_information_loop execution evidence and Claude read-only review.",
+      "objective": "Life Graph에서 replacement-ready domain이 0개가 아니라 최소 1개 이상으로 보입니다.",
+      "whyNow": "현재 domainReplacementPercent=10%, scopeReplacementPercent=37.5%입니다. 실제 업무 대체 목표에는 domain-level evidence가 필요합니다.",
+      "nextConcreteActions": [
+        "Turn raise-life-agentization-from-scoped-to-domain into a bounded implementation task with evidence",
+        "Update public runtime artifacts so the user can see the delta",
+        "Run verification commands and leave a PR/issue comment with evidence"
+      ],
+      "verificationCommands": [
+        "npm run life:agentization",
+        "npm run life:check"
+      ],
+      "evidence": [
+        "runtime/life-process-graph.json:lifeAgentization"
+      ],
+      "visibleUrls": [
+        "./runtime/life-process-graph.json",
+        "./agent-map-life.html"
+      ],
+      "successMetric": "visible runtime metric or artifact changes without page-only progress",
+      "blockers": [],
+      "safetyBoundary": "대체율을 올리려면 실제 입력 데이터와 반복 실행 evidence가 필요합니다."
+    },
+    {
+      "id": "execute-increase-llm-wiki-roi-evidence",
+      "sourceSuggestionId": "increase-llm-wiki-roi-evidence",
+      "priority": "P2",
+      "category": "knowledge",
+      "status": "next",
+      "title": "LLM-Wiki 검색/재사용 ROI evidence 늘리기",
+      "owner": "codex",
+      "targetIssue": 98,
+      "targetIssueState": "open",
+      "targetAgent": "codex",
+      "targetReviewer": "claude_review_01",
+      "routeRationale": "LLM-Wiki ROI/reuse evidence belongs with the open knowledge-vault review lane #98; codex owns implementation and Claude reviews knowledge quality.",
+      "objective": "LLM-Wiki Readiness와 Knowledge Retrieval 페이지에서 ROI 샘플 수가 증가합니다.",
+      "whyNow": "LLM-Wiki readiness=84%이고 global cap이 남아 있습니다. 지식관리 체계가 “보이는 지도”에서 “실제로 재사용되는 시스템”으로 가려면 검색/인용/재사용 event가 더 필요합니다.",
+      "nextConcreteActions": [
+        "Turn increase-llm-wiki-roi-evidence into a bounded implementation task with evidence",
+        "Update public runtime artifacts so the user can see the delta",
+        "Run verification commands and leave a PR/issue comment with evidence"
+      ],
+      "verificationCommands": [
+        "npm run llmwiki:assess",
+        "npm run knowledge:retrieval:check"
+      ],
+      "evidence": [
+        "runtime/llm-wiki-readiness.json",
+        "runtime/llm-wiki-search-roi.json"
+      ],
+      "visibleUrls": [
+        "./llm-wiki-readiness.html",
+        "./knowledge-retrieval.html"
+      ],
+      "successMetric": "visible runtime metric or artifact changes without page-only progress",
+      "blockers": [],
+      "safetyBoundary": "의미 있는 ROI는 실제 사용 이벤트가 쌓여야 하므로 단발성 샘플 생성만으로는 부족합니다."
+    },
+    {
+      "id": "execute-reduce-decision-bottleneck",
+      "sourceSuggestionId": "reduce-decision-bottleneck",
+      "priority": "P2",
+      "category": "workflow",
+      "status": "next",
+      "title": "Needs Human 결정 묶음을 더 줄이고 자동 위임 후보를 분리",
+      "owner": "codex",
+      "targetIssue": 184,
+      "targetIssueState": "closed-evidence-lane",
+      "targetAgent": "codex",
+      "targetReviewer": "collaboration_auditor_cli",
+      "routeRationale": "Decision bottleneck reduction builds on the completed live decision digest lane #184; collaboration_auditor_cli is the reviewer for handoff/duplicate-work risk.",
+      "objective": "Agent Map v10에서 이미 batch 단위로 보이며, 다음 개선은 자동 위임/보류/승인 후보를 더 분리하는 것입니다.",
+      "whyNow": "현재 needsHuman=3, decisionQueue=5, decisionBatches=3입니다. 결정 항목이 흩어지면 사용자가 계속 확인 병목이 됩니다.",
+      "nextConcreteActions": [
+        "Turn reduce-decision-bottleneck into a bounded implementation task with evidence",
+        "Update public runtime artifacts so the user can see the delta",
+        "Run verification commands and leave a PR/issue comment with evidence"
+      ],
+      "verificationCommands": [
+        "npm run decision:digest:check",
+        "npm run decision:sync:check",
+        "npm run live:api:check"
+      ],
+      "evidence": [
+        "runtime/decision-digest.json",
+        "runtime/decision-queue.json",
+        "runtime/github-info-input-snapshot.json"
+      ],
+      "visibleUrls": [
+        "./api/runtime/decision-digest",
+        "./runtime/decision-digest.json",
+        "./runtime/decision-queue.json"
+      ],
+      "successMetric": "visible runtime metric or artifact changes without page-only progress",
+      "blockers": [],
+      "safetyBoundary": "실제 결정 자체는 사용자/Codex 책임이므로 자동 승인으로 대체하지 않습니다."
+    },
+    {
+      "id": "execute-turn-external-signals-into-daily-issue-brief",
+      "sourceSuggestionId": "turn-external-signals-into-daily-issue-brief",
+      "priority": "P2",
+      "category": "briefing",
+      "status": "next",
+      "title": "외부 기술/경제 신호를 KST 일일 이슈 브리프로 승격",
+      "owner": "codex",
+      "targetIssue": 174,
+      "targetIssueState": "closed-evidence-lane",
+      "targetAgent": "codex",
+      "targetReviewer": "uiux_cli",
+      "routeRationale": "External signal briefing UX builds on #174; uiux_cli reviews the visible daily-brief presentation contract.",
+      "objective": "기본 페이지에 오늘/어제/최근 7일로 분리된 Daily Issue Brief 카드가 보입니다.",
+      "whyNow": "external prioritySignals=8, high=2입니다. 현재는 rolling signal이고, 사용자가 기대하는 것은 일일 판단 구간입니다.",
+      "nextConcreteActions": [
+        "Turn turn-external-signals-into-daily-issue-brief into a bounded implementation task with evidence",
+        "Update public runtime artifacts so the user can see the delta",
+        "Run verification commands and leave a PR/issue comment with evidence"
+      ],
+      "verificationCommands": [
+        "npm run life:input:external",
+        "npm run deploy:briefing:check"
+      ],
+      "evidence": [
+        "runtime/external-info-input-snapshot.json"
+      ],
+      "visibleUrls": [
+        "./api/runtime/external-info-input-snapshot",
+        "./runtime/external-info-input-brief.md"
+      ],
+      "successMetric": "visible runtime metric or artifact changes without page-only progress",
+      "blockers": [],
+      "safetyBoundary": "원문 본문을 수집하지 않는 안전 경계를 유지하므로 제목 기반 신호 해석임을 표시해야 합니다."
+    }
+  ],
+  "verification": {
+    "requiredBeforeClaimingImprovement": [
+      "npm run improvement:suggest:check",
+      "npm run improvement:plan:check",
+      "npm run improvement:review"
+    ],
+    "requiredForLifeReplacementProgress": [
+      "npm run life:agentization",
+      "npm run life:check"
+    ]
+  },
+  "safety": {
+    "publicSafeOnly": true,
+    "secretValuesIncluded": false,
+    "privateRawDataIncluded": false,
+    "realWorldAutonomyClaimed": false,
+    "externalMutations": false,
+    "closeMergeDeployPublish": false
+  }
+}

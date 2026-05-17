@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:23.837Z",
+  "agentId": "idea_technical_definition_cli",
+  "command": "idea:define",
+  "sourceHash": "sha256:3a680913ebc78dae3f9159c50a89c792129c06ecf6a8d0628dab8d2ee3ab82cb",
+  "sourceDigest": {
+    "collectedAt": "2026-05-17T00:19:23.837Z",
+    "external": {
+      "snapshotHash": "sha256:b2c018aa7a66e5375a9cb424991c096323c592695eb5ef3838ad4f14cf98adcf",
+      "summary": {
+        "sourcesOk": 6,
+        "sourcesError": 1,
+        "totalSignals": 48,
+        "recentSignals": 32,
+        "technologySignals": 24,
+        "economySignals": 24,
+        "highImportanceSignals": 2,
+        "mediumImportanceSignals": 32
+      },
+      "freshness": {
+        "status": "current",
+        "newestItemPublishedAt": "2026-05-16T00:00:00.000Z",
+        "newestItemAgeHours": 24
+      },
+      "prioritySignals": [
+        {
+          "title": "Sea's View on the Future of Agentic Software Development with Codex",
+          "sourceName": "OpenAI News",
+          "topic": "ai",
+          "link": "https://openai.com/index/sea-david-chen",
+          "importance": "high",
+          "importanceScore": 81,
+          "oneLineSummary": "AI 신호 · Sea's View on the Future of Agentic Software Development with Codex",
+          "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+          "suggestedAction": "원문 출처를 검토한 뒤 관련 GitHub 이슈/로드맵에 영향 여부를 기록합니다."
+        },
+        {
+          "title": "OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+          "sourceName": "OpenAI News",
+          "topic": "ai",
+          "link": "https://openai.com/index/malta-chatgpt-plus-partnership",
+          "importance": "high",
+          "importanceScore": 77,
+          "oneLineSummary": "AI 신호 · OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+          "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+          "suggestedAction": "원문 출처를 검토한 뒤 관련 GitHub 이슈/로드맵에 영향 여부를 기록합니다."
+        },
+        {
+          "title": "A new personal finance experience in ChatGPT",
+          "sourceName": "OpenAI News",
+          "topic": "ai",
+          "link": "https://openai.com/index/personal-finance-chatgpt",
+          "importance": "medium",
+          "importanceScore": 73,
+          "oneLineSummary": "AI 신호 · A new personal finance experience in ChatGPT",
+          "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+          "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+        },
+        {
+          "title": "Databricks brings GPT-5.5 to enterprise agent workflows",
+          "sourceName": "OpenAI News",
+          "topic": "ai",
+          "link": "https://openai.com/index/databricks",
+          "importance": "medium",
+          "importanceScore": 73,
+          "oneLineSummary": "AI 신호 · Databricks brings GPT-5.5 to enterprise agent workflows",
+          "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+          "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+        },
+        {
+          "title": "How business operations teams use Codex",
+          "sourceName": "OpenAI News",
+          "topic": "ai",
+          "link": "https://openai.com/academy/codex-for-work/how-business-operations-teams-use-codex",
+          "importance": "medium",
+          "importanceScore": 73,
+          "oneLineSummary": "AI 신호 · How business operations teams use Codex",
+          "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+          "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+        }
+      ]
+    },
+    "github": {
+      "snapshotHash": "sha256:61bce6db77c88049a337460227b2bfc9bcd3bddf355ebf910db4f92af27f4891",
+      "summary": {
+        "openIssues": 16,
+        "needsHuman": 3,
+        "needsAgent": 14,
+        "ownerUser": 16,
+        "ownerCodex": 16,
+        "recentlyUpdated": 5,
+        "stale": 0,
+        "routeableAgentWork": 12,
+        "decisionGates": 3
+      },
+      "freshness": {
+        "status": "current",
+        "newestIssueUpdatedAt": "2026-05-17T00:10:59Z",
+        "newestIssueAgeHours": 0
+      }
+    },
+    "improvement": {
+      "summary": {
+        "total": 4,
+        "p1": 1,
+        "p2": 3,
+        "p3": 0,
+        "categories": {
+          "agentization": 1,
+          "briefing": 1,
+          "knowledge": 1,
+          "workflow": 1
+        }
+      },
+      "topSuggestions": [
+        {
+          "id": "raise-life-agentization-from-scoped-to-domain",
+          "priority": "P1",
+          "category": "agentization",
+          "title": "라이프 에이전트화를 scope 단위에서 domain 단위로 승격",
+          "summary": "현재 domainReplacementPercent=10%, scopeReplacementPercent=37.5%입니다. 실제 업무 대체 목표에는 domain-level evidence가 필요합니다."
+        },
+        {
+          "id": "increase-llm-wiki-roi-evidence",
+          "priority": "P2",
+          "category": "knowledge",
+          "title": "LLM-Wiki 검색/재사용 ROI evidence 늘리기",
+          "summary": "LLM-Wiki readiness=84%이고 global cap이 남아 있습니다. 지식관리 체계가 “보이는 지도”에서 “실제로 재사용되는 시스템”으로 가려면 검색/인용/재사용 event가 더 필요합니다."
+        },
+        {
+          "id": "reduce-decision-bottleneck",
+          "priority": "P2",
+          "category": "workflow",
+          "title": "Needs Human 결정 묶음을 더 줄이고 자동 위임 후보를 분리",
+          "summary": "현재 needsHuman=3, decisionQueue=5, decisionBatches=3입니다. 결정 항목이 흩어지면 사용자가 계속 확인 병목이 됩니다."
+        },
+        {
+          "id": "turn-external-signals-into-daily-issue-brief",
+          "priority": "P2",
+          "category": "briefing",
+          "title": "외부 기술/경제 신호를 KST 일일 이슈 브리프로 승격",
+          "summary": "external prioritySignals=8, high=2입니다. 현재는 rolling signal이고, 사용자가 기대하는 것은 일일 판단 구간입니다."
+        }
+      ]
+    },
+    "knowledge": {
+      "retrievalHealth": null,
+      "entryCount": 21,
+      "llmWikiScore": 84,
+      "llmWikiBand": "ready_for_retrieval_pilot"
+    },
+    "content": {
+      "scopeId": "content_trend_to_video_no_upload_dry_run",
+      "status": "ok",
+      "source": {
+        "kind": "public_safe_trend_seed",
+        "topic": "AI agent workflow trend",
+        "source": "replacement_scope_public_trend_seed",
+        "trendScore": 0.82,
+        "targetAudience": "Korean tech founders",
+        "targetPlatform": "youtube_shorts"
+      },
+      "hardGates": [
+        "upload",
+        "publish",
+        "external_posting",
+        "copyright_risk_acceptance",
+        "paid_provider_invocation",
+        "private_source_use"
+      ]
+    }
+  },
+  "definitions": [
+    {
+      "id": "idea-to-technical-definition-loop",
+      "priority": "P1",
+      "category": "workflow",
+      "title": "Convert collected signals into ticket-ready technical definitions",
+      "goal": "Turn collected external/GitHub/runtime signals into reviewable idea candidates and technical definition drafts before implementation work starts.",
+      "whyNow": "The agent team can collect and triage signals, but the idea -> technical definition -> ticket-ready spec step was not a first-class agent.",
+      "sourceSignals": [
+        {
+          "type": "improvement",
+          "id": "raise-life-agentization-from-scoped-to-domain",
+          "title": "라이프 에이전트화를 scope 단위에서 domain 단위로 승격",
+          "priority": "P1"
+        },
+        {
+          "type": "external",
+          "title": "Sea's View on the Future of Agentic Software Development with Codex",
+          "sourceName": "OpenAI News",
+          "link": "https://openai.com/index/sea-david-chen"
+        }
+      ],
+      "technicalDefinition": [
+        "Add a deterministic CLI agent that reads public-safe runtime artifacts.",
+        "Produce idea candidates with goal, why-now, input/output contracts, acceptance criteria, safety gates, and candidate GitHub issue payloads.",
+        "Default behavior must write local artifacts only; issue creation requires a later explicit gate."
+      ],
+      "inputs": [
+        "runtime/external-info-input-snapshot.json",
+        "runtime/github-info-input-snapshot.json",
+        "runtime/improvement-suggestions.json",
+        "runtime/knowledge-retrieval-index.json",
+        "runtime/content-replacement-scope-verification.json"
+      ],
+      "outputs": [
+        "runtime/idea-technical-definitions.json",
+        "runtime/idea-technical-definitions.md",
+        "runtime/idea-technical-definitions-verification.json"
+      ],
+      "acceptanceCriteria": [
+        "At least three technical definition drafts are generated from current public-safe artifacts.",
+        "Each draft has candidate issue labels, body, acceptance criteria, verification commands, and safety/non-goals.",
+        "Check mode verifies existing artifacts without mutating GitHub or external services."
+      ],
+      "safetyAndNonGoals": [
+        "No raw private data, secret values, comments scraping, external posting, deploy, payment, or destructive action.",
+        "Candidate issue payloads are drafts only and are not automatically submitted."
+      ],
+      "verification": [
+        "npm run idea:define",
+        "npm run idea:define:check",
+        "npm run agent:manifest:check"
+      ],
+      "candidateIssue": {
+        "title": "Convert collected signals into ticket-ready technical definitions",
+        "labels": [
+          "priority:P1",
+          "kind:enhancement",
+          "phase:platform",
+          "agent:codex",
+          "owner:user",
+          "owner:codex",
+          "needs:agent",
+          "agent:improvement_governor_cli"
+        ],
+        "body": "## Goal\nTurn collected external/GitHub/runtime signals into reviewable idea candidates and technical definition drafts before implementation work starts.\n\n## Why now\nThe agent team can collect and triage signals, but the idea -> technical definition -> ticket-ready spec step was not a first-class agent.\n\n## Technical definition\n- Add a deterministic CLI agent that reads public-safe runtime artifacts.\n- Produce idea candidates with goal, why-now, input/output contracts, acceptance criteria, safety gates, and candidate GitHub issue payloads.\n- Default behavior must write local artifacts only; issue creation requires a later explicit gate.\n\n## Inputs\n- runtime/external-info-input-snapshot.json\n- runtime/github-info-input-snapshot.json\n- runtime/improvement-suggestions.json\n- runtime/knowledge-retrieval-index.json\n- runtime/content-replacement-scope-verification.json\n\n## Outputs\n- runtime/idea-technical-definitions.json\n- runtime/idea-technical-definitions.md\n- runtime/idea-technical-definitions-verification.json\n\n## Acceptance criteria\n- [ ] At least three technical definition drafts are generated from current public-safe artifacts.\n- [ ] Each draft has candidate issue labels, body, acceptance criteria, verification commands, and safety/non-goals.\n- [ ] Check mode verifies existing artifacts without mutating GitHub or external services.\n\n## Safety / non-goals\n- No raw private data, secret values, comments scraping, external posting, deploy, payment, or destructive action.\n- Candidate issue payloads are drafts only and are not automatically submitted.\n\n## Verification\n- `npm run idea:define`\n- `npm run idea:define:check`\n- `npm run agent:manifest:check`"
+      }
+    },
+    {
+      "id": "external-signal-to-daily-technical-brief",
+      "priority": "P2",
+      "category": "briefing",
+      "title": "Convert external tech/economy signals into daily technical brief candidates",
+      "goal": "Use the external public signal route to create daily technical opportunity briefs that can be routed into implementation or watchlist tickets.",
+      "whyNow": "A current external signal was collected: OpenAI and Malta partner to bring ChatGPT Plus to all citizens.",
+      "sourceSignals": [
+        {
+          "type": "external",
+          "title": "OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+          "sourceName": "OpenAI News",
+          "link": "https://openai.com/index/malta-chatgpt-plus-partnership",
+          "importanceScore": 77
+        }
+      ],
+      "technicalDefinition": [
+        "Group external public signals by project relevance: agentization, infrastructure, privacy, cost, knowledge, and content.",
+        "Generate one daily brief section per group with why-it-matters, affected Agent Map component, and suggested safe next action.",
+        "Route only repeated/high-score signals to candidate issue drafts; single low-confidence signals stay as watchlist items."
+      ],
+      "inputs": [
+        "runtime/external-info-input-snapshot.json",
+        "runtime/external-information-triage-report.md",
+        "runtime/external-information-bounded-actions.json"
+      ],
+      "outputs": [
+        "runtime/external-daily-technical-brief.json",
+        "runtime/external-daily-technical-brief.md"
+      ],
+      "acceptanceCriteria": [
+        "Daily brief candidates include source title, source name, link, importance, project relevance, and safe next action.",
+        "High-score repeated signals can produce candidate issue drafts; watch-only signals do not.",
+        "No full article body or comment scraping is required."
+      ],
+      "safetyAndNonGoals": [
+        "Uses public RSS/Atom metadata only.",
+        "No financial/legal decision is executed from a public signal."
+      ],
+      "verification": [
+        "npm run life:loop:external-triage:check",
+        "npm run idea:define:check"
+      ],
+      "candidateIssue": {
+        "title": "Convert external tech/economy signals into daily technical brief candidates",
+        "labels": [
+          "priority:P2",
+          "kind:enhancement",
+          "phase:analyze",
+          "agent:codex",
+          "owner:user",
+          "owner:codex",
+          "needs:agent",
+          "agent:external_information_triage_loop"
+        ],
+        "body": "## Goal\nUse the external public signal route to create daily technical opportunity briefs that can be routed into implementation or watchlist tickets.\n\n## Why now\nA current external signal was collected: OpenAI and Malta partner to bring ChatGPT Plus to all citizens.\n\n## Technical definition\n- Group external public signals by project relevance: agentization, infrastructure, privacy, cost, knowledge, and content.\n- Generate one daily brief section per group with why-it-matters, affected Agent Map component, and suggested safe next action.\n- Route only repeated/high-score signals to candidate issue drafts; single low-confidence signals stay as watchlist items.\n\n## Inputs\n- runtime/external-info-input-snapshot.json\n- runtime/external-information-triage-report.md\n- runtime/external-information-bounded-actions.json\n\n## Outputs\n- runtime/external-daily-technical-brief.json\n- runtime/external-daily-technical-brief.md\n\n## Acceptance criteria\n- [ ] Daily brief candidates include source title, source name, link, importance, project relevance, and safe next action.\n- [ ] High-score repeated signals can produce candidate issue drafts; watch-only signals do not.\n- [ ] No full article body or comment scraping is required.\n\n## Safety / non-goals\n- Uses public RSS/Atom metadata only.\n- No financial/legal decision is executed from a public signal.\n\n## Verification\n- `npm run life:loop:external-triage:check`\n- `npm run idea:define:check`"
+      }
+    },
+    {
+      "id": "privacy-boundary-technical-guard",
+      "priority": "P2",
+      "category": "platform",
+      "title": "Add privacy-boundary technical guard for life-agent serviceization",
+      "goal": "Convert privacy-sensitive public signals and existing safety policy into a technical guard that prevents private raw data exposure while agentization expands.",
+      "whyNow": "Recent external signals include privacy/data-sharing risk, while the project is moving toward serviceized life-agent workflows.",
+      "sourceSignals": [
+        {
+          "type": "external",
+          "title": "Databricks brings GPT-5.5 to enterprise agent workflows",
+          "sourceName": "OpenAI News",
+          "link": "https://openai.com/index/databricks"
+        },
+        {
+          "type": "content",
+          "id": "content_trend_to_video_no_upload_dry_run",
+          "status": "ok"
+        }
+      ],
+      "technicalDefinition": [
+        "Define a reusable public-safe artifact contract with fields allowed, redacted, and forbidden.",
+        "Add a verification step that scans candidate public artifacts for secret/private/raw-data markers before build/deploy.",
+        "Integrate the guard with life-agent replacement scopes and service-integration evidence."
+      ],
+      "inputs": [
+        "config/life-agentization-scorecard.json",
+        "config/service-integration.json",
+        "runtime/content-replacement-scope-verification.json"
+      ],
+      "outputs": [
+        "runtime/privacy-boundary-technical-guard.json",
+        "docs/PRIVACY_BOUNDARY_TECHNICAL_GUARD.md"
+      ],
+      "acceptanceCriteria": [
+        "Every replacement scope declares allowed, redacted, and forbidden fields.",
+        "Public runtime artifacts are checked before static artifact publication.",
+        "Failures block policy/build checks without exposing secret values."
+      ],
+      "safetyAndNonGoals": [
+        "Does not read raw Kakao/private source data.",
+        "Does not relax any existing publish/upload/deploy/payment gates."
+      ],
+      "verification": [
+        "npm run policy:check",
+        "npm run artifact:check"
+      ],
+      "candidateIssue": {
+        "title": "Add privacy-boundary technical guard for life-agent serviceization",
+        "labels": [
+          "priority:P2",
+          "kind:enhancement",
+          "phase:platform",
+          "agent:codex",
+          "owner:user",
+          "owner:codex",
+          "needs:agent",
+          "agent:collaboration_auditor_cli"
+        ],
+        "body": "## Goal\nConvert privacy-sensitive public signals and existing safety policy into a technical guard that prevents private raw data exposure while agentization expands.\n\n## Why now\nRecent external signals include privacy/data-sharing risk, while the project is moving toward serviceized life-agent workflows.\n\n## Technical definition\n- Define a reusable public-safe artifact contract with fields allowed, redacted, and forbidden.\n- Add a verification step that scans candidate public artifacts for secret/private/raw-data markers before build/deploy.\n- Integrate the guard with life-agent replacement scopes and service-integration evidence.\n\n## Inputs\n- config/life-agentization-scorecard.json\n- config/service-integration.json\n- runtime/content-replacement-scope-verification.json\n\n## Outputs\n- runtime/privacy-boundary-technical-guard.json\n- docs/PRIVACY_BOUNDARY_TECHNICAL_GUARD.md\n\n## Acceptance criteria\n- [ ] Every replacement scope declares allowed, redacted, and forbidden fields.\n- [ ] Public runtime artifacts are checked before static artifact publication.\n- [ ] Failures block policy/build checks without exposing secret values.\n\n## Safety / non-goals\n- Does not read raw Kakao/private source data.\n- Does not relax any existing publish/upload/deploy/payment gates.\n\n## Verification\n- `npm run policy:check`\n- `npm run artifact:check`"
+      }
+    }
+  ],
+  "safety": {
+    "publicSafeOnly": true,
+    "secretValuesIncluded": false,
+    "privateRawDataIncluded": false,
+    "externalMutations": false,
+    "commentsRead": false,
+    "issuesCreated": false,
+    "deploy": false,
+    "publish": false,
+    "upload": false,
+    "payments": false,
+    "destructiveActions": false
+  }
+}

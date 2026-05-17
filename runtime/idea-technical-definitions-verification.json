@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-05-17T00:19:23.837Z",
+  "agentId": "idea_technical_definition_cli",
+  "status": "ok",
+  "sourceHash": "sha256:3a680913ebc78dae3f9159c50a89c792129c06ecf6a8d0628dab8d2ee3ab82cb",
+  "definitionCount": 3,
+  "checks": [
+    {
+      "name": "required_inputs_present",
+      "status": "ok",
+      "inputs": [
+        "runtime/external-info-input-snapshot.json",
+        "runtime/github-info-input-snapshot.json",
+        "runtime/improvement-suggestions.json",
+        "runtime/knowledge-retrieval-index.json",
+        "runtime/content-replacement-scope-verification.json"
+      ]
+    },
+    {
+      "name": "definitions_generated",
+      "status": "ok"
+    },
+    {
+      "name": "candidate_issues_draft_only",
+      "status": "ok"
+    },
+    {
+      "name": "public_safe_only",
+      "status": "ok"
+    },
+    {
+      "name": "no_external_mutations",
+      "status": "ok"
+    }
+  ],
+  "outputs": {
+    "json": "runtime/idea-technical-definitions.json",
+    "markdown": "runtime/idea-technical-definitions.md",
+    "verification": "runtime/idea-technical-definitions-verification.json"
+  },
+  "failures": [],
+  "safety": {
+    "publicSafeOnly": true,
+    "secretValuesIncluded": false,
+    "privateRawDataIncluded": false,
+    "externalMutations": false,
+    "commentsRead": false,
+    "issuesCreated": false,
+    "deploy": false,
+    "publish": false,
+    "upload": false,
+    "payments": false,
+    "destructiveActions": false
+  }
+}

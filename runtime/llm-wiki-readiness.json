@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:23.352Z",
+  "sourceConfig": "config/llm-wiki-readiness.json",
+  "purpose": "Evaluate Agent Map as a practical LLM-Wiki operating system while preserving this repo's existing strengths: GitHub control-plane, public/private safety boundary, multi-agent routing, runtime dashboards, and life-process graph.",
+  "target": {
+    "northStar": "Agent Map should become a durable LLM-Wiki style operating layer where life/work signals are captured with low friction, converted into reusable knowledge, searched with evidence, routed to agents, verified, and synthesized back into the user's life/process map.",
+    "doNotSacrifice": [
+      "GitHub Issues/Project as durable work queue and responsibility ledger",
+      "Codex / 다알고 as mainstream coordinator and final integration owner",
+      "explicit human gates for secrets, publish/upload, payments, destructive actions, raw private data, and final close",
+      "public-safe dashboard surfaces that do not leak raw private data",
+      "static deployment and runtime JSON artifacts as inspectable evidence"
+    ]
+  },
+  "score": {
+    "totalScore": 84,
+    "maxScore": 100,
+    "percent": 84,
+    "rawTotalScore": 97,
+    "rawPercent": 97,
+    "band": {
+      "min": 70,
+      "max": 84,
+      "label": "ready_for_retrieval_pilot"
+    },
+    "globalCaps": [
+      {
+        "maxPercent": 84,
+        "reason": "Search/reuse ROI sample is below minimum evidence (5/3/3)."
+      }
+    ]
+  },
+  "metrics": {
+    "knowledgeNoteCount": 17,
+    "graphifyStatus": "built",
+    "replacementReadyDomainCount": 1,
+    "replacementReadyScopeCount": 3,
+    "lifeRunCount": 12,
+    "captureInboxItemCount": 11,
+    "notePromotionCandidateCount": 6,
+    "weeklySynthesisThemeCount": 3,
+    "searchEvents": 1,
+    "citedAnswerEvents": 1,
+    "reusedNoteEvents": 1,
+    "actionConversionCandidates": 5,
+    "capturedItems": 11,
+    "notePromotionCandidates": 6,
+    "retrievalServiceStatus": "healthy",
+    "retrievalEntryCount": 21,
+    "retrievalMode": "static_keyword_index",
+    "publicKakaoAnalysisExists": true,
+    "integratedAgentMapExists": true
+  },
+  "dimensions": [
+    {
+      "id": "capture",
+      "label": "Zero-friction capture",
+      "weight": 15,
+      "evidenceFiles": [
+        "data/insights/unified.json",
+        "runtime/kakao-public-analysis.json",
+        "runtime/life-agent-runs.jsonl",
+        "runtime/decision-queue.json"
+      ],
+      "strength": "Kakao, GitHub issue, session-agent, and runtime artifacts already act as capture channels.",
+      "gap": "Capture is still source-specific and does not yet produce a unified inbox note stream.",
+      "next": "Create a normalized capture inbox schema before adding heavier RAG infrastructure.",
+      "score": 15,
+      "maxScore": 15,
+      "evidence": [
+        {
+          "file": "data/insights/unified.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/kakao-public-analysis.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/life-agent-runs.jsonl",
+          "exists": true
+        },
+        {
+          "file": "runtime/decision-queue.json",
+          "exists": true
+        }
+      ],
+      "evidenceRatio": 1,
+      "status": "strong"
+    },
+    {
+      "id": "privacy_boundary",
+      "label": "Public/private safety boundary",
+      "weight": 15,
+      "evidenceFiles": [
+        "runtime/kakao-public-analysis.json",
+        "scripts/prepare-kakao-public-analysis.mjs",
+        "scripts/sanitize-public-static-artifact.mjs",
+        "docs/KNOWLEDGE_MANAGEMENT.md"
+      ],
+      "strength": "The project has a strong public-safe artifact pattern: raw messages, room ids, raw URLs, and secrets stay out of public pages.",
+      "gap": "Private local views and public views are not yet first-class separate surfaces.",
+      "next": "Keep the public-safe layer, but add explicit private/local-only retrieval contracts.",
+      "score": 15,
+      "maxScore": 15,
+      "evidence": [
+        {
+          "file": "runtime/kakao-public-analysis.json",
+          "exists": true
+        },
+        {
+          "file": "scripts/prepare-kakao-public-analysis.mjs",
+          "exists": true
+        },
+        {
+          "file": "scripts/sanitize-public-static-artifact.mjs",
+          "exists": true
+        },
+        {
+          "file": "docs/KNOWLEDGE_MANAGEMENT.md",
+          "exists": true
+        }
+      ],
+      "evidenceRatio": 1,
+      "status": "strong"
+    },
+    {
+      "id": "atomic_vault",
+      "label": "Atomic knowledge vault",
+      "weight": 15,
+      "evidenceFiles": [
+        "config/knowledge-vault.json",
+        "runtime/knowledge-vault-summary.json",
+        "knowledge/90-indexes/agent-lookup-index.md",
+        "knowledge/00-maps/agent-knowledge-map.md"
+      ],
+      "strength": "Obsidian-style atomic notes, frontmatter, wikilinks, and lookup modes already exist.",
+      "gap": "Captured operational outputs are not yet automatically converted into durable atomic notes.",
+      "next": "Add capture-to-note promotion rules with provenance and stale-note checks.",
+      "score": 15,
+      "maxScore": 15,
+      "evidence": [
+        {
+          "file": "config/knowledge-vault.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/knowledge-vault-summary.json",
+          "exists": true
+        },
+        {
+          "file": "knowledge/90-indexes/agent-lookup-index.md",
+          "exists": true
+        },
+        {
+          "file": "knowledge/00-maps/agent-knowledge-map.md",
+          "exists": true
+        }
+      ],
+      "evidenceRatio": 1,
+      "status": "strong"
+    },
+    {
+      "id": "retrieval",
+      "label": "Retrieval and graph index",
+      "weight": 15,
+      "evidenceFiles": [
+        "scripts/run-graphify-knowledge.mjs",
+        ".graphifyignore",
+        "docs/KNOWLEDGE_MANAGEMENT.md",
+        "graphify-out/graph.json",
+        "runtime/retrieval-service-health.json"
+      ],
+      "strength": "Graphify is already treated correctly as a derived index, not the source of truth.",
+      "gap": "A static retrieval pilot exists before full vector DB/RAG, but real search/reuse events are still needed.",
+      "next": "Use the static retrieval pilot to collect cited-answer and reuse events before evaluating BGE-M3 + Qdrant.",
+      "score": 15,
+      "maxScore": 15,
+      "evidence": [
+        {
+          "file": "scripts/run-graphify-knowledge.mjs",
+          "exists": true
+        },
+        {
+          "file": ".graphifyignore",
+          "exists": true
+        },
+        {
+          "file": "docs/KNOWLEDGE_MANAGEMENT.md",
+          "exists": true
+        },
+        {
+          "file": "graphify-out/graph.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/retrieval-service-health.json",
+          "exists": true
+        }
+      ],
+      "evidenceRatio": 1,
+      "status": "strong"
+    },
+    {
+      "id": "agent_loop",
+      "label": "Agent execution loop",
+      "weight": 15,
+      "evidenceFiles": [
+        "docs/LIFE_AGENT_LOOP_RUNS.md",
+        "scripts/run-life-agent-loop.mjs",
+        "scripts/run-kakao-information-triage-loop.mjs",
+        "runtime/life-agent-runs.jsonl"
+      ],
+      "strength": "The repo already records loop evidence and separates bounded actions from human-gated work.",
+      "gap": "Actual replacement-ready life domains are still not achieved.",
+      "next": "Convert repeated low-risk loops into measurable replacement candidates before claiming agentization.",
+      "score": 15,
+      "maxScore": 15,
+      "evidence": [
+        {
+          "file": "docs/LIFE_AGENT_LOOP_RUNS.md",
+          "exists": true
+        },
+        {
+          "file": "scripts/run-life-agent-loop.mjs",
+          "exists": true
+        },
+        {
+          "file": "scripts/run-kakao-information-triage-loop.mjs",
+          "exists": true
+        },
+        {
+          "file": "runtime/life-agent-runs.jsonl",
+          "exists": true
+        }
+      ],
+      "evidenceRatio": 1,
+      "status": "strong"
+    },
+    {
+      "id": "synthesis",
+      "label": "Synthesis and feedback",
+      "weight": 10,
+      "evidenceFiles": [
+        "knowledge/40-runbooks/weekly-knowledge-synthesis.md",
+        "runtime/life-agent-loop-information-learning-feedback.json",
+        "docs/LIFE_AGENTIZATION_PROGRESS.md"
+      ],
+      "strength": "Weekly synthesis exists as a principle/runbook and life-loop feedback exists as runtime evidence.",
+      "gap": "Synthesis is not yet a consistently scheduled, user-facing weekly artifact.",
+      "next": "Create a weekly synthesis artifact that links new captures, decisions, and knowledge gaps.",
+      "score": 10,
+      "maxScore": 10,
+      "evidence": [
+        {
+          "file": "knowledge/40-runbooks/weekly-knowledge-synthesis.md",
+          "exists": true
+        },
+        {
+          "file": "runtime/life-agent-loop-information-learning-feedback.json",
+          "exists": true
+        },
+        {
+          "file": "docs/LIFE_AGENTIZATION_PROGRESS.md",
+          "exists": true
+        }
+      ],
+      "evidenceRatio": 1,
+      "status": "strong"
+    },
+    {
+      "id": "roi_measurement",
+      "label": "Search and reuse ROI measurement",
+      "weight": 10,
+      "evidenceFiles": [
+        "runtime/knowledge-vault-summary.json",
+        "runtime/life-agent-runs.jsonl"
+      ],
+      "strength": "Runtime artifacts make future ROI measurement possible.",
+      "gap": "Search/citation/reuse events are now logged, but the sample size is still too small for durable ROI conclusions.",
+      "next": "Keep logging real search, cited-answer, reused-note, and action-conversion events before investing in full RAG/MCP automation.",
+      "score": 7,
+      "maxScore": 10,
+      "evidence": [
+        {
+          "file": "runtime/knowledge-vault-summary.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/life-agent-runs.jsonl",
+          "exists": true
+        }
+      ],
+      "evidenceRatio": 1,
+      "status": "partial",
+      "caps": [
+        {
+          "max": 7,
+          "reason": "Search/reuse ROI events have started, but the sample size is still too small."
+        }
+      ]
+    },
+    {
+      "id": "ux_visibility",
+      "label": "Integrated UX visibility",
+      "weight": 5,
+      "evidenceFiles": [
+        "frontend/agent-map-control/src/main.jsx",
+        "public/kakao-analysis.html",
+        "public/knowledge-map.html",
+        "public/infrastructure-map.html"
+      ],
+      "strength": "Agent Map already exposes public results, infrastructure, knowledge, and Kakao analysis in one deployed surface.",
+      "gap": "The UX is still more dashboard/index than true knowledge workbench.",
+      "next": "Add one workbench-style path: ask → retrieve evidence → show source → create issue/action.",
+      "score": 5,
+      "maxScore": 5,
+      "evidence": [
+        {
+          "file": "frontend/agent-map-control/src/main.jsx",
+          "exists": true
+        },
+        {
+          "file": "public/kakao-analysis.html",
+          "exists": true
+        },
+        {
+          "file": "public/knowledge-map.html",
+          "exists": true
+        },
+        {
+          "file": "public/infrastructure-map.html",
+          "exists": true
+        }
+      ],
+      "evidenceRatio": 1,
+      "status": "strong"
+    }
+  ],
+  "blockers": [
+    "Search/reuse ROI has started but needs at least 5/3/3 search/citation/reuse events."
+  ],
+  "implementationDirection": [
+    "Do not replace Agent Map with a generic PKM tool; keep GitHub/Registry/static dashboards as the control-plane.",
+    "Promote captured signals into atomic notes only after sanitization and provenance checks.",
+    "Keep Graphify/RAG/MCP as derived capability layers, never source of truth.",
+    "Prioritize measured reuse: search count, cited answer count, action conversion, and stale-note reduction.",
+    "Preserve human-gated boundaries while letting agents run bounded evidence-producing loops."
+  ],
+  "recommendation": [
+    "Keep Agent Map as the control-plane and add LLM-Wiki capability as a measured layer.",
+    "Next milestone: real search/citation/reuse event logging from the retrieval pilot.",
+    "Do not claim full RAG/MCP or full-domain replacement readiness until ROI and replacement-ready domains are visible; use scoped replacement as the next honest milestone."
+  ]
+}

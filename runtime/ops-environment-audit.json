@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:25.872Z",
+  "command": "ops:audit",
+  "agentId": "ops_environment_auditor_cli",
+  "status": "ok",
+  "score": 76,
+  "sourceHash": "sha256:348d5ac155a9a3017c5b2db3236bc557e24a36d5d6e22892cb34983cb1b4f4fd",
+  "layers": {
+    "agentManifest": {
+      "totalAgents": 25,
+      "implementedAgents": 25,
+      "runtimeAgentCount": 8,
+      "pipelineAgentCount": 4,
+      "lifeLoopAgentCount": 4,
+      "controlPlaneCliCount": 5,
+      "reviewerCliCount": 4,
+      "manifestCompletenessPercent": 100,
+      "failureCount": 0,
+      "warningCount": 0
+    },
+    "sessions": {
+      "configuredSessionAgents": 8,
+      "healthSessionAgents": 8,
+      "statusCounts": {
+        "active": 1,
+        "confirmed-by-repo-marker": 2,
+        "optional-reviewer": 3,
+        "available-cli": 2
+      },
+      "assignableAgents": [
+        {
+          "id": "daalgo",
+          "displayName": "다알고",
+          "role": "codex",
+          "kind": "coordinator",
+          "status": "active"
+        },
+        {
+          "id": "daalgo_external_codex_01",
+          "displayName": "DaAlgo External Codex Watcher 01",
+          "role": "codex",
+          "kind": "external-session-watcher",
+          "status": "confirmed-by-repo-marker"
+        },
+        {
+          "id": "claude_review_01",
+          "displayName": "Claude Review Session 01",
+          "role": "claude",
+          "kind": "external-session-reviewer",
+          "status": "confirmed-by-repo-marker"
+        },
+        {
+          "id": "uiux_cli",
+          "displayName": "UI/UX CLI Review Pool",
+          "role": "uiux_cli",
+          "kind": "cli-reviewer",
+          "status": "available-cli"
+        },
+        {
+          "id": "collaboration_auditor_cli",
+          "displayName": "Collaboration Auditor CLI",
+          "role": "collaboration_auditor_cli",
+          "kind": "cli-reviewer",
+          "status": "available-cli"
+        }
+      ],
+      "optionalReviewers": [
+        {
+          "id": "gemini",
+          "displayName": "Gemini UX Business Critique Pool",
+          "role": "gemini",
+          "kind": "role-pool",
+          "primaryAssignable": false
+        },
+        {
+          "id": "opencode",
+          "displayName": "OpenCode Architecture Performance Review Pool",
+          "role": "opencode",
+          "kind": "role-pool",
+          "primaryAssignable": false
+        },
+        {
+          "id": "stitch",
+          "displayName": "Stitch UI Prototype Support Pool",
+          "role": "stitch",
+          "kind": "role-pool",
+          "primaryAssignable": false
+        }
+      ],
+      "unconfirmedRolePools": [],
+      "staleClaims": []
+    },
+    "roleManagement": {
+      "lanes": 10,
+      "primaryUnavailable": [],
+      "optionalPrimaryRefs": []
+    },
+    "decisionQueue": {
+      "totalItems": 5,
+      "needsHuman": 5,
+      "readyForAgent": 10,
+      "sourceOpenIssues": 16,
+      "defaultSafeAction": "summarize and request user decision"
+    },
+    "agentPerformance": {
+      "status": "ok",
+      "totalAgents": 31,
+      "activeAgents": 5,
+      "attentionAgents": 8,
+      "idleAgents": 18,
+      "openIssues": 16,
+      "staleOpenIssues": 18,
+      "p1OpenIssues": 11,
+      "needsHumanOpenIssues": 3,
+      "needsAgentOpenIssues": 14,
+      "attention": [
+        {
+          "id": "claude_review_01",
+          "score": 46,
+          "openIssues": 2,
+          "staleOpenIssues": 0,
+          "p1OpenIssues": 1,
+          "sessionStatus": "confirmed"
+        },
+        {
+          "id": "collaboration_auditor_cli",
+          "score": 34,
+          "openIssues": 3,
+          "staleOpenIssues": 0,
+          "p1OpenIssues": 2,
+          "sessionStatus": "available-cli"
+        },
+        {
+          "id": "daalgo",
+          "score": 0,
+          "openIssues": 13,
+          "staleOpenIssues": 8,
+          "p1OpenIssues": 3,
+          "sessionStatus": "active"
+        },
+        {
+          "id": "daalgo_external_codex_01",
+          "score": 0,
+          "openIssues": 13,
+          "staleOpenIssues": 8,
+          "p1OpenIssues": 3,
+          "sessionStatus": "confirmed"
+        },
+        {
+          "id": "life_information_loop",
+          "score": 43,
+          "openIssues": 1,
+          "staleOpenIssues": 0,
+          "p1OpenIssues": 1,
+          "sessionStatus": null
+        },
+        {
+          "id": "proposal_responder",
+          "score": 38,
+          "openIssues": 1,
+          "staleOpenIssues": 1,
+          "p1OpenIssues": 0,
+          "sessionStatus": null
+        },
+        {
+          "id": "telegram_issue_intake",
+          "score": 38,
+          "openIssues": 1,
+          "staleOpenIssues": 1,
+          "p1OpenIssues": 0,
+          "sessionStatus": null
+        },
+        {
+          "id": "uiux_cli",
+          "score": 58,
+          "openIssues": 1,
+          "staleOpenIssues": 0,
+          "p1OpenIssues": 1,
+          "sessionStatus": "available-cli"
+        }
+      ]
+    },
+    "schedules": {
+      "available": true,
+      "source": "runtime/ops-schedule-inventory.json",
+      "total": 9,
+      "schedules": [
+        {
+          "id": "BD19A0B2",
+          "once": false,
+          "schedule": "10 9 * * *",
+          "scheduleType": "cron",
+          "createdAt": "2026-04-29 00:13:28",
+          "topic": "policy_check",
+          "promptHash": "sha256:53b91655b54b690f75492ca8e5ae9216cd3cb6cb259823dfa279fe7e646ce435"
+        },
+        {
+          "id": "E17259E3",
+          "once": false,
+          "schedule": "5 * * * *",
+          "scheduleType": "cron",
+          "createdAt": "2026-04-29 14:05:32",
+          "topic": "health_recovery_chain",
+          "promptHash": "sha256:d397a21c213f8e04769bb8a6720e897bbfd5aab85274c7f3fdfde3a8d824ee7f"
+        },
+        {
+          "id": "E69C7FBF",
+          "once": false,
+          "schedule": "0 */3 * * *",
+          "scheduleType": "cron",
+          "createdAt": "2026-05-02 04:01:39",
+          "topic": "issue_workloop",
+          "promptHash": "sha256:a6b0cde55a43ffb6ad14e6f517d46a980c8d7b421108159b59a0a4cd8e467114"
+        },
+        {
+          "id": "596E4EAC",
+          "once": false,
+          "schedule": "17 */3 * * *",
+          "scheduleType": "cron",
+          "createdAt": "2026-05-06 13:53:40",
+          "topic": "public_mirror",
+          "promptHash": "sha256:7f308c10c756ae069ad7f8596d8dc9c267f3f4dcf6fa48f0b35f3d1716a7bf14"
+        },
+        {
+          "id": "E02E253F",
+          "once": false,
+          "schedule": "35 */3 * * *",
+          "scheduleType": "cron",
+          "createdAt": "2026-05-13 01:20:19",
+          "topic": "improvement_governor",
+          "promptHash": "sha256:aa79b3c33f203c9bbf4f2124311a3a7e924ca06e40c59f1755cbf33a96fbc8ec"
+        },
+        {
+          "id": "422AF774",
+          "once": false,
+          "schedule": "2026-05-27 09:45:00",
+          "scheduleType": "absolute",
+          "createdAt": "2026-05-13 15:03:03",
+          "topic": "service_integration",
+          "promptHash": "sha256:4590150192b552fca476e6f88b728785611870ea0d135d16aab8b554ffd04831"
+        },
+        {
+          "id": "023E8141",
+          "once": false,
+          "schedule": "25 */3 * * *",
+          "scheduleType": "cron",
+          "createdAt": "2026-05-13 21:23:20",
+          "topic": "agent_performance",
+          "promptHash": "sha256:0d4442344355e873d3925e4860c289e8837c9f56e18c6f9b9817ad2cce3fa2d9"
+        },
+        {
+          "id": "F888F732",
+          "once": false,
+          "schedule": "40 9 * * *",
+          "scheduleType": "cron",
+          "createdAt": "2026-05-14 09:40:31",
+          "topic": "service_integration",
+          "promptHash": "sha256:904acacb36ea400958fbbc1b463c6310594451a6b3c50b526044fcfe899a7fa0"
+        },
+        {
+          "id": "8775FA78",
+          "once": false,
+          "schedule": "45 */3 * * *",
+          "scheduleType": "cron",
+          "createdAt": "2026-05-14 16:07:46",
+          "topic": "unknown_59d015ca",
+          "promptHash": "sha256:752b25e0d56c58cfa26368188dcbc92ad01f7559cb0839f1701bb0871bdb3fea"
+        }
+      ],
+      "duplicateGroups": [],
+      "byTopic": {
+        "policy_check": 1,
+        "health_recovery_chain": 1,
+        "issue_workloop": 1,
+        "public_mirror": 1,
+        "improvement_governor": 1,
+        "service_integration": 2,
+        "agent_performance": 1,
+        "unknown_59d015ca": 1
+      }
+    },
+    "infrastructure": {
+      "groups": 7,
+      "nodes": 14,
+      "edges": 14,
+      "credentialRefs": 0,
+      "explicitUnknownOrMissing": 0,
+      "stale": 3,
+      "liveProviders": 0,
+      "connectedProviders": 0,
+      "notConfiguredProviders": 0
+    }
+  },
+  "findings": [
+    {
+      "severity": "warning",
+      "code": "attention_agent_load",
+      "title": "Attention agent count is high.",
+      "evidence": {
+        "attentionAgents": 8,
+        "activeAgents": 5,
+        "idleAgents": 18
+      },
+      "recommendation": "Split owner labels from active assignee labels and reduce stale/open issue load for coordinator agents."
+    },
+    {
+      "severity": "warning",
+      "code": "decision_queue_bottleneck",
+      "title": "Needs Human queue is still a bottleneck.",
+      "evidence": {
+        "totalItems": 5,
+        "needsHuman": 5,
+        "readyForAgent": 10,
+        "sourceOpenIssues": 16,
+        "defaultSafeAction": "summarize and request user decision"
+      },
+      "recommendation": "Run decision:sync, decision:digest, and decision:classify to separate true human gates from agent-preparable work."
+    },
+    {
+      "severity": "warning",
+      "code": "stale_open_issue_load",
+      "title": "Stale open issue load is high.",
+      "evidence": {
+        "staleOpenIssues": 18,
+        "openIssues": 16
+      },
+      "recommendation": "Batch stale issue review and close/delegate issues that have completed evidence."
+    }
+  ],
+  "outputs": {
+    "json": "runtime/ops-environment-audit.json",
+    "markdown": "runtime/ops-environment-audit.md",
+    "html": "public/ops-environment-audit.html"
+  },
+  "safety": {
+    "publicSafeOnly": true,
+    "rawPrivateDataIncluded": false,
+    "secretValuesIncluded": false,
+    "externalMutations": false,
+    "commentsRead": false,
+    "issuesMutated": false,
+    "schedulesMutated": false,
+    "closeMergeDeployPublish": false
+  }
+}

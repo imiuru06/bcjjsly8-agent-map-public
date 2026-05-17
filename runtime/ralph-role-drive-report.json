@@ -1,0 +1,1222 @@
+{
+  "schemaVersion": 1,
+  "agentId": "ralph_role_drive_cli",
+  "generatedAt": "2026-05-17T00:19:23.741Z",
+  "status": "ok",
+  "purpose": "Use the Codex Ralph /goal workflow to drive existing roles from passive queue watching into evidence-producing execution.",
+  "sourceArtifacts": [
+    "config/agent-manifest.json",
+    "runtime/agent-performance-report.json",
+    "runtime/improvement-execution-plan.json",
+    "runtime/ralf-loop-report.json"
+  ],
+  "summary": {
+    "totalRoles": 31,
+    "mustActRoles": 9,
+    "reviewOnlyRoles": 8,
+    "attentionAgents": 8,
+    "needsAgentOpenIssues": 14,
+    "needsHumanOpenIssues": 3,
+    "staleOpenIssues": 18,
+    "primaryAction": "execute-raise-life-agentization-from-scoped-to-domain"
+  },
+  "ralphOperatingRule": {
+    "interactivePreferred": "/goal <bounded objective>",
+    "nonInteractiveFallback": "npm run ralph:drive && npm run ralph:loop",
+    "noIdleAnswerRule": "If any must_act role exists, agents must claim/route/verify or explicitly emit a blocked reason with evidence.",
+    "evidenceRule": "A role is not considered driven until it updates runtime evidence, an issue/PR comment, or a verification report."
+  },
+  "topDirectives": [
+    {
+      "agentId": "uiux_cli",
+      "displayName": "UI/UX CLI Review Pool",
+      "type": "reviewer-cli",
+      "mode": "review_gate",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 58,
+      "pressure": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "p1OpenIssues": 1,
+        "staleOpenIssues": 0,
+        "sessionStatus": "available-cli"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run uiux:audit",
+      "verification": "npm run uiux:audit",
+      "humanGate": [
+        "visual direction or tradeoff is subjective"
+      ],
+      "sampleIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T21:05:15Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        }
+      ]
+    },
+    {
+      "agentId": "telegram_issue_intake",
+      "displayName": "telegram_issue_intake",
+      "type": "runtime-agent",
+      "mode": "runtime_execution",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 38,
+      "pressure": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 1,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "humanGate": [
+        "GitHub token or destination repo must be configured"
+      ],
+      "sampleIssues": [
+        {
+          "number": 3,
+          "title": "Verify Telegram to GitHub Issue intake",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T06:00:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/3"
+        }
+      ]
+    },
+    {
+      "agentId": "opencode",
+      "displayName": "OpenCode Architecture Performance Review Pool",
+      "type": "role-pool",
+      "mode": "optional_review",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 68,
+      "pressure": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": "optional-reviewer"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:queue -- --agent opencode --limit 3",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": [
+        {
+          "number": 27,
+          "title": "Add Infrastructure Visibility Map for resources, routers, hubs, search, credentials, and connection health",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T09:00:49Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/27"
+        }
+      ]
+    },
+    {
+      "agentId": "life_information_loop",
+      "displayName": "life_information_loop",
+      "type": "life-loop-agent",
+      "mode": "life_replacement_loop",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 43,
+      "pressure": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "p1OpenIssues": 1,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run life:loop:check",
+      "verification": "npm run life:loop:check",
+      "humanGate": [
+        "domain-level automation affects external systems or personal commitments"
+      ],
+      "sampleIssues": [
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        }
+      ]
+    },
+    {
+      "agentId": "daalgo_external_codex_01",
+      "displayName": "DaAlgo External Codex Watcher 01",
+      "type": "external-session-watcher",
+      "mode": "queue_claim_or_status",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 0,
+      "pressure": {
+        "openIssues": 13,
+        "needsAgentOpenIssues": 12,
+        "p1OpenIssues": 3,
+        "staleOpenIssues": 8,
+        "sessionStatus": "confirmed"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:queue -- --agent daalgo_external_codex_01 --limit 5",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T21:05:15Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 194,
+          "title": "Remove deprecated legacy VoC dashboard after notice period",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T06:05:47Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/194"
+        },
+        {
+          "number": 152,
+          "title": "Incident: GitHub Actions blocked by billing/spending limit",
+          "priority": "P1",
+          "updatedAt": "2026-05-08T06:04:56Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/152"
+        },
+        {
+          "number": 148,
+          "title": "Configure remote Registry URL for live Agent Map registry route",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T15:07:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/148"
+        }
+      ]
+    },
+    {
+      "agentId": "daalgo",
+      "displayName": "다알고",
+      "type": "coordinator",
+      "mode": "queue_claim_or_status",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 0,
+      "pressure": {
+        "openIssues": 13,
+        "needsAgentOpenIssues": 12,
+        "p1OpenIssues": 3,
+        "staleOpenIssues": 8,
+        "sessionStatus": "active"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:queue -- --agent daalgo --limit 5",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T21:05:15Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 194,
+          "title": "Remove deprecated legacy VoC dashboard after notice period",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T06:05:47Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/194"
+        },
+        {
+          "number": 152,
+          "title": "Incident: GitHub Actions blocked by billing/spending limit",
+          "priority": "P1",
+          "updatedAt": "2026-05-08T06:04:56Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/152"
+        },
+        {
+          "number": 148,
+          "title": "Configure remote Registry URL for live Agent Map registry route",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T15:07:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/148"
+        }
+      ]
+    },
+    {
+      "agentId": "collaboration_auditor_cli",
+      "displayName": "Collaboration Auditor CLI",
+      "type": "reviewer-cli",
+      "mode": "review_gate",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 34,
+      "pressure": {
+        "openIssues": 3,
+        "needsAgentOpenIssues": 3,
+        "p1OpenIssues": 2,
+        "staleOpenIssues": 0,
+        "sessionStatus": "available-cli"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run collab:audit",
+      "verification": "npm run collab:audit",
+      "humanGate": [
+        "role conflict or decision bottleneck requires owner judgment"
+      ],
+      "sampleIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T21:05:15Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 27,
+          "title": "Add Infrastructure Visibility Map for resources, routers, hubs, search, credentials, and connection health",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T09:00:49Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/27"
+        }
+      ]
+    },
+    {
+      "agentId": "claude_review_01",
+      "displayName": "Claude Review Session 01",
+      "type": "external-session-reviewer",
+      "mode": "review_gate",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 46,
+      "pressure": {
+        "openIssues": 2,
+        "needsAgentOpenIssues": 2,
+        "p1OpenIssues": 1,
+        "staleOpenIssues": 0,
+        "sessionStatus": "confirmed"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:queue -- --agent claude_review_01 --limit 3",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": [
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 98,
+          "title": "Review Obsidian-style agent knowledge vault and session assignment protocol",
+          "priority": "P2",
+          "updatedAt": "2026-05-16T09:07:06Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/98"
+        }
+      ]
+    }
+  ],
+  "driveItems": [
+    {
+      "agentId": "uiux_cli",
+      "displayName": "UI/UX CLI Review Pool",
+      "type": "reviewer-cli",
+      "mode": "review_gate",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 58,
+      "pressure": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "p1OpenIssues": 1,
+        "staleOpenIssues": 0,
+        "sessionStatus": "available-cli"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run uiux:audit",
+      "verification": "npm run uiux:audit",
+      "humanGate": [
+        "visual direction or tradeoff is subjective"
+      ],
+      "sampleIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T21:05:15Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        }
+      ]
+    },
+    {
+      "agentId": "telegram_issue_intake",
+      "displayName": "telegram_issue_intake",
+      "type": "runtime-agent",
+      "mode": "runtime_execution",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 38,
+      "pressure": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 1,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "humanGate": [
+        "GitHub token or destination repo must be configured"
+      ],
+      "sampleIssues": [
+        {
+          "number": 3,
+          "title": "Verify Telegram to GitHub Issue intake",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T06:00:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/3"
+        }
+      ]
+    },
+    {
+      "agentId": "opencode",
+      "displayName": "OpenCode Architecture Performance Review Pool",
+      "type": "role-pool",
+      "mode": "optional_review",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 68,
+      "pressure": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": "optional-reviewer"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:queue -- --agent opencode --limit 3",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": [
+        {
+          "number": 27,
+          "title": "Add Infrastructure Visibility Map for resources, routers, hubs, search, credentials, and connection health",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T09:00:49Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/27"
+        }
+      ]
+    },
+    {
+      "agentId": "life_information_loop",
+      "displayName": "life_information_loop",
+      "type": "life-loop-agent",
+      "mode": "life_replacement_loop",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 43,
+      "pressure": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 1,
+        "p1OpenIssues": 1,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run life:loop:check",
+      "verification": "npm run life:loop:check",
+      "humanGate": [
+        "domain-level automation affects external systems or personal commitments"
+      ],
+      "sampleIssues": [
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        }
+      ]
+    },
+    {
+      "agentId": "daalgo_external_codex_01",
+      "displayName": "DaAlgo External Codex Watcher 01",
+      "type": "external-session-watcher",
+      "mode": "queue_claim_or_status",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 0,
+      "pressure": {
+        "openIssues": 13,
+        "needsAgentOpenIssues": 12,
+        "p1OpenIssues": 3,
+        "staleOpenIssues": 8,
+        "sessionStatus": "confirmed"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:queue -- --agent daalgo_external_codex_01 --limit 5",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T21:05:15Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 194,
+          "title": "Remove deprecated legacy VoC dashboard after notice period",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T06:05:47Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/194"
+        },
+        {
+          "number": 152,
+          "title": "Incident: GitHub Actions blocked by billing/spending limit",
+          "priority": "P1",
+          "updatedAt": "2026-05-08T06:04:56Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/152"
+        },
+        {
+          "number": 148,
+          "title": "Configure remote Registry URL for live Agent Map registry route",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T15:07:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/148"
+        }
+      ]
+    },
+    {
+      "agentId": "daalgo",
+      "displayName": "다알고",
+      "type": "coordinator",
+      "mode": "queue_claim_or_status",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 0,
+      "pressure": {
+        "openIssues": 13,
+        "needsAgentOpenIssues": 12,
+        "p1OpenIssues": 3,
+        "staleOpenIssues": 8,
+        "sessionStatus": "active"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:queue -- --agent daalgo --limit 5",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T21:05:15Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 194,
+          "title": "Remove deprecated legacy VoC dashboard after notice period",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T06:05:47Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/194"
+        },
+        {
+          "number": 152,
+          "title": "Incident: GitHub Actions blocked by billing/spending limit",
+          "priority": "P1",
+          "updatedAt": "2026-05-08T06:04:56Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/152"
+        },
+        {
+          "number": 148,
+          "title": "Configure remote Registry URL for live Agent Map registry route",
+          "priority": "P2",
+          "updatedAt": "2026-05-06T15:07:03Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/148"
+        }
+      ]
+    },
+    {
+      "agentId": "collaboration_auditor_cli",
+      "displayName": "Collaboration Auditor CLI",
+      "type": "reviewer-cli",
+      "mode": "review_gate",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 34,
+      "pressure": {
+        "openIssues": 3,
+        "needsAgentOpenIssues": 3,
+        "p1OpenIssues": 2,
+        "staleOpenIssues": 0,
+        "sessionStatus": "available-cli"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run collab:audit",
+      "verification": "npm run collab:audit",
+      "humanGate": [
+        "role conflict or decision bottleneck requires owner judgment"
+      ],
+      "sampleIssues": [
+        {
+          "number": 222,
+          "title": "[Agent:daalgo] request: Route improvement governor suggestions into owned execution lanes",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T21:05:15Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/222"
+        },
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 27,
+          "title": "Add Infrastructure Visibility Map for resources, routers, hubs, search, credentials, and connection health",
+          "priority": "P2",
+          "updatedAt": "2026-05-15T09:00:49Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/27"
+        }
+      ]
+    },
+    {
+      "agentId": "claude_review_01",
+      "displayName": "Claude Review Session 01",
+      "type": "external-session-reviewer",
+      "mode": "review_gate",
+      "status": "must_act",
+      "priority": "P1",
+      "score": 46,
+      "pressure": {
+        "openIssues": 2,
+        "needsAgentOpenIssues": 2,
+        "p1OpenIssues": 1,
+        "staleOpenIssues": 0,
+        "sessionStatus": "confirmed"
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:queue -- --agent claude_review_01 --limit 3",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": [
+        {
+          "number": 211,
+          "title": "Promote life agentization from scoped loops to domain-level replacement",
+          "priority": "P1",
+          "updatedAt": "2026-05-16T15:04:41Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/211"
+        },
+        {
+          "number": 98,
+          "title": "Review Obsidian-style agent knowledge vault and session assignment protocol",
+          "priority": "P2",
+          "updatedAt": "2026-05-16T09:07:06Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/98"
+        }
+      ]
+    },
+    {
+      "agentId": "proposal_responder",
+      "displayName": "proposal_responder",
+      "type": "runtime-agent",
+      "mode": "runtime_execution",
+      "status": "must_act",
+      "priority": "P2",
+      "score": 38,
+      "pressure": {
+        "openIssues": 1,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 1,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run Analysis -> Ralph Plan -> Ralph Run on assigned/stale work, then leave evidence. Do not answer only \"no work\" if queue or stale signals exist.",
+      "command": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "humanGate": [
+        "proposal outcome is ambiguous or credentials are missing"
+      ],
+      "sampleIssues": [
+        {
+          "number": 6,
+          "title": "Future: Sync proposal.response to GitHub comments and Project status",
+          "priority": "P3",
+          "updatedAt": "2026-05-06T04:20:58Z",
+          "url": "https://github.com/imiuru06/bcjjsly8/issues/6"
+        }
+      ]
+    },
+    {
+      "agentId": "agent_performance_scorecard_cli",
+      "displayName": "agent_performance_scorecard_cli",
+      "type": "control-plane-cli",
+      "mode": "control_plane_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run agent:performance:check",
+      "verification": "npm run agent:performance:check",
+      "humanGate": [
+        "attention agents remain stale after routing or a role pool needs confirmation"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "content_asset_generator",
+      "displayName": "content_asset_generator",
+      "type": "pipeline-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run verify:content-assets",
+      "verification": "npm run verify:content-assets",
+      "humanGate": [
+        "voice/style selection or paid provider choice is required"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "content_pipeline_dry_run",
+      "displayName": "content_pipeline_dry_run",
+      "type": "pipeline-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run verify:content-dry-run",
+      "verification": "npm run verify:content-dry-run",
+      "humanGate": [
+        "creative direction or publication approval is needed"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "content_publisher",
+      "displayName": "content_publisher",
+      "type": "pipeline-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run verify:content-publish-gate",
+      "verification": "npm run verify:content-publish-gate",
+      "humanGate": [
+        "any upload/publish action is requested"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "content_replacement_dry_run_loop",
+      "displayName": "content_replacement_dry_run_loop",
+      "type": "life-loop-agent",
+      "mode": "life_replacement_loop",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run life:loop:content-dry-run:check",
+      "verification": "npm run life:loop:content-dry-run:check",
+      "humanGate": [
+        "upload, publish, external posting, copyright acceptance, paid provider use, or private source use is requested"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "content_video_renderer",
+      "displayName": "content_video_renderer",
+      "type": "pipeline-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run verify:content-assets",
+      "verification": "npm run verify:content-assets",
+      "humanGate": [
+        "visual quality approval is required"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "daily_brief_visualizer",
+      "displayName": "daily_brief_visualizer",
+      "type": "runtime-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run brief:check",
+      "verification": "npm run brief:check",
+      "humanGate": [
+        "brief should trigger external posting or user-visible decisions"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "external_information_triage_loop",
+      "displayName": "external_information_triage_loop",
+      "type": "life-loop-agent",
+      "mode": "life_replacement_loop",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 65,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run life:loop:external-triage:check",
+      "verification": "npm run life:loop:external-triage:check",
+      "humanGate": [
+        "full article body fetch, comment scraping, external publishing, financial/legal judgment, or private data exposure is needed"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "gemini",
+      "displayName": "Gemini UX Business Critique Pool",
+      "type": "role-pool",
+      "mode": "optional_review",
+      "status": "optional_review",
+      "priority": "P3",
+      "score": 70,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": "optional-reviewer"
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run agent:queue -- --agent gemini --limit 3",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "idea_technical_definition_cli",
+      "displayName": "idea_technical_definition_cli",
+      "type": "control-plane-cli",
+      "mode": "control_plane_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run idea:define:check",
+      "verification": "npm run idea:define:check",
+      "humanGate": [
+        "candidate issue should be created, priority conflicts need product judgment, or external mutation is requested"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "improvement_governor_cli",
+      "displayName": "improvement_governor_cli",
+      "type": "reviewer-cli",
+      "mode": "review_gate",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 80,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run improvement:review",
+      "verification": "npm run improvement:review",
+      "humanGate": [
+        "product priority or close approval is required"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "infrastructure_visibility_cli",
+      "displayName": "infrastructure_visibility_cli",
+      "type": "control-plane-cli",
+      "mode": "control_plane_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run infra:check",
+      "verification": "npm run infra:check",
+      "humanGate": [
+        "secret values, cloud permissions, or provider account choices are needed"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "insight_analyzer",
+      "displayName": "insight_analyzer",
+      "type": "runtime-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run brief:check",
+      "verification": "npm run brief:check",
+      "humanGate": [
+        "new source domain semantics must be approved"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "issue_workloop",
+      "displayName": "issue_workloop",
+      "type": "control-plane-cli",
+      "mode": "control_plane_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run issue:delta -- --no-write",
+      "verification": "npm run issue:delta -- --no-write",
+      "humanGate": [
+        "decisionQueue contains human-gated items",
+        "safe labels are missing"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "kakao_information_triage_loop",
+      "displayName": "kakao_information_triage_loop",
+      "type": "life-loop-agent",
+      "mode": "life_replacement_loop",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 65,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run life:loop:kakao-triage:check",
+      "verification": "npm run life:loop:kakao-triage:check",
+      "humanGate": [
+        "action requires messaging, payment, publishing, or personal decision"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "knowledge_graphify",
+      "displayName": "knowledge_graphify",
+      "type": "control-plane-cli",
+      "mode": "control_plane_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run knowledge:graphify:check",
+      "verification": "npm run knowledge:graphify:check",
+      "humanGate": [
+        "source-of-truth conflict or ontology change needs approval"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "ops_environment_auditor_cli",
+      "displayName": "ops_environment_auditor_cli",
+      "type": "reviewer-cli",
+      "mode": "review_gate",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 65,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run ops:audit:check",
+      "verification": "npm run ops:audit:check",
+      "humanGate": [
+        "duplicate schedules should be removed, unavailable role pools must be confirmed, or provider credentials require owner action"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "stitch",
+      "displayName": "Stitch UI Prototype Support Pool",
+      "type": "role-pool",
+      "mode": "optional_review",
+      "status": "optional_review",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": "optional-reviewer"
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run agent:queue -- --agent stitch --limit 3",
+      "verification": null,
+      "humanGate": [],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "telegram_notifier",
+      "displayName": "telegram_notifier",
+      "type": "runtime-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run agent:system:check",
+      "verification": "npm run agent:system:check",
+      "humanGate": [
+        "Telegram credentials or destination chat must be changed"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "voc_analyzer",
+      "displayName": "voc_analyzer",
+      "type": "runtime-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run smoke",
+      "verification": "npm run smoke",
+      "humanGate": [
+        "analysis criteria or domain taxonomy changes are ambiguous"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "voc_collector",
+      "displayName": "voc_collector",
+      "type": "runtime-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run smoke",
+      "verification": "npm run smoke",
+      "humanGate": [
+        "source credentials or new private input routes are required"
+      ],
+      "sampleIssues": []
+    },
+    {
+      "agentId": "voc_visualizer",
+      "displayName": "voc_visualizer",
+      "type": "runtime-agent",
+      "mode": "runtime_execution",
+      "status": "monitor",
+      "priority": "P3",
+      "score": 55,
+      "pressure": {
+        "openIssues": 0,
+        "needsAgentOpenIssues": 0,
+        "p1OpenIssues": 0,
+        "staleOpenIssues": 0,
+        "sessionStatus": null
+      },
+      "ralphDirective": "Run lightweight status/health verification and stay available for review or routed work.",
+      "command": "npm run smoke",
+      "verification": "npm run smoke",
+      "humanGate": [
+        "public copy or visual design changes require product judgment"
+      ],
+      "sampleIssues": []
+    }
+  ],
+  "warnings": [
+    {
+      "code": "stale_issue_pressure",
+      "count": 18,
+      "instruction": "Prioritize stale issue reduction before page-only feature growth."
+    },
+    {
+      "code": "human_gate_pressure",
+      "count": 3,
+      "instruction": "Compress human questions into decision batches; do not bounce raw issue lists back to the user."
+    }
+  ],
+  "failures": [],
+  "safety": {
+    "publicSafeOnly": true,
+    "secretValuesIncluded": false,
+    "privateRawDataIncluded": false,
+    "externalMutations": false,
+    "closeMergeDeployPublish": false,
+    "realWorldAutonomyClaimed": false
+  }
+}

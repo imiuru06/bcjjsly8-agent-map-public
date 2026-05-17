@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:23.157Z",
+  "sourceId": "weekly_knowledge_synthesis_baseline",
+  "purpose": "Baseline weekly synthesis artifact for the LLM-Wiki compound loop.",
+  "period": {
+    "label": "baseline",
+    "sourceGeneratedAt": "2026-05-17T00:05:18.274854Z"
+  },
+  "themes": [
+    {
+      "id": "llm-wiki-foundation",
+      "title": "LLM-Wiki foundation is forming",
+      "evidence": [
+        "knowledge vault exists",
+        "public-safe Kakao analysis exists",
+        "runtime artifacts are deployed"
+      ]
+    },
+    {
+      "id": "capture-before-rag",
+      "title": "Capture and reuse should precede RAG/MCP",
+      "evidence": [
+        "capture inbox baseline created",
+        "ROI counters are now instrumented as baseline"
+      ]
+    },
+    {
+      "id": "agent-loop-not-replacement",
+      "title": "Agent loops exist but replacement is not ready",
+      "evidence": [
+        "life-agent run evidence exists",
+        "replacementReadyDomainCount remains zero"
+      ]
+    }
+  ],
+  "knowledgeGaps": [
+    "Graphify output is not built yet.",
+    "Search/reuse ROI has baseline counters but no real usage events yet.",
+    "No life domain is replacement-ready yet.",
+    "Capture candidates are not yet promoted into durable atomic notes."
+  ],
+  "nextActions": [
+    "Run Graphify first build after reviewing .graphifyignore.",
+    "Start counting search, cited-answer, and note-reuse events.",
+    "Promote only repeated or decision-changing captures into atomic notes.",
+    "Keep raw private data out of public dashboards."
+  ]
+}

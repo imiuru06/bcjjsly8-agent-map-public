@@ -1,0 +1,1389 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "external_public_tech_economy_signals",
+  "sourceType": "public_rss_atom_metadata",
+  "collectedAt": "2026-05-17T00:19:21.700Z",
+  "sourceConfig": {
+    "configPath": "config/external-info-sources.json",
+    "sourceCount": 7,
+    "recentWindowHours": 168,
+    "maxItemsPerSource": 8,
+    "maxTotalItems": 80
+  },
+  "freshness": {
+    "status": "current",
+    "newestItemPublishedAt": "2026-05-16T00:00:00.000Z",
+    "newestItemAgeHours": 24
+  },
+  "summary": {
+    "sourcesOk": 6,
+    "sourcesError": 1,
+    "totalSignals": 48,
+    "recentSignals": 32,
+    "technologySignals": 24,
+    "economySignals": 24,
+    "highImportanceSignals": 2,
+    "mediumImportanceSignals": 32
+  },
+  "counts": {
+    "bySource": {
+      "cloudflare_blog": 8,
+      "ecb_press": 8,
+      "federal_reserve": 8,
+      "github_blog": 8,
+      "openai_news": 8,
+      "sec_press": 8
+    },
+    "byTopic": {
+      "ai": 8,
+      "cloud_infrastructure": 8,
+      "economy_policy": 8,
+      "market_regulation": 8,
+      "monetary_policy": 8,
+      "software_platform": 8
+    },
+    "byTag": {
+      "ai": 9,
+      "cloud_infrastructure": 8,
+      "economy_policy": 8,
+      "infrastructure": 1,
+      "macro_policy": 10,
+      "market_regulation": 8,
+      "monetary_policy": 8,
+      "software": 7,
+      "software_platform": 8
+    },
+    "byHost": {
+      "blog.cloudflare.com": 8,
+      "ecb.europa.eu": 8,
+      "federalreserve.gov": 8,
+      "github.blog": 8,
+      "openai.com": 8,
+      "sec.gov": 8
+    }
+  },
+  "sourceHealth": [
+    {
+      "sourceId": "hacker_news",
+      "sourceName": "Hacker News",
+      "topic": "technology",
+      "status": "error",
+      "itemCount": 0,
+      "reason": "HTTP 429"
+    },
+    {
+      "sourceId": "github_blog",
+      "sourceName": "GitHub Blog",
+      "topic": "software_platform",
+      "status": "ok",
+      "itemCount": 8,
+      "latencyMs": 227
+    },
+    {
+      "sourceId": "cloudflare_blog",
+      "sourceName": "Cloudflare Blog",
+      "topic": "cloud_infrastructure",
+      "status": "ok",
+      "itemCount": 8,
+      "latencyMs": 258
+    },
+    {
+      "sourceId": "openai_news",
+      "sourceName": "OpenAI News",
+      "topic": "ai",
+      "status": "ok",
+      "itemCount": 8,
+      "latencyMs": 705
+    },
+    {
+      "sourceId": "federal_reserve",
+      "sourceName": "Federal Reserve Press Releases",
+      "topic": "economy_policy",
+      "status": "ok",
+      "itemCount": 8,
+      "latencyMs": 90
+    },
+    {
+      "sourceId": "ecb_press",
+      "sourceName": "European Central Bank Press",
+      "topic": "monetary_policy",
+      "status": "ok",
+      "itemCount": 8,
+      "latencyMs": 1187
+    },
+    {
+      "sourceId": "sec_press",
+      "sourceName": "SEC Press Releases",
+      "topic": "market_regulation",
+      "status": "ok",
+      "itemCount": 8,
+      "latencyMs": 305
+    }
+  ],
+  "publicSignals": [
+    {
+      "sourceId": "openai_news",
+      "sourceName": "OpenAI News",
+      "sourceUrl": "https://openai.com/news/rss.xml",
+      "topic": "ai",
+      "title": "OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+      "link": "https://openai.com/index/malta-chatgpt-plus-partnership",
+      "linkHost": "openai.com",
+      "publishedAt": "2026-05-16T00:00:00.000Z",
+      "ageHours": 24,
+      "tags": [
+        "ai"
+      ],
+      "signalId": "ext_4a53a1bd1c6f",
+      "importanceScore": 77,
+      "importance": "high",
+      "oneLineSummary": "AI 신호 · OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+      "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+      "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+      "suggestedAction": "원문 출처를 검토한 뒤 관련 GitHub 이슈/로드맵에 영향 여부를 기록합니다."
+    },
+    {
+      "sourceId": "federal_reserve",
+      "sourceName": "Federal Reserve Press Releases",
+      "sourceUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "topic": "economy_policy",
+      "title": "Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempore until Kevin M. Warsh is sworn in as the new chair",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260515a.htm",
+      "linkHost": "federalreserve.gov",
+      "publishedAt": "2026-05-15T21:00:00.000Z",
+      "ageHours": 27,
+      "tags": [
+        "economy_policy",
+        "macro_policy"
+      ],
+      "signalId": "ext_02e519e8b69a",
+      "importanceScore": 60,
+      "importance": "medium",
+      "oneLineSummary": "경제 정책 신호 · Federal Reserve Board names Jerome H. Powell as chair pro tempore; Powell will serve as chair pro tempo…",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "federal_reserve",
+      "sourceName": "Federal Reserve Press Releases",
+      "sourceUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "topic": "economy_policy",
+      "title": "Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260515a.htm",
+      "linkHost": "federalreserve.gov",
+      "publishedAt": "2026-05-15T20:30:00.000Z",
+      "ageHours": 28,
+      "tags": [
+        "economy_policy",
+        "macro_policy"
+      ],
+      "signalId": "ext_a03ae5b45f00",
+      "importanceScore": 60,
+      "importance": "medium",
+      "oneLineSummary": "경제 정책 신호 · Federal Reserve Board announces approval of application by the Stephen M. Calk 2025 Trust",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "federal_reserve",
+      "sourceName": "Federal Reserve Press Releases",
+      "sourceUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "topic": "economy_policy",
+      "title": "Federal Reserve Board announces it does not object to the conversion of United Texas Bank, of Dallas, Texas, from a bank supervised by the Federal Reserve to a national bank supervised by the Office of the Comptroller of the Currency",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260515b.htm",
+      "linkHost": "federalreserve.gov",
+      "publishedAt": "2026-05-15T20:30:00.000Z",
+      "ageHours": 28,
+      "tags": [
+        "economy_policy",
+        "macro_policy"
+      ],
+      "signalId": "ext_08b662836384",
+      "importanceScore": 60,
+      "importance": "medium",
+      "oneLineSummary": "경제 정책 신호 · Federal Reserve Board announces it does not object to the conversion of United Texas Bank, of Dallas, T…",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "github_blog",
+      "sourceName": "GitHub Blog",
+      "sourceUrl": "https://github.blog/feed/",
+      "topic": "software_platform",
+      "title": "Building a general-purpose accessibility agent—and what we learned in the process",
+      "link": "https://github.blog/ai-and-ml/github-copilot/building-a-general-purpose-accessibility-agent-and-what-we-learned-in-the-process/",
+      "linkHost": "github.blog",
+      "publishedAt": "2026-05-15T16:00:00.000Z",
+      "ageHours": 32,
+      "tags": [
+        "ai",
+        "software_platform"
+      ],
+      "signalId": "ext_4eb822dfa1e8",
+      "importanceScore": 55,
+      "importance": "medium",
+      "oneLineSummary": "소프트웨어 플랫폼 신호 · Building a general-purpose accessibility agent—and what we learned in the process",
+      "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+      "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "federal_reserve",
+      "sourceName": "Federal Reserve Press Releases",
+      "sourceUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "topic": "economy_policy",
+      "title": "Federal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG, Credit Suisse Holdings (USA), Inc., and Credit Suisse AG, New York Branch",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260515a.htm",
+      "linkHost": "federalreserve.gov",
+      "publishedAt": "2026-05-15T15:00:00.000Z",
+      "ageHours": 33,
+      "tags": [
+        "economy_policy",
+        "macro_policy"
+      ],
+      "signalId": "ext_09aca3f2e4cb",
+      "importanceScore": 60,
+      "importance": "medium",
+      "oneLineSummary": "경제 정책 신호 · Federal Reserve Board announces termination of enforcement actions with UBS Group AG, Credit Suisse AG,…",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "github_blog",
+      "sourceName": "GitHub Blog",
+      "sourceUrl": "https://github.blog/feed/",
+      "topic": "software_platform",
+      "title": "Raising the bar: Quality, shared responsibility, and the future of GitHub’s bug bounty program",
+      "link": "https://github.blog/security/raising-the-bar-quality-shared-responsibility-and-the-future-of-githubs-bug-bounty-program/",
+      "linkHost": "github.blog",
+      "publishedAt": "2026-05-15T14:00:00.000Z",
+      "ageHours": 34,
+      "tags": [
+        "software",
+        "software_platform"
+      ],
+      "signalId": "ext_85680ac499ea",
+      "importanceScore": 50,
+      "importance": "watch",
+      "oneLineSummary": "소프트웨어 플랫폼 신호 · Raising the bar: Quality, shared responsibility, and the future of GitHub’s bug bounty program",
+      "whyItMatters": "개발 플랫폼 변화는 GitHub 중심 협업, CI/CD, 에이전트 작업 루프 개선에 연결될 수 있습니다.",
+      "projectRelevance": "GitHub Issue/Project control-plane, CLI agent workflow",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "openai_news",
+      "sourceName": "OpenAI News",
+      "sourceUrl": "https://openai.com/news/rss.xml",
+      "topic": "ai",
+      "title": "A new personal finance experience in ChatGPT",
+      "link": "https://openai.com/index/personal-finance-chatgpt",
+      "linkHost": "openai.com",
+      "publishedAt": "2026-05-15T00:00:00.000Z",
+      "ageHours": 48,
+      "tags": [
+        "ai"
+      ],
+      "signalId": "ext_16d0144e1923",
+      "importanceScore": 73,
+      "importance": "medium",
+      "oneLineSummary": "AI 신호 · A new personal finance experience in ChatGPT",
+      "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+      "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "openai_news",
+      "sourceName": "OpenAI News",
+      "sourceUrl": "https://openai.com/news/rss.xml",
+      "topic": "ai",
+      "title": "Databricks brings GPT-5.5 to enterprise agent workflows",
+      "link": "https://openai.com/index/databricks",
+      "linkHost": "openai.com",
+      "publishedAt": "2026-05-15T00:00:00.000Z",
+      "ageHours": 48,
+      "tags": [
+        "ai"
+      ],
+      "signalId": "ext_c6068cc8f58a",
+      "importanceScore": 73,
+      "importance": "medium",
+      "oneLineSummary": "AI 신호 · Databricks brings GPT-5.5 to enterprise agent workflows",
+      "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+      "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "openai_news",
+      "sourceName": "OpenAI News",
+      "sourceUrl": "https://openai.com/news/rss.xml",
+      "topic": "ai",
+      "title": "How business operations teams use Codex",
+      "link": "https://openai.com/academy/codex-for-work/how-business-operations-teams-use-codex",
+      "linkHost": "openai.com",
+      "publishedAt": "2026-05-15T00:00:00.000Z",
+      "ageHours": 48,
+      "tags": [
+        "ai"
+      ],
+      "signalId": "ext_56d1a515ad3d",
+      "importanceScore": 73,
+      "importance": "medium",
+      "oneLineSummary": "AI 신호 · How business operations teams use Codex",
+      "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+      "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "openai_news",
+      "sourceName": "OpenAI News",
+      "sourceUrl": "https://openai.com/news/rss.xml",
+      "topic": "ai",
+      "title": "How data science teams use Codex",
+      "link": "https://openai.com/academy/codex-for-work/how-data-science-teams-use-codex",
+      "linkHost": "openai.com",
+      "publishedAt": "2026-05-15T00:00:00.000Z",
+      "ageHours": 48,
+      "tags": [
+        "ai"
+      ],
+      "signalId": "ext_b8ce64677dec",
+      "importanceScore": 73,
+      "importance": "medium",
+      "oneLineSummary": "AI 신호 · How data science teams use Codex",
+      "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+      "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "openai_news",
+      "sourceName": "OpenAI News",
+      "sourceUrl": "https://openai.com/news/rss.xml",
+      "topic": "ai",
+      "title": "How sales teams use Codex",
+      "link": "https://openai.com/academy/codex-for-work/how-sales-teams-use-codex",
+      "linkHost": "openai.com",
+      "publishedAt": "2026-05-15T00:00:00.000Z",
+      "ageHours": 48,
+      "tags": [
+        "ai"
+      ],
+      "signalId": "ext_25426c4f3f00",
+      "importanceScore": 73,
+      "importance": "medium",
+      "oneLineSummary": "AI 신호 · How sales teams use Codex",
+      "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+      "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "github_blog",
+      "sourceName": "GitHub Blog",
+      "sourceUrl": "https://github.blog/feed/",
+      "topic": "software_platform",
+      "title": "GitHub availability report: April 2026",
+      "link": "https://github.blog/news-insights/company-news/github-availability-report-april-2026/",
+      "linkHost": "github.blog",
+      "publishedAt": "2026-05-14T22:02:43.000Z",
+      "ageHours": 50,
+      "tags": [
+        "software",
+        "software_platform"
+      ],
+      "signalId": "ext_e96dd8f16943",
+      "importanceScore": 50,
+      "importance": "watch",
+      "oneLineSummary": "소프트웨어 플랫폼 신호 · GitHub availability report: April 2026",
+      "whyItMatters": "개발 플랫폼 변화는 GitHub 중심 협업, CI/CD, 에이전트 작업 루프 개선에 연결될 수 있습니다.",
+      "projectRelevance": "GitHub Issue/Project control-plane, CLI agent workflow",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "openai_news",
+      "sourceName": "OpenAI News",
+      "sourceUrl": "https://openai.com/news/rss.xml",
+      "topic": "ai",
+      "title": "Sea's View on the Future of Agentic Software Development with Codex",
+      "link": "https://openai.com/index/sea-david-chen",
+      "linkHost": "openai.com",
+      "publishedAt": "2026-05-14T20:30:00.000Z",
+      "ageHours": 52,
+      "tags": [
+        "ai",
+        "software"
+      ],
+      "signalId": "ext_f7958cb94e23",
+      "importanceScore": 81,
+      "importance": "high",
+      "oneLineSummary": "AI 신호 · Sea's View on the Future of Agentic Software Development with Codex",
+      "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+      "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+      "suggestedAction": "원문 출처를 검토한 뒤 관련 GitHub 이슈/로드맵에 영향 여부를 기록합니다."
+    },
+    {
+      "sourceId": "federal_reserve",
+      "sourceName": "Federal Reserve Press Releases",
+      "sourceUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "topic": "economy_policy",
+      "title": "Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or shortly before his successor on the Board is sworn in",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514b.htm",
+      "linkHost": "federalreserve.gov",
+      "publishedAt": "2026-05-14T18:00:00.000Z",
+      "ageHours": 54,
+      "tags": [
+        "economy_policy",
+        "macro_policy"
+      ],
+      "signalId": "ext_acfe00117b55",
+      "importanceScore": 60,
+      "importance": "medium",
+      "oneLineSummary": "경제 정책 신호 · Stephen I. Miran submits his resignation as a member of the Federal Reserve Board, effective when or sh…",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "github_blog",
+      "sourceName": "GitHub Blog",
+      "sourceUrl": "https://github.blog/feed/",
+      "topic": "software_platform",
+      "title": "From latency to instant: Modernizing GitHub Issues navigation performance",
+      "link": "https://github.blog/engineering/architecture-optimization/from-latency-to-instant-modernizing-github-issues-navigation-performance/",
+      "linkHost": "github.blog",
+      "publishedAt": "2026-05-14T16:00:00.000Z",
+      "ageHours": 56,
+      "tags": [
+        "software",
+        "software_platform"
+      ],
+      "signalId": "ext_7fd902f410ab",
+      "importanceScore": 50,
+      "importance": "watch",
+      "oneLineSummary": "소프트웨어 플랫폼 신호 · From latency to instant: Modernizing GitHub Issues navigation performance",
+      "whyItMatters": "개발 플랫폼 변화는 GitHub 중심 협업, CI/CD, 에이전트 작업 루프 개선에 연결될 수 있습니다.",
+      "projectRelevance": "GitHub Issue/Project control-plane, CLI agent workflow",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "federal_reserve",
+      "sourceName": "Federal Reserve Press Releases",
+      "sourceUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "topic": "economy_policy",
+      "title": "Federal Reserve Board releases results from two surveys of senior financial officers at banks about their views on discount window operating days and their strategies and practices for managing reserve balances",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260514a.htm",
+      "linkHost": "federalreserve.gov",
+      "publishedAt": "2026-05-14T14:00:00.000Z",
+      "ageHours": 58,
+      "tags": [
+        "economy_policy",
+        "macro_policy"
+      ],
+      "signalId": "ext_d73980d6a1ee",
+      "importanceScore": 60,
+      "importance": "medium",
+      "oneLineSummary": "경제 정책 신호 · Federal Reserve Board releases results from two surveys of senior financial officers at banks about the…",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "cloudflare_blog",
+      "sourceName": "Cloudflare Blog",
+      "sourceUrl": "https://blog.cloudflare.com/rss/",
+      "topic": "cloud_infrastructure",
+      "title": "Our billing pipeline was suddenly slow. The culprit was a hidden bottleneck in ClickHouse",
+      "link": "https://blog.cloudflare.com/clickhouse-query-plan-contention/",
+      "linkHost": "blog.cloudflare.com",
+      "publishedAt": "2026-05-14T13:00:00.000Z",
+      "ageHours": 59,
+      "tags": [
+        "cloud_infrastructure"
+      ],
+      "signalId": "ext_e41c53edc35c",
+      "importanceScore": 54,
+      "importance": "watch",
+      "oneLineSummary": "클라우드/인프라 신호 · Our billing pipeline was suddenly slow. The culprit was a hidden bottleneck in ClickHouse",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "openai_news",
+      "sourceName": "OpenAI News",
+      "sourceUrl": "https://openai.com/news/rss.xml",
+      "topic": "ai",
+      "title": "Work with Codex from anywhere",
+      "link": "https://openai.com/index/work-with-codex-from-anywhere",
+      "linkHost": "openai.com",
+      "publishedAt": "2026-05-14T13:00:00.000Z",
+      "ageHours": 59,
+      "tags": [
+        "ai"
+      ],
+      "signalId": "ext_21cc73e2de37",
+      "importanceScore": 73,
+      "importance": "medium",
+      "oneLineSummary": "AI 신호 · Work with Codex from anywhere",
+      "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+      "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "ecb_press",
+      "sourceName": "European Central Bank Press",
+      "sourceUrl": "https://www.ecb.europa.eu/rss/press.html",
+      "topic": "monetary_policy",
+      "title": "Christine Lagarde: The courage to build a Europe that endures",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260513_1~ab5ae9e754.en.html",
+      "linkHost": "ecb.europa.eu",
+      "publishedAt": "2026-05-13T19:50:00.000Z",
+      "ageHours": 76,
+      "tags": [
+        "monetary_policy"
+      ],
+      "signalId": "ext_3ee2706859b5",
+      "importanceScore": 56,
+      "importance": "medium",
+      "oneLineSummary": "통화 정책 신호 · Christine Lagarde: The courage to build a Europe that endures",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "ecb_press",
+      "sourceName": "European Central Bank Press",
+      "sourceUrl": "https://www.ecb.europa.eu/rss/press.html",
+      "topic": "monetary_policy",
+      "title": "Philip R. Lane: Analytical perspectives on energy supply shocks",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260513~5b14c78806.en.html",
+      "linkHost": "ecb.europa.eu",
+      "publishedAt": "2026-05-13T19:00:00.000Z",
+      "ageHours": 77,
+      "tags": [
+        "monetary_policy"
+      ],
+      "signalId": "ext_f53bb59b1ace",
+      "importanceScore": 56,
+      "importance": "medium",
+      "oneLineSummary": "통화 정책 신호 · Philip R. Lane: Analytical perspectives on energy supply shocks",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "github_blog",
+      "sourceName": "GitHub Blog",
+      "sourceUrl": "https://github.blog/feed/",
+      "topic": "software_platform",
+      "title": "Dungeons & Desktops: 10 roguelikes that never die (because their communities won’t let them)",
+      "link": "https://github.blog/open-source/gaming/dungeons-desktops-10-roguelikes-that-never-die-because-their-communities-wont-let-them/",
+      "linkHost": "github.blog",
+      "publishedAt": "2026-05-13T16:00:00.000Z",
+      "ageHours": 80,
+      "tags": [
+        "software_platform"
+      ],
+      "signalId": "ext_ea8760aa20d1",
+      "importanceScore": 38,
+      "importance": "watch",
+      "oneLineSummary": "소프트웨어 플랫폼 신호 · Dungeons & Desktops: 10 roguelikes that never die (because their communities won’t let them)",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "federal_reserve",
+      "sourceName": "Federal Reserve Press Releases",
+      "sourceUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "topic": "economy_policy",
+      "title": "Federal Reserve Board issues Economic Well-Being of U.S. Households in 2025 report",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260513a.htm",
+      "linkHost": "federalreserve.gov",
+      "publishedAt": "2026-05-13T15:30:00.000Z",
+      "ageHours": 81,
+      "tags": [
+        "economy_policy",
+        "macro_policy"
+      ],
+      "signalId": "ext_3b46ce2ed338",
+      "importanceScore": 56,
+      "importance": "medium",
+      "oneLineSummary": "경제 정책 신호 · Federal Reserve Board issues Economic Well-Being of U.S. Households in 2025 report",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "cloudflare_blog",
+      "sourceName": "Cloudflare Blog",
+      "sourceUrl": "https://blog.cloudflare.com/rss/",
+      "topic": "cloud_infrastructure",
+      "title": "Browser Run: now running on Cloudflare Containers, it’s faster and more scalable",
+      "link": "https://blog.cloudflare.com/browser-run-containers/",
+      "linkHost": "blog.cloudflare.com",
+      "publishedAt": "2026-05-13T13:00:00.000Z",
+      "ageHours": 83,
+      "tags": [
+        "cloud_infrastructure"
+      ],
+      "signalId": "ext_6d993a12210f",
+      "importanceScore": 50,
+      "importance": "watch",
+      "oneLineSummary": "클라우드/인프라 신호 · Browser Run: now running on Cloudflare Containers, it’s faster and more scalable",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "github_blog",
+      "sourceName": "GitHub Blog",
+      "sourceUrl": "https://github.blog/feed/",
+      "topic": "software_platform",
+      "title": "GitHub Copilot individual plans: Introducing flex allotments in Pro and Pro+, and a new Max plan",
+      "link": "https://github.blog/news-insights/company-news/github-copilot-individual-plans-introducing-flex-allotments-in-pro-and-pro-and-a-new-max-plan/",
+      "linkHost": "github.blog",
+      "publishedAt": "2026-05-12T17:35:41.000Z",
+      "ageHours": 103,
+      "tags": [
+        "software",
+        "software_platform"
+      ],
+      "signalId": "ext_8ad6260a63dc",
+      "importanceScore": 46,
+      "importance": "watch",
+      "oneLineSummary": "소프트웨어 플랫폼 신호 · GitHub Copilot individual plans: Introducing flex allotments in Pro and Pro+, and a new Max plan",
+      "whyItMatters": "개발 플랫폼 변화는 GitHub 중심 협업, CI/CD, 에이전트 작업 루프 개선에 연결될 수 있습니다.",
+      "projectRelevance": "GitHub Issue/Project control-plane, CLI agent workflow",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "federal_reserve",
+      "sourceName": "Federal Reserve Press Releases",
+      "sourceUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "topic": "economy_policy",
+      "title": "Federal Reserve Board announces termination of enforcement actions with F & M Holding Company, Inc. and Thread Bancorp, Inc.",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260512a.htm",
+      "linkHost": "federalreserve.gov",
+      "publishedAt": "2026-05-12T15:00:00.000Z",
+      "ageHours": 105,
+      "tags": [
+        "economy_policy",
+        "macro_policy"
+      ],
+      "signalId": "ext_5903c6043aeb",
+      "importanceScore": 56,
+      "importance": "medium",
+      "oneLineSummary": "경제 정책 신호 · Federal Reserve Board announces termination of enforcement actions with F & M Holding Company, Inc. and…",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "github_blog",
+      "sourceName": "GitHub Blog",
+      "sourceUrl": "https://github.blog/feed/",
+      "topic": "software_platform",
+      "title": "Dungeons & Desktops: Building a procedurally generated roguelike with GitHub Copilot CLI",
+      "link": "https://github.blog/ai-and-ml/github-copilot/dungeons-desktops-building-a-procedurally-generated-roguelike-with-github-copilot-cli/",
+      "linkHost": "github.blog",
+      "publishedAt": "2026-05-12T15:00:00.000Z",
+      "ageHours": 105,
+      "tags": [
+        "software",
+        "software_platform"
+      ],
+      "signalId": "ext_bdef150af060",
+      "importanceScore": 46,
+      "importance": "watch",
+      "oneLineSummary": "소프트웨어 플랫폼 신호 · Dungeons & Desktops: Building a procedurally generated roguelike with GitHub Copilot CLI",
+      "whyItMatters": "개발 플랫폼 변화는 GitHub 중심 협업, CI/CD, 에이전트 작업 루프 개선에 연결될 수 있습니다.",
+      "projectRelevance": "GitHub Issue/Project control-plane, CLI agent workflow",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "cloudflare_blog",
+      "sourceName": "Cloudflare Blog",
+      "sourceUrl": "https://blog.cloudflare.com/rss/",
+      "topic": "cloud_infrastructure",
+      "title": "When \"idle\" isn't idle: how a Linux kernel optimization became a QUIC bug",
+      "link": "https://blog.cloudflare.com/quic-death-spiral-fix/",
+      "linkHost": "blog.cloudflare.com",
+      "publishedAt": "2026-05-12T13:00:00.000Z",
+      "ageHours": 107,
+      "tags": [
+        "cloud_infrastructure"
+      ],
+      "signalId": "ext_f5e7981e2fdd",
+      "importanceScore": 50,
+      "importance": "watch",
+      "oneLineSummary": "클라우드/인프라 신호 · When \"idle\" isn't idle: how a Linux kernel optimization became a QUIC bug",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "ecb_press",
+      "sourceName": "European Central Bank Press",
+      "sourceUrl": "https://www.ecb.europa.eu/rss/press.html",
+      "topic": "monetary_policy",
+      "title": "Frank Elderson: Boosting prosperity through deeper integration",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260512~640d289749.en.html",
+      "linkHost": "ecb.europa.eu",
+      "publishedAt": "2026-05-12T10:40:00.000Z",
+      "ageHours": 110,
+      "tags": [
+        "monetary_policy"
+      ],
+      "signalId": "ext_0bd7ee81ca93",
+      "importanceScore": 56,
+      "importance": "medium",
+      "oneLineSummary": "통화 정책 신호 · Frank Elderson: Boosting prosperity through deeper integration",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "github_blog",
+      "sourceName": "GitHub Blog",
+      "sourceUrl": "https://github.blog/feed/",
+      "topic": "software_platform",
+      "title": "GitHub for Beginners: Getting started with OSS contributions",
+      "link": "https://github.blog/developer-skills/github/github-for-beginners-getting-started-with-oss-contributions/",
+      "linkHost": "github.blog",
+      "publishedAt": "2026-05-11T16:00:00.000Z",
+      "ageHours": 128,
+      "tags": [
+        "software",
+        "software_platform"
+      ],
+      "signalId": "ext_48de87c4b4b7",
+      "importanceScore": 46,
+      "importance": "watch",
+      "oneLineSummary": "소프트웨어 플랫폼 신호 · GitHub for Beginners: Getting started with OSS contributions",
+      "whyItMatters": "개발 플랫폼 변화는 GitHub 중심 협업, CI/CD, 에이전트 작업 루프 개선에 연결될 수 있습니다.",
+      "projectRelevance": "GitHub Issue/Project control-plane, CLI agent workflow",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "ecb_press",
+      "sourceName": "European Central Bank Press",
+      "sourceUrl": "https://www.ecb.europa.eu/rss/press.html",
+      "topic": "monetary_policy",
+      "title": "Luis de Guindos: Interview with Financial Times",
+      "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in260511~3fa2df2fa9.en.html",
+      "linkHost": "ecb.europa.eu",
+      "publishedAt": "2026-05-11T04:00:00.000Z",
+      "ageHours": 140,
+      "tags": [
+        "monetary_policy"
+      ],
+      "signalId": "ext_32830ceb8438",
+      "importanceScore": 56,
+      "importance": "medium",
+      "oneLineSummary": "통화 정책 신호 · Luis de Guindos: Interview with Financial Times",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "ecb_press",
+      "sourceName": "European Central Bank Press",
+      "sourceUrl": "https://www.ecb.europa.eu/rss/press.html",
+      "topic": "monetary_policy",
+      "title": "European Central Bank and Reserve Bank of India sign Memorandum of Understanding on cooperation",
+      "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260510~e8a674e2fb.en.html",
+      "linkHost": "ecb.europa.eu",
+      "publishedAt": "2026-05-10T13:00:00.000Z",
+      "ageHours": 155,
+      "tags": [
+        "macro_policy",
+        "monetary_policy"
+      ],
+      "signalId": "ext_de431c749f32",
+      "importanceScore": 68,
+      "importance": "medium",
+      "oneLineSummary": "통화 정책 신호 · European Central Bank and Reserve Bank of India sign Memorandum of Understanding on cooperation",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "ecb_press",
+      "sourceName": "European Central Bank Press",
+      "sourceUrl": "https://www.ecb.europa.eu/rss/press.html",
+      "topic": "monetary_policy",
+      "title": "Christine Lagarde: Stablecoins and the future of money: separating functions from instruments",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260508~dd909fbed1.en.html",
+      "linkHost": "ecb.europa.eu",
+      "publishedAt": "2026-05-08T07:00:00.000Z",
+      "ageHours": 209,
+      "tags": [
+        "monetary_policy"
+      ],
+      "signalId": "ext_0e0dcbc956cb",
+      "importanceScore": 56,
+      "importance": "medium",
+      "oneLineSummary": "통화 정책 신호 · Christine Lagarde: Stablecoins and the future of money: separating functions from instruments",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "cloudflare_blog",
+      "sourceName": "Cloudflare Blog",
+      "sourceUrl": "https://blog.cloudflare.com/rss/",
+      "topic": "cloud_infrastructure",
+      "title": "Building for the future",
+      "link": "https://blog.cloudflare.com/building-for-the-future/",
+      "linkHost": "blog.cloudflare.com",
+      "publishedAt": "2026-05-07T20:15:12.000Z",
+      "ageHours": 220,
+      "tags": [
+        "cloud_infrastructure"
+      ],
+      "signalId": "ext_45a11ca6cf63",
+      "importanceScore": 50,
+      "importance": "watch",
+      "oneLineSummary": "클라우드/인프라 신호 · Building for the future",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "ecb_press",
+      "sourceName": "European Central Bank Press",
+      "sourceUrl": "https://www.ecb.europa.eu/rss/press.html",
+      "topic": "monetary_policy",
+      "title": "Isabel Schnabel: The quiet erosion of central bank independence",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260507_1~d5ae988ece.en.html",
+      "linkHost": "ecb.europa.eu",
+      "publishedAt": "2026-05-07T17:00:00.000Z",
+      "ageHours": 223,
+      "tags": [
+        "macro_policy",
+        "monetary_policy"
+      ],
+      "signalId": "ext_a845555a790f",
+      "importanceScore": 68,
+      "importance": "medium",
+      "oneLineSummary": "통화 정책 신호 · Isabel Schnabel: The quiet erosion of central bank independence",
+      "whyItMatters": "금리·물가·정책 신호는 비용, 투자, 수익화 우선순위 판단의 배경 정보가 됩니다.",
+      "projectRelevance": "경제 브리프, 수익화 판단, 비용 관리",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "cloudflare_blog",
+      "sourceName": "Cloudflare Blog",
+      "sourceUrl": "https://blog.cloudflare.com/rss/",
+      "topic": "cloud_infrastructure",
+      "title": "How Cloudflare responded to the “Copy Fail” Linux vulnerability",
+      "link": "https://blog.cloudflare.com/copy-fail-linux-vulnerability-mitigation/",
+      "linkHost": "blog.cloudflare.com",
+      "publishedAt": "2026-05-07T13:00:00.000Z",
+      "ageHours": 227,
+      "tags": [
+        "cloud_infrastructure"
+      ],
+      "signalId": "ext_708e40933d2d",
+      "importanceScore": 50,
+      "importance": "watch",
+      "oneLineSummary": "클라우드/인프라 신호 · How Cloudflare responded to the “Copy Fail” Linux vulnerability",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "ecb_press",
+      "sourceName": "European Central Bank Press",
+      "sourceUrl": "https://www.ecb.europa.eu/rss/press.html",
+      "topic": "monetary_policy",
+      "title": "Luis de Guindos: Deepening financial integration to support Europe’s prosperity",
+      "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260507~c99288185f.en.html",
+      "linkHost": "ecb.europa.eu",
+      "publishedAt": "2026-05-07T07:15:00.000Z",
+      "ageHours": 233,
+      "tags": [
+        "monetary_policy"
+      ],
+      "signalId": "ext_d97839682b51",
+      "importanceScore": 56,
+      "importance": "medium",
+      "oneLineSummary": "통화 정책 신호 · Luis de Guindos: Deepening financial integration to support Europe’s prosperity",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "sec_press",
+      "sourceName": "SEC Press Releases",
+      "sourceUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "topic": "market_regulation",
+      "title": "SEC Charges 21 Individuals With Alleged Wide-Reaching Insider Trading Scheme",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-44-sec-charges-21-individuals-alleged-wide-reaching-insider-trading-scheme",
+      "linkHost": "sec.gov",
+      "publishedAt": "2026-05-06T23:24:19.000Z",
+      "ageHours": 241,
+      "tags": [
+        "market_regulation"
+      ],
+      "signalId": "ext_27c2dcfd0b40",
+      "importanceScore": 67,
+      "importance": "medium",
+      "oneLineSummary": "시장/규제 신호 · SEC Charges 21 Individuals With Alleged Wide-Reaching Insider Trading Scheme",
+      "whyItMatters": "시장/규제 신호는 서비스화·외부 공개·수익화 과정의 리스크 점검 후보입니다.",
+      "projectRelevance": "서비스화 리스크, 공개 데이터/정책 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "cloudflare_blog",
+      "sourceName": "Cloudflare Blog",
+      "sourceUrl": "https://blog.cloudflare.com/rss/",
+      "topic": "cloud_infrastructure",
+      "title": "When DNSSEC goes wrong: how we responded to the .de TLD outage",
+      "link": "https://blog.cloudflare.com/de-tld-outage-dnssec/",
+      "linkHost": "blog.cloudflare.com",
+      "publishedAt": "2026-05-06T17:00:00.000Z",
+      "ageHours": 247,
+      "tags": [
+        "cloud_infrastructure"
+      ],
+      "signalId": "ext_ac7a9245fc57",
+      "importanceScore": 50,
+      "importance": "watch",
+      "oneLineSummary": "클라우드/인프라 신호 · When DNSSEC goes wrong: how we responded to the .de TLD outage",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "sec_press",
+      "sourceName": "SEC Press Releases",
+      "sourceUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "topic": "market_regulation",
+      "title": "SEC Divisions of Investment Management and Corporation Finance Issue Staff Guidance Supporting Retirement Plans for Small Businesses",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-43-sec-divisions-investment-management-corporation-finance-issue-staff-guidance-supporting-retirement",
+      "linkHost": "sec.gov",
+      "publishedAt": "2026-05-05T20:23:55.000Z",
+      "ageHours": 268,
+      "tags": [
+        "market_regulation"
+      ],
+      "signalId": "ext_cc113a23c1ad",
+      "importanceScore": 67,
+      "importance": "medium",
+      "oneLineSummary": "시장/규제 신호 · SEC Divisions of Investment Management and Corporation Finance Issue Staff Guidance Supporting Retireme…",
+      "whyItMatters": "시장/규제 신호는 서비스화·외부 공개·수익화 과정의 리스크 점검 후보입니다.",
+      "projectRelevance": "서비스화 리스크, 공개 데이터/정책 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "sec_press",
+      "sourceName": "SEC Press Releases",
+      "sourceUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "topic": "market_regulation",
+      "title": "SEC Proposes Amendments to Permit Optional Semiannual Reporting by Public Companies",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-42-sec-proposes-amendments-permit-optional-semiannual-reporting-public-companies",
+      "linkHost": "sec.gov",
+      "publishedAt": "2026-05-05T15:54:00.000Z",
+      "ageHours": 272,
+      "tags": [
+        "market_regulation"
+      ],
+      "signalId": "ext_b6550681a8ef",
+      "importanceScore": 67,
+      "importance": "medium",
+      "oneLineSummary": "시장/규제 신호 · SEC Proposes Amendments to Permit Optional Semiannual Reporting by Public Companies",
+      "whyItMatters": "시장/규제 신호는 서비스화·외부 공개·수익화 과정의 리스크 점검 후보입니다.",
+      "projectRelevance": "서비스화 리스크, 공개 데이터/정책 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "cloudflare_blog",
+      "sourceName": "Cloudflare Blog",
+      "sourceUrl": "https://blog.cloudflare.com/rss/",
+      "topic": "cloud_infrastructure",
+      "title": "Code Orange: Fail Small is complete. The result is a stronger Cloudflare network",
+      "link": "https://blog.cloudflare.com/code-orange-fail-small-complete/",
+      "linkHost": "blog.cloudflare.com",
+      "publishedAt": "2026-05-01T21:07:30.000Z",
+      "ageHours": 363,
+      "tags": [
+        "cloud_infrastructure",
+        "infrastructure"
+      ],
+      "signalId": "ext_ceefc1124164",
+      "importanceScore": 59,
+      "importance": "medium",
+      "oneLineSummary": "클라우드/인프라 신호 · Code Orange: Fail Small is complete. The result is a stronger Cloudflare network",
+      "whyItMatters": "인프라/클라우드 변화는 Agent Map 배포, live API, 모니터링 안정성 개선 후보가 됩니다.",
+      "projectRelevance": "Cloudflare Pages, live API, Registry, observability",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "cloudflare_blog",
+      "sourceName": "Cloudflare Blog",
+      "sourceUrl": "https://blog.cloudflare.com/rss/",
+      "topic": "cloud_infrastructure",
+      "title": "Introducing Dynamic Workflows: durable execution that follows the tenant",
+      "link": "https://blog.cloudflare.com/dynamic-workflows/",
+      "linkHost": "blog.cloudflare.com",
+      "publishedAt": "2026-05-01T13:00:00.000Z",
+      "ageHours": 371,
+      "tags": [
+        "cloud_infrastructure"
+      ],
+      "signalId": "ext_38f8887e0c76",
+      "importanceScore": 50,
+      "importance": "watch",
+      "oneLineSummary": "클라우드/인프라 신호 · Introducing Dynamic Workflows: durable execution that follows the tenant",
+      "whyItMatters": "대외 환경 변화 신호이므로 내부 프로젝트 방향성과 비교해 볼 가치가 있습니다.",
+      "projectRelevance": "Agent Map 전략 점검",
+      "suggestedAction": "현재는 모니터링 대상으로 유지하고 반복 출현 시 중요도를 올립니다."
+    },
+    {
+      "sourceId": "sec_press",
+      "sourceName": "SEC Press Releases",
+      "sourceUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "topic": "market_regulation",
+      "title": "Deputy Director of Enforcement Jason Burt to Conclude His Tenure at the SEC",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-41-deputy-director-enforcement-jason-burt-conclude-his-tenure-sec",
+      "linkHost": "sec.gov",
+      "publishedAt": "2026-04-30T20:30:36.000Z",
+      "ageHours": 388,
+      "tags": [
+        "market_regulation"
+      ],
+      "signalId": "ext_d03a898a6e55",
+      "importanceScore": 67,
+      "importance": "medium",
+      "oneLineSummary": "시장/규제 신호 · Deputy Director of Enforcement Jason Burt to Conclude His Tenure at the SEC",
+      "whyItMatters": "시장/규제 신호는 서비스화·외부 공개·수익화 과정의 리스크 점검 후보입니다.",
+      "projectRelevance": "서비스화 리스크, 공개 데이터/정책 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "sec_press",
+      "sourceName": "SEC Press Releases",
+      "sourceUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "topic": "market_regulation",
+      "title": "SEC and CFTC Jointly Propose Amendments to Reduce Private Fund Reporting Burdens",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-40-sec-cftc-jointly-propose-amendments-reduce-private-fund-reporting-burdens",
+      "linkHost": "sec.gov",
+      "publishedAt": "2026-04-20T14:45:00.000Z",
+      "ageHours": 634,
+      "tags": [
+        "market_regulation"
+      ],
+      "signalId": "ext_82d8766fc6c3",
+      "importanceScore": 67,
+      "importance": "medium",
+      "oneLineSummary": "시장/규제 신호 · SEC and CFTC Jointly Propose Amendments to Reduce Private Fund Reporting Burdens",
+      "whyItMatters": "시장/규제 신호는 서비스화·외부 공개·수익화 과정의 리스크 점검 후보입니다.",
+      "projectRelevance": "서비스화 리스크, 공개 데이터/정책 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "sec_press",
+      "sourceName": "SEC Press Releases",
+      "sourceUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "topic": "market_regulation",
+      "title": "Chairman Atkins Launches 'Material Matters' Podcast",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-39-chairman-atkins-launches-material-matters-podcast",
+      "linkHost": "sec.gov",
+      "publishedAt": "2026-04-16T17:02:47.000Z",
+      "ageHours": 727,
+      "tags": [
+        "market_regulation"
+      ],
+      "signalId": "ext_f911abf108e5",
+      "importanceScore": 67,
+      "importance": "medium",
+      "oneLineSummary": "시장/규제 신호 · Chairman Atkins Launches 'Material Matters' Podcast",
+      "whyItMatters": "시장/규제 신호는 서비스화·외부 공개·수익화 과정의 리스크 점검 후보입니다.",
+      "projectRelevance": "서비스화 리스크, 공개 데이터/정책 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "sec_press",
+      "sourceName": "SEC Press Releases",
+      "sourceUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "topic": "market_regulation",
+      "title": "SEC Small Business Advisory Committee to Explore Ways to Encourage More IPOs",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-38-sec-small-business-advisory-committee-explore-ways-encourage-more-ipos",
+      "linkHost": "sec.gov",
+      "publishedAt": "2026-04-16T15:45:04.000Z",
+      "ageHours": 729,
+      "tags": [
+        "market_regulation"
+      ],
+      "signalId": "ext_01f0db011a3c",
+      "importanceScore": 67,
+      "importance": "medium",
+      "oneLineSummary": "시장/규제 신호 · SEC Small Business Advisory Committee to Explore Ways to Encourage More IPOs",
+      "whyItMatters": "시장/규제 신호는 서비스화·외부 공개·수익화 과정의 리스크 점검 후보입니다.",
+      "projectRelevance": "서비스화 리스크, 공개 데이터/정책 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    },
+    {
+      "sourceId": "sec_press",
+      "sourceName": "SEC Press Releases",
+      "sourceUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "topic": "market_regulation",
+      "title": "SEC Seeks Public Comment on the Consolidated Audit Trail and Other Audit Trails and Data Sources",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-37-sec-seeks-public-comment-consolidated-audit-trail-other-audit-trails-data-sources",
+      "linkHost": "sec.gov",
+      "publishedAt": "2026-04-16T13:55:00.000Z",
+      "ageHours": 730,
+      "tags": [
+        "market_regulation"
+      ],
+      "signalId": "ext_576d4b544486",
+      "importanceScore": 67,
+      "importance": "medium",
+      "oneLineSummary": "시장/규제 신호 · SEC Seeks Public Comment on the Consolidated Audit Trail and Other Audit Trails and Data Sources",
+      "whyItMatters": "시장/규제 신호는 서비스화·외부 공개·수익화 과정의 리스크 점검 후보입니다.",
+      "projectRelevance": "서비스화 리스크, 공개 데이터/정책 점검",
+      "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+    }
+  ],
+  "privacy": {
+    "publicFeedsOnly": true,
+    "fullArticleBodiesIncluded": false,
+    "feedDescriptionsIncluded": false,
+    "commentsIncluded": false,
+    "privateDataIncluded": false,
+    "secretValuesIncluded": false,
+    "paywalledContentFetched": false
+  },
+  "allowedUse": [
+    "detect external technology/economy/policy issue signals",
+    "feed trend triage and life-agent opportunity discovery",
+    "create public-safe briefing candidates with source links",
+    "compare internal work against external public signals"
+  ],
+  "blockedUse": [
+    "treating public feed titles as verified facts without source review",
+    "copying article bodies or copyrighted text into runtime artifacts",
+    "financial, legal, medical, or investment decisions without human review",
+    "external posting, trading, purchasing, or destructive actions"
+  ],
+  "briefing": {
+    "status": "ready",
+    "generatedFrom": "public RSS/Atom metadata: title, source, link, publishedAt, topic tags",
+    "oneLineSummary": "최근 168시간 기준 외부 공개 신호 32건 / 전체 48건: 기술 24건, 경제·정책 24건.",
+    "topThemes": [
+      {
+        "theme": "macro_policy",
+        "count": 10,
+        "label": "금리·물가·통화정책 변화"
+      },
+      {
+        "theme": "ai",
+        "count": 9,
+        "label": "AI/에이전트 자동화 변화"
+      },
+      {
+        "theme": "cloud_infrastructure",
+        "count": 8,
+        "label": "클라우드 인프라 신호"
+      },
+      {
+        "theme": "economy_policy",
+        "count": 8,
+        "label": "경제 정책 신호"
+      },
+      {
+        "theme": "market_regulation",
+        "count": 8,
+        "label": "시장/규제 리스크 변화"
+      }
+    ],
+    "prioritySignals": [
+      {
+        "signalId": "ext_f7958cb94e23",
+        "sourceName": "OpenAI News",
+        "topic": "ai",
+        "title": "Sea's View on the Future of Agentic Software Development with Codex",
+        "link": "https://openai.com/index/sea-david-chen",
+        "linkHost": "openai.com",
+        "publishedAt": "2026-05-14T20:30:00.000Z",
+        "importance": "high",
+        "importanceScore": 81,
+        "oneLineSummary": "AI 신호 · Sea's View on the Future of Agentic Software Development with Codex",
+        "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+        "suggestedAction": "원문 출처를 검토한 뒤 관련 GitHub 이슈/로드맵에 영향 여부를 기록합니다."
+      },
+      {
+        "signalId": "ext_4a53a1bd1c6f",
+        "sourceName": "OpenAI News",
+        "topic": "ai",
+        "title": "OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+        "link": "https://openai.com/index/malta-chatgpt-plus-partnership",
+        "linkHost": "openai.com",
+        "publishedAt": "2026-05-16T00:00:00.000Z",
+        "importance": "high",
+        "importanceScore": 77,
+        "oneLineSummary": "AI 신호 · OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+        "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+        "suggestedAction": "원문 출처를 검토한 뒤 관련 GitHub 이슈/로드맵에 영향 여부를 기록합니다."
+      },
+      {
+        "signalId": "ext_16d0144e1923",
+        "sourceName": "OpenAI News",
+        "topic": "ai",
+        "title": "A new personal finance experience in ChatGPT",
+        "link": "https://openai.com/index/personal-finance-chatgpt",
+        "linkHost": "openai.com",
+        "publishedAt": "2026-05-15T00:00:00.000Z",
+        "importance": "medium",
+        "importanceScore": 73,
+        "oneLineSummary": "AI 신호 · A new personal finance experience in ChatGPT",
+        "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+        "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+      },
+      {
+        "signalId": "ext_c6068cc8f58a",
+        "sourceName": "OpenAI News",
+        "topic": "ai",
+        "title": "Databricks brings GPT-5.5 to enterprise agent workflows",
+        "link": "https://openai.com/index/databricks",
+        "linkHost": "openai.com",
+        "publishedAt": "2026-05-15T00:00:00.000Z",
+        "importance": "medium",
+        "importanceScore": 73,
+        "oneLineSummary": "AI 신호 · Databricks brings GPT-5.5 to enterprise agent workflows",
+        "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+        "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+      },
+      {
+        "signalId": "ext_56d1a515ad3d",
+        "sourceName": "OpenAI News",
+        "topic": "ai",
+        "title": "How business operations teams use Codex",
+        "link": "https://openai.com/academy/codex-for-work/how-business-operations-teams-use-codex",
+        "linkHost": "openai.com",
+        "publishedAt": "2026-05-15T00:00:00.000Z",
+        "importance": "medium",
+        "importanceScore": 73,
+        "oneLineSummary": "AI 신호 · How business operations teams use Codex",
+        "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+        "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+      },
+      {
+        "signalId": "ext_b8ce64677dec",
+        "sourceName": "OpenAI News",
+        "topic": "ai",
+        "title": "How data science teams use Codex",
+        "link": "https://openai.com/academy/codex-for-work/how-data-science-teams-use-codex",
+        "linkHost": "openai.com",
+        "publishedAt": "2026-05-15T00:00:00.000Z",
+        "importance": "medium",
+        "importanceScore": 73,
+        "oneLineSummary": "AI 신호 · How data science teams use Codex",
+        "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+        "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+      },
+      {
+        "signalId": "ext_25426c4f3f00",
+        "sourceName": "OpenAI News",
+        "topic": "ai",
+        "title": "How sales teams use Codex",
+        "link": "https://openai.com/academy/codex-for-work/how-sales-teams-use-codex",
+        "linkHost": "openai.com",
+        "publishedAt": "2026-05-15T00:00:00.000Z",
+        "importance": "medium",
+        "importanceScore": 73,
+        "oneLineSummary": "AI 신호 · How sales teams use Codex",
+        "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+        "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+      },
+      {
+        "signalId": "ext_21cc73e2de37",
+        "sourceName": "OpenAI News",
+        "topic": "ai",
+        "title": "Work with Codex from anywhere",
+        "link": "https://openai.com/index/work-with-codex-from-anywhere",
+        "linkHost": "openai.com",
+        "publishedAt": "2026-05-14T13:00:00.000Z",
+        "importance": "medium",
+        "importanceScore": 73,
+        "oneLineSummary": "AI 신호 · Work with Codex from anywhere",
+        "whyItMatters": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "projectRelevance": "life-agentization, LLM-Wiki, 영상/지식 자동화",
+        "suggestedAction": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다."
+      }
+    ],
+    "actionCandidates": [
+      {
+        "id": "action_ext_f7958cb94e23",
+        "priority": "P1",
+        "title": "AI 신호 · Sea's View on the Future of Agentic Software Development with Codex",
+        "reason": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "nextStep": "원문 출처를 검토한 뒤 관련 GitHub 이슈/로드맵에 영향 여부를 기록합니다.",
+        "owner": "codex",
+        "sourceSignalId": "ext_f7958cb94e23",
+        "sourceLink": "https://openai.com/index/sea-david-chen",
+        "safety": "metadata-derived; review source before decisions"
+      },
+      {
+        "id": "action_ext_4a53a1bd1c6f",
+        "priority": "P1",
+        "title": "AI 신호 · OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+        "reason": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "nextStep": "원문 출처를 검토한 뒤 관련 GitHub 이슈/로드맵에 영향 여부를 기록합니다.",
+        "owner": "codex",
+        "sourceSignalId": "ext_4a53a1bd1c6f",
+        "sourceLink": "https://openai.com/index/malta-chatgpt-plus-partnership",
+        "safety": "metadata-derived; review source before decisions"
+      },
+      {
+        "id": "action_ext_16d0144e1923",
+        "priority": "P2",
+        "title": "AI 신호 · A new personal finance experience in ChatGPT",
+        "reason": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "nextStep": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다.",
+        "owner": "codex",
+        "sourceSignalId": "ext_16d0144e1923",
+        "sourceLink": "https://openai.com/index/personal-finance-chatgpt",
+        "safety": "metadata-derived; review source before decisions"
+      },
+      {
+        "id": "action_ext_c6068cc8f58a",
+        "priority": "P2",
+        "title": "AI 신호 · Databricks brings GPT-5.5 to enterprise agent workflows",
+        "reason": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "nextStep": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다.",
+        "owner": "codex",
+        "sourceSignalId": "ext_c6068cc8f58a",
+        "sourceLink": "https://openai.com/index/databricks",
+        "safety": "metadata-derived; review source before decisions"
+      },
+      {
+        "id": "action_ext_56d1a515ad3d",
+        "priority": "P2",
+        "title": "AI 신호 · How business operations teams use Codex",
+        "reason": "AI/에이전트 기술 변화는 자동화 대체율, 콘텐츠 제작, 지식관리 로드맵에 직접 영향을 줄 수 있습니다.",
+        "nextStep": "일일/주간 브리프 후보로 보관하고 유사 신호가 반복되는지 추적합니다.",
+        "owner": "codex",
+        "sourceSignalId": "ext_56d1a515ad3d",
+        "sourceLink": "https://openai.com/academy/codex-for-work/how-business-operations-teams-use-codex",
+        "safety": "metadata-derived; review source before decisions"
+      }
+    ],
+    "limitations": [
+      "원문 본문/댓글/유료 콘텐츠를 수집하지 않으므로 제목 기반 신호 해석입니다.",
+      "투자·법률·구매·외부 게시 같은 결정은 사람 검토 전 자동 실행하지 않습니다."
+    ]
+  },
+  "snapshotHash": "sha256:b2c018aa7a66e5375a9cb424991c096323c592695eb5ef3838ad4f14cf98adcf"
+}

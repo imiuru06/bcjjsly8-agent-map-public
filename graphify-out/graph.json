@@ -1,0 +1,936 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T00:19:22.189Z",
+  "source": "agent-map-derived-graph-fallback",
+  "compatibleWith": "graphify-derived-index",
+  "role": "derived knowledge graph/index layer; source files win on conflict",
+  "nodes": [
+    {
+      "id": "agent-knowledge-map",
+      "label": "Agent Knowledge Map",
+      "type": "map",
+      "status": "active",
+      "path": "knowledge/00-maps/agent-knowledge-map.md",
+      "tags": [
+        "knowledge",
+        "map",
+        "obsidian",
+        "agent-map"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "Agent Knowledge Map Use this map to move from an operating question to the right atomic note. Principles - source-of-truth - human-gates - collaboration-first - llm-wiki-adoption-gates Roles - codex-mainstream-role - rev"
+    },
+    {
+      "id": "derived-graph-index",
+      "label": "Derived Graph Index",
+      "type": "map",
+      "status": "active",
+      "path": "knowledge/00-maps/derived-graph-index.md",
+      "tags": [
+        "knowledge",
+        "graphify",
+        "retrieval",
+        "obsidian",
+        "llm-wiki"
+      ],
+      "appliesTo": [
+        "codex",
+        "review-agents",
+        "all-agents"
+      ],
+      "excerpt": "Derived Graph Index This note is the Obsidian-visible bridge between the atomic vault and generated graph/retrieval artifacts. Core rule Generated graph files are derived indexes. They help orientation, but source-of-tru"
+    },
+    {
+      "id": "collaboration-first",
+      "label": "Collaboration-First Invariant",
+      "type": "principle",
+      "status": "active",
+      "path": "knowledge/10-principles/collaboration-first.md",
+      "tags": [
+        "collaboration",
+        "multi-agent",
+        "queue",
+        "delegation",
+        "invariant"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "excerpt": "Collaboration-First Invariant Atomic claim Codex / 다알고 is the mainstream coordinator, not a solo worker by default. Every meaningful task should be checked for safe delegation, review, or session agent participation befo"
+    },
+    {
+      "id": "human-gates",
+      "label": "Human Approval Gates",
+      "type": "principle",
+      "status": "active",
+      "path": "knowledge/10-principles/human-gates.md",
+      "tags": [
+        "human-gated",
+        "approval",
+        "safety",
+        "decisions"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "Human Approval Gates Atomic claim Secrets, credentials, payments, public deploy, publish/upload, destructive data operations, production config, and final close require explicit user approval or a repo-recorded delegatio"
+    },
+    {
+      "id": "llm-wiki-adoption-gates",
+      "label": "LLM-Wiki Adoption Gates",
+      "type": "principle",
+      "status": "active",
+      "path": "knowledge/10-principles/llm-wiki-adoption-gates.md",
+      "tags": [
+        "llm-wiki",
+        "pkm",
+        "rag",
+        "mcp",
+        "roi",
+        "capture"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "LLM-Wiki Adoption Gates Atomic claim Do not turn the vault into heavy RAG/MCP/vector infrastructure until capture friction is low and search ROI is visible. Why this matters Personal knowledge systems fail when the cost "
+    },
+    {
+      "id": "source-of-truth",
+      "label": "Source of Truth Boundary",
+      "type": "principle",
+      "status": "active",
+      "path": "knowledge/10-principles/source-of-truth.md",
+      "tags": [
+        "source-of-truth",
+        "policy",
+        "git",
+        "knowledge"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "Source of Truth Boundary Atomic claim imiuru06/bcjjsly8 is the Source of Truth for multi-agent coordination, policy, issue routing, responsibility, and public-safe Agent Map runtime data. Project implementation repos may"
+    },
+    {
+      "id": "codex-mainstream-role",
+      "label": "Codex Mainstream Coordinator Role",
+      "type": "role",
+      "status": "active",
+      "path": "knowledge/20-roles/codex-mainstream-role.md",
+      "tags": [
+        "role",
+        "codex",
+        "daalgo",
+        "coordinator"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo"
+      ],
+      "excerpt": "Codex Mainstream Coordinator Role Atomic claim Codex / 다알고 owns mainstream implementation, coordination, validation, and user-facing responsibility for this control-plane. Use when - deciding who owns final issue respons"
+    },
+    {
+      "id": "review-agent-roles",
+      "label": "Review Agent Roles",
+      "type": "role",
+      "status": "active",
+      "path": "knowledge/20-roles/review-agent-roles.md",
+      "tags": [
+        "role",
+        "review",
+        "claude",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux-cli"
+      ],
+      "appliesTo": [
+        "claude_review_01",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux_cli"
+      ],
+      "excerpt": "Review Agent Roles Atomic claim Review agents add distinct viewpoints; they do not duplicate Codex implementation work unless explicitly reassigned. Role split - claude review 01 : security, edge cases, missed requiremen"
+    },
+    {
+      "id": "agent-routing",
+      "label": "Agent Routing Protocol",
+      "type": "protocol",
+      "status": "active",
+      "path": "knowledge/30-protocols/agent-routing.md",
+      "tags": [
+        "routing",
+        "registry",
+        "direct-message",
+        "github",
+        "agent-request"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "Agent Routing Protocol Atomic claim Agents are routed through GitHub Issue labels/comments, Registry agent. events, or direct bot transport. User Telegram messages are not agent-to-agent transport. Use when - waking anot"
+    },
+    {
+      "id": "issue-project-queue",
+      "label": "GitHub Issue and Project Queue",
+      "type": "protocol",
+      "status": "active",
+      "path": "knowledge/30-protocols/issue-project-queue.md",
+      "tags": [
+        "github",
+        "issue",
+        "project",
+        "queue",
+        "kanban"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "GitHub Issue and Project Queue Atomic claim GitHub Issues and Project v2 are the durable work queue and status board. Agent requests should be represented with labels and comments, not hidden in chat. Use when - assignin"
+    },
+    {
+      "id": "assign-session-agent-work",
+      "label": "Assign Session Agent Work",
+      "type": "runbook",
+      "status": "active",
+      "path": "knowledge/40-runbooks/assign-session-agent-work.md",
+      "tags": [
+        "runbook",
+        "assignment",
+        "session-agent",
+        "queue"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo_external_codex_01",
+        "claude_review_01",
+        "gemini",
+        "opencode",
+        "stitch",
+        "uiux_cli"
+      ],
+      "excerpt": "Assign Session Agent Work Atomic claim A session agent receives work only when the issue has an actionable needs:agent state and a matching agent:<target label or route. Steps 1. Confirm the task is not blocked by human-"
+    },
+    {
+      "id": "knowledge-lookup-before-work",
+      "label": "Knowledge Lookup Before Work",
+      "type": "runbook",
+      "status": "active",
+      "path": "knowledge/40-runbooks/knowledge-lookup-before-work.md",
+      "tags": [
+        "runbook",
+        "search",
+        "knowledge",
+        "obsidian"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "Knowledge Lookup Before Work Atomic claim Before acting, an agent should search the knowledge vault for the role, protocol, decision gate, and runbook that apply to the issue. Steps 1. Open agent-lookup-index . 2. Match "
+    },
+    {
+      "id": "weekly-knowledge-synthesis",
+      "label": "Weekly Knowledge Synthesis",
+      "type": "runbook",
+      "status": "active",
+      "path": "knowledge/40-runbooks/weekly-knowledge-synthesis.md",
+      "tags": [
+        "synthesis",
+        "weekly-review",
+        "knowledge-gap",
+        "compound-loop"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "excerpt": "Weekly Knowledge Synthesis Atomic claim The vault compounds only when new notes are linked back to old notes and periodically summarized into gaps, decisions, and next learning directions. Weekly loop 1. Review new inbox"
+    },
+    {
+      "id": "zero-friction-capture",
+      "label": "Zero-Friction Capture",
+      "type": "runbook",
+      "status": "active",
+      "path": "knowledge/40-runbooks/zero-friction-capture.md",
+      "tags": [
+        "capture",
+        "inbox",
+        "pkm",
+        "llm-wiki",
+        "low-friction"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "Zero-Friction Capture Atomic claim Capture must be easier than ignoring the idea. If capture requires manual taxonomy work up front, the vault will decay. Steps 1. Capture raw knowledge into an inbox first. 2. Keep the f"
+    },
+    {
+      "id": "decision-queue",
+      "label": "Decision Queue",
+      "type": "decision",
+      "status": "active",
+      "path": "knowledge/50-decisions/decision-queue.md",
+      "tags": [
+        "decision",
+        "needs-human",
+        "queue",
+        "approval"
+      ],
+      "appliesTo": [
+        "codex",
+        "daalgo",
+        "all-agents"
+      ],
+      "excerpt": "Decision Queue Atomic claim Human decisions should be batched, labeled, and summarized instead of scattered across unrelated comments or chat messages. Use when - an issue needs user approval; - a secret, deploy, publish"
+    },
+    {
+      "id": "agent-lookup-index",
+      "label": "Agent Lookup Index",
+      "type": "index",
+      "status": "active",
+      "path": "knowledge/90-indexes/agent-lookup-index.md",
+      "tags": [
+        "index",
+        "search",
+        "lookup",
+        "agent-map"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "Agent Lookup Index Use this index as the first stop before acting. If the question is about authority - Source of Truth: source-of-truth - Human approval: human-gates - Final responsibility: codex-mainstream-role - Colla"
+    },
+    {
+      "id": "knowledge-vault-readme",
+      "label": "Agent Knowledge Vault README",
+      "type": "map",
+      "status": "active",
+      "path": "knowledge/README.md",
+      "tags": [
+        "knowledge",
+        "obsidian",
+        "agent-map"
+      ],
+      "appliesTo": [
+        "all-agents"
+      ],
+      "excerpt": "Agent Knowledge Vault This folder is an Obsidian-compatible vault for the Agent Map control-plane. Start here: - agent-knowledge-map - derived-graph-index - agent-lookup-index - knowledge-lookup-before-work Core rule: th"
+    },
+    {
+      "id": "runtime:weekly-knowledge-synthesis",
+      "label": "weekly-knowledge-synthesis",
+      "type": "runtime-artifact",
+      "status": "active",
+      "path": "runtime/weekly-knowledge-synthesis.json",
+      "tags": [
+        "runtime",
+        "derived"
+      ],
+      "appliesTo": [
+        "llm-wiki"
+      ],
+      "excerpt": "Public-safe runtime artifact referenced by the Agent Map knowledge layer."
+    },
+    {
+      "id": "runtime:llm-wiki-search-roi",
+      "label": "llm-wiki-search-roi",
+      "type": "runtime-artifact",
+      "status": "active",
+      "path": "runtime/llm-wiki-search-roi.json",
+      "tags": [
+        "runtime",
+        "derived"
+      ],
+      "appliesTo": [
+        "llm-wiki"
+      ],
+      "excerpt": "Public-safe runtime artifact referenced by the Agent Map knowledge layer."
+    },
+    {
+      "id": "runtime:retrieval-service-health",
+      "label": "retrieval-service-health",
+      "type": "runtime-artifact",
+      "status": "active",
+      "path": "runtime/retrieval-service-health.json",
+      "tags": [
+        "runtime",
+        "derived"
+      ],
+      "appliesTo": [
+        "llm-wiki"
+      ],
+      "excerpt": "Public-safe runtime artifact referenced by the Agent Map knowledge layer."
+    },
+    {
+      "id": "runtime:decision-queue",
+      "label": "decision-queue",
+      "type": "runtime-artifact",
+      "status": "active",
+      "path": "runtime/decision-queue.json",
+      "tags": [
+        "runtime",
+        "derived"
+      ],
+      "appliesTo": [
+        "llm-wiki"
+      ],
+      "excerpt": "Public-safe runtime artifact referenced by the Agent Map knowledge layer."
+    }
+  ],
+  "edges": [
+    {
+      "source": "agent-knowledge-map",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "human-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "collaboration-first",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "llm-wiki-adoption-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "codex-mainstream-role",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "review-agent-roles",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "issue-project-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "agent-routing",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "knowledge-lookup-before-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "assign-session-agent-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "zero-friction-capture",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "weekly-knowledge-synthesis",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "decision-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "agent-lookup-index",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-knowledge-map",
+      "target": "derived-graph-index",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "derived-graph-index",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "derived-graph-index",
+      "target": "agent-knowledge-map",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "derived-graph-index",
+      "target": "agent-lookup-index",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "derived-graph-index",
+      "target": "knowledge-lookup-before-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "derived-graph-index",
+      "target": "llm-wiki-adoption-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "derived-graph-index",
+      "target": "zero-friction-capture",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "derived-graph-index",
+      "target": "weekly-knowledge-synthesis",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "collaboration-first",
+      "target": "assign-session-agent-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "collaboration-first",
+      "target": "agent-routing",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "collaboration-first",
+      "target": "review-agent-roles",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "collaboration-first",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "human-gates",
+      "target": "decision-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "human-gates",
+      "target": "issue-project-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "human-gates",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "llm-wiki-adoption-gates",
+      "target": "zero-friction-capture",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "llm-wiki-adoption-gates",
+      "target": "weekly-knowledge-synthesis",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "llm-wiki-adoption-gates",
+      "target": "knowledge-lookup-before-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "source-of-truth",
+      "target": "agent-knowledge-map",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "source-of-truth",
+      "target": "issue-project-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "source-of-truth",
+      "target": "agent-routing",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "codex-mainstream-role",
+      "target": "human-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "codex-mainstream-role",
+      "target": "assign-session-agent-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "codex-mainstream-role",
+      "target": "agent-routing",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "codex-mainstream-role",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "review-agent-roles",
+      "target": "assign-session-agent-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "review-agent-roles",
+      "target": "agent-routing",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "review-agent-roles",
+      "target": "codex-mainstream-role",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-routing",
+      "target": "issue-project-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-routing",
+      "target": "assign-session-agent-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-routing",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "issue-project-queue",
+      "target": "human-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "issue-project-queue",
+      "target": "assign-session-agent-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "issue-project-queue",
+      "target": "agent-routing",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "assign-session-agent-work",
+      "target": "human-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "assign-session-agent-work",
+      "target": "review-agent-roles",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "assign-session-agent-work",
+      "target": "codex-mainstream-role",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "assign-session-agent-work",
+      "target": "issue-project-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "assign-session-agent-work",
+      "target": "agent-routing",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "assign-session-agent-work",
+      "target": "knowledge-lookup-before-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-lookup-before-work",
+      "target": "agent-lookup-index",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-lookup-before-work",
+      "target": "llm-wiki-adoption-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-lookup-before-work",
+      "target": "agent-knowledge-map",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-lookup-before-work",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-lookup-before-work",
+      "target": "human-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "weekly-knowledge-synthesis",
+      "target": "llm-wiki-adoption-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "weekly-knowledge-synthesis",
+      "target": "zero-friction-capture",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "weekly-knowledge-synthesis",
+      "target": "agent-lookup-index",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "zero-friction-capture",
+      "target": "human-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "zero-friction-capture",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "zero-friction-capture",
+      "target": "llm-wiki-adoption-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "zero-friction-capture",
+      "target": "knowledge-lookup-before-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "zero-friction-capture",
+      "target": "weekly-knowledge-synthesis",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "decision-queue",
+      "target": "human-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "decision-queue",
+      "target": "issue-project-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "decision-queue",
+      "target": "codex-mainstream-role",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "human-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "codex-mainstream-role",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "collaboration-first",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "review-agent-roles",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "assign-session-agent-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "issue-project-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "decision-queue",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "agent-routing",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "knowledge-lookup-before-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "agent-knowledge-map",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "llm-wiki-adoption-gates",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "zero-friction-capture",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "agent-lookup-index",
+      "target": "weekly-knowledge-synthesis",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-vault-readme",
+      "target": "agent-knowledge-map",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-vault-readme",
+      "target": "derived-graph-index",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-vault-readme",
+      "target": "agent-lookup-index",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-vault-readme",
+      "target": "knowledge-lookup-before-work",
+      "type": "wikilink",
+      "resolved": true
+    },
+    {
+      "source": "knowledge-vault-readme",
+      "target": "source-of-truth",
+      "type": "wikilink",
+      "resolved": true
+    }
+  ],
+  "unresolvedLinks": [],
+  "stats": {
+    "nodeCount": 21,
+    "edgeCount": 89,
+    "unresolvedLinkCount": 0,
+    "noteNodeCount": 17,
+    "runtimeArtifactNodeCount": 4
+  },
+  "safety": {
+    "containsSecretValues": false,
+    "rawPrivateDataIncluded": false,
+    "publicSafeByDefault": true,
+    "sourceDocsWinOnConflict": true
+  }
+}

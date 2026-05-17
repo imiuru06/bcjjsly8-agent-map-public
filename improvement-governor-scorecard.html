@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Improvement Governor Scorecard</title>
+  <style>
+    :root { color-scheme: light; --ink:#0f172a; --muted:#64748b; --line:#dbeafe; --brand:#2563eb; --ok:#0f766e; --warn:#b45309; --bad:#be123c; --bg:#f8fbff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background: radial-gradient(circle at 15% 0%, #dbeafe, transparent 30rem), var(--bg); }
+    main { width:min(1120px, calc(100% - 32px)); margin:0 auto; padding:32px 0 48px; }
+    .hero, .card { background:rgba(255,255,255,.9); border:1px solid var(--line); border-radius:24px; box-shadow:0 18px 48px rgba(37,99,235,.09); }
+    .hero { padding:28px; margin-bottom:18px; }
+    .eyebrow { color:var(--brand); font-weight:900; letter-spacing:.1em; text-transform:uppercase; font-size:12px; }
+    h1 { margin:8px 0; font-size:clamp(34px, 6vw, 64px); line-height:.92; letter-spacing:-.06em; }
+    p { color:var(--muted); line-height:1.58; }
+    .summary { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:12px; margin:18px 0; }
+    .metric { padding:14px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+    .metric b { display:block; font-size:28px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
+    .card { padding:18px; min-width:0; overflow-wrap:anywhere; }
+    .meta { color:var(--muted); font-size:12px; font-weight:900; text-transform:uppercase; }
+    .status { font-weight:900; color:var(--brand); }
+    .applied_verified .status { color:var(--ok); }
+    .partially_applied .status { color:var(--warn); }
+    .not_applied .status { color:var(--bad); }
+    a { color:var(--brand); font-weight:800; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Improvement Governor · performance scorecard</div>
+      <h1>제안이 실제 서비스 개선으로 이어졌는지 추적합니다</h1>
+      <p>각 제안이 owner issue, target agent, reviewer, runtime evidence, user-visible surface를 갖는지 검증합니다.</p>
+      <div class="summary">
+        <div class="metric"><span>score</span><b>100</b></div>
+        <div class="metric"><span>suggestions</span><b>4</b></div>
+        <div class="metric"><span>applied</span><b>4</b></div>
+        <div class="metric"><span>partial</span><b>0</b></div>
+        <div class="metric"><span>failures</span><b>0</b></div>
+      </div>
+    </section>
+    <section class="grid">
+    <article class="card applied_verified">
+      <div class="meta">P1 · agentization · score 100</div>
+      <h2>라이프 에이전트화를 scope 단위에서 domain 단위로 승격</h2>
+      <p class="status">applied_verified</p>
+      <p>domain_replacement_ready: {&quot;readyDomainCount&quot;:1,&quot;informationReady&quot;:true,&quot;actualReplacementPercent&quot;:10}</p>
+      <ul>
+        <li>issue: #211</li>
+        <li>agent: life_information_loop</li>
+        <li>reviewer: claude_review_01</li>
+        <li>visible: <a href="./agent-map-life.html">./agent-map-life.html</a></li>
+      </ul>
+    </article>
+
+    <article class="card applied_verified">
+      <div class="meta">P2 · knowledge · score 100</div>
+      <h2>LLM-Wiki 검색/재사용 ROI evidence 늘리기</h2>
+      <p class="status">applied_verified</p>
+      <p>llm_wiki_roi_artifacts_exist: {&quot;roiQueries&quot;:null,&quot;retrievalIndexExists&quot;:true}</p>
+      <ul>
+        <li>issue: #98</li>
+        <li>agent: codex</li>
+        <li>reviewer: claude_review_01</li>
+        <li>visible: <a href="./llm-wiki-readiness.html">./llm-wiki-readiness.html</a></li>
+      </ul>
+    </article>
+
+    <article class="card applied_verified">
+      <div class="meta">P2 · workflow · score 100</div>
+      <h2>Needs Human 결정 묶음을 더 줄이고 자동 위임 후보를 분리</h2>
+      <p class="status">applied_verified</p>
+      <p>decision_digest_visible: {&quot;batches&quot;:3,&quot;actionCardsVisibleInControlHub&quot;:true}</p>
+      <ul>
+        <li>issue: #184</li>
+        <li>agent: codex</li>
+        <li>reviewer: collaboration_auditor_cli</li>
+        <li>visible: <a href="./agent-map-v10.html">./agent-map-v10.html</a></li>
+      </ul>
+    </article>
+
+    <article class="card applied_verified">
+      <div class="meta">P2 · briefing · score 100</div>
+      <h2>외부 기술/경제 신호를 KST 일일 이슈 브리프로 승격</h2>
+      <p class="status">applied_verified</p>
+      <p>external_signal_brief_visible: {&quot;sourcesOk&quot;:6,&quot;totalSignals&quot;:48,&quot;recentSignals&quot;:32}</p>
+      <ul>
+        <li>issue: #174</li>
+        <li>agent: codex</li>
+        <li>reviewer: uiux_cli</li>
+        <li>visible: <a href="./external-trends.html">./external-trends.html</a></li>
+      </ul>
+    </article></section>
+  </main>
+</body>
+</html>

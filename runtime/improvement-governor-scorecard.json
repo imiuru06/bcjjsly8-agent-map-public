@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-05-17T00:19:26.280Z",
+  "agentId": "improvement_governor_performance_cli",
+  "command": "improvement:performance",
+  "status": "ok",
+  "score": 100,
+  "summary": {
+    "suggestions": 4,
+    "p1": 1,
+    "routed": 4,
+    "appliedVerified": 4,
+    "partiallyApplied": 0,
+    "notApplied": 0,
+    "serviceSurfaceCount": 14,
+    "knowledgeConcepts": 8
+  },
+  "items": [
+    {
+      "id": "raise-life-agentization-from-scoped-to-domain",
+      "priority": "P1",
+      "category": "agentization",
+      "title": "라이프 에이전트화를 scope 단위에서 domain 단위로 승격",
+      "status": "applied_verified",
+      "score": 100,
+      "route": {
+        "targetIssue": 211,
+        "targetIssueState": "open",
+        "targetAgent": "life_information_loop",
+        "targetReviewer": "claude_review_01",
+        "routeRationale": "P1 life-agentization promotion is tracked by #211 with life_information_loop execution evidence and Claude read-only review."
+      },
+      "userVisibleUrl": "./agent-map-life.html",
+      "runtimeArtifacts": [
+        {
+          "file": "runtime/life-process-graph.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/life-agent-runs.jsonl",
+          "exists": true
+        },
+        {
+          "file": "runtime/kakao-information-triage-verification.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/external-information-triage-verification.json",
+          "exists": true
+        }
+      ],
+      "serviceSurfaces": [
+        {
+          "file": "frontend/life-graph/agent-map-life.html",
+          "exists": true
+        },
+        {
+          "file": "frontend/life-graph/src/main.jsx",
+          "exists": true
+        }
+      ],
+      "outcome": {
+        "passed": true,
+        "metric": "domain_replacement_ready",
+        "value": {
+          "readyDomainCount": 1,
+          "informationReady": true,
+          "actualReplacementPercent": 10
+        }
+      },
+      "verificationCommands": [
+        "npm run life:agentization",
+        "npm run life:check"
+      ],
+      "safetyBoundary": "대체율을 올리려면 실제 입력 데이터와 반복 실행 evidence가 필요합니다."
+    },
+    {
+      "id": "increase-llm-wiki-roi-evidence",
+      "priority": "P2",
+      "category": "knowledge",
+      "title": "LLM-Wiki 검색/재사용 ROI evidence 늘리기",
+      "status": "applied_verified",
+      "score": 100,
+      "route": {
+        "targetIssue": 98,
+        "targetIssueState": "open",
+        "targetAgent": "codex",
+        "targetReviewer": "claude_review_01",
+        "routeRationale": "LLM-Wiki ROI/reuse evidence belongs with the open knowledge-vault review lane #98; codex owns implementation and Claude reviews knowledge quality."
+      },
+      "userVisibleUrl": "./llm-wiki-readiness.html",
+      "runtimeArtifacts": [
+        {
+          "file": "runtime/llm-wiki-search-roi.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/knowledge-retrieval-index.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/knowledge-vault-summary.json",
+          "exists": true
+        }
+      ],
+      "serviceSurfaces": [
+        {
+          "file": "public/llm-wiki-readiness.html",
+          "exists": true
+        },
+        {
+          "file": "public/knowledge-retrieval.html",
+          "exists": true
+        },
+        {
+          "file": "public/knowledge-map.html",
+          "exists": true
+        }
+      ],
+      "outcome": {
+        "passed": true,
+        "metric": "llm_wiki_roi_artifacts_exist",
+        "value": {
+          "roiQueries": null,
+          "retrievalIndexExists": true
+        }
+      },
+      "verificationCommands": [
+        "npm run llmwiki:assess",
+        "npm run knowledge:retrieval:check"
+      ],
+      "safetyBoundary": "의미 있는 ROI는 실제 사용 이벤트가 쌓여야 하므로 단발성 샘플 생성만으로는 부족합니다."
+    },
+    {
+      "id": "reduce-decision-bottleneck",
+      "priority": "P2",
+      "category": "workflow",
+      "title": "Needs Human 결정 묶음을 더 줄이고 자동 위임 후보를 분리",
+      "status": "applied_verified",
+      "score": 100,
+      "route": {
+        "targetIssue": 184,
+        "targetIssueState": "closed-evidence-lane",
+        "targetAgent": "codex",
+        "targetReviewer": "collaboration_auditor_cli",
+        "routeRationale": "Decision bottleneck reduction builds on the completed live decision digest lane #184; collaboration_auditor_cli is the reviewer for handoff/duplicate-work risk."
+      },
+      "userVisibleUrl": "./agent-map-v10.html",
+      "runtimeArtifacts": [
+        {
+          "file": "runtime/decision-digest.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/decision-queue.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/agent-system-interface-assessment.json",
+          "exists": true
+        }
+      ],
+      "serviceSurfaces": [
+        {
+          "file": "frontend/agent-map-control/src/main.jsx",
+          "exists": true
+        },
+        {
+          "file": "frontend/agent-map-control/agent-map-v10.html",
+          "exists": true
+        }
+      ],
+      "outcome": {
+        "passed": true,
+        "metric": "decision_digest_visible",
+        "value": {
+          "batches": 3,
+          "actionCardsVisibleInControlHub": true
+        }
+      },
+      "verificationCommands": [
+        "npm run decision:digest:check",
+        "npm run decision:sync:check",
+        "npm run live:api:check"
+      ],
+      "safetyBoundary": "실제 결정 자체는 사용자/Codex 책임이므로 자동 승인으로 대체하지 않습니다."
+    },
+    {
+      "id": "turn-external-signals-into-daily-issue-brief",
+      "priority": "P2",
+      "category": "briefing",
+      "title": "외부 기술/경제 신호를 KST 일일 이슈 브리프로 승격",
+      "status": "applied_verified",
+      "score": 100,
+      "route": {
+        "targetIssue": 174,
+        "targetIssueState": "closed-evidence-lane",
+        "targetAgent": "codex",
+        "targetReviewer": "uiux_cli",
+        "routeRationale": "External signal briefing UX builds on #174; uiux_cli reviews the visible daily-brief presentation contract."
+      },
+      "userVisibleUrl": "./external-trends.html",
+      "runtimeArtifacts": [
+        {
+          "file": "runtime/external-info-input-snapshot.json",
+          "exists": true
+        },
+        {
+          "file": "runtime/external-information-triage-report.md",
+          "exists": true
+        },
+        {
+          "file": "runtime/external-information-triage-verification.json",
+          "exists": true
+        }
+      ],
+      "serviceSurfaces": [
+        {
+          "file": "public/external-trends.html",
+          "exists": true
+        }
+      ],
+      "outcome": {
+        "passed": true,
+        "metric": "external_signal_brief_visible",
+        "value": {
+          "sourcesOk": 6,
+          "totalSignals": 48,
+          "recentSignals": 32
+        }
+      },
+      "verificationCommands": [
+        "npm run life:input:external",
+        "npm run deploy:briefing:check"
+      ],
+      "safetyBoundary": "원문 본문을 수집하지 않는 안전 경계를 유지하므로 제목 기반 신호 해석임을 표시해야 합니다."
+    }
+  ],
+  "failures": [],
+  "safety": {
+    "publicSafeOnly": true,
+    "secretValuesIncluded": false,
+    "privateRawDataIncluded": false,
+    "externalMutations": false,
+    "deployOrPublish": false
+  }
+}

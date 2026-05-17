@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-05-03T00:00:00.000Z",
+  "status": "ok",
+  "checks": [
+    {
+      "name": "processed_kakao_snapshot_exists",
+      "status": "ok"
+    },
+    {
+      "name": "processed_kakao_snapshot_current",
+      "status": "ok"
+    },
+    {
+      "name": "processed_kakao_health_healthy",
+      "status": "ok"
+    },
+    {
+      "name": "processed_kakao_acceptance_passed",
+      "status": "ok"
+    },
+    {
+      "name": "autonomous_analysis_completed",
+      "status": "ok"
+    },
+    {
+      "name": "bounded_local_actions_generated",
+      "status": "ok",
+      "count": 1
+    },
+    {
+      "name": "raw_private_data_excluded",
+      "status": "ok"
+    },
+    {
+      "name": "external_side_effects_not_executed",
+      "status": "ok"
+    },
+    {
+      "name": "replacement_ready_not_claimed",
+      "status": "ok"
+    }
+  ],
+  "replacementReadyClaimed": false
+}
